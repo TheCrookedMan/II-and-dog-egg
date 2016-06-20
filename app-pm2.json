@@ -25,3 +25,4 @@ watch：是否启用监控模式，默认是false。如果设置成true，当应
     "pid_file": "./pm2.pid",
     "watch": true
 }]
+
