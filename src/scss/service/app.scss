@@ -4,6 +4,7 @@ body {
     margin: 0 auto;
     position: relative;
     overflow-x: hidden;
+    background-color: #eee;
 }
 
 img {
@@ -84,4 +85,8 @@ em,i {
 p {
     margin: 0;
     padding: 0;
+}
+
+.navbar-footer .navbar-li{
+    width: 20%;clear: none !important;
 }
