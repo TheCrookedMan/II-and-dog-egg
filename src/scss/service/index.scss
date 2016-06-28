@@ -1,0 +1,26 @@
+.index{
+	header{
+		background: rgba(256,256,256,0.1);display: inline-block;border-bottom: 0;
+		a{
+			font-size: 2rem;margin-top: 0.5rem;color: #000;
+		}
+		.fl{
+			margin-left: 1rem;
+		}
+		.fr{
+			margin-right: 1rem;
+		}
+	}
+	.am-slider{
+		top: -50px;
+		.am-control-nav li a{
+			background: rgba(256,256,256,0.5);width: 16px;height: 16px;
+			&.am-active{
+				background: rgba(256,256,256,1);width: 30px;height: 10px;border-radius: 20px;position: relative;top: 0.25rem;
+			}
+		}
+		.am-control-nav{
+			bottom: 15px;
+		}
+	}
+}
