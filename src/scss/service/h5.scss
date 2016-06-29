@@ -1,0 +1,45 @@
+.h5{
+	width: 100%;display: inline-block;padding-bottom: 5rem;
+	.banner{
+		width: 100%;display: inline-block;position: relative;margin-bottom:39%;
+		.media{
+			position: absolute;bottom: -44%;left: 0;margin-left: 1rem;margin-right: 1rem;
+		}
+	}
+	.con{
+		display: inline-block;margin-left: 1rem;margin-right: 1rem;border-top: #000 solid 2px;
+		h2{
+			margin: 0;padding: 0;border-top: #000 solid 1px;margin-top: 1px;padding-top: 1rem;font-weight: normal;
+			color: #000;font-size: 1.8rem;margin-bottom: 0.5rem;
+		}
+		.info{
+			width: 100%;display: inline-block;
+			i{
+				float: left;width: 5rem;height: 5rem;border-radius: 10px;text-align: center;line-height: 4.6rem;display: block;
+				background-color: #959595;color: #fff;font-size: 5rem;margin-right: 0.5rem;
+			}
+			em{
+				color: #535353;font-size: 1.4rem;
+			}
+		}
+	}
+	.foot{
+		display: inline-block;width: 100%;padding-top:1rem;padding-bottom: 1rem;border-top: #000 solid 1px;
+		position: fixed;bottom: 0;background-color: #fff;
+		a{
+			font-size: 1.4rem;color: #000;
+		}
+		.fl{
+			margin-left: 1rem;
+			i{
+				margin-right: 0.5rem;
+			}
+		}
+		.fr{
+			margin-right: 1rem;
+			i{
+				margin-left: 0.5rem;
+			}
+		}
+	}
+}

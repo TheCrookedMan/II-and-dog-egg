@@ -52,7 +52,7 @@
 	position: absolute;
 	text-align: center;
 	left: 0;
-	bottom: 0;
+	bottom:5.8rem;
 	width: 100%;
 	line-height: 40px;
 	height: 40px;
@@ -84,7 +84,7 @@
 }
 .swiper-active-switch {
 	//background: #fff;
-	border-bottom: 2px solid rgb(255, 255, 255);
+	border-bottom: 2px solid #c8f54e;
 }
 
 .swiper-container {
@@ -148,4 +148,20 @@
 }
 .swiper-wp8-vertical {
 	-ms-touch-action: pan-x;
+}
+
+.title{
+	width:100%;display:inline-block;text-align:center;font-size:1.6rem;color:#fff;
+	position:relative;top:-1rem;
+	p{
+		margin-bottom:0.2rem;
+		&::first-child{
+			em{
+				margin:0 1rem;
+			}
+		}
+		em{
+			margin:0 0.5rem;
+		}
+	}
 }

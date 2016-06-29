@@ -22,6 +22,7 @@ $(function(){
 		//Set Width
 		$('.swiper-slide').css('width', imgWidth-20);
         $('.swiper-wrapper').css('width', (imgWidth+40)*len);
+        $('.swiper-wrapper').css('height', 'auto');
        
 	}
 
