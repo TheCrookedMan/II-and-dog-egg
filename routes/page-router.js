@@ -19,6 +19,10 @@ router.get('/package/package.html', (req, res, next) => {
     return res.render('package/package', { title: '套餐二级页' });
 });
 
+router.get('/product/list.html', (req, res, next) => {
+    return res.render('product/list', { title: '产品列表' });
+});
+
 router.get('*', (req, res, next) => {
     return res.render('index', { title: '首页' });
 });

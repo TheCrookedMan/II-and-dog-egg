@@ -1,0 +1,160 @@
+.product {
+    padding-bottom: 10px;
+    .am-gallery{
+        li{
+            p{
+                color:#000;font-size:1.4rem;
+            }
+            .am-gallery-title{
+                color:#000;
+            }
+            .am-gallery-desc{
+                font-weight:bold;font-size:1.6rem;color:#000;
+            }
+        }
+    }
+    .tab{
+        display: inline-block;width: 100%;
+        ul{
+            margin:0;padding:0;margin-bottom:1rem;margin-left:2rem;margin-right:2rem;
+           li{
+                width: 32%;float: left;text-align: center;
+                a{
+                    display:inline-block;padding-bottom:0.2rem;font-size:1.6rem;
+                    i{
+                        margin-left:0.3rem;
+                    }
+                    &.cur{
+                        border-bottom:#9bc32e solid 2px;
+                    }
+                }
+            } 
+        }
+    }
+    .am-offcanvas-bar {
+        background-color: #fff;
+        width: 200px;
+        &::after {
+            background-color: #fff;
+        }
+    }
+    .am-offcanvas {
+        background: rgba(0, 0, 0, 0.7);
+    }
+    .am-offcanvas-content {
+        padding: 15px 0;
+    }
+    .am-offcanvas-content {
+        h2 {
+            margin: 0;
+            padding: 0;
+            font-weight: normal;
+            color: #000;
+            font-size: 1.6rem;
+            padding-bottom: 0.2rem;
+            border-bottom: #000 solid 1px;
+            text-indent: 1rem;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            margin-top: 2rem;
+            margin-left: 2rem;
+            li {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                display: inline-block;
+                margin-bottom: 1.4rem;
+                a {
+                    color: #000;
+                    font-size: 1.6rem;
+                    em {
+                        margin-right: 1rem;
+                        font-weight: bold;
+                        position: relative;
+                        top: -0.3rem;
+                    }
+                }
+            }
+        }
+    }
+    header {
+        background: #fff;
+        display: inline-block;
+        border-bottom: 0;
+        min-height: auto;
+        padding: 0.5rem 0;
+        a {
+            font-size: 1.8rem;
+            color: #000;
+            i{
+                margin-left: 0.5rem;
+            }
+        }
+        .fl {
+            margin-left: 1rem;
+        }
+        .fr {
+            margin-right: 1rem;
+        }
+    }
+    .catelog {
+        p {
+            margin-bottom: 0.8rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            &.full {
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+                margin-top: 1.5rem;
+            }
+        }
+    }
+}
+
+.am-popup {
+    background:rgba(255,255,255,0.96);
+    .am-popup-hd {
+        background:#fff;
+        top: 0rem;
+        border-bottom: #000 solid 2px;text-align: center;line-height: 40px;font-size: 1.8rem;
+        i{
+            margin-left: 0.5rem;
+        }
+    }
+    .am-popup-bd {
+        background:none;
+        text-shadow: none;
+        font-weight: normal;
+        dl{
+            margin: 0;padding: 0;width: 100%;display: inline-block;margin-bottom: 0.5rem;padding-top: 0.5rem;
+            dt{
+                margin: 0;padding: 0;width: 100%;text-align: center;font-weight: normal;
+                a{
+                    display: inline-block;padding-bottom: 0.5rem;border-bottom: #959595 solid 1px;font-size: 1.6rem;padding-left: 2rem;padding-right: 2rem;
+                }
+            }
+            dd{
+                margin: 0;padding: 0;width: 100%;position: relative;top: -1px;border-top: #959595 solid 1px;display: none;
+                a{
+                    display: inline-block;margin-bottom: 0.3rem;width: 49%;text-align: center;font-size: 1.4rem;margin-top: 1.6rem;
+                }
+            }
+        }
+    }
+    .am-close {
+        color: #000;
+        font-size: 1rem;
+        text-shadow: none;
+        opacity: 1;
+        font-weight: normal;
+        top: 10px;
+    }
+    .am-close:hover {
+        transform: rotate(0deg);
+        color: #000;
+    }
+}
+

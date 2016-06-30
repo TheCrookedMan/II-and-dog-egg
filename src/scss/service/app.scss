@@ -4,9 +4,14 @@ body {
     margin: 0 auto;
     position: relative;
     overflow-x: hidden;
-    background-color: #eee;
+    background-color: #eee;color:#000;
 }
-
+a{
+    color:#000;
+    &:focus{
+        color:#000
+    }
+}
 img {
     max-width: 100%;
     vertical-align: middle;
