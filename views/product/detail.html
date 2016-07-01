@@ -1,0 +1,65 @@
+{% include "../_partial/head.html" %}
+<div class="index">
+	<!-- Header -->
+	<header class="am-topbar am-topbar-fixed-top bg0">
+	  <a href="javascript:void(0)" class="fr pub_basket" data-am-modal="{target: '#search'}"><i class="icon-basket_3x"><em>99</em></i></a>
+	</header>
+
+	<!-- 侧边栏内容 -->
+	<div id="left-nav" class="am-offcanvas">
+	  <div class="am-offcanvas-bar">
+	    <div class="am-offcanvas-content">
+	      <h2>分类</h2>
+	      <ul>
+	      	<li><a href="#"><em>—</em>蔬菜瓜果</a></li>
+	      	<li><a href="#"><em>—</em>肉禽蛋品</a></li>
+	      	<li><a href="#"><em>—</em>水产河鲜</a></li>
+	      	<li><a href="#"><em>—</em>粮油副食</a></li>
+	      	<li><a href="#"><em>—</em>腌制干货</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Slider -->
+	<div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{"directionNav":false}'>
+	  <ul class="am-slides">
+	    <li>
+	      <a href="/index/h5.html"><img src="/img/test1.jpg"></a>
+	    </li>
+	    <li>
+	      <a href="/index/h5.html"><img src="/img/test1.jpg"></a>
+	    </li>
+	    <li>
+	      <a href="/index/h5.html"><img src="/img/test1.jpg"></a>
+	    </li>
+	    <li>
+	      <a href="/index/h5.html"><img src="/img/test1.jpg"></a>
+	    </li>
+	  </ul>
+	</div>
+</div>
+
+<div class="am-popup" id="search">
+  <div class="am-popup-inner">
+    <div class="am-popup-hd">
+      <h4 class="am-popup-title">
+      	<input  id="keyword" placeholder="" type="text">
+      	<a href="javascript:void(0)"><i class="am-icon-times-circle"></i></a>
+      </h4>
+      <span data-am-modal-close class="am-close">取消</span>
+    </div>
+    <div class="am-popup-bd">
+      <h2>倾情推荐</h2>
+      <p><a href="#">今早新摘的草莓</a></p>
+      <p><a href="#">你点我就去抓的土鸡</a></p>
+      <p><a href="#">后山的野猪</a></p>
+      <p><a href="#"> 山脚下的地瓜</a></p>
+      <p><a href="#">小溪边的桃子</a></p>
+      <p><a href="#">外婆做的咸菜</a></p>
+      <p><a href="#">狗蛋儿钓的鲤鱼</a></p>
+      <p><a href="#">菜园里的菠菜</a></p>
+    </div>
+  </div>
+</div>
+{% include "../_partial/foot.html" %}

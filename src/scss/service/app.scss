@@ -82,7 +82,9 @@ textarea {
 .mb0 {
     margin-bottom: 0 !important;
 }
-
+.bg0{
+    background: none !important;
+}
 em,i {
     font-style: normal;
 }
@@ -96,6 +98,20 @@ p {
     width: 20%;clear: none !important;
 }
 
+li.no-data{
+    width:100% !important;display:inline-block;text-align:center;font-size:1.8rem;color:#959595;position: relative;top: 10%;margin-top: 10rem;
+    img{
+        width:30% !important;margin-bottom:1rem;
+    }
+}
+.pub_basket{
+    i{
+        border-radius: 50%;background: rgba(255,255,255,0.2);display: block;position: relative;
+    }
+    em{
+        color: #9bc32e;font-size: 1rem;position: absolute;top: 0;left: 0;
+    }
+}
 /*字体*/
 @font-face {
     font-family: 'icomoon';
