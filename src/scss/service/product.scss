@@ -84,7 +84,17 @@
         display: inline-block;
         border-bottom: 0;
         min-height: auto;
-        padding: 0.5rem 0;
+        padding: 0.5rem 0;width: 100%;
+        .search{
+            background: #fff;position: absolute;top: 0;left: 0;width: 100%;display: none;
+            input{
+                border:0;height: 30px;width: 80%;border-bottom: #000 solid 2px;margin-left: 2rem;position: relative;top: -0.1rem;text-align: center;font-size: 1.4rem;
+                &:focus{box-shadow: none;}
+            }
+            img{
+                width: 6%;margin-left: 0.7rem;position: relative;top: 0.3rem;
+            }
+        }
         a {
             font-size: 1.8rem;
             color: #000;
