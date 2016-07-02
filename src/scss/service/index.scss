@@ -100,7 +100,9 @@
     }
 }
 
-.am-popup {
+
+.index_popup{
+    .am-popup {
     background: #eee;
     .am-popup-hd {
         border: 0;
@@ -168,11 +170,11 @@
         color: #000;
     }
 }
-
+}
 .navbar-footer {
-    background-color: #fff !important;
-    padding: 0.5rem 0;
+    background-color: #fff !important;border-top:#e5e5e5 solid 1px;
     li {
+        height:auto !important;
         a {
             &.active {
                 color: #000;
@@ -184,7 +186,6 @@
                 }
             }
             p {
-                margin-bottom: 0.3rem;
                 color: #000;
                 i {
                     color: #797878;

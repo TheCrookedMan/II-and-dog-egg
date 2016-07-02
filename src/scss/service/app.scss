@@ -85,6 +85,9 @@ textarea {
 .bg0{
     background: none !important;
 }
+.col-g{
+    color:#9bc32e !important
+}
 em,i {
     font-style: normal;
 }
@@ -106,10 +109,11 @@ li.no-data{
 }
 .pub_basket{
     i{
-        border-radius: 50%;background: rgba(255,255,255,0.2);display: block;position: relative;
+        border-radius: 50%;background: rgba(255,255,255,0.2);display: block;position: relative;width:2.5rem;height:2.5rem;text-align: center;
+        margin-top: 1rem;
     }
     em{
-        color: #9bc32e;font-size: 1rem;position: absolute;top: 0;left: 0;
+        color: #9bc32e;font-size: 1rem;position: absolute;top: 50%;left: 50%;margin-left: -0.5rem;margin-top: -0.45rem;
     }
 }
 /*字体*/

@@ -149,19 +149,20 @@
 .swiper-wp8-vertical {
 	-ms-touch-action: pan-x;
 }
-
-.title{
-	width:100%;display:inline-block;text-align:center;font-size:1.6rem;color:#fff;
-	position:relative;top:-1rem;
-	p{
-		margin-bottom:0.2rem;
-		&::first-child{
-			em{
-				margin:0 1rem;
+.package{
+	.title{
+		width:100%;display:inline-block;text-align:center;font-size:1.6rem;color:#fff;
+		position:relative;top:-1rem;
+		p{
+			margin-bottom:0.2rem;
+			&::first-child{
+				em{
+					margin:0 1rem;
+				}
 			}
-		}
-		em{
-			margin:0 0.5rem;
+			em{
+				margin:0 0.5rem;
+			}
 		}
 	}
 }

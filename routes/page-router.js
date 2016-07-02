@@ -26,8 +26,8 @@ router.get('/product/detail.html', (req, res, next) => {
     return res.render('product/detail', { title: '产品详情' });
 });
 
-router.get('*', (req, res, next) => {
-    return res.render('index', { title: '首页' });
+router.get('/profile/profile.html', (req, res, next) => {
+    return res.render('profile/profile', { title: '个人中心' });
 });
 
 module.exports = router;

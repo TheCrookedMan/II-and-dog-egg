@@ -1,0 +1,65 @@
+.profile{
+	.pinfo{
+		width: 100%;display: inline-block;position: relative;
+		.con{
+			width: 100%;position: absolute;top: 1.5rem;left: 0;text-align: center;
+			.img{
+				width: 100%;position: relative;
+				.set{
+					position: absolute;right: 1rem;top: 0rem;font-size: 1.6rem;
+				}
+				img{
+					&.bg{
+						width: 25%;position: relative;z-index: 9;
+					}
+					&.people{
+						width: 22%;border-radius: 50%;position: absolute;left: 50%;
+						top: 0.46rem;margin-left: -3.45rem;z-index: 8;
+					}
+				}
+			}
+			.txt{
+				width: 100%;display: inline-block;margin-top: 1rem;
+				p{
+					color: #fff;font-size: 1.2rem;
+					&.tit{
+						font-size: 1.6rem;
+					}
+					&.link{
+						text-align: right;
+						a{
+							margin-right: 1rem;text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+	}
+	.menu{
+		display: inline-block;width: 100%;margin-top: 1rem;
+		ul{
+			margin: 0;padding: 0;width: 100%;display: inline-block;
+			li{
+				margin: 0;padding: 0;width: 94%;display: inline-block;margin-bottom: 0.5rem;border-bottom: #eee solid 1px;margin-left: 3%;
+				padding-bottom: 0.5rem;
+				&:last-child{
+					border-bottom:0;
+				}
+				span{
+					&.fl{
+						font-size: 1.6rem;
+						i{
+							margin-right: 0.5rem;font-size: 2rem;
+						}
+						em{
+							position: relative;top: -0.2rem;
+						}
+					}
+					&.fr{
+						color: #676767;font-size: 2rem;margin-top: -0.2rem;
+					}
+				}
+			}
+		}
+	}
+}
