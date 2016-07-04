@@ -49,6 +49,36 @@
     			}
     		}
     	}
+        .con1{
+            .fl{
+                img{
+                    width: 6rem;height: 6rem;float: left;
+                }
+                .txt{
+                    display: inline-block;width: 10rem;float: left;margin-left: 0.6rem;
+                    .tit{
+                        text-overflow: ellipsis;white-space: nowrap;overflow: hidden;font-size: 1.4rem;
+                    }
+                    .spec{
+                        text-overflow: ellipsis;white-space: nowrap;overflow: hidden;color: #959595;font-size: 1rem;
+                    }
+                    .price{
+                        font-size: 2rem;
+                    }
+                    .tips{
+                        border-radius: 3px;background-color: #e5e5e5;color: #959595;
+                        width: 3rem;text-align: center;position: relative;top: 2rem;
+                    }
+                }
+            }
+            .fr{
+                border-right: #9bc32e solid 2px;padding-top: 2rem;padding-bottom: 2rem;padding-right: 0.5rem;
+                font-size: 1.4rem;margin-right: 1rem;
+                em{
+                    margin-right: 0.3rem;
+                }
+            }
+        }
     	.set-default{
     		color: #a0a0a0;font-size: 1.4rem;float: left;margin-top: 1.7rem;
     		margin-left: 1rem;
