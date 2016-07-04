@@ -314,6 +314,24 @@
 			}
 		}
 	}
+	.payMethod{
+		width: 100%;display: inline-block;margin-top: 1rem;
+		.am-icon-weixin{
+			float: left;font-size: 1.6rem;color: #9bc32e;border: #eee solid 1px;padding: 0.7rem 1rem;margin-left: 1rem;
+		}
+		.tit{
+			float: left;margin-left: 1rem;margin-top: -0.2rem;
+			.t{
+				font-size: 1.6rem;
+			}
+			p{
+				font-size: 1.2rem;
+			}
+		}
+		.am-icon-circle{
+			float: right;font-size: 1.6rem;color: #9bc32e;margin-right: 1rem;
+		}
+	}
 	.list-ul{ overflow: hidden;margin: 0;padding: 0;width: 100%;display: inline-block;margin-bottom: 0rem !important;margin-top: -0.5rem !important;margin-bottom: -1.2rem !important;}
     .list-li{ 
     	border-bottom:#eee solid 1px; position:relative;width: 100%;background: #fff;-webkit-transform: translateX(0px);display: inline-block;
