@@ -1,0 +1,94 @@
+.mySale{
+    padding-bottom: 2rem;
+    .code{
+        width: 100%;text-align: center;
+        .ps{
+            padding: 2rem 0;
+            a{
+                color: #959595;font-size: 1.4rem;text-decoration: underline;
+            }
+        }
+        .img{
+            text-align: center;width: 100%;
+            .txt{
+                background: #ebebeb;width: 50%;display: inline-block;padding-bottom: 1rem;
+                a{
+                    color: #ff4200;text-decoration: underline;
+                }
+            }
+            img{
+                width:50%;padding: 1rem;background: #ebebeb;
+            }
+        }
+    }
+    .list{
+        background: #fff;margin-bottom: 1rem;width: 100%;display: inline-block;padding: 0.5rem 0;
+        .time{
+            width: 100%;display: inline-block;text-align: center;font-size: 1.4rem;padding-bottom: 0.5rem;
+            em{
+                color: #ff0000;font-size: 1.8rem;
+            }
+        }
+        .tit{
+            width: 100%;display: inline-block;font-size: 1.6rem;
+            .fl{
+                margin-left: 1rem;position: relative;top: 0.4rem;
+                i{
+                    font-size: 2rem;margin-left: 0.5rem;position: relative;top: 0.2rem;
+                }
+            }
+            .fr{
+                margin-right: 1rem;font-size: 2rem;
+            }
+        }
+        .price{
+           width: 94%;display: inline-block;padding-top: 0.6rem;border-top: #eee solid 1px;padding-bottom: 0.4rem;
+           margin-left: 3%;
+           .l{
+            width: 48%;display: inline-block;text-align: center;
+            p{
+                &.t{
+                    color: #9bc32e;font-size: 2rem;
+                }
+            }
+            &:first-child{
+                border-right:#eee solid 1px;
+            }
+           } 
+        }
+        .status {
+            border: #f0f0f0 solid 1px;background: #f0f0f0;border-radius: 25px;
+            width: 85%;
+            display: inline-block;
+            height: 15px;
+            position: relative;
+            margin-top: 1rem;
+            margin-left: 2%;
+            .line {
+                width: 100%;
+            }
+            em {
+                position: relative;
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+                top: -0.3rem;
+                z-index: 1;left: 50%;margin-left: 2rem;
+            }
+            span {
+                background: #9bc32e;border-radius: 25px;
+                display: block;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            .scale {
+                position: absolute;
+                text-align: center;
+                width: 100%;
+                top: -.2rem;
+            }
+        }
+    }
+}

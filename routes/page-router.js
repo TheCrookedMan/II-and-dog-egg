@@ -107,6 +107,30 @@ router.get('/profile/order-detail.html', (req, res, next) => {
 router.get('/profile/order-paySucess.html', (req, res, next) => {
     return res.render('profile/order-paySucess', { title: '订单付款成功' });
 });
+router.get('/profile/order-pay.html', (req, res, next) => {
+    return res.render('profile/order-pay', { title: '订单支付' });
+});
+router.get('/profile/set.html', (req, res, next) => {
+    return res.render('profile/set', { title: '设置' });
+});
+router.get('/profile/about.html', (req, res, next) => {
+    return res.render('profile/about', { title: '关于我们' });
+});
+router.get('/profile/help.html', (req, res, next) => {
+    return res.render('profile/help', { title: '使用帮助' });
+});
+router.get('/profile/help-coupon.html', (req, res, next) => {
+    return res.render('profile/help-coupon', { title: '优惠券使用规则' });
+});
+router.get('/profile/help-ship.html', (req, res, next) => {
+    return res.render('profile/help-ship', { title: '配送说明' });
+});
+router.get('/profile/help-invoice.html', (req, res, next) => {
+    return res.render('profile/help-invoice', { title: '发票制度' });
+});
+router.get('/profile/help-goods.html', (req, res, next) => {
+    return res.render('profile/help-goods', { title: '退货政策' });
+});
 
 router.get('/basket/basket.html', (req, res, next) => {
     return res.render('basket/basket', { title: '我的菜篮子' });
@@ -122,5 +146,21 @@ router.get('/basket/yuer.html', (req, res, next) => {
 });
 router.get('/basket/order.html', (req, res, next) => {
     return res.render('basket/order', { title: '订单确认' });
+});
+
+router.get('/sale/index.html', (req, res, next) => {
+    return res.render('sale/index', { title: '健康推广大使' });
+});
+router.get('/sale/price.html', (req, res, next) => {
+    return res.render('sale/price', { title: '我的推广费' });
+});
+router.get('/sale/team.html', (req, res, next) => {
+    return res.render('sale/team', { title: '我的团队' });
+});
+router.get('/sale/sale.html', (req, res, next) => {
+    return res.render('sale/sale', { title: '我的销量' });
+});
+router.get('/sale/code.html', (req, res, next) => {
+    return res.render('sale/code', { title: '我的二维码' });
 });
 module.exports = router;
