@@ -3,7 +3,10 @@
 	<!-- Header -->
 	<header class="am-topbar am-topbar-fixed-top">
 	  <a href="javascript:void(0)" data-am-modal="{target: '#search'}" class="fl">列表页<i class="am-icon-angle-down"></i></a>
-	  <a href="javascript:void(0)" class="fr"><i class="am-icon-search"></i></a>
+	  <a href="javascript:void(0)" class="fr" id="keyword"><i class="am-icon-search"></i></a>
+	  <div class="search">
+	  	<input type="text"><a href="javascript:void(0)"><img src="/img/quxiao@3x.png"></a>
+	  </div>
 	</header>
 
 	<div class="tab">
@@ -104,7 +107,7 @@
 	</ul>
 </div>
 
-<div class="am-popup" id="search">
+<div class="am-popup list_popup" id="search">
   <div class="am-popup-inner">
     <div class="am-popup-hd">
       <a data-am-modal-close href="javascript:void(0)" data-am-modal="{target: '#search'}">列表页<i class="am-icon-angle-up"></i></a>
