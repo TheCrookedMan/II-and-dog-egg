@@ -56,6 +56,9 @@ router.get('/profile/address-edit.html', (req, res, next) => {
 router.get('/profile/order-detail.html', (req, res, next) => {
     return res.render('profile/order-detail', { title: '订单详情' });
 });
+router.get('/profile/order-paySucess.html', (req, res, next) => {
+    return res.render('profile/order-paySucess', { title: '订单付款成功' });
+});
 
 router.get('/basket/basket.html', (req, res, next) => {
     return res.render('basket/basket', { title: '我的菜篮子' });

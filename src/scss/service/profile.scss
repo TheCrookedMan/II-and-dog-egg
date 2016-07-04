@@ -288,9 +288,21 @@
 		}
 		.fl{
 			margin-left:0 !important;
+			em{
+				font-size: 1.2rem;color: #999;margin-left: 1rem;
+			}
 		}
 		.fr{
 			margin-right:0;
+			.ship{
+				display: inline-block;border-radius: 3px;padding: 0rem 0.5rem;background: #9bc32e;color: #fff;
+				i{
+					font-size: 1.6rem;
+				}
+				em{
+					margin: 0 0.3rem;
+				}
+			}
 		}
 	}
 	.more{

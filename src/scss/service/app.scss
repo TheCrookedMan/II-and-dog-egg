@@ -186,7 +186,15 @@ li.no-data{
     background-color: #000;color: #9bc32e
 }
 
-
+.pub_btng{
+    width:100%;display:inline-block;padding:1rem 0;text-align:center;
+    .btn{
+        display:inline-block;padding:0.2rem 1rem;border-radius:3px;background:none;border:#000 solid 1px;font-size:1.4rem;margin-right: 3rem;
+        &:last-child{
+            margin-right:0;
+        }
+    }
+}
 /*字体*/
 @font-face {
     font-family: 'icomoon';
