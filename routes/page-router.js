@@ -109,6 +109,9 @@ router.get('/sale/price.html', (req, res, next) => {
 router.get('/sale/team.html', (req, res, next) => {
     return res.render('sale/team', { title: '我的团队' });
 });
+router.get('/sale/team-detail.html', (req, res, next) => {
+    return res.render('sale/team-detail', { title: '会员列表' });
+});
 router.get('/sale/sale.html', (req, res, next) => {
     return res.render('sale/sale', { title: '我的销量' });
 });
