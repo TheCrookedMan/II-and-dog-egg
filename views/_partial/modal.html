@@ -5,7 +5,7 @@
         <div class="am-modal-bd">
         </div>
         <div class="am-modal-footer">
-            <span class="am-modal-btn">确定</span>
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
         </div>
     </div>
 </div>
@@ -34,18 +34,28 @@
 (function() {
     var modal = function() {}
     modal.prototype = {
-        alert: function(text, title) {
-            $("#alert-modal .am-modal-bd").text(text);
-            if (!!title) {
-                $("#alert-modal .am-modal-hd").text(title);
+        alert: function(params) {
+            /*
+             * params 参数 
+             * text, title, callback
+             */
+            $("#alert-modal .am-modal-bd").text(params.text);
+            if (!!params.title) {
+                $("#alert-modal .am-modal-hd").text(params.title);
             }
-            $("#alert-modal").modal();
+            $("#alert-modal").modal({
+                onConfirm: params.onConfirm
+            });
+            // $('#alert-modal').off('closed.modal.amui');
+            // if (!!callback) {
+            //     $('#alert-modal').on('closed.modal.amui', callback);
+            // }
         },
         confirm: function(params) {
-            if(!!params.title){
+            if (!!params.title) {
                 $('#my-confirm .am-modal-hd').text(params.title);
             }
-            if(!!params.msg){
+            if (!!params.msg) {
                 $('#my-confirm .am-modal-bd').text(params.msg);
             }
             $('#my-confirm').modal({
@@ -54,7 +64,7 @@
                 onCancel: params.onCancel
             });
         },
-        loading:function(string){
+        loading: function(string) {
             $("#loading-modal").modal(string);
         }
     }

@@ -5,21 +5,25 @@ import qs from 'querystring';
 import $http from 'http';
 import $config from './config';
 export default class rest {
-    constructor(url, options, success, error) {
+    constructor(url, options, method, success, error) {
         let jsonObject, optionspost, postheaders, reqPost;
         jsonObject = qs.stringify(options);
+        if ('GET' == method) {
+            url = url + '?' + jsonObject;
+        } else if ('POST' == method) {}
         postheaders = {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Content-Length': jsonObject.length
         };
+
         optionspost = {
             'host': $config.wechat.host,
             'port': $config.wechat.post,
             'path': url,
-            'method': 'POST',
+            'method': method,
             'headers': postheaders
         };
-
+        console.log("当前 REST 使用 " + method + "方式 请求数据，参数 ：" + JSON.stringify(optionspost));
         /*
           do the POST call
          */
