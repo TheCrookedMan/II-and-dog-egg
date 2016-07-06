@@ -348,4 +348,12 @@ router.get('/sale/code.html', (req, res, next) => {
     return res.render('sale/code', { title: '我的二维码' });
 });
 
+
+/*
+    慈善
+ */
+
+router.get('/cishan/cishan.html', (req, res, next) => {
+    return res.render('cishan/cishan', { title: '慈善' });
+});
 module.exports = router;
