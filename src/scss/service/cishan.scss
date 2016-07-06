@@ -1,0 +1,70 @@
+.cishan{
+	ul{
+		margin: 0;padding: 0;
+		li{
+			margin: 0;padding: 0;
+		}
+	}
+	.con{
+		p{
+			width: 100%;text-align: center;padding: 1rem 0;
+			img{
+				width: 55%;
+			}
+		}
+		ul{
+			width: 100%;display: inline-block;text-align: center;
+			li{
+				display: inline-block;position: relative;width: 3rem;height: 3rem;line-height: 3rem;text-align: center;font-size: 2rem;
+				em{
+					color: #fff;position: relative;z-index: 9;
+				}
+				&.dian{
+					width: auto;padding: 0 0.2rem;font-size: 2rem;font-weight: bold;
+				}
+				img{
+					position: absolute;left: 0;top: 0;z-index: 8;
+				}
+			}
+		}
+	}
+	.num{
+		border-bottom: #cc011a solid 1px;margin-left: 1rem;margin-right: 1rem;margin: 1rem 0;margin-bottom: 4rem;
+		span{
+			background-color:#fff;display:block;margin:0 auto;top:0.8rem;width:55%;text-align:center;position:relative;font-size:1.4rem;color:#545454;font-size: 1.4rem;
+			i{
+				color: #cc011a;font-size: 1.5rem;margin-right: 1rem;
+			}
+			em{
+				background: #cc011a;color: #fff;padding: 0 0.3rem;margin: 0 0.2rem;
+			}
+		}
+	}
+	.data{
+		margin-left: 1rem;margin-right: 1rem;border:#959595 solid 1px;border-radius: 10px;min-height: 13rem;position: relative;margin-bottom: 2rem;
+		img{
+			position: absolute;left: 1rem;top: -1rem;width: 55%;
+		}
+		marquee{
+			overflow: hidden;max-height: 8rem;margin-top: 3rem;
+		}
+		ul{
+			margin-left: 1rem;margin-right: 1rem;
+			li{
+				width: 100%;display: inline-block;margin-bottom: -0.7rem;
+				.fl{
+					font-size: 1.2rem;
+					em{
+						font-size: 2rem;position: relative;top: -0.4rem;font-weight: bold;margin-right: 0.3rem;
+					}
+				}
+				.fr{
+					font-size: 1.2rem;color: #959595;margin-top: 0.7rem;
+				}
+			}
+		}
+		p{
+			width: 100%;text-align: center;font-size: 1.4rem;
+		}
+	}
+}

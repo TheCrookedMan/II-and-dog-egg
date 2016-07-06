@@ -17,14 +17,18 @@
 	</div>
 	<div class="mySale">
 		<div class="list mt05">
-			<div class="tit"><span class="fl">本月任务<em><i class="am-icon-question-circle"></i></em></span></div>
-			 <div class="status">
+			<div class="tit"><span class="fl"><a href="javascript:void(0)" data-am-modal="{target: '#my-alert'}">本月任务<em><i class="am-icon-question-circle"></i></em></span></a></div>
+			 <!-- <div class="status">
 		        <em>50%</em>
 		        <div class="line">
 		            <span style="width:50%"></span>
 		        </div>
+		    </div> -->
+		    <div class="price0">
+		    	<div class="img"><img src="/img/salebg.png"></div>
+		    	<span>单笔实付<em class="col-z">100</em>元</span>
 		    </div>
-		    <div class="time">剩余任务时间<em>29</em>天<em>23</em>时<em>59</em>分 </div>
+		    <div class="time">距截止还有<em>29</em>天<em>23</em>时<em>59</em>分 </div>
 		</div>
 		<div class="list">
 			<a href="/sale/price.html">
@@ -71,5 +75,20 @@
 	</div>
 </div>
 
+
+
+<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">本月任务说明</div>
+    <div class="am-modal-bd txt-l mt1">
+      恭喜您已经免费获得了二丫赠送您三个月的健康大使身份（购买之日起，每月按30天计算）；<br><br>
+      
+      第四个月开始每月在平台消费≥100元（不含运费）即可维持健康大使身份，获取丰厚收益哦
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn col-g">确定</span>
+    </div>
+  </div>
+</div>
 {% include "../_partial/footer.html" %} {% include "../_partial/foot.html" %}
 
