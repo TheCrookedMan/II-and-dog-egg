@@ -1,6 +1,6 @@
 import https from 'https';
 // import config from '../rest/config';
-import nodeCache from '../tool/cache';
+import nodeCache from '../tools/cache';
 
 // 第一步：用户同意授权，获取code
 // 第二步：通过code换取网页授权access_token
