@@ -19,21 +19,17 @@
         }
         .sort_box{
             width: 100%;
-            padding-top: 45px;
+            padding-top: 0px;
             overflow: hidden;
         }
         .sort_list{
-            padding:10px 60px 10px 80px;
-            position: relative;
-            height: 40px;
-            line-height: 40px;
-            border-bottom:1px solid #ddd;
+            width:100%;display:inline-block;
+            position: relative; border-bottom:1px solid #eee;padding-top: 1rem;padding-bottom: 1rem;
         }
 
         .sort_list .num_logo{
             width: 50px;
             height: 50px;
-            border-radius: 10px;
             overflow: hidden;
             position: absolute;
             top: 5px;
@@ -44,16 +40,14 @@
             height: 50px;
         }
         .sort_list .num_name{
-            color: #000;
+            color: #000;padding-left:80px;
         }
-
+        .sort_list .num_time{
+            color: #000;padding-left:80px;
+        }
         .sort_letter{
-            height: 30px;
-            line-height: 30px;
-            padding-left: 20px;
-            color:#787878;
-            font-size: 14px;
-            border-bottom:1px solid #ddd;
+            background: #f2f2f2;text-indent: 2rem;font-size: 2rem;width: 100%;display: inline-block;
+            padding-top: 1rem;padding-bottom: 1rem;
         }
         .initials{
             position: fixed;
