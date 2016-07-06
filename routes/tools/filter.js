@@ -96,7 +96,6 @@ module.exports = (swig) => {
     }
     swig.setFilter("dateFormat", dateFormat);
     swig.setFilter("toWeek", toWeek);
-    swig.setFilter("scopeFilter", scopeFilter);
     swig.setFilter("compareDate", compareDate);
     swig.setFilter("toPercent", toPercent);
     swig.setFilter("isExpired",isExpired);
