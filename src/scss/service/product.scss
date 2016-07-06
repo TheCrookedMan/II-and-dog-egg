@@ -301,6 +301,22 @@
             }
         }
     }
+    .record{
+        padding: 1rem 0px;
+        ul{
+            margin: 0;padding: 0;
+            li{
+                margin: 0;padding: 0;width: 100%;display: inline-block;padding-bottom: 0.5rem;border-bottom: #eee solid 1px;
+                font-size: 1.6rem;text-align: center;
+                &:last-child{
+                    border-bottom:0;
+                }
+                em{
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
 }
 
 .nav-tab{

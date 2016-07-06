@@ -186,4 +186,42 @@
             }
         }
     }
+    .saleList{
+        .price{
+            width:100%;display: inline-block;padding: 1rem 0;background: #fff;margin-bottom: 2rem;
+            .tit{
+                width:100%;display: inline-block;
+                span{
+                    font-size: 1.6rem;margin-left: 1rem;
+                }
+                a{
+                    font-size: 1.4rem;margin-right: 1rem;margin-top: 0.2rem;
+                }
+            }
+            .col-g{
+                width:100%;display: inline-block;text-align: center;font-size: 3rem;padding: 0.5rem 0;
+            }
+            .t{
+                font-size: 1.2rem;text-align: right;margin-right: 1rem;
+            }
+        }
+        .cord{
+            margin-left: 1rem;margin-right: 1rem;
+            h2{
+                font-size: 1.6rem;margin: 0;padding: 0;padding: 0.3rem 0;
+            }
+            table{
+                width: 100%;margin-bottom: 1.5rem;
+                thead{
+                    text-indent: 5px;background: #000;font-size: 1.4rem;color: #fff;
+                }
+                th{
+                    padding: 1rem 0;text-align: center;font-size: 1.4rem;border-bottom: #eee solid 4px;
+                }
+                td{
+                    font-size: 1.3rem;border-bottom: #eee solid 1px;padding: 0.5rem 0;
+                }
+            }
+        }
+    }
 }
