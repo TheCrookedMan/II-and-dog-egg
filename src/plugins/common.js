@@ -35,7 +35,7 @@
         regBeforeWeight: function(value) {
             return this.reg_beforeWeight.test(value);
         },
-        regHeight:function(value){
+        regHeight: function(value) {
             return this.reg_height.test(value);
         },
         regRealAge: function(date) {
@@ -43,15 +43,15 @@
             var now = new Date().getTime();
             var age = date.getTime();
             var difference = now - age;
-            if(difference < 0){
+            if (difference < 0) {
                 return false;
             } else {
-                 var d = Math.floor(difference / 1000 / 60 / 60 / 24 / 365);
-                 if(d >= 16 && d <= 60){
+                var d = Math.floor(difference / 1000 / 60 / 60 / 24 / 365);
+                if (d >= 16 && d <= 60) {
                     return true;
-                 } else {
+                } else {
                     return false;
-                 }
+                }
             }
         },
         formatDate: function(date, format) {
@@ -94,7 +94,9 @@
                 "0": "周日",
             }
             return map[date.getDay().toString()];
-        }
+        },
+        setCookie: function() {},
+        getCookie: function() {}
     };
     this.common = new common();
 }).call(this);

@@ -1,4 +1,7 @@
 module.exports = (swig) => {
+    /*
+        时间格式转换
+     */
     let dateFormat = (data, format) => {
         let date = typeof data == 'string' ? data * 1 : data;
         date = new Date(date);
@@ -27,6 +30,9 @@ module.exports = (swig) => {
         });
         return format;
     };
+    /*
+        根据 时间转换为 星期
+     */
     let toWeek = (data) => {
         let date = typeof data == 'string' ? data * 1 : data;
         date = new Date(date);
@@ -41,31 +47,57 @@ module.exports = (swig) => {
         }
         return map[date.getDay().toString()];
     };
+    /*
+        判断是否为当天时间
+     */
+    let compareDate = (date) => {
+        let theTime = new Date(date),
+            now = new Date();
 
-    let scopeFilter = (scope) => {
-        let baseScope = scope,
-            len = 0,
-            list = [],
-            str = "",
-            elen = 0;
-        if (baseScope > 10) {
-            baseScope = 10;
+        let aY, bY, aM, bM, aD, bD;
+        aY = theTime.getFullYear();
+        aM = theTime.getMonth() + 1;
+        aD = theTime.getDate();
+
+        bY = now.getFullYear();
+        bM = now.getMonth() + 1;
+        bD = now.getDate();
+
+        if (aY == bY && aM == bM && aD == bD) {
+            return true;
+        } else {
+            return false;
         }
-        len = parseInt(baseScope / 2);
-        elen = baseScope % 2;
-        for (let i = 0; i < len; i++) {
-            list.push('<i class="am-icon-star"></i>');
+    }
+    /*
+        百分比转换
+     */
+    let toPercent = (O, T) => {
+        let sum = parseInt(T),
+            num = parseInt(O);
+        let per = (sum - num) / sum;
+        // console.log("per:::"+per);
+        per = per.toFixed(2);
+        per = per * 100;
+
+        return per + "%";
+    }
+    /*
+        是否过期
+     */
+    let isExpired = (time) =>{
+        let endTime = time*1;
+        let currentTime = new Date().getTime();
+        if(endTime < currentTime ){
+            return true;
+        } else {
+            return false;
         }
-        for (let i = 0; i < 5 - len; i++) {
-            list.push('<i class="am-icon-star-o"></i>');
-        }
-        // if (elen >= 1) {
-        //     list.push('<i class="am-icon-star-half-full"></i>');
-        // }
-        str = list.join("&nbsp;");
-        return str;
     }
     swig.setFilter("dateFormat", dateFormat);
     swig.setFilter("toWeek", toWeek);
     swig.setFilter("scopeFilter", scopeFilter);
+    swig.setFilter("compareDate", compareDate);
+    swig.setFilter("toPercent", toPercent);
+    swig.setFilter("isExpired",isExpired);
 }
