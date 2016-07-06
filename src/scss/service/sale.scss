@@ -1,5 +1,105 @@
 .mySale{
     padding-bottom: 2rem;
+    .memberList{
+        #letter{
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            font-size: 75px;
+            color: #555;
+            text-align: center;
+            line-height: 100px;
+            background: rgba(145,145,145,0.6);
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin:-50px 0px 0px -50px;
+            z-index: 99;
+            display: none;
+        }
+        .sort_box{
+            width: 100%;
+            padding-top: 45px;
+            overflow: hidden;
+        }
+        .sort_list{
+            padding:10px 60px 10px 80px;
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            border-bottom:1px solid #ddd;
+        }
+
+        .sort_list .num_logo{
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: absolute;
+            top: 5px;
+            left: 20px;
+        }
+        .sort_list .num_logo img{
+            width: 50px;
+            height: 50px;
+        }
+        .sort_list .num_name{
+            color: #000;
+        }
+
+        .sort_letter{
+            height: 30px;
+            line-height: 30px;
+            padding-left: 20px;
+            color:#787878;
+            font-size: 14px;
+            border-bottom:1px solid #ddd;
+        }
+        .initials{
+            position: fixed;
+            top: 47px;
+            right: 0px;
+            height: 100%;
+            width: 50px;
+            padding-right: 10px;
+            text-align: center;
+            font-size: 12px;
+            z-index: 99;
+            background: rgba(145,145,145,0);
+        }
+        .initials li img{
+            width: 14px;
+        }
+    }
+    .team{
+        ul{
+            margin: 0 !important;padding: 0 !important;
+            li{
+                border: 0 !important;box-shadow: none !important;
+                em{
+                    margin-left: 1rem;font-size: 1.5rem;
+                }
+                ul{
+                    margin: 0 !important;padding: 0 !important;border-bottom: #eee solid 1px !important;
+                    &.am-in{
+                        border-top: #eee solid 1px;
+                    }
+                    li{
+                        border: 0 !important;border-bottom: #eee solid 1px !important;margin-left: 1rem !important;margin-right: 1rem !important;margin-bottom: 0 !important;
+                        .am-margin-right{
+                            margin-right: 0 !important;
+                        }
+                        a{
+                            color: #959595 !important;font-size: 1.5rem;padding-right: 0 !important;
+                        }
+                        &:last-child{
+                            border: 0 !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
     .code{
         width: 100%;text-align: center;
         .ps{

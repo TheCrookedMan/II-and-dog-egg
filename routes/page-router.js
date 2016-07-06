@@ -333,6 +333,14 @@ router.get('/sale/sale.html', (req, res, next) => {
 });
 
 /*
+    会员列表
+ */
+
+router.get('/sale/team-detail.html', (req, res, next) => {
+    return res.render('sale/team-detail', { title: '会员列表' });
+});
+
+/*
     我的二维码
  */
 
