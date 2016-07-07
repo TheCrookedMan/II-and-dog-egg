@@ -1,6 +1,6 @@
- {% if "1" == data['code'] %} {% for product in data['data'] %}
+ {% if "1" == data['code'] && !!data['data'] %} {% for product in data['data']['porList'] %}
  <li>
-    <div class="am-gallery-item echo-loading">
+    <div class="am-gallery-item productList-echo-loading">
         <a href="#">
             <img src="/img/ajax-loader.gif" alt="{{product.Name}}" data-echo="{{product.Image}}">
             <h3 class="am-gallery-title">{{product.Name}}</h3>

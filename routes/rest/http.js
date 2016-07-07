@@ -4,7 +4,7 @@
 import qs from 'querystring';
 import $http from 'http';
 import $config from './config';
-import request from 'request';
+
 export default class rest {
     constructor(url, options, method, success, error) {
         let jsonObject, optionspost, postheaders, reqPost, contentType = "application/x-www-form-urlencoded";
@@ -30,23 +30,25 @@ export default class rest {
             'headers': postheaders
         };
         console.log("当前 REST 使用 " + method + "方式 请求数据，参数 ：" + JSON.stringify(optionspost));
+
         /*
           do the POST call
          */
 
         reqPost = $http.request(optionspost, (res) => {
-            let dataStr;
+            let chunks = [];
             res.setEncoding("utf-8");
-            dataStr = "";
-            res.on('data', (d) => {
-                dataStr += d;
+            res.on('data', (chunk) => {
+                chunks.push(chunk);
             });
             res.on('end', (ev) => {
-                console.log("url:::" + url + "::返回数据::" + dataStr);
+                let body = chunks.join("");
+
+                console.log("url:::" + url + "::返回数据::" + body);
                 /**
                  * 如果遇见没有任何返回就结束了，一般是 api 没有启动。
                  */
-                success(dataStr);
+                success(body);
             });
         });
         reqPost.on('error', (e) => {
@@ -58,22 +60,5 @@ export default class rest {
          */
         reqPost.write(jsonObject);
         reqPost.end();
-    }
-    request(url, params, method, success, error) {
-        let options = {
-            method: method,
-            url: 'http://' + $config.wechat.host + ':' + $config.wechat.post + url,
-            headers: {
-                'cache-control': 'no-cache',
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(params)
-        };
-
-        request(options, function(error, response, body) {
-            if (error) throw new Error(error);
-
-            console.log(body);
-        });
     }
 }
