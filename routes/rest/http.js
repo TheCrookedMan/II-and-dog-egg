@@ -7,8 +7,10 @@ import $config from './config';
 export default class rest {
     constructor(url, options, method, success, error) {
         let jsonObject, optionspost, postheaders, reqPost;
+
         jsonObject = qs.stringify(options);
-        if ('GET' == method) {
+
+        if ('GET' == method && !!jsonObject) {
             url = url + '?' + jsonObject;
         } else if ('POST' == method) {}
         postheaders = {
@@ -36,6 +38,7 @@ export default class rest {
                 dataStr += d;
             });
             res.on('end', (ev) => {
+                console.log("url:::" + url + "::返回数据::" + dataStr);
                 /**
                  * 如果遇见没有任何返回就结束了，一半是 api 没有启动。
                  */

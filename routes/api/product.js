@@ -11,7 +11,7 @@ import normalRequest from '../rest/normalRequest';
 		 "cid": "120"
 		}
  */
-exports.productList = (req, res, next) => { new normalRequest('api/Product/ProductList').post(req, res, next); }
+exports.productList = (req, res, next) => { new normalRequest('/api/Product/ProductList').post(req, res, next); }
 
 /*
 		商品详情页(api/Product/productDetail)
@@ -20,7 +20,7 @@ exports.productList = (req, res, next) => { new normalRequest('api/Product/Produ
 		 "pid": 1733
 		}
  */
-exports.productDetail = (req, res, next) => { new normalRequest('api/Product/productDetail').post(req, res, next); }
+exports.productDetail = (req, res, next) => { new normalRequest('/api/Product/productDetail').post(req, res, next); }
 
 /*
 		搜索(api/Product/homeSearch)
@@ -33,4 +33,4 @@ exports.productDetail = (req, res, next) => { new normalRequest('api/Product/pro
 		 "searchkey": "蛋"
 		}
  */
-exports.homeSearch = (req, res, next) => { new normalRequest('api/Product/homeSearch').post(req, res, next); }
+exports.homeSearch = (req, res, next) => { new normalRequest('/api/Product/homeSearch').post(req, res, next); }

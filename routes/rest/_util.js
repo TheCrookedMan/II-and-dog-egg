@@ -80,7 +80,7 @@ export default class Rest {
         }
 
         url = this._getRestUrl(this.functionCode);
-        return http.rest(url, this.options.data, 'POST', success, error);
+        return new http(url, this.options.data, 'POST', success, error);
     }
     post(req, res, ...rest) {
         let opts, self = this,
@@ -130,7 +130,7 @@ export default class Rest {
             this.options.data[key] = opts[key]
         }
         url = this._getRestUrl(this.functionCode);
-        return http.rest(url, this.options.data, 'POST', __success, __error);
+        return new http(url, this.options.data, 'POST', __success, __error);
     }
 
     get(req, res, ...rest) {
@@ -181,7 +181,7 @@ export default class Rest {
             this.options.data[key] = opts[key]
         }
         url = this._getRestUrl(this.functionCode);
-        return http.rest(url, this.options.data, 'GET', __success, __error);
+        return new http(url, this.options.data, 'GET', __success, __error);
     }
 
     normalRequest(success, next) {
@@ -202,7 +202,7 @@ export default class Rest {
                 msg: "网络异常!"
             });
         }
-        return http.rest(url, this.options.data, 'POST', __success, __error);
+        return new http(url, this.options.data, 'POST', __success, __error);
     }
     _getSetting(functioncode) {
         return {

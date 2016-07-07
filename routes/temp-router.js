@@ -1,12 +1,38 @@
 import express from 'express';
 const router = express.Router();
 import common from './tools/common';
+import user from './api/user';
+import product from './api/product';
 
-router.get('/template/index/index_category.t', [], function(req, res, next) {
-	let record = common.toRecord(res.data);
-	return res.render('../template/index/index_category', {
-        data: record['']
+/*
+	index 分类模板页
+ */
+router.get('/template/index/index_category.t', [user.category_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/index/index_category', {
+        data: record['/api/user/category']
     });
 });
+
+/*
+	首页左侧分类模板
+ */
+router.get('/template/index/index_lett-nav.t', [user.category_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/index/index_lett-nav', {
+        data: record['/api/user/category']
+    });
+})
+
+/*
+	商品列表模板
+ */
+router.get('/template/product/list_gallery.t', [product.productList], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/product/list_gallery', {
+        data: record['/api/Product/ProductList']
+    });
+})
+
 
 module.exports = router;

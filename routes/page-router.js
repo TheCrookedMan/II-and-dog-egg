@@ -96,7 +96,8 @@ router.get('/package/package.html', (req, res, next) => {
  */
 
 router.get('/product/list.html', (req, res, next) => {
-    return res.render('product/list', { title: '产品列表' });
+    let categoryId = req.query.categoryId;
+    return res.render('product/list', { title: '产品列表', categoryId: categoryId });
 });
 
 /*
@@ -356,4 +357,10 @@ router.get('/sale/code.html', (req, res, next) => {
 router.get('/cishan/cishan.html', (req, res, next) => {
     return res.render('cishan/cishan', { title: '慈善' });
 });
+
+router.get('*.html', (req, res, next) => {
+    res.redirect('/index/index.html');
+});
+
+
 module.exports = router;

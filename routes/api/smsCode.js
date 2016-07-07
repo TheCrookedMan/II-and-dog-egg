@@ -9,4 +9,4 @@ import normalRequest from '../rest/normalRequest';
 		回参：
 			{"code":"1", "message":"手机验证码发送成功！"}
  */
-exports.register_smscode = (req, res, next) => { new normalRequest('api/user/register_smscode').post(req, res, next); }
+exports.register_smscode = (req, res, next) => { new normalRequest('/api/user/register_smscode').post(req, res, next); }

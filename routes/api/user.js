@@ -7,7 +7,7 @@ import normalRequest from '../rest/normalRequest';
 		 "password": "e10adc3949ba59abbe56e057f20f883e"
 		}
  */
-exports.login = (req, res, next) => { new normalRequest('api/user/login').post(req, res, next); }
+exports.login = (req, res, next) => { new normalRequest('/api/user/login').post(req, res, next); }
 
 /*
 		注册 api/user/register
@@ -30,7 +30,7 @@ exports.login = (req, res, next) => { new normalRequest('api/user/login').post(r
 
  */
 
-exports.register = (req, res, next) => { new normalRequest('api/user/register').post(req, res, next); }
+exports.register = (req, res, next) => { new normalRequest('/api/user/register').post(req, res, next); }
 
 /*
 		修改/新增/删除收货人地址（api/user/editReceiver）
@@ -47,21 +47,23 @@ exports.register = (req, res, next) => { new normalRequest('api/user/register').
 		}
 
  */
-exports.editReceiver = (req, res, next) => { new normalRequest('api/user/editReceiver').post(req, res, next); }
+exports.editReceiver = (req, res, next) => { new normalRequest('/api/user/editReceiver').post(req, res, next); }
 
 /*
 		收货地址列表（api/user/receiverList）
 		入参
 		{"uid": 380}
  */
-exports.receiverList = (req, res, next) => { new normalRequest('api/user/receiverList').post(req, res, next); }
+exports.receiverList = (req, res, next) => { new normalRequest('/api/user/receiverList').post(req, res, next); }
 
 
 /*
 		分类（api/user/category）
 		入参：无
  */
-exports.category = (req, res, next) => { new normalRequest('api/user/category').post(req, res, next); }
+exports.category = (req, res, next) => { new normalRequest('/api/user/category').post(req, res, next); }
+
+exports.category_link = (req, res, next) => { new normalRequest('/api/user/category').link_g(req, res, next); }
 
 /*
 		修改头像（api/user/editAvatar）
@@ -71,7 +73,7 @@ exports.category = (req, res, next) => { new normalRequest('api/user/category').
 		 "img": "/upload/service//20160620/636020188313664086c4b60.png"
 		}
  */
-exports.editAvatar = (req, res, next) => { new normalRequest('api/user/editAvatar').post(req, res, next); }
+exports.editAvatar = (req, res, next) => { new normalRequest('/api/user/editAvatar').post(req, res, next); }
 
 /*
 		修改密码 (api/user/editPwd)
@@ -82,7 +84,7 @@ exports.editAvatar = (req, res, next) => { new normalRequest('api/user/editAvata
 			"npwd": "e10adc3949ba59abbe56e057f20f883e"
 		}
  */
-exports.editPwd = (req, res, next) => { new normalRequest('api/user/editPwd').post(req, res, next); }
+exports.editPwd = (req, res, next) => { new normalRequest('/api/user/editPwd').post(req, res, next); }
 
 /*
 	修改个人资料(api/user/editUserInfo)
@@ -94,7 +96,7 @@ exports.editPwd = (req, res, next) => { new normalRequest('api/user/editPwd').po
 		 "gender": 2   1表示男  2表示女
 	}
 */
-exports.editUserInfo = (req, res, next) => { new normalRequest('api/user/editUserInfo').post(req, res, next); }
+exports.editUserInfo = (req, res, next) => { new normalRequest('/api/user/editUserInfo').post(req, res, next); }
 
 /*
 	获取用户基本信息(api/user/GetUserInfo)
@@ -126,7 +128,7 @@ exports.editUserInfo = (req, res, next) => { new normalRequest('api/user/editUse
 
 		wName   微信昵称
 */
-exports.getUserInfo = (req, res, next) => { new normalRequest('api/user/GetUserInfo').get(req, res, next); }
+exports.getUserInfo = (req, res, next) => { new normalRequest('/api/user/GetUserInfo').get(req, res, next); }
 
 /*
 		留言反馈 (api/user/feedback)
@@ -137,7 +139,7 @@ exports.getUserInfo = (req, res, next) => { new normalRequest('api/user/GetUserI
 		 "contact": "啊实打实大苏打"
 		}
  */
-exports.feedback = (req, res, next) => { new normalRequest('api/user/feedback').post(req, res, next); }
+exports.feedback = (req, res, next) => { new normalRequest('/api/user/feedback').post(req, res, next); }
 
 /*
 		确认订单(api/user/defaultAddressOrderInfo)
@@ -148,7 +150,7 @@ exports.feedback = (req, res, next) => { new normalRequest('api/user/feedback').
 		 "pids": "1635,1769,1770,1638,1751,1711,1752"
 		}
  */
-exports.defaultAddressOrderInfo = (req, res, next) => { new normalRequest('api/user/defaultAddressOrderInfo').post(req, res, next); }
+exports.defaultAddressOrderInfo = (req, res, next) => { new normalRequest('/api/user/defaultAddressOrderInfo').post(req, res, next); }
 
 /*
 		提交订单 (api/user/submitOrder)
@@ -163,7 +165,7 @@ exports.defaultAddressOrderInfo = (req, res, next) => { new normalRequest('api/u
 		 "balance": 0
 		}
  */
-exports.submitOrder = (req, res, next) => { new normalRequest('api/user/submitOrder').post(req, res, next); }
+exports.submitOrder = (req, res, next) => { new normalRequest('/api/user/submitOrder').post(req, res, next); }
 
 
 /*
@@ -175,7 +177,7 @@ exports.submitOrder = (req, res, next) => { new normalRequest('api/user/submitOr
 		 "pagesize": 20
 		}
  */
-exports.couponList = (req, res, next) => { new normalRequest('api/user/couponList').post(req, res, next); }
+exports.couponList = (req, res, next) => { new normalRequest('/api/user/couponList').post(req, res, next); }
 
 /*
 		获取订单可用优惠券(api/user/ValidCouponList)
@@ -186,7 +188,7 @@ exports.couponList = (req, res, next) => { new normalRequest('api/user/couponLis
 		 "pagesize": 20
 		}
  */
-exports.validCouponList = (req, res, next) => { new normalRequest('api/user/ValidCouponList').post(req, res, next); }
+exports.validCouponList = (req, res, next) => { new normalRequest('/api/user/ValidCouponList').post(req, res, next); }
 
 
 /*
@@ -197,7 +199,7 @@ exports.validCouponList = (req, res, next) => { new normalRequest('api/user/Vali
 		 "oid": 3265
 		}
  */
-exports.cancelOrder = (req, res, next) => { new normalRequest('api/user/CancelOrder').post(req, res, next); }
+exports.cancelOrder = (req, res, next) => { new normalRequest('/api/user/CancelOrder').post(req, res, next); }
 
 /*
 		确认收货(api/user/TakeDelivery)
@@ -207,7 +209,7 @@ exports.cancelOrder = (req, res, next) => { new normalRequest('api/user/CancelOr
 		 "oid": 3265
 		}
  */
-exports.takeDelivery = (req, res, next) => { new normalRequest('api/user/TakeDelivery').post(req, res, next); }
+exports.takeDelivery = (req, res, next) => { new normalRequest('/api/user/TakeDelivery').post(req, res, next); }
 
 /*
 		个人中心订单列表(api/user/OrderList)
@@ -219,7 +221,7 @@ exports.takeDelivery = (req, res, next) => { new normalRequest('api/user/TakeDel
 		 "pagesize": 20
 		}
  */
-exports.orderList = (req, res, next) => { new normalRequest('api/user/OrderList').post(req, res, next); }
+exports.orderList = (req, res, next) => { new normalRequest('/api/user/OrderList').post(req, res, next); }
 
 /*
 		订单详情(api/user/orderDetailByOSN)
@@ -229,7 +231,7 @@ exports.orderList = (req, res, next) => { new normalRequest('api/user/OrderList'
 		 "osn": "201606201537591948"
 		}
  */
-exports.orderDetailByOSN = (req, res, next) => { new normalRequest('api/user/orderDetailByOSN').post(req, res, next); }
+exports.orderDetailByOSN = (req, res, next) => { new normalRequest('/api/user/orderDetailByOSN').post(req, res, next); }
 
 /*
 		修改地址后获取运费(api/user/modifyAddressOrderInfo)
@@ -240,7 +242,7 @@ exports.orderDetailByOSN = (req, res, next) => { new normalRequest('api/user/ord
 		 "said": "463"
 		}
  */
-exports.modifyAddressOrderInfo = (req, res, next) => { new normalRequest('api/user/modifyAddressOrderInfo').post(req, res, next); }
+exports.modifyAddressOrderInfo = (req, res, next) => { new normalRequest('/api/user/modifyAddressOrderInfo').post(req, res, next); }
 
 /*
 		申请退款(api/user/ApplyRefund)
@@ -255,4 +257,4 @@ exports.modifyAddressOrderInfo = (req, res, next) => { new normalRequest('api/us
 		 "pid":""
 		}
  */
-exports.applyRefund = (req, res, next) => { new normalRequest('api/user/ApplyRefund').post(req, res, next); }
+exports.applyRefund = (req, res, next) => { new normalRequest('/api/user/ApplyRefund').post(req, res, next); }

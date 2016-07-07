@@ -1,0 +1,10 @@
+$echo-loading-panel-height:12.5rem;
+
+.echo-loading{
+	height: $echo-loading-panel-height;
+	line-height: $echo-loading-panel-height;
+	text-align: center;
+	img{
+		width: 3rem;
+	}
+}

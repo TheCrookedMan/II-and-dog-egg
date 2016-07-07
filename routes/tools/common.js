@@ -31,8 +31,8 @@ exports.toRecord = (data) => {
     for (let key of Object.keys(data)) {
         let v = data[key];
         if (!!v) {
-            map[key] = v['record']
+            map[key] = v
         }
     }
-    return v;
+    return map;
 }
