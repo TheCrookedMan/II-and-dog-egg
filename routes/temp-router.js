@@ -34,5 +34,13 @@ router.get('/template/product/list_gallery.t', [product.productList_link], funct
     });
 })
 
-
+/*
+    个人中心----我的收货地址列表
+ */
+router.get('/template/profile/profile_address.t', [user.receiverList], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/profile/profile_address', {
+        data: record['/api/user/receiverList']
+    });
+})
 module.exports = router;
