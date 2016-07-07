@@ -128,6 +128,12 @@
             position: relative;width: 100%;height: 6rem;text-align: center;font-size: 2rem;font-weight: bold;color: #fff;
             span{
                 position: absolute;z-index: 8;top: 2.2rem;display: inline-block;width: 100%;left: 0;top: 0rem;text-align: center;padding-top: 2.3rem;
+                &.disable{
+                    color:#ababab !important;
+                    em{
+                        color:#ababab !important;
+                    }
+                }
                 em{
                     font-style: italic;margin: 0 0.2rem;
                 }

@@ -229,6 +229,30 @@ router.get('/profile/help.html', (req, res, next) => {
 });
 
 /*
+    如何推广
+ */
+
+router.get('/profile/how_1.html', (req, res, next) => {
+    return res.render('profile/how_1', { title: '如何推广' });
+});
+
+/*
+    如何成为推广大使
+ */
+
+router.get('/profile/how_2.html', (req, res, next) => {
+    return res.render('profile/how_2', { title: '如何成为推广大使' });
+});
+
+/*
+    如何恢复身份
+ */
+
+router.get('/profile/how_3.html', (req, res, next) => {
+    return res.render('profile/how_3', { title: '如何恢复身份' });
+});
+
+/*
     优惠券使用规则
  */
 
