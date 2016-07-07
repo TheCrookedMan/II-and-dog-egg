@@ -27,7 +27,7 @@ router.get('/template/index/index_lett-nav.t', [user.category_link], function(re
 /*
 	商品列表模板
  */
-router.get('/template/product/list_gallery.t', [product.productList], function(req, res, next) {
+router.get('/template/product/list_gallery.t', [product.productList_link], function(req, res, next) {
     let record = common.toRecord(res.data);
     return res.render('../template/product/list_gallery', {
         data: record['/api/Product/ProductList']

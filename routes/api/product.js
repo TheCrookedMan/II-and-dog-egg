@@ -14,6 +14,12 @@ import normalRequest from '../rest/normalRequest';
 exports.productList = (req, res, next) => { new normalRequest('/api/Product/ProductList').post(req, res, next); }
 
 /*
+	产品列表 link 方式获取
+ */
+
+exports.productList_link = (req, res, next) => { new normalRequest('/api/Product/ProductList').link(req, res, next); }
+
+/*
 		商品详情页(api/Product/productDetail)
 		入参：
 		{

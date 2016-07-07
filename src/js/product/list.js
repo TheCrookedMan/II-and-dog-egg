@@ -42,15 +42,16 @@ $(function() {
                 "sortcolumn": self.sortcolumn,
                 "cid": self.categoryId
             }).success(function(data) {
+            	debugger
                 data = data.replace(/(^\s+)|(\s+$)/g, "");
                 if ("" == data) {
                     self.isEnd = true;
                 } else {
                     self.isEnd = false;
                     if (self.pageNo == 1) {
-                        $(".catelog.text-c").html(data);
+                        $("ul.am-gallery").html(data);
                     } else {
-                        $(".catelog.text-c").append(data);
+                        $("ul.am-gallery").append(data);
                     }
                 }
             }).error(function(err) {});

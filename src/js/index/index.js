@@ -1,6 +1,4 @@
 (function() {
-    
-
     $.get('/template/index/index_category.t').success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
         if ("" !== data) {

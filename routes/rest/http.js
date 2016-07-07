@@ -4,18 +4,22 @@
 import qs from 'querystring';
 import $http from 'http';
 import $config from './config';
+import request from 'request';
 export default class rest {
     constructor(url, options, method, success, error) {
-        let jsonObject, optionspost, postheaders, reqPost;
-
-        jsonObject = qs.stringify(options);
+        let jsonObject, optionspost, postheaders, reqPost, contentType = "application/x-www-form-urlencoded";
 
         if ('GET' == method && !!jsonObject) {
+            jsonObject = qs.stringify(options);
             url = url + '?' + jsonObject;
-        } else if ('POST' == method) {}
+        } else if ('POST' == method) {
+            contentType = "application/json";
+            jsonObject = JSON.stringify(options);
+        }
         postheaders = {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Content-Length': jsonObject.length
+            'Content-Type': contentType,
+            'Content-Length': jsonObject.length,
+            'cache-control': 'no-cache',
         };
 
         optionspost = {
@@ -54,5 +58,22 @@ export default class rest {
          */
         reqPost.write(jsonObject);
         reqPost.end();
+    }
+    request(url, params, method, success, error) {
+        let options = {
+            method: method,
+            url: 'http://' + $config.wechat.host + ':' + $config.wechat.post + url,
+            headers: {
+                'cache-control': 'no-cache',
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(params)
+        };
+
+        request(options, function(error, response, body) {
+            if (error) throw new Error(error);
+
+            console.log(body);
+        });
     }
 }
