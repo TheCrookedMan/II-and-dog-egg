@@ -44,7 +44,7 @@ export default class rest {
             res.on('end', (ev) => {
                 console.log("url:::" + url + "::返回数据::" + dataStr);
                 /**
-                 * 如果遇见没有任何返回就结束了，一半是 api 没有启动。
+                 * 如果遇见没有任何返回就结束了，一般是 api 没有启动。
                  */
                 success(dataStr);
             });
