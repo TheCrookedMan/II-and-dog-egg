@@ -5,19 +5,21 @@
 	{% if data['data']%}
 	<div class="list">
 		<ul>
-			{% for list in data['data'] %}
+			{% for list in data['data'].receiverList %}
 			<li class="default">
 				<div class="tit">
-					<span class="fl">小二丫（收）</span>
-					<span class="fr">13918579133</span>
+					<span class="fl">{{ list.Consignee }}</span>
+					<span class="fr">{{list.Mobile}}</span>
 				</div>
-				<div class="area">上海，上海，闵行区，黎安路688号强劲大厦606-608号鹿顶 记</div>
+				<div class="area">{{list.ProvinceName}}，{{list.CityName}}，{{list.CountyName}}，{{list.Address}}</div>
 				<div class="btn">
+					{% if list.isdefault == 1%}
 					<span class="fl">-默认地址</span>
+					{% endif %}
 					<div class="fr">
-						<a href="/profile/address-edit.html"><i class="am-icon-edit"></i>编辑</a>
+						<a href="/profile/address-edit.html?said={{list.said}}"><i class="am-icon-edit"></i>编辑</a>
 						<em>|</em>
-						<a href=""><i class="am-icon-trash-o"></i>删除</a>
+						<a href="javascript:void(0)" data-id="{{list.said}}"><i class="am-icon-trash-o"></i>删除</a>
 					</div>
 				</div>
 			</li>

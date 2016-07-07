@@ -54,7 +54,7 @@ exports.editReceiver = (req, res, next) => { new normalRequest('/api/user/editRe
 		入参
 		{"uid": 380}
  */
-exports.receiverList = (req, res, next) => { new normalRequest('/api/user/receiverList').post(req, res, next); }
+exports.receiverList = (req, res, next) => { new normalRequest('/api/user/receiverList').link(req, res, next); }
 
 
 /*
