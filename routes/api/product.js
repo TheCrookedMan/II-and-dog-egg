@@ -40,3 +40,9 @@ exports.productDetail = (req, res, next) => { new normalRequest('/api/Product/pr
 		}
  */
 exports.homeSearch = (req, res, next) => { new normalRequest('/api/Product/homeSearch').post(req, res, next); }
+
+/*
+	产品搜索 link 方式获取
+ */
+
+exports.homeSearch_link = (req, res, next) => { new normalRequest('/api/Product/homeSearch').link(req, res, next); }

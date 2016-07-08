@@ -109,6 +109,15 @@ router.get('/product/detail.html', (req, res, next) => {
 });
 
 /*
+    产品搜索
+ */
+
+router.get('/product/search.html', (req, res, next) => {
+    let searchkey = req.query.searchkey;
+    return res.render('product/search', { title: '产品搜索' , searchkey: searchkey});
+});
+
+/*
     个人中心
  */
 
