@@ -35,12 +35,33 @@ router.get('/template/product/list_gallery.t', [product.productList_link], funct
 })
 
 /*
+    商品搜索模板
+ */
+router.get('/template/product/list_gallery.t', [product.homeSearch_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/product/list_gallery', {
+        data: record['/api/Product/homeSearch']
+    });
+})
+
+
+/*
     个人中心----我的收货地址列表
  */
 router.get('/template/profile/profile_address.t', [user.receiverList], function(req, res, next) {
     let record = common.toRecord(res.data);
     return res.render('../template/profile/profile_address', {
         data: record['/api/user/receiverList']
+    });
+})
+
+/*
+    个人中心----编辑收货地址
+ */
+router.get('/template/profile/profile_addressEdit.t', [user.editReceiver], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/profile/profile_addressEdit', {
+        data: record['/api/user/editReceiver']
     });
 })
 module.exports = router;

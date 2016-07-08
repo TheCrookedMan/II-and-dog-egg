@@ -109,6 +109,15 @@ router.get('/product/detail.html', (req, res, next) => {
 });
 
 /*
+    产品搜索
+ */
+
+router.get('/product/search.html', (req, res, next) => {
+    let searchkey = req.query.searchkey;
+    return res.render('product/search', { title: '产品搜索' , searchkey: searchkey});
+});
+
+/*
     个人中心
  */
 
@@ -173,10 +182,19 @@ router.get('/profile/bind.html', (req, res, next) => {
 });
 
 /*
+    新增地址
+ */
+
+router.get('/profile/address-add.html', (req, res, next) => {
+    return res.render('profile/address-add', { title: '新增地址' });
+});
+
+/*
     编辑地址
  */
 
 router.get('/profile/address-edit.html', (req, res, next) => {
+    let said = req.query.said;
     return res.render('profile/address-edit', { title: '编辑地址' });
 });
 
