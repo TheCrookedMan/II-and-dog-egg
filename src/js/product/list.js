@@ -66,8 +66,8 @@ $(function() {
 
     echo.init({
         offset: 0,
-        throttle: 250,
-        unload: false,
+        throttle: 100,
+        unload: true,
         callback: function(element, op) {
             $(element).parents(".productList-echo-loading").removeClass("productList-echo-loading");
             console.log(element, 'has been', op + 'ed');

@@ -14,9 +14,9 @@
     }).error(function(err) {});
 
     echo.init({
-        offset: 100,
-        throttle: 250,
-        unload: false,
+        offset: 0,
+        throttle: 100,
+        unload: true,
         callback: function(element, op) {
             $(element).parents(".echo-loading").removeClass("echo-loading");
             console.log(element, 'has been', op + 'ed');

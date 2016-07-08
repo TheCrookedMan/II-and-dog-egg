@@ -9,9 +9,9 @@ export default class rest {
     constructor(url, options, method, success, error) {
         let jsonObject, optionspost, postheaders, reqPost, contentType = "application/x-www-form-urlencoded";
 
-        if ('GET' == method && !!jsonObject) {
-            jsonObject = qs.stringify(options);
-            url = url + '?' + jsonObject;
+        if ('GET' == method) {
+            jsonObject = qs.stringify(options) ;
+            url = !!jsonObject ? (url + '?' + jsonObject) : url;
         } else if ('POST' == method) {
             contentType = "application/json";
             jsonObject = JSON.stringify(options);
