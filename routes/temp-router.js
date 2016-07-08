@@ -43,4 +43,14 @@ router.get('/template/profile/profile_address.t', [user.receiverList], function(
         data: record['/api/user/receiverList']
     });
 })
+
+/*
+    个人中心----编辑收货地址
+ */
+router.get('/template/profile/profile_addressEdit.t', [user.editReceiver], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/profile/profile_addressEdit', {
+        data: record['/api/user/editReceiver']
+    });
+})
 module.exports = router;

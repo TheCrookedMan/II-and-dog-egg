@@ -192,7 +192,10 @@ li.no-data{
 
 .pub_btn{
     font-size:1.6rem;display:block;text-align:center;margin:1rem auto;padding:0.5rem 0;margin-left:1rem;margin-right:1rem;
-    background-color: #000;color: #9bc32e
+    background-color: #000;color: #9bc32e;
+    &:focus{
+        color:#9bc32e !important
+    }
 }
 
 .pub_btng{

@@ -173,10 +173,19 @@ router.get('/profile/bind.html', (req, res, next) => {
 });
 
 /*
+    新增地址
+ */
+
+router.get('/profile/address-add.html', (req, res, next) => {
+    return res.render('profile/address-add', { title: '新增地址' });
+});
+
+/*
     编辑地址
  */
 
 router.get('/profile/address-edit.html', (req, res, next) => {
+    let said = req.query.said;
     return res.render('profile/address-edit', { title: '编辑地址' });
 });
 

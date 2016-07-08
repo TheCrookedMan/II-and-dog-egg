@@ -1,31 +1,7 @@
 {% include "../_partial/head.html" %}
+<input type="hidden" id="said" value="{{said}}">
 <div class="edit_address">
-	<form action="" class="am-form">
-	  <div class="am-form-group">
-	    <input type="text" id="doc-vld-1" minlength="3" placeholder="收件人 " class="am-form-field" required value="" />
-	  </div>
-	  <div class="am-form-group">
-	    <input type="text" id="doc-vld-2" minlength="3" placeholder="联系电话 " class="am-form-field" required/>
-	  </div>
-	  <div class="am-form-group">
-	    <select class="am-form-field">
-	    	<option>安徽省</option>
-	    </select>
-	    <select class="am-form-field">
-	    	<option>宣城市</option>
-	    </select>
-	    <select class="am-form-field">
-	    	<option>宣州区</option>
-	    </select>
-	  </div>
-	  <div class="am-form-group">
-	    <input type="text" id="doc-vld-4" minlength="3" placeholder="详细地址 " class="am-form-field" required/>
-	  </div>
-	  <div class="am-form-group">
-	    <a href="javascript:void(0)" class="btn set-default"><i class="am-icon-circle"></i><i class="am-icon-circle-o"></i>设为默认地址</a>
-	  </div>
-	</form>
-	<a href="javascript:void(0)"  class="pub_btn mt2">确定</a>
+	
 </div>
 {% include "../_partial/foot.html" %}
-<script src="/js/profile/address.js"></script>
+<script src="/js/profile/address_edit.js"></script>
