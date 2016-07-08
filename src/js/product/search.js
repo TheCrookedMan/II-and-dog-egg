@@ -35,7 +35,7 @@ $(function() {
         },
         get: function() {
             var self = this;
-            $.get('/template/product/list_gallery.t', {
+            $.get('/template/product/search_gallery.t', {
                 "page": self.pageNo,
                 "pagesize": self.pageSize,
                 "sortdirection": self.sortdirection,
