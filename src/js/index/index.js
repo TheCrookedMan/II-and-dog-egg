@@ -31,7 +31,8 @@
 
     $form.submit(function(){
         keywords=$("#keywords").val();
-        $form.action='/product/search.html?searchkey="'+keywords+'"'
+        window.location.href='/product/search.html?searchkey="'+keyword+'"';
+        return false;;
     })
 
     $("#oftenKeyword p a").click(function(){
