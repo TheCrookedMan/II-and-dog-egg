@@ -391,7 +391,7 @@ router.get('/cishan/cishan.html', (req, res, next) => {
     return res.render('cishan/cishan', { title: '慈善' });
 });
 
-router.get('*.html', (req, res, next) => {
+router.get('*', (req, res, next) => {
     res.redirect('/index/index.html');
 });
 

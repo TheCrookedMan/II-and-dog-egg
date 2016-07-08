@@ -30,11 +30,31 @@
         </div>
     </div>
 </div>
+<!-- tip... -->
+<div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="tip-modal">
+    <div class="am-modal-dialog">
+        <div class="am-modal-bd">
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
 (function() {
-    var modal = function() {}
+    var modal = function() {
+        this.timer;
+    }
     modal.prototype = {
+        init: function() {
+            $(".am-modal .am-modal-dialog").width("92%");
+            $(".am-modal .am-modal-bd").css('padding', '0px 0px 10px');
+            $(".am-modal .am-modal-bd").css('margin', '0px 40px');
+            $(".am-modal .am-modal-bd").css('font-size', '16px');
+            $(".am-modal .am-modal-bd").css('font-weight', '100');
+            $(".am-modal .am-modal-bd").css('opacity', '.6');
+            $(".am-modal .am-modal-footer span").css('color', '#9bc32e');
+
+        },
         alert: function(params) {
+
             /*
              * params 参数 
              * text, title, callback
@@ -55,9 +75,7 @@
             if (!!params.title) {
                 $('#my-confirm .am-modal-hd').text(params.title);
             }
-            if (!!params.msg) {
-                $('#my-confirm .am-modal-bd').text(params.msg);
-            }
+            $('#my-confirm .am-modal-bd').text(params.text);
             $('#my-confirm').modal({
                 relatedTarget: params.relatedTarget,
                 onConfirm: params.onConfirm,
@@ -66,8 +84,25 @@
         },
         loading: function(string) {
             $("#loading-modal").modal(string);
+        },
+        tip: function(text,time) {
+            $("#tip-modal .am-modal-bd").css('padding', '0px');
+            $("#tip-modal .am-modal-bd").css('margin', '35px 0px');
+
+            var timeoutTime = time;
+            if(!timeoutTime){
+                timeoutTime = 2000;
+            }
+
+            $("#tip-modal .am-modal-bd").text(text);
+            $("#tip-modal").modal('open');
+            clearTimeout(this.timer);
+            this.timer = setTimeout(function() {
+                $("#tip-modal").modal("close");
+            }, timeoutTime);
         }
     }
     this.modal = new modal();
+    this.modal.init();
 }).call(this)
 </script>

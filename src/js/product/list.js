@@ -42,7 +42,6 @@ $(function() {
                 "sortcolumn": self.sortcolumn,
                 "cid": self.categoryId
             }).success(function(data) {
-            	debugger
                 data = data.replace(/(^\s+)|(\s+$)/g, "");
                 if ("" == data) {
                     self.isEnd = true;
@@ -56,12 +55,22 @@ $(function() {
                 }
             }).error(function(err) {});
         },
-        setAttributes: function(sortdirection,sortcolumn) {
-        	this.sortdirection = sortdirection;
-        	this.sortcolumn = sortcolumn;
-        	return this;
+        setAttributes: function(sortdirection, sortcolumn) {
+            this.sortdirection = sortdirection;
+            this.sortcolumn = sortcolumn;
+            return this;
         }
     }
     var productList = new gallery();
     productList.init();
+
+    echo.init({
+        offset: 0,
+        throttle: 100,
+        unload: true,
+        callback: function(element, op) {
+            $(element).parents(".productList-echo-loading").removeClass("productList-echo-loading");
+            console.log(element, 'has been', op + 'ed');
+        }
+    });
 }).call(this)
