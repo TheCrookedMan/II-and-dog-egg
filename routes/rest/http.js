@@ -13,12 +13,12 @@ export default class rest {
             jsonObject = qs.stringify(options) ;
             url = !!jsonObject ? (url + '?' + jsonObject) : url;
         } else if ('POST' == method) {
-            contentType = "application/json";
+            contentType = "application/json; charset=utf-8";
             jsonObject = JSON.stringify(options);
         }
         postheaders = {
             'Content-Type': contentType,
-            'Content-Length': jsonObject.length,
+            // 'Content-Length': jsonObject.length,
             'cache-control': 'no-cache',
         };
 

@@ -137,7 +137,6 @@ router.post('/product/productDetail.post', product.productDetail);
 
 // 搜索
 router.post('/product/homeSearch.post', product.homeSearch);
-router.post('/product/homeSearch.post', product.homeSearch_link);
 
 
 /*
