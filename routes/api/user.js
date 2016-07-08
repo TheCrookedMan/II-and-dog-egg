@@ -128,7 +128,11 @@ exports.editUserInfo = (req, res, next) => { new normalRequest('/api/user/editUs
 
 		wName   微信昵称
 */
-exports.getUserInfo = (req, res, next) => { new normalRequest('/api/user/GetUserInfo').get(req, res, next); }
+exports.getUserInfo = (openid, callback, next) => {
+    new normalRequest('/api/user/GetUserInfo', {
+        OpenID: openid
+    }).normalRequest(callback, next);
+}
 
 /*
 		留言反馈 (api/user/feedback)

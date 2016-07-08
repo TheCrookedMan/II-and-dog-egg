@@ -1,6 +1,8 @@
 import express from 'express';
 import wechatAuth from './api/wechat';
 import { maxAge } from './constants';
+import user from './api/user';
+import config from './rest/config';
 const router = express.Router();
 
 router.get('/wechatAuth.html', (req, res, next) => {
@@ -8,13 +10,14 @@ router.get('/wechatAuth.html', (req, res, next) => {
         redirect_uri = options.state;
     let list = [];
 
-    wechatAuth.accessToken(options.code, function(params) {
+    wechatAuth.accessToken(config.wechat.appId, config.wechat.appsecret, options.code, function(params) {
         let data = JSON.parse(params);
         //没有errcode字段表示请求成功
         if (!data.errcode) {
             let access_token = data.access_token,
                 openid = data.openid;
 
+            console.log("openid:::" + openid);
             res.cookie('openId', openid, { maxAge: maxAge, path: '/' });
             if ("snsapi_userinfo" == data.scope) {
                 wechatAuth.getUserInfo(access_token, openid, function(userinfo) {
@@ -30,12 +33,16 @@ router.get('/wechatAuth.html', (req, res, next) => {
                         /*
                             返回的userinfo信息里面有openid证明请求返回成功
                          */
+                        console.log("wechatUserInfo:::" + userinfo);
                         res.cookie('wechatUserInfo', userinfo, { maxAge: maxAge, path: '/' });
                         res.redirect(redirect_uri);
                     }
                 });
             } else if ("snsapi_base" == data.scope) {
-                res.redirect(redirect_uri);
+                user.getUserInfo(openid, function(data) {
+                    console.log("data:::" + JSON.stringify(data));
+                    res.redirect(redirect_uri);
+                }, next);
             }
         } else {
             //error
@@ -114,7 +121,7 @@ router.get('/product/detail.html', (req, res, next) => {
 
 router.get('/product/search.html', (req, res, next) => {
     let searchkey = req.query.searchkey;
-    return res.render('product/search', { title: '产品搜索' , searchkey: searchkey});
+    return res.render('product/search', { title: '产品搜索', searchkey: searchkey });
 });
 
 /*
