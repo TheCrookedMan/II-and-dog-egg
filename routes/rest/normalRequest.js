@@ -9,9 +9,6 @@ export default class normalRequest {
         if(!this.options){
             this.options = {};
         }
-        if (!this.options.data) {
-            this.options.data = {}
-        }
 
         this.url = url;
     }
@@ -47,10 +44,10 @@ export default class normalRequest {
         }
 
         for (let key of Object.keys(opts)) {
-            this.options.data[key] = opts[key]
+            this.options[key] = opts[key]
         }
 
-        return new http(this.url, this.options.data, 'POST', success, error);
+        return new http(this.url, this.options, 'POST', success, error);
     }
     link_g(req, res, next) {
         let opts, self = this,
@@ -84,9 +81,9 @@ export default class normalRequest {
         }
 
         for (let key of Object.keys(opts)) {
-            this.options.data[key] = opts[key]
+            this.options[key] = opts[key]
         }
-        return new http(this.url, this.options.data, 'GET', success, error);
+        return new http(this.url, this.options, 'GET', success, error);
     }
     post(req, res, ...rest) {
         let opts, self = this,
@@ -133,9 +130,9 @@ export default class normalRequest {
         }
 
         for (let key of Object.keys(opts)) {
-            this.options.data[key] = opts[key]
+            this.options[key] = opts[key]
         }
-        return new http(this.url, this.options.data, 'POST', __success, __error);
+        return new http(this.url, this.options, 'POST', __success, __error);
     }
 
     get(req, res, ...rest) {
@@ -183,8 +180,28 @@ export default class normalRequest {
         }
 
         for (let key of Object.keys(opts)) {
-            this.options.data[key] = opts[key]
+            this.options[key] = opts[key]
         }
-        return new http(this.url, this.options.data, 'GET', __success, __error);
+        return new http(this.url, this.options, 'GET', __success, __error);
+    }
+
+    normalRequest(success, next) {
+        let __success, __error, data;
+        __success = (d) => {
+            if (undefined == d || "" == d) {
+                next({
+                    msg: "服务器异常!"
+                });
+            } else {
+                data = JSON.parse(d);
+                success(data);
+            }
+        }
+        __error = (d) => {
+            next({
+                msg: "网络异常!"
+            });
+        }
+        return new http(this.url, this.options, 'GET', __success, __error);
     }
 }

@@ -16,14 +16,13 @@
     echo.init({
         offset: 0,
         throttle: 100,
-        unload: true,
+        unload: false,
         callback: function(element, op) {
             $(element).parents(".echo-loading").removeClass("echo-loading");
             console.log(element, 'has been', op + 'ed');
         }
     });
-
-
+    
     //搜索
 
     var $tooltip = $('<div id="vld-tooltip">提示信息！</div>');
@@ -64,5 +63,7 @@
         }
     });
 
+
+    // openid:::oLy9ruJlZgr8DmR8NM86JDoV6Ep8
 
 }).call(this)
