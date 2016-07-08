@@ -51,10 +51,8 @@
             $(".am-modal .am-modal-bd").css('font-weight', '100');
             $(".am-modal .am-modal-bd").css('opacity', '.6');
             $(".am-modal .am-modal-footer span").css('color', '#9bc32e');
-
         },
         alert: function(params) {
-
             /*
              * params 参数 
              * text, title, callback
@@ -88,12 +86,10 @@
         tip: function(text,time) {
             $("#tip-modal .am-modal-bd").css('padding', '0px');
             $("#tip-modal .am-modal-bd").css('margin', '35px 0px');
-
             var timeoutTime = time;
             if(!timeoutTime){
                 timeoutTime = 2000;
             }
-
             $("#tip-modal .am-modal-bd").text(text);
             $("#tip-modal").modal('open');
             clearTimeout(this.timer);
