@@ -219,6 +219,12 @@ li.no-data{
 .pub_more{
     text-align:center;padding:1rem 0;font-size:1.4rem;
 }
+
+#tip-modal  {
+    .am-modal-dialog{
+        border-radius:5px !important;background: rgba(0,0,0,0.5) !important;color: #fff !important;font-size: 1.4rem !important
+    }
+}
 /*字体*/
 @font-face {
     font-family: 'icomoon';
