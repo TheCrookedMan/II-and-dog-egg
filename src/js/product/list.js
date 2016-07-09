@@ -1,9 +1,4 @@
 (function() {
-
-    // $('.am-popup-bd dl dt a').on("click", function() {　　　　
-    //     $(this).parent().siblings().toggle();
-    //     $(this).parents('dl').siblings().children('dd').slideUp()　　
-    // });
     $("#keyword").click(function() {
         $(this).siblings('.search').show();
     })
@@ -52,6 +47,22 @@
     gallery.prototype = {
         init: function() {
             var self = this;
+            $.get('/template/product/list_gallery.t', {
+                "page": self.pageNo,
+                "pagesize": self.pageSize,
+                "sortdirection": self.sortdirection,
+                "sortcolumn": self.sortcolumn,
+                "cid": self.categoryId
+            }).success(function(data) {
+                data = data.replace(/(^\s+)|(\s+$)/g, "");
+                if ("" == data) {
+                   var str='<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>'
+                    $("ul.am-gallery").html(str);
+                    
+                } else {
+                   
+                }
+            }).error(function(err) {});
             self.get();
             scroll.on(function() {
                 if (!self.isEnd) {
@@ -74,6 +85,7 @@
                 data = data.replace(/(^\s+)|(\s+$)/g, "");
                 if ("" == data) {
                     self.isEnd = true;
+
                 } else {
                     self.isEnd = false;
                     if (self.pageNo == 1) {
