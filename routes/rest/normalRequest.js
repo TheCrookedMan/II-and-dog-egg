@@ -6,8 +6,12 @@ export default class normalRequest {
             throw new Error('请求URL不能为空！');
         }
         this.options = options;
-        if(!this.options){
+        if (!this.options) {
             this.options = {};
+        }
+
+        if (!this.options.params) {
+            this.options.params = {};
         }
 
         this.url = url;
@@ -44,10 +48,10 @@ export default class normalRequest {
         }
 
         for (let key of Object.keys(opts)) {
-            this.options[key] = opts[key]
+            this.options.params[key] = opts[key]
         }
 
-        return new http(this.url, this.options, 'POST', success, error);
+        return new http(this.options.host, this.options.post).rest(this.url, this.options.params, 'POST', success, error);
     }
     link_g(req, res, next) {
         let opts, self = this,
@@ -81,9 +85,9 @@ export default class normalRequest {
         }
 
         for (let key of Object.keys(opts)) {
-            this.options[key] = opts[key]
+            this.options.params[key] = opts[key]
         }
-        return new http(this.url, this.options, 'GET', success, error);
+        return new http(this.options.host, this.options.post).rest(this.url, this.options.params, 'GET', success, error);
     }
     post(req, res, ...rest) {
         let opts, self = this,
@@ -103,13 +107,7 @@ export default class normalRequest {
             if (typeof success === "function") {
                 success(data);
             } else {
-                let array = data.record === void 0 ? {} : data.record;
-                return res.status(200).send({
-                    'data': array,
-                    'success': data.isSuccess,
-                    'msg': data.msg,
-                    'code': data.code
-                });
+                return res.status(200).send(data);
             }
         }
         __error = (d) => {
@@ -130,9 +128,9 @@ export default class normalRequest {
         }
 
         for (let key of Object.keys(opts)) {
-            this.options[key] = opts[key]
+            this.options.params[key] = opts[key]
         }
-        return new http(this.url, this.options, 'POST', __success, __error);
+        return new http(this.options.host, this.options.post).rest(this.url, this.options.params, 'POST', __success, __error);
     }
 
     get(req, res, ...rest) {
@@ -153,13 +151,7 @@ export default class normalRequest {
             if (typeof success === "function") {
                 success(data);
             } else {
-                let array = data.record === void 0 ? {} : data.record;
-                return res.status(200).send({
-                    'data': array,
-                    'success': data.isSuccess,
-                    'msg': data.msg,
-                    'code': data.code
-                });
+                return res.status(200).send(data);
             }
         }
         __error = (d) => {
@@ -180,9 +172,9 @@ export default class normalRequest {
         }
 
         for (let key of Object.keys(opts)) {
-            this.options[key] = opts[key]
+            this.options.params[key] = opts[key]
         }
-        return new http(this.url, this.options, 'GET', __success, __error);
+        return new http(this.options.host, this.options.post).rest(this.url, this.options.params, 'GET', __success, __error);
     }
 
     normalRequest(success, next) {
@@ -202,6 +194,7 @@ export default class normalRequest {
                 msg: "网络异常!"
             });
         }
-        return new http(this.url, this.options, 'GET', __success, __error);
+
+        return new http(this.options.host, this.options.post).rest(this.url, this.options.params, 'GET', __success, __error);
     }
 }

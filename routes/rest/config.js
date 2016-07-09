@@ -8,6 +8,8 @@ if ("dev" == argv) {
         'host':'203.156.219.94',
         /* REST 接口 服务器端口 */
         'post':'5698',
+        /* 推广接口 服务器端口 */
+        'distributionPost':'8123',
         /* 图片显示前缀 */
         'imageAddress': '',
         /* 图片服务器 地址 */
@@ -25,6 +27,8 @@ if ("dev" == argv) {
         'host':'203.156.219.94',
         /* REST 接口 服务器端口 */
         'post':'5698',
+        /* 推广接口 服务器端口 */
+        'distributionPost':'8123',
         /* 图片显示前缀 */
         'imageAddress': '',
         /* 图片服务器 地址 */

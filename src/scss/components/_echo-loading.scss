@@ -4,15 +4,17 @@ $echo-loading-panel-height:12.5rem;
 	height: $echo-loading-panel-height;
 	line-height: $echo-loading-panel-height;
 	text-align: center;
-	img{
-		width: 3rem;
-	}
 }
 
 .productList-echo-loading{
+	a{
+		display: block;
+		// height: $echo-loading-panel-height;
+		text-align: center;
 
+	}
 	img{
-		// width: 3rem !important;
-		    padding: 6rem;
+		width: auto!important;
+		padding: $echo-loading-panel-height/2;
 	}
 }

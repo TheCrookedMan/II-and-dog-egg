@@ -1,4 +1,6 @@
 import normalRequest from '../rest/normalRequest';
+import config from '../rest/config';
+let distributionPost = config.wechat.distributionPost;
 
 /*
 		本月任务完成百分比接口 （api/Distribution/MonthTask）
@@ -9,7 +11,7 @@ import normalRequest from '../rest/normalRequest';
 
 			IsComplete  是否完成   True ：是　 False :否
  */
-exports.monthTask = (req, res, next) => { new normalRequest('/api/Distribution/MonthTask').get(req, res, next); }
+exports.monthTask = (req, res, next) => { new normalRequest('/api/Distribution/MonthTask', { post: distributionPost }).get(req, res, next); }
 
 /*
 		我的推广费/可提现金额 （api/Distribution/CommitionMoney）
@@ -20,7 +22,7 @@ exports.monthTask = (req, res, next) => { new normalRequest('/api/Distribution/M
 
 			WithdrawMoney  可提现金额
  */
-exports.commitionMoney = (req, res, next) => { new normalRequest('/api/Distribution/CommitionMoney').get(req, res, next); }
+exports.commitionMoney = (req, res, next) => { new normalRequest('/api/Distribution/CommitionMoney', { post: distributionPost }).get(req, res, next); }
 
 /*
 		推广费首页接口 （api/Distribution/GetIncome）
@@ -37,7 +39,7 @@ exports.commitionMoney = (req, res, next) => { new normalRequest('/api/Distribut
 
 			FrozenMoney   冻结推广费
  */
-exports.getIncome = (req, res, next) => { new normalRequest('/api/Distribution/GetIncome').get(req, res, next); }
+exports.getIncome = (req, res, next) => { new normalRequest('/api/Distribution/GetIncome', { post: distributionPost }).get(req, res, next); }
 
 /*
 		支付宝提现申请接口 （api/Distribution/WithdrawalApply）
@@ -61,7 +63,7 @@ exports.getIncome = (req, res, next) => { new normalRequest('/api/Distribution/G
 		说明：提现次数满则返回：
 			{"code":"1", "message":"成功！", "data":{"IsLimit":true}  }
  */
-exports.withdrawalApply = (req, res, next) => { new normalRequest('/api/Distribution/WithdrawalApply').post(req, res, next); }
+exports.withdrawalApply = (req, res, next) => { new normalRequest('/api/Distribution/WithdrawalApply', { post: distributionPost }).post(req, res, next); }
 
 /*
 		设置（更新）提现安全码  ( api/Distribution/SetSecurityCode )
@@ -73,7 +75,7 @@ exports.withdrawalApply = (req, res, next) => { new normalRequest('/api/Distribu
 		回参：
 			{"code":"1", "message":"成功！"  }
  */
-exports.setSecurityCode = (req, res, next) => { new normalRequest('/api/Distribution/SetSecurityCode').post(req, res, next); }
+exports.setSecurityCode = (req, res, next) => { new normalRequest('/api/Distribution/SetSecurityCode', { post: distributionPost }).post(req, res, next); }
 
 
 
@@ -133,7 +135,7 @@ exports.setSecurityCode = (req, res, next) => { new normalRequest('/api/Distribu
 			    message = "成功";
 			}
  */
-exports.commissionDrawList = (req, res, next) => { new normalRequest('/api/Distribution/CommissionDrawList').get(req, res, next); }
+exports.commissionDrawList = (req, res, next) => { new normalRequest('/api/Distribution/CommissionDrawList', { post: distributionPost }).get(req, res, next); }
 
 /*
 		三级推广团队的团队人数汇总接口 （ api/Distribution/GetLowerLevelCount ）
@@ -147,7 +149,7 @@ exports.commissionDrawList = (req, res, next) => { new normalRequest('/api/Distr
 
 			Normal   普通会员人数
  */
-exports.getLowerLevelCount = (req, res, next) => { new normalRequest('/api/Distribution/GetLowerLevelCount').get(req, res, next); }
+exports.getLowerLevelCount = (req, res, next) => { new normalRequest('/api/Distribution/GetLowerLevelCount', { post: distributionPost }).get(req, res, next); }
 
 
 /*
@@ -163,7 +165,7 @@ exports.getLowerLevelCount = (req, res, next) => { new normalRequest('/api/Distr
 			{"code":"1", "message":"成功", "data":[{"wImage":null,"wName":null,"Identity":"推广大使","BeAgentTime":"\/Date(-62135596800000)\/"},{"wImage":null,"wName":null,"Identity":"推广大使","BeAgentTime":"\/Date(-62135596800000)\/"}]  }
 
  */
-exports.getLowerLevelDetail = (req, res, next) => { new normalRequest('/api/Distribution/GetLowerLevelDetail').get(req, res, next); }
+exports.getLowerLevelDetail = (req, res, next) => { new normalRequest('/api/Distribution/GetLowerLevelDetail', { post: distributionPost }).get(req, res, next); }
 
 /*
 		下级销量统计 （ api/Distribution/GetSalesCount ）
@@ -175,7 +177,7 @@ exports.getLowerLevelDetail = (req, res, next) => { new normalRequest('/api/Dist
 			totalSales   下级总销量
 			totalCommission    合计佣金
  */
-exports.getSalesCount = (req, res, next) => { new normalRequest('/api/Distribution/GetSalesCount').get(req, res, next); }
+exports.getSalesCount = (req, res, next) => { new normalRequest('/api/Distribution/GetSalesCount', { post: distributionPost }).get(req, res, next); }
 
 /*
 		下级每月销量统计 （ api/Distribution/GetSalesByMounth ）
@@ -196,7 +198,7 @@ exports.getSalesCount = (req, res, next) => { new normalRequest('/api/Distributi
 
 			Commission   抽取佣金
  */
-exports.getSalesByMounth = (req, res, next) => { new normalRequest('/api/Distribution/GetSalesByMounth').get(req, res, next); }
+exports.getSalesByMounth = (req, res, next) => { new normalRequest('/api/Distribution/GetSalesByMounth', { post: distributionPost }).get(req, res, next); }
 
 /*
 		验证安全码是否正确 （ api/Distribution/CheckSetSecurityCode ）
@@ -213,7 +215,7 @@ exports.getSalesByMounth = (req, res, next) => { new normalRequest('/api/Distrib
 			IsCheck		验证结果
 
  */
-exports.checkSetSecurityCode = (req, res, next) => { new normalRequest('/api/Distribution/CheckSetSecurityCode').get(req, res, next); }
+exports.checkSetSecurityCode = (req, res, next) => { new normalRequest('/api/Distribution/CheckSetSecurityCode', { post: distributionPost }).get(req, res, next); }
 
 
 /*
@@ -234,5 +236,4 @@ exports.checkSetSecurityCode = (req, res, next) => { new normalRequest('/api/Dis
 			{"code":"1", "message":"成功"}
 
  */
-exports.appBind = (req, res, next) => { new normalRequest('/api/Distribution/AppBind').post(req, res, next); }
-
+exports.appBind = (req, res, next) => { new normalRequest('/api/Distribution/AppBind', { post: distributionPost }).post(req, res, next); }

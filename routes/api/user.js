@@ -130,7 +130,7 @@ exports.editUserInfo = (req, res, next) => { new normalRequest('/api/user/editUs
 */
 exports.getUserInfo = (openid, callback, next) => {
     new normalRequest('/api/user/GetUserInfo', {
-        OpenID: openid
+        data: { OpenID: openid }
     }).normalRequest(callback, next);
 }
 

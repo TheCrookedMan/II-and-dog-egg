@@ -14,8 +14,8 @@
     }).error(function(err) {});
 
     echo.init({
-        offset: 0,
-        throttle: 100,
+        offset: 100,
+        throttle: 250,
         unload: false,
         callback: function(element, op) {
             $(element).parents(".echo-loading").removeClass("echo-loading");

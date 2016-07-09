@@ -94,9 +94,9 @@
     productList.init();
 
     echo.init({
-        offset: 0,
-        throttle: 100,
-        unload: true,
+        offset: 100,
+        throttle: 250,
+        unload: false,
         callback: function(element, op) {
             $(element).parents(".productList-echo-loading").removeClass("productList-echo-loading");
             console.log(element, 'has been', op + 'ed');
