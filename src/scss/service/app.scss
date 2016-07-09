@@ -157,9 +157,13 @@ p {
 }
 
 li.no-data{
-    width:100% !important;display:inline-block;text-align:center;font-size:1.8rem;color:#959595;position: relative;top: 10%;margin-top: 10rem;
+    width:100% !important;display:inline-block;text-align:center;font-size:1.8rem;
+    position: relative;top: 10%;margin-top: 10rem;
+    p{
+        font-size: 1.4rem;color:#959595 !important;
+    }
     img{
-        width:30% !important;margin-bottom:1rem;
+        width:22% !important;margin-bottom:1rem;
     }
 }
 .pub_basket{

@@ -8,8 +8,10 @@
         <a href="javascript:void(0)" data-am-modal="{target: '#search'}" class="fl">列表页<i class="am-icon-angle-down"></i></a>
         <a href="javascript:void(0)" class="fr" id="keyword"><i class="am-icon-search"></i></a>
         <div class="search">
-            <input type="text">
-            <a href="javascript:void(0)"><img src="/img/quxiao@3x.png"></a>
+            <form id="searchForm" method='get' action="">
+                <input type="text" id="keywords"> 
+                <a href="javascript:void(0)" id="deltxt"><img src="/img/quxiao@3x.png"></a>
+            </form>
         </div>
     </header>
     <div class="tab">
@@ -114,67 +116,8 @@
         <div class="am-popup-hd">
             <a data-am-modal-close href="javascript:void(0)" data-am-modal="{target: '#search'}">列表页<i class="am-icon-angle-up"></i></a>
         </div>
-        <div class="am-popup-bd">
-            <dl>
-                <dt><a href="javascript:void(0)">蔬菜瓜果</a></dt>
-                <dd>
-                    <a href="#">所有商品</a>
-                    <a href="#">豆类</a>
-                    <a href="#">根茎类</a>
-                    <a href="#">葱蒜类</a>
-                    <a href="#">茄果类</a>
-                </dd>
-            </dl>
-            <dl>
-                <dt><a href="javascript:void(0)">肉禽蛋品</a></dt>
-                <dd>
-                    <a href="#">所有商品</a>
-                    <a href="#">豆类</a>
-                    <a href="#">根茎类</a>
-                    <a href="#">葱蒜类</a>
-                    <a href="#">茄果类</a>
-                </dd>
-            </dl>
-            <dl>
-                <dt><a href="javascript:void(0)">水产河鲜</a></dt>
-                <dd>
-                    <a href="#">所有商品</a>
-                    <a href="#">豆类</a>
-                    <a href="#">根茎类</a>
-                    <a href="#">葱蒜类</a>
-                    <a href="#">茄果类</a>
-                </dd>
-            </dl>
-            <dl>
-                <dt><a href="javascript:void(0)">粮油副食</a></dt>
-                <dd>
-                    <a href="#">所有商品</a>
-                    <a href="#">豆类</a>
-                    <a href="#">根茎类</a>
-                    <a href="#">葱蒜类</a>
-                    <a href="#">茄果类</a>
-                </dd>
-            </dl>
-            <dl>
-                <dt><a href="javascript:void(0)">腌制干货</a></dt>
-                <dd>
-                    <a href="#">所有商品</a>
-                    <a href="#">豆类</a>
-                    <a href="#">根茎类</a>
-                    <a href="#">葱蒜类</a>
-                    <a href="#">茄果类</a>
-                </dd>
-            </dl>
-            <dl>
-                <dt><a href="javascript:void(0)">宅配套餐</a></dt>
-                <dd>
-                    <a href="#">所有商品</a>
-                    <a href="#">豆类</a>
-                    <a href="#">根茎类</a>
-                    <a href="#">葱蒜类</a>
-                    <a href="#">茄果类</a>
-                </dd>
-            </dl>
+        <div class="am-popup-bd" id="listNav">
+
         </div>
     </div>
 </div>

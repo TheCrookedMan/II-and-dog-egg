@@ -1,7 +1,8 @@
- {% if "1" == data['code'] && !!data['data'] %} {% for product in data['data']['porList'] %}
+ {% if "1" == data['code'] && !!data['data'] %} 
+ {% for product in data['data']['porList'] %}
  <li>
     <div class="am-gallery-item productList-echo-loading">
-        <a href="#">
+        <a href="/product/detail.html?pid={{product.pid}}">
             <img src="/img/ajax-loader.gif" alt="{{product.Name}}" data-echo="{{product.Image}}">
             <h3 class="am-gallery-title">{{product.Name}}</h3>
             <!-- <p>550g</p> -->
@@ -9,4 +10,10 @@
         </a>
     </div>
 </li>
- {% endfor %} {% endif %}
+{% endfor %}
+{% elseif "1" == data['code'] && !data['data'] %} 
+<li class="no-data">
+	<p><img src="/img/em3.png"></p>
+	<p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p>
+</li>
+{% endif %}

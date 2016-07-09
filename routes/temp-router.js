@@ -35,6 +35,16 @@ router.get('/template/product/list_gallery.t', [product.productList_link], funct
 })
 
 /*
+    商品列表分类模板
+ */
+router.get('/template/product/list_nav.t', [user.category_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/product/list_nav', {
+        data: record['/api/user/category']
+    });
+})
+
+/*
     商品搜索模板
  */
 router.get('/template/product/search_gallery.t', [product.homeSearch_link], function(req, res, next) {

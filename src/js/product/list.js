@@ -1,17 +1,46 @@
-$(function() {
-    $('.am-popup-bd dl dt a').on("click", function() {　　　　
-        $(this).parent().siblings().toggle();
-        $(this).parents('dl').siblings().children('dd').slideUp()　　
-    });
+(function() {
+
+    // $('.am-popup-bd dl dt a').on("click", function() {　　　　
+    //     $(this).parent().siblings().toggle();
+    //     $(this).parents('dl').siblings().children('dd').slideUp()　　
+    // });
     $("#keyword").click(function() {
         $(this).siblings('.search').show();
     })
-    $('.search a').on("click", function() {　　　　 $(this).parent().hide()　　 });
 
-});
+    $.get('/template/product/list_nav.t').success(function(data) {
+        data = data.replace(/(^\s+)|(\s+$)/g, "");
+        if ("" !== data) {
+            $("#listNav").html(data);
+        }
+    }).error(function(err) {});
 
+    //搜索
 
-(function() {
+    var $form = $('#searchForm');
+    var keywords;
+
+    $form.submit(function() {
+        keywords = $("#keywords").val();
+        window.location.href = '/product/search.html?searchkey=' + $.trim(keywords);
+        return false;
+    })
+
+    $("#keywords").change(function(){
+      var content = $(this).val(); 
+      if($.trim(content) == ''){
+        $(this).siblings().hide()
+      }
+      else{
+        $(this).siblings().show();
+      }
+    });
+
+    $("#deltxt").on('click',function(){
+        $(this).parents(".search").hide();
+        $(this).siblings().val('')
+    })
+
     function gallery() {
         this.pageNo = 1;
         this.pageSize = 20;
