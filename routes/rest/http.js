@@ -6,11 +6,15 @@ import $http from 'http';
 import $config from './config';
 
 export default class rest {
-    constructor(url, options, method, success, error) {
+    constructor(host, post) {
+        this.host = !!host ? host : $config.wechat.host;
+        this.post = !!post ? post : $config.wechat.post;
+    }
+    rest(url, options, method, success, error) {
         let jsonObject, optionspost, postheaders, reqPost, contentType = "application/x-www-form-urlencoded";
 
         if ('GET' == method) {
-            jsonObject = qs.stringify(options) ;
+            jsonObject = qs.stringify(options);
             url = !!jsonObject ? (url + '?' + jsonObject) : url;
         } else if ('POST' == method) {
             contentType = "application/json; charset=utf-8";
@@ -23,8 +27,8 @@ export default class rest {
         };
 
         optionspost = {
-            'host': $config.wechat.host,
-            'port': $config.wechat.post,
+            'host': this.host,
+            'port': this.post,
             'path': url,
             'method': method,
             'headers': postheaders

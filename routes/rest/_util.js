@@ -9,6 +9,9 @@ export default class Rest {
         if (!this.options.data) {
             this.options.data = {}
         }
+        if (!this.options.method) {
+            this.options.method = "POST";
+        }
         this.functionCode = options.functionCode;
     }
     _getRestUrl(funCode) {
@@ -80,9 +83,9 @@ export default class Rest {
         }
 
         url = this._getRestUrl(this.functionCode);
-        return new http(url, this.options.data, 'POST', success, error);
+        return new http(url, this.options.data, this.options.method, success, error);
     }
-    post(req, res, ...rest) {
+    basic(req, res, ...rest) {
         let opts, self = this,
             url, __success, __error;
 
@@ -100,13 +103,14 @@ export default class Rest {
             if (typeof success === "function") {
                 success(data);
             } else {
-                let array = data.record === void 0 ? {} : data.record;
-                return res.status(200).send({
-                    'data': array,
-                    'success': data.isSuccess,
-                    'msg': data.msg,
-                    'code': data.code
-                });
+                // let array = data.record === void 0 ? {} : data.record;
+                // return res.status(200).send({
+                //     'data': array,
+                //     'success': data.isSuccess,
+                //     'msg': data.msg,
+                //     'code': data.code
+                // });
+                return res.status(200).send(data);
             }
         }
         __error = (d) => {
@@ -130,58 +134,7 @@ export default class Rest {
             this.options.data[key] = opts[key]
         }
         url = this._getRestUrl(this.functionCode);
-        return new http(url, this.options.data, 'POST', __success, __error);
-    }
-
-    get(req, res, ...rest) {
-        let opts, self = this,
-            url, __success, __error;
-
-        let [next, success, error] = rest;
-
-        __success = (d) => {
-            let $list, data;
-            if (undefined == d || "" == d) {
-                next({
-                    msg: "服务器异常!"
-                });
-            } else {
-                data = JSON.parse(d);
-            }
-            if (typeof success === "function") {
-                success(data);
-            } else {
-                let array = data.record === void 0 ? {} : data.record;
-                return res.status(200).send({
-                    'data': array,
-                    'success': data.isSuccess,
-                    'msg': data.msg,
-                    'code': data.code
-                });
-            }
-        }
-        __error = (d) => {
-            if (typeof error == "function") {
-                error(d);
-            } else {
-                next({
-                    msg: "网络异常!"
-                });
-            }
-        }
-        if (!!req && "GET" == req.method) {
-            opts = req.query;
-        } else if (!!req && "POST" == req.method) {
-            opts = req.body;
-        } else {
-            opts = {};
-        }
-
-        for (let key of Object.keys(opts)) {
-            this.options.data[key] = opts[key]
-        }
-        url = this._getRestUrl(this.functionCode);
-        return new http(url, this.options.data, 'GET', __success, __error);
+        return new http(url, this.options.data, this.options.method, __success, __error);
     }
 
     normalRequest(success, next) {
@@ -202,7 +155,7 @@ export default class Rest {
                 msg: "网络异常!"
             });
         }
-        return new http(url, this.options.data, 'POST', __success, __error);
+        return new http(url, this.options.data, this.options.method, __success, __error);
     }
     _getSetting(functioncode) {
         return {
