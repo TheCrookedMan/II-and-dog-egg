@@ -4,6 +4,7 @@ import { maxAge } from './constants';
 import user from './api/user';
 import config from './rest/config';
 import distribution from './api/distribution';
+import common from './tools/common';
 const router = express.Router();
 
 router.get('/wechatAuth.html', (req, res, next) => {
@@ -355,7 +356,7 @@ router.get('/basket/order.html', (req, res, next) => {
     健康推广大使
  */
 
-router.get('/sale/index.html',(req, res, next) => {
+router.get('/sale/index.html', (req, res, next) => {
     return res.render('sale/index', { title: '健康推广大使' });
 });
 
@@ -387,8 +388,9 @@ router.get('/sale/sale.html', (req, res, next) => {
     会员列表
  */
 
-router.get('/sale/team-detail.html', (req, res, next) => {
-    return res.render('sale/team-detail', { title: '会员列表' });
+router.get('/sale/team-detail.html', [distribution.getLowerLevelDetail], (req, res, next) => {
+    let record = common.toRecord(res.data);
+    return res.render('sale/team-detail', { title: '会员列表', data: record['/api/Distribution/GetLowerLevelDetail'] });
 });
 
 /*

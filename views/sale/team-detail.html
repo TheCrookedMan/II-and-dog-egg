@@ -1,71 +1,80 @@
 {% include "../_partial/head.html" %}
 <style type="text/css">
-	body{
-		background: #fff;
-	}
+body {
+    background: #fff;
+}
 </style>
 <div class="mySale">
-	<div class="memberList">
-		<div id="letter" ></div>
-		<div class="sort_box">
-			<div class="sort_list">
-				<div class="num_logo"><img src="/img/test1.jpg" /></div>
-				<div class="num_name">a白白</div>
-				<div class="num_time">2015-12-11 14:23:56加入</div>
-			</div>
-			<div class="sort_list">
-				<div class="num_logo"><img src="/img/test1.jpg" /></div>
-				<div class="num_name">a白白</div>
-				<div class="num_time">2015-12-11 14:23:56加入</div>
-			</div>
-		    <div class="sort_list">
-				<div class="num_logo"><img src="/img/test1.jpg" /></div>
-				<div class="num_name">b白白</div>
-				<div class="num_time">2015-12-11 14:23:56加入</div>
-			</div>
-			<div class="sort_list">
-				<div class="num_logo"><img src="/img/test1.jpg" /></div>
-				<div class="num_name">c白白</div>
-				<div class="num_time">2015-12-11 14:23:56加入</div>
-			</div>
-			<div class="sort_list">
-				<div class="num_logo"><img src="/img/test1.jpg" /></div>
-				<div class="num_name">d白白</div>
-				<div class="num_time">2015-12-11 14:23:56加入</div>
-			</div>
-			<div class="sort_list">
-				<div class="num_logo"><img src="/img/test1.jpg" /></div>
-				<div class="num_name">e白白</div>
-				<div class="num_time">2015-12-11 14:23:56加入</div>
-			</div>
-			<div class="sort_list">
-				<div class="num_logo"><img src="/img/test1.jpg" /></div>
-				<div class="num_name">f白白</div>
-				<div class="num_time">2015-12-11 14:23:56加入</div>
-			</div>
-			<div class="sort_list">
-				<div class="num_logo"><img src="/img/test1.jpg" /></div>
-				<div class="num_name">g白白</div>
-				<div class="num_time">2015-12-11 14:23:56加入</div>
-			</div>
-			<div class="sort_list">
-				<div class="num_logo"><img src="/img/test1.jpg" /></div>
-				<div class="num_name">h白白</div>
-				<div class="num_time">2015-12-11 14:23:56加入</div>
-			</div>
-			<div class="sort_list">
-				<div class="num_logo"><img src="/img/test1.jpg" /></div>
-				<div class="num_name">i白白</div>
-				<div class="num_time">2015-12-11 14:23:56加入</div>
-			</div>
-		</div>
-		<div class="pub_more">-没有更多了-</div>
-		<div class="initials">
-			<ul>
-				<a><li><img src="/img/068.png"></li></a>
-			</ul>
-		</div>
-	</div>
+    <div class="memberList">
+        <div id="letter"></div>
+        <div class="sort_box">
+        {% for detail in data %}
+        		<div class="sort_list">
+                <div class="num_logo"><img src="{{detail.wImage}}" /></div>
+                <div class="num_name">{{detail.wName}}</div>
+                <div class="num_time">{{detail.BeAgentTime}}加入</div>
+            </div>
+        {% endfor %}
+            <!-- <div class="sort_list">
+                <div class="num_logo"><img src="/img/test1.jpg" /></div>
+                <div class="num_name">a白白</div>
+                <div class="num_time">2015-12-11 14:23:56加入</div>
+            </div>
+            <div class="sort_list">
+                <div class="num_logo"><img src="/img/test1.jpg" /></div>
+                <div class="num_name">a白白</div>
+                <div class="num_time">2015-12-11 14:23:56加入</div>
+            </div>
+            <div class="sort_list">
+                <div class="num_logo"><img src="/img/test1.jpg" /></div>
+                <div class="num_name">b白白</div>
+                <div class="num_time">2015-12-11 14:23:56加入</div>
+            </div>
+            <div class="sort_list">
+                <div class="num_logo"><img src="/img/test1.jpg" /></div>
+                <div class="num_name">c白白</div>
+                <div class="num_time">2015-12-11 14:23:56加入</div>
+            </div>
+            <div class="sort_list">
+                <div class="num_logo"><img src="/img/test1.jpg" /></div>
+                <div class="num_name">d白白</div>
+                <div class="num_time">2015-12-11 14:23:56加入</div>
+            </div>
+            <div class="sort_list">
+                <div class="num_logo"><img src="/img/test1.jpg" /></div>
+                <div class="num_name">e白白</div>
+                <div class="num_time">2015-12-11 14:23:56加入</div>
+            </div>
+            <div class="sort_list">
+                <div class="num_logo"><img src="/img/test1.jpg" /></div>
+                <div class="num_name">f白白</div>
+                <div class="num_time">2015-12-11 14:23:56加入</div>
+            </div>
+            <div class="sort_list">
+                <div class="num_logo"><img src="/img/test1.jpg" /></div>
+                <div class="num_name">g白白</div>
+                <div class="num_time">2015-12-11 14:23:56加入</div>
+            </div>
+            <div class="sort_list">
+                <div class="num_logo"><img src="/img/test1.jpg" /></div>
+                <div class="num_name">h白白</div>
+                <div class="num_time">2015-12-11 14:23:56加入</div>
+            </div>
+            <div class="sort_list">
+                <div class="num_logo"><img src="/img/test1.jpg" /></div>
+                <div class="num_name">i白白</div>
+                <div class="num_time">2015-12-11 14:23:56加入</div>
+            </div> -->
+        </div>
+        <div class="pub_more">-没有更多了-</div>
+        <div class="initials">
+            <ul>
+                <a>
+                    <li><img src="/img/068.png"></li>
+                </a>
+            </ul>
+        </div>
+    </div>
 </div>
 {% include "../_partial/foot.html" %}
 <script src="/js/sale/jquery.charfirst.pinyin.js"></script>
