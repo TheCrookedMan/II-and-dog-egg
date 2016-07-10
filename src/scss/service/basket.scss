@@ -132,8 +132,13 @@
 
 .basket_foot{
 	background-color: #fff;border:0;min-height: auto;height: auto;
+    &.active{
+        .cu{
+            display:inline-block;
+        }
+    }
 	.cu{
-		width: 100%;background-color: #9bc32e;padding: 0.5rem 0;
+		width: 100%;background-color: #9bc32e;padding: 0.5rem 0;display:none;
 		i{
 			margin-left: 1rem;font-size: 1.4rem;color: #fff;background-color: #000;
 			border-radius: 3px;display: inline-block;width: 1.8rem;
