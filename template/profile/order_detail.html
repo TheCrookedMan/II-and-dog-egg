@@ -1,0 +1,114 @@
+<div class="order_ok order_detail">
+  <div class="list">
+    <div class="title">
+      <div class="fl">
+        <h2>未付款{{ data['data'].orderStatus }}</h2>
+      </div>
+    </div>
+    <div class="con">
+      <div class="tit">
+          <span class="fl">{{ data['data'].consignee }}</span>
+          <span class="fl">{{ data['data'].mobile }}</span>
+      </div>
+      <div class="area mt05">{{ data['data'].address }}</div>
+      <div class="priceList">
+        <div class="l">
+          <span class="col-grey fl">订单编号</span>
+          <span class="col-grey fr">{{ data['data'].OSN }}</span>
+        </div>
+        <div class="l">
+          <span class="col-grey fl">订单时间</span>
+          <span class="col-grey fr">{{ data['data'].addTime }}</span>
+        </div>
+      </div>
+      <div class="priceList">
+          <span class="col-grey fl">订单状态<em>{{ data['data'].orderStatusTitle }}</em></span>
+          <span class="col-grey fr"><a href="#" class="ship"><i class="am-icon-truck"></i><em>|</em>跟踪它</a></span>
+      </div>
+      <div class="priceList">
+          <span class="col-grey fl">订单状态</span>
+          <span class="col-grey fr">{{ data['data'].orderStatusTitle }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="list">
+    <ul class="list-ul">
+        {% for list in data['data'].proList %}
+        <li class="list-li">
+             <div class="detail">
+                  <img src="{{list.proImg}}">
+                  <div class="txt">
+                    <div class="tit">{{list.proName}}</div>
+                    <div class="spec">{{list.proDetail}}</div>
+                    <div class="fr">
+                      <em>x</em>{{list.number}}
+                     </div>
+                    <div class="price">￥{{list.proPrice}}<em>￥{{list.marketPrice}}</em></div>
+                  </div>
+             </div>
+         </li>
+        {% endfor %}
+    </ul>
+    <div class="more">
+      <a href="#">
+        <p>查看其它6件商品</p>
+        <p><i class="am-icon-chevron-down"></i></p>
+      </a>
+    </div>
+  </div>
+
+  <div class="list">
+    <a href="/basket/invoice.html">
+      <div class="title">
+        <div class="fl">
+          <h2>发票信息</h2>
+        </div>
+        <div class="con">
+          <div class="fl">
+            <span class="col-grey col-0">{{ data['data'].InvoiceTitle }}</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="list">
+    <div class="title">
+      <div class="fl">
+          <h2>备注</h2>
+        </div>
+    </div>
+    <div class="con">
+      <div class="fl">
+        <span class="col-grey">{{ data['data'].pRemark }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="list">
+    <div class="title">
+      <div class="fl">
+          <h2>订单汇总</h2>
+        </div>
+    </div>
+    <div class="con">
+      <div class="priceList">
+        <span class="col-grey fl">商品总价</span>
+        <span class="col-grey fr">¥ {{ data['data'].productamount }}</span>
+      </div>
+      <div class="priceList">
+        <span class="col-grey fl">优惠券</span>
+        <span class="col-grey fr">¥ {{ data['data'].couponmoney }}</span>
+      </div>
+      <div class="priceList">
+        <span class="col-grey fl">运费</span>
+        <span class="col-grey fr">¥ {{ data['data'].expenses }}</span>
+      </div> 
+    </div>
+    <div class="total">
+      <span class="fl col-grey">合计</span>
+      <span class="fr col-grey">￥{{ data['data'].surplusmoney }}</span>
+    </div>
+  </div>
+</div>
+<header class="am-topbar am-topbar-fixed-bottom detail_foot bge bd0">
+  <a href="javascript:void(0)"  class="btn buy">去付款</a>
+</header>

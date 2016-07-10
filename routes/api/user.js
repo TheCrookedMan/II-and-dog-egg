@@ -229,6 +229,8 @@ exports.takeDelivery = (req, res, next) => { new normalRequest('/api/user/TakeDe
  */
 exports.orderList = (req, res, next) => { new normalRequest('/api/user/OrderList').post(req, res, next); }
 
+exports.orderList_link = (req, res, next) => { new normalRequest('/api/user/OrderList').link(req, res, next); }
+
 /*
 		订单详情(api/user/orderDetailByOSN)
 		入参：
@@ -238,7 +240,7 @@ exports.orderList = (req, res, next) => { new normalRequest('/api/user/OrderList
 		}
  */
 exports.orderDetailByOSN = (req, res, next) => { new normalRequest('/api/user/orderDetailByOSN').post(req, res, next); }
-
+exports.orderDetailByOSN_link = (req, res, next) => { new normalRequest('/api/user/orderDetailByOSN').link(req, res, next); }
 /*
 		修改地址后获取运费(api/user/modifyAddressOrderInfo)
 		入参：

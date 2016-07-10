@@ -3,50 +3,20 @@
 	<div class="tab">
 		<ul>
 			<li>
-				<a href="javascript:void(0)" class="cur">待付款</a>
+				<a href="javascript:void(0)" class="cur" data-id="0">待付款</a>
 			</li>
 			<li>
-				<a href="javascript:void(0)">配送中</a>
+				<a href="javascript:void(0)" data-id="1">配送中</a>
 			</li>
 			<li>
-				<a href="javascript:void(0)">已完成</a>
+				<a href="javascript:void(0)" data-id="3">已完成</a>
 			</li>
 			<li>
-				<a href="javascript:void(0)">已取消</a>
+				<a href="javascript:void(0)" data-id="2">已取消</a>
 			</li>
 		</ul>
 	</div>
-	<div class="plist">
-	  <div class="total">
-	      <span class="fl col-grey">2015-09-19 23:15:00</span>
-	      <span class="fr col-grey">合计：¥ 5893.56</span>
-	    </div>
-      <a href="/profile/order-detail.html">
-        <img src="/img/test1.jpg">
-        <img src="/img/test1.jpg">
-        <img src="/img/test1.jpg">
-        <img src="/img/test1.jpg">
-        <div class="r">
-        	<p><em>共99件</em><i class="am-icon-angle-right"></i></p>
-        	<a href="#" class="btn">去支付</a>
-        </div>
-      </a>
-    </div>
-    <div class="plist">
-	  <div class="total">
-	      <span class="fl col-grey">2015-09-19 23:15:00</span>
-	      <span class="fr col-grey">合计：¥ 5893.56</span>
-	    </div>
-      <a href="/profile/order-detail.html">
-        <img src="/img/test1.jpg">
-        <img src="/img/test1.jpg">
-        <img src="/img/test1.jpg">
-        <img src="/img/test1.jpg">
-        <div class="r">
-        	<p><em>共99件</em><i class="am-icon-angle-right"></i></p>
-        	<a href="#" class="btn">去支付</a>
-        </div>
-      </a>
-    </div>
+	<div id="list"></div>
 </div>
 {% include "../_partial/foot.html" %}
+<script src="/js/profile/order.js"></script>

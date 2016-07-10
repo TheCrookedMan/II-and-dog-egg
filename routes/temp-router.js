@@ -105,4 +105,54 @@ router.get('/template/profile/profile_coupon.t', [user.couponList_link], functio
         data: record['/api/user/couponList']
     });
 })
+
+/*
+    个人中心----我的订单未付款
+ */
+router.get('/template/profile/order_noPay.t', [user.orderList_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/profile/order_noPay', {
+        data: record['/api/user/OrderList']
+    });
+})
+
+/*
+    个人中心----我的订单配送中
+ */
+router.get('/template/profile/order_shiping.t', [user.orderList_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/profile/order_shiping', {
+        data: record['/api/user/OrderList']
+    });
+})
+
+/*
+    个人中心----我的订单已完成
+ */
+router.get('/template/profile/order_done.t', [user.orderList_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/profile/order_done', {
+        data: record['/api/user/OrderList']
+    });
+})
+
+/*
+    个人中心----我的订单已取消
+ */
+router.get('/template/profile/order_cancel.t', [user.orderList_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/profile/order_cancel', {
+        data: record['/api/user/OrderList']
+    });
+})
+
+/*
+    个人中心----我的订单详情
+ */
+router.get('/template/profile/order_detail.t', [user.orderDetailByOSN_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/profile/order_detail', {
+        data: record['/api/user/orderDetailByOSN']
+    });
+})
 module.exports = router;

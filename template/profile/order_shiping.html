@@ -1,0 +1,24 @@
+{% if data['data']%}
+{% for list in data['data'] %}
+<div class="plist">
+  <div class="total">
+      <span class="fl col-grey">{{list.oTime}}</span>
+      <span class="fr col-grey">合计：¥ {{list.oAmount}}</span>
+    </div>
+  <a href="/profile/order-detail.html?OSN={{list.OSN}}">
+    {% for img in list.pImgUrls %}
+    <img src="{{img}}">
+    {% endfor %}
+    <div class="r">
+      <p><em>共{{list.pNum}}件</em><i class="am-icon-angle-right"></i></p>
+      <span class="btn">{{list.oStatusTitle}}</span>
+    </div>
+  </a>
+</div>
+{% endfor %}
+{% else %}
+<div class="pub_noData">
+    <p><img src="/img/em2.png"></p>
+    <p>没有地址狗蛋不知道往哪送哦！</p>
+</div>
+{% endif %}
