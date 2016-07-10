@@ -1,0 +1,16 @@
+{% if "1" == data['code'] %} {% for category in data['data'] %}
+<dl>
+    <dt><a href="/product/list.html?categoryId={{category.fid}}">{{category.fTitle}}</a></dt>
+    <!-- {% if category.secondCategoryArray.length > 0 %}
+    {% for secondCategory in category.secondCategoryArray %}
+    <dd>
+        <a href="#">所有商品</a>
+        <a href="#">豆类</a>
+        <a href="#">根茎类</a>
+        <a href="#">葱蒜类</a>
+        <a href="#">茄果类</a>
+    </dd>
+    {% endfor %}
+    {% endif%} -->
+</dl>
+{% endfor %} {% endif %}

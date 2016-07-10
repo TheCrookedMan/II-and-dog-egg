@@ -1,17 +1,42 @@
-$(function() {
-    $('.am-popup-bd dl dt a').on("click", function() {　　　　
-        $(this).parent().siblings().toggle();
-        $(this).parents('dl').siblings().children('dd').slideUp()　　
-    });
+(function() {
+
     $("#keyword").click(function() {
         $(this).siblings('.search').show();
     })
-    $('.search a').on("click", function() {　　　　 $(this).parent().hide()　　 });
 
-});
+    $.get('/template/product/list_nav.t').success(function(data) {
+        data = data.replace(/(^\s+)|(\s+$)/g, "");
+        if ("" !== data) {
+            $("#listNav").html(data);
+        }
+    }).error(function(err) {});
 
+    //搜索
 
-(function() {
+    var $form = $('#searchForm');
+    var keywords;
+
+    $form.submit(function() {
+        keywords = $("#keywords").val();
+        window.location.href = '/product/search.html?searchkey=' + $.trim(keywords);
+        return false;
+    })
+
+    $("#keywords").change(function(){
+      var content = $(this).val(); 
+      if($.trim(content) == ''){
+        $(this).siblings().hide()
+      }
+      else{
+        $(this).siblings().show();
+      }
+    });
+
+    $("#deltxt").on('click',function(){
+        $(this).parents(".search").hide();
+        $(this).siblings().val('')
+    })
+
     function gallery() {
         this.pageNo = 1;
         this.pageSize = 20;
@@ -23,6 +48,22 @@ $(function() {
     gallery.prototype = {
         init: function() {
             var self = this;
+            $.get('/template/product/search_gallery.t', {
+                "page": self.pageNo,
+                "pagesize": self.pageSize,
+                "sortdirection": self.sortdirection,
+                "sortcolumn": self.sortcolumn,
+                "searchkey": self.searchkey
+            }).success(function(data) {
+                data = data.replace(/(^\s+)|(\s+$)/g, "");
+                if ("" == data) {
+                   var str='<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>'
+                    $("ul.am-gallery").html(str);
+                    
+                } else {
+                   
+                }
+            }).error(function(err) {});
             self.get();
             scroll.on(function() {
                 if (!self.isEnd) {
@@ -45,6 +86,7 @@ $(function() {
                 data = data.replace(/(^\s+)|(\s+$)/g, "");
                 if ("" == data) {
                     self.isEnd = true;
+
                 } else {
                     self.isEnd = false;
                     if (self.pageNo == 1) {

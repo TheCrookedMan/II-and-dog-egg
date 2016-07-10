@@ -30,14 +30,28 @@
 
     $form.submit(function() {
         keywords = $("#keywords").val();
-        window.location.href = '/product/search.html?searchkey=' + keywords;
+        window.location.href = '/product/search.html?searchkey=' + $.trim(keywords);
         return false;
+    })
+
+    $("#keywords").change(function(){
+      var content = $(this).val(); 
+      if($.trim(content) == ''){
+        $(this).siblings().hide()
+      }
+      else{
+        $(this).siblings().show();
+      }
+    });
+
+    $("#deltxt").on('click',function(){
+        $(this).hide();
+        $(this).siblings().val('')
     })
 
     $("#oftenKeyword p a").click(function() {
         var keyword = $(this).data("id");
-        console.log(keyword);
-        window.location.href = '/product/search.html?searchkey=' + keyword;
+        window.location.href = '/product/search.html?searchkey=' + $.trim(keyword);
     });
 
     // openid:::oLy9ruJlZgr8DmR8NM86JDoV6Ep8

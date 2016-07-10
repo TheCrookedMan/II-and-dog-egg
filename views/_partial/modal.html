@@ -84,8 +84,10 @@
             $("#loading-modal").modal(string);
         },
         tip: function(text,time) {
-            $("#tip-modal .am-modal-bd").css('padding', '0px');
-            $("#tip-modal .am-modal-bd").css('margin', '35px 0px');
+            $("#tip-modal .am-modal-dialog").css('width','auto');
+            $("#tip-modal .am-modal-bd").css('opacity',1);
+            $("#tip-modal .am-modal-bd").css('padding', '0px 10px');
+            $("#tip-modal .am-modal-bd").css('margin', '5px 0px');
             var timeoutTime = time;
             if(!timeoutTime){
                 timeoutTime = 2000;

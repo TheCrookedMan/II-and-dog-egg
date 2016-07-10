@@ -1,4 +1,7 @@
 {% include "../_partial/head.html" %}
+<script type="text/javascript">
+	var pid = "{{pid}}";
+</script>
 <div class="index detail">
 	<!-- Header -->
 	<header class="am-topbar am-topbar-fixed-top bg0" >
@@ -7,59 +10,35 @@
 
 	<!-- Slider -->
 	<div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{"directionNav":false}'>
-	  <ul class="am-slides">
-	    <li>
-	      <a href="/index/h5.html"><img src="/img/test1.jpg"></a>
-	    </li>
-	    <li>
-	      <a href="/index/h5.html"><img src="/img/test1.jpg"></a>
-	    </li>
-	    <li>
-	      <a href="/index/h5.html"><img src="/img/test1.jpg"></a>
-	    </li>
-	    <li>
-	      <a href="/index/h5.html"><img src="/img/test1.jpg"></a>
-	    </li>
+	  <ul class="am-slides" id="imgs">
+	    
 	  </ul>
-	  <a href="#" class="media"><i class="am-icon-caret-left"></i></a>
+	  <a href="javascript:void(0)" class="media" id="media" data-id="0"><i class="am-icon-caret-left"></i></a>
 	</div>
 
 	<div class="info">
-		<h2>万佛山农户放养牛肉牛腩万佛山农户放养牛肉牛腩万佛山农户放养牛肉牛腩</h2>
-		<div class="price">￥89.90</div>
+		<h2 id="Name"></h2>
+		<div class="price" id="ShopPrice"></div>
 		<div class="spec">
-			<span>牛腩/500g</span>
-			<span>牛腩/500g</span>
-			<span>牛腩/500g</span>
-			<span>牛腩/500g</span>
-			<span>牛腩/500g</span>
-			<span>牛腩/500g</span>
-			<span>牛腩/500g</span>
-			<span>牛腩/500g</span>
-			<span>牛腩/500g</span>
+			<span id="weight"></span>
 		</div>
 		<div class="num">
-			<span class="fl">库存：159</span>
-			<span class="fr">安徽</span>
+			<span class="fl">库存：<em id="StockNum"></em></span>
+			<span class="fr" id="shipAddres">安徽</span>
 		</div>
 		<div class="ps">
 			<div class="time">
 				<i class="am-icon-clock-o"></i><span>仅剩时间：<em>08:16:15</em></span>
 			</div>
-			<div class="txt">
-				二丫狗蛋自家院子种植，充足光照，自然种植，家高山奶油草莓
-	园，无污染，无公害种植，更甜！更香！绝对的新鲜，奶油味更
-	足！让你的生活更美好，赶快邀请你的朋友，带上你的家人，来
-	品尝吧！
+			<div class="txt" id="title">
+				
 			</div>
 		</div>
 	</div>
 
 	<div class="select">
-		<a href="javascript:void(0)" data-am-modal="{target: '#my-actions'}">
-			<em>“10ｋｇ”“牛腩”</em><em>“10ｋｇ”“牛腩”</em>
-			<em>“10ｋｇ”“牛腩”</em><em>“10ｋｇ”“牛腩”</em>
-			<em>“10ｋｇ”“牛腩”</em><em>“10ｋｇ”“牛腩”</em>
+		<a href="javascript:void(0)"  id="openmodel">
+			<span id="selected">已选择：</span>
 		</a>
 		<i class="am-icon-angle-right"></i>
 	</div>
@@ -68,24 +47,18 @@
 		<span>继续拖动，查看图文详情</span>
 	</div>
 
-	<!-- <div class="am-panel am-panel-default nav-tab" data-am-scrollspy="{animation: 'fade'}">
+	<div class="am-panel am-panel-default nav-tab" data-am-scrollspy="{animation: 'fade'}">
 		<a href="javascript:void(0)" class="cur" data-id="pic">图文说</a>
 	  	<span>|</span>
 	  	<a href="javascript:void(0)" data-id="tips">小提示</a>
-	</div> -->
+	</div>
 
 	<div class="con">
-		<div class="pic">
-			<img src="/img/test2.jpg">
-		</div>
 		<div class="tips">
-			<p><img src="/img/eryalogo@2x.png"></p>
-			<p class="title">｜产地｜</p>
-			<p>上海</p>
-			<p class="title">｜保质期｜</p>
-			<p>冷冻5个月</p>
-			<p class="title">｜储存条件｜</p>
-			<p>0℃一下储存</p>
+			<p id="tips"><img src="/img/eryalogo@2x.png"></p>
+		</div>
+		<div class="pic" id="Description">
+			
 		</div>
 	</div>
 </div>
@@ -95,33 +68,22 @@
 
 
 <header class="am-topbar am-topbar-fixed-bottom detail_foot">
-  <a href="javascript:void(0)"  class="btn buy">加入菜篮子</a>
-  <!-- <a href="javascript:void(0)"  class="btn disable">即将开始</a> -->
+  
 </header>
 
 <div class="am-modal-actions pdetail_modal" id="my-actions">
   <div class="am-modal-actions-group">
   	<div class="pinfo">
-  		<img src="/img/test1.jpg">
+  		<img src="" id="skuImg">
   		<div class="info">
-  			<p class="price">￥89.90</p>
-  			<p>已选：15g</p>
+  			<p class="price txt-l" id="skuPrice"></p>
+  			<p>已选：<em id="skuSelected"></em></p>
   		</div>
   		<a href="javascript:void(0)" data-am-modal-close class="close"><i class="am-icon-remove"></i></a>
   	</div>
-  	<div class="select">
-  		<dl>
-  			<dt>规格</dt>
-  			<dd>
-  				<a href="#">10g</a><a href="#" class="cur">10g</a><a href="#">10g</a><a href="#">10g</a>
-  			</dd>
-  		</dl>
-  		<dl>
-  			<dt>部位</dt>
-  			<dd>
-  				<a href="#">牛尾</a><a href="#" class="disable">牛尾</a><a href="#">牛尾</a><a href="#">牛尾</a>
-  			</dd>
-  		</dl>
+  	<div class="select" id="sku">
+  		
+
   	</div>
   </div>
 </div>

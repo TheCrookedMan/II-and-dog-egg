@@ -29,6 +29,15 @@ exports.productList_link = (req, res, next) => { new normalRequest('/api/Product
 exports.productDetail = (req, res, next) => { new normalRequest('/api/Product/productDetail').post(req, res, next); }
 
 /*
+		商品详情页(api/Product/productDetail)
+		入参：
+		{
+		 "pid": 1733
+		}
+ */
+exports.productDetail_link = (req, res, next) => { new normalRequest('/api/Product/productDetail').link(req, res, next); }
+
+/*
 		搜索(api/Product/homeSearch)
 		入参：
 		{

@@ -114,7 +114,8 @@ router.get('/product/list.html', (req, res, next) => {
  */
 
 router.get('/product/detail.html', (req, res, next) => {
-    return res.render('product/detail', { title: '产品详情' });
+    let pid = req.query.pid;
+    return res.render('product/detail', { title: '产品详情' , pid: pid });
 });
 
 /*
