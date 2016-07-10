@@ -1,6 +1,6 @@
 (function() {
 
-    
+
     $.get('/template/basket/basket_list.t', { "uid": 9 }).success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
         if ("" !== data) {
@@ -18,8 +18,14 @@
             $("#total").toggleClass("active");　　
         });
 
-        $('.list-li').touchwipe({ itemDelete: '.btn' });
+        $('.list-li').touchwipe({
+            wipeLeft: function() {
+                console.log("left");
+                console.log("right");
+            },
+            wipeRight: function() {}
+        });
     }).error(function(err) {});
 
-   
+
 }).call(this)
