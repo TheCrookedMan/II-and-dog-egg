@@ -165,7 +165,7 @@ exports.getLowerLevelCount = (req, res, next) => { new normalRequest('/api/Distr
 			{"code":"1", "message":"成功", "data":[{"wImage":null,"wName":null,"Identity":"推广大使","BeAgentTime":"\/Date(-62135596800000)\/"},{"wImage":null,"wName":null,"Identity":"推广大使","BeAgentTime":"\/Date(-62135596800000)\/"}]  }
 
  */
-exports.getLowerLevelDetail = (req, res, next) => { new normalRequest('/api/Distribution/GetLowerLevelDetail', { post: distributionPost }).get(req, res, next); }
+exports.getLowerLevelDetail = (req, res, next) => { new normalRequest('/api/Distribution/GetLowerLevelDetail', { post: distributionPost }).link_g(req, res, next); }
 
 /*
 		下级销量统计 （ api/Distribution/GetSalesCount ）

@@ -1,3 +1,87 @@
-.distribution-price-info{
-	
+.distribution-price-info {
+    $totalPrice-height-px: 300px;
+    $totalPrice-height: rem-calc($totalPrice-height-px);
+    .totalCommission {
+        background-color: white;
+        .t1 {
+            padding: 10px 20px;
+            color: $gray;
+            font-size: $font-size-xxl;
+        }
+        .t2 {
+            padding: 10px 20px;
+            color: $gray;
+            font-size: $font-size-xl;
+            text-align: right;
+        }
+        .totalPrice {
+            height: $totalPrice-height;
+            line-height: $totalPrice-height;
+            color: $main-font-color;
+            text-align: center;
+            .bPirce {
+                font-size: rem-calc(64);
+            }
+            .sPirce {
+                font-size: rem-calc(46);
+            }
+        }
+        .todayPrice {
+            padding: 0px 28px 10px;
+            text-align: right;
+            font-size: $font-size-lg;
+        }
+    }
+    .other {
+        position: absolute;
+        width: 100%;
+        background-color: white;
+        margin-top: 12px;
+        $little-span-height-px: 300px;
+        $little-span-height: rem-calc($little-span-height-px);
+        ul {
+            position: relative;
+            padding: 0;
+            li {
+                width: 50%;
+                display: inline-block;
+                float: left;
+                height: $little-span-height;
+            }
+        }
+        .Cashed {
+            text-align: center;
+            margin-top: 10%;
+            height: 80%;
+            padding: 40% 0;
+            border-left: 1px solid #bdbdbd;
+            .title {
+                color: $gray;
+                font-size: $font-size-xxl;
+                span {
+                    bottom: 0rem;
+                }
+            }
+            .CashedPrice {
+                color: $black;
+            }
+        }
+        .other-2 {
+            margin-top: 10%;
+            margin-left: 10%;
+            height: 80%;
+            width: 80%;
+            text-align: center;
+            position: relative;
+            .FrozenMoney{
+            	padding-top: rem-calc(40px);
+            	height: 50%;
+            	border-bottom:  1px solid #bdbdbd;
+            }
+            .WithdrawMoney{
+            	padding-top: rem-calc(40px);
+            	height: 50%;
+            }
+        }
+    }
 }

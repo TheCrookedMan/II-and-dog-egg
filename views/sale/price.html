@@ -1,8 +1,36 @@
 {% include "../_partial/head.html" %}
 <section class="distribution-price-info">
-<div class="totalCommission">
-	<p>所有收入（元）</p>
-	<div class="price"></div>
-</div>
+    <div class="totalCommission">
+        <p class="t1">所有收入（元）</p>
+        <div class="totalPrice">
+            <span class="bPirce">0</span>
+            <span class="sPirce"></span>
+        </div>
+        <p class="t2">今日收益（元）</p>
+        <p class="todayPrice">0</p>
+    </div>
+    <div class="other">
+        <ul>
+            <li>
+                <div class="other-2">
+                    <div class="FrozenMoney">
+                        <p>冻结中收益（元）</p>
+                        <p class="price">0</p>
+                    </div>
+                    <div class="WithdrawMoney">
+                        <p>可提现收益（元）</p>
+                        <p class="price">0</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="Cashed">
+                    <p class="title"><span>已提现收益（元）</span></p>
+                    <p class="CashedPrice">0</p>
+                </div>
+            </li>
+        </ul>
+    </div>
 </section>
 {% include "../_partial/footer.html" %} {% include "../_partial/foot.html" %}
+<script src="/js/sale/Income.js"></script>
