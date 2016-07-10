@@ -3,6 +3,7 @@ const router = express.Router();
 import common from './tools/common';
 import user from './api/user';
 import product from './api/product';
+import cart from './api/cart';
 
 /*
 	index 分类模板页
@@ -61,6 +62,16 @@ router.get('/template/product/search_gallery.t', [product.homeSearch_link], func
     let record = common.toRecord(res.data);
     return res.render('../template/product/search_gallery', {
         data: record['/api/Product/homeSearch']
+    });
+})
+
+/*
+    我的购物车
+ */
+router.get('/template/basket/basket_list.t', [cart.cartFullList_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/basket/basket_list', {
+        data: record['/api/Cart/CartFullList']
     });
 })
 

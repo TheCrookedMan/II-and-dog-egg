@@ -19,6 +19,8 @@ exports.addProdToCart = (req, res, next) => { new normalRequest('/api/Cart/AddPr
  */
 exports.cartFullList = (req, res, next) => { new normalRequest('/api/Cart/CartFullList').post(req, res, next); }
 
+exports.cartFullList_link = (req, res, next) => { new normalRequest('/api/Cart/CartFullList').link(req, res, next); }
+
 /*
 		编辑购物车(api/Cart/EditCart)
 		入参：

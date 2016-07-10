@@ -7,86 +7,15 @@
 <div class="basket_bag">
 	<section class="list">
 		<ul class="list-ul">
-		     <li id="li" class="list-li">
-		         <div class="con">
-		             <div class="fl">
-		             	<a href="javascript:void(0)" class="set-default"><i class="am-icon-circle"></i><i class="am-icon-circle-o"></i></a>
-		             	<img src="/img/test1.jpg">
-		             	<div class="txt">
-		             		<div class="tit">甜掉牙的河边奶油莓甜掉牙的河边奶油莓</div>
-		             		<div class="spec">30kg/黑鲢30kg/黑鲢30kg/黑鲢30kg/黑鲢</div>
-		             		<div class="price">￥3569.20</div>
-		             	</div>
-		             </div>
-		             <div class="fr">
-		             	<em>x</em>99
-		             </div>
-		         </div>
-		         <div class="btn">
-		         	<div class="num">
-		         		<a href="javascript:void(0)">-</a>
-		         		<input type="text" value="1">
-		         		<a href="javascript:void(0)">+</a>
-		         	</div>
-		         	<div class="del">
-		         		<a href="javascript:void(0)"><i class="am-icon-trash-o"></i></a>
-		         	</div>
-		         </div>
-		     </li>
-		     <li class="list-li">
-		         <div class="con">
-		             <div class="fl">
-		             	<a href="javascript:void(0)" class="set-default"><i class="am-icon-circle"></i><i class="am-icon-circle-o"></i></a>
-		             	<img src="/img/test1.jpg">
-		             	<div class="txt">
-		             		<div class="tit">甜掉牙的河边奶油莓甜掉牙的河边奶油莓</div>
-		             		<div class="spec">30kg/黑鲢30kg/黑鲢30kg/黑鲢30kg/黑鲢</div>
-		             		<div class="price">￥3569.20</div>
-		             	</div>
-		             </div>
-		             <div class="fr">
-		             	<em>x</em>99
-		             </div>
-		         </div>
-		         <div class="btn">
-		         	<div class="num">
-		         		<a href="javascript:void(0)">-</a>
-		         		<input type="text" value="1">
-		         		<a href="javascript:void(0)">+</a>
-		         	</div>
-		         	<div class="del">
-		         		<a href="javascript:void(0)"><i class="am-icon-trash-o"></i></a>
-		         	</div>
-		         </div>
-		     </li>
-		     <li class="list-li disable">
-		         <div class="con">
-		             <div class="fl">
-		             	<img src="/img/test1.jpg">
-		             	<div class="txt">
-		             		<div class="tit">甜掉牙的河边奶油莓甜掉牙的河边奶油莓</div>
-		             		<div class="tips">失效</div>
-		             	</div>
-		             </div>
-		             <div class="fr">
-		             	
-		             </div>
-		         </div>
-		         <div class="btn">
-		         	<div class="num">
-		         		<a href="javascript:void(0)">-</a>
-		         		<input type="text" value="1">
-		         		<a href="javascript:void(0)">+</a>
-		         	</div>
-		         	<div class="del">
-		         		<a href="javascript:void(0)"><i class="am-icon-trash-o"></i></a>
-		         	</div>
-		         </div>
-		     </li>
+		     
+		     
+		     
 		</ul>
 	</section>
 </div>
-<header class="am-topbar am-topbar-fixed-bottom detail_foot basket_foot">
+
+
+<header class="am-topbar am-topbar-fixed-bottom detail_foot basket_foot" id="total">
   <div class="cu">
   	<i>促</i><em>满299元，即享包邮！</em>
   </div>
@@ -103,11 +32,11 @@
 
 
 <div class="pub_noData bge">
-	<p><a href="#"><img src="/img/em4.png"></a></p>
+	<p><img src="/img/em4.png"></p>
 	<p>首页有惊喜，快去添加吧！</p>
 	<p><a href="/index/index.html" class="link">去逛逛</a></p>
 </div>
-
+{% include "../_partial/foot.html" %}
 <script type="text/javascript" src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
 <script src="/js/basket/jquery.mobile-1.4.3.min.js"></script>
 <script src="/js/basket/basket.js"></script>
