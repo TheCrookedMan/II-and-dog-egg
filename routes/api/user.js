@@ -183,6 +183,8 @@ exports.submitOrder = (req, res, next) => { new normalRequest('/api/user/submitO
  */
 exports.couponList = (req, res, next) => { new normalRequest('/api/user/couponList').post(req, res, next); }
 
+exports.couponList_link = (req, res, next) => { new normalRequest('/api/user/couponList').link(req, res, next); }
+
 /*
 		获取订单可用优惠券(api/user/ValidCouponList)
 		入参：

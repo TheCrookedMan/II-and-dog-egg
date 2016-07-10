@@ -95,4 +95,14 @@ router.get('/template/profile/profile_addressEdit.t', [user.editReceiver], funct
         data: record['/api/user/editReceiver']
     });
 })
+
+/*
+    个人中心----我的优惠券列表
+ */
+router.get('/template/profile/profile_coupon.t', [user.couponList_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/profile/profile_coupon', {
+        data: record['/api/user/couponList']
+    });
+})
 module.exports = router;
