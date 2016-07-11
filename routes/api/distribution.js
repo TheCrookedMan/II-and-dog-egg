@@ -198,7 +198,7 @@ exports.getSalesCount = (req, res, next) => { new normalRequest('/api/Distributi
 
 			Commission   抽取佣金
  */
-exports.getSalesByMounth = (req, res, next) => { new normalRequest('/api/Distribution/GetSalesByMounth', { post: distributionPost }).get(req, res, next); }
+exports.getSalesByMounth = (req, res, next) => { new normalRequest('/api/Distribution/GetSalesByMounth', { post: distributionPost }).link_g(req, res, next); }
 
 /*
 		验证安全码是否正确 （ api/Distribution/CheckSetSecurityCode ）

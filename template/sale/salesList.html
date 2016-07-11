@@ -1,0 +1,62 @@
+{% for list in data.data %}
+{% set Amount1 = list.Lv1.Amount %}
+{% set Amount2 = list.Lv2.Amount %}
+{% set Amount3 = list.Lv3.Amount %}
+
+{% set AmountTotal = Amount1 + Amount2 + Amount3 %}
+
+{% set Commission1 = list.Lv1.Commission %}
+{% set Commission2 = list.Lv2.Commission %}
+{% set Commission3 = list.Lv3.Commission %}
+
+{% set CommissionTotal = Commission1 + Commission2 + Commission3 %}
+
+<table>
+    <tbody>
+        <tr>
+            <th class="moth" colspan="2">{{list.month}}</th>
+        </tr>
+        <tr class="bg">
+            <th class="txt-l">一级健康推广大使及普通会员</th>
+            <th class="col-z txt-r">比例:{{list.Lv1.percent}}</th>
+        </tr>
+        <tr>
+            <td class="txt-c">消费金额 (元）</td>
+            <td class="txt-c">抽取佣金 （元）</td>
+        </tr>
+        <tr>
+            <td class="txt-c">{{Amount1.toFixed(2)}}</td>
+            <td class="txt-c">{{Commission1.toFixed(2)}}</td>
+        </tr>
+        <tr class="bg">
+            <th class="txt-l">二级健康推广大使及普通会员</th>
+            <th class="col-z txt-r">比例:{{list.Lv2.percent}}</th>
+        </tr>
+        <tr>
+            <td class="txt-c">消费金额 (元）</td>
+            <td class="txt-c">抽取佣金 （元）</td>
+        </tr>
+        <tr>
+            <td class="txt-c">{{Amount2.toFixed(2)}}</td>
+            <td class="txt-c">{{Commission2.toFixed(2)}}</td>
+        </tr>
+        <tr class="bg">
+            <th class="txt-l">三级健康推广大使及普通会员</th>
+            <th class="col-z txt-r">比例:{{list.Lv3.percent}}</th>
+        </tr>
+        <tr>
+            <td class="txt-c">消费金额 (元）</td>
+            <td class="txt-c">抽取佣金 （元）</td>
+        </tr>
+        <tr>
+            <td class="txt-c">{{Amount3.toFixed(2)}}</td>
+            <td class="txt-c">{{Commission3.toFixed(2)}}</td>
+        </tr>
+        <tr class="total">
+            <td class="txt-c"><em>小计</em>{{ AmountTotal.toFixed(2) }}</td>
+            <td class="txt-c">{{ CommissionTotal.toFixed(2) }}</td>
+        </tr>
+    </tbody>
+</table>
+
+{% endfor %}

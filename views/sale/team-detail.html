@@ -8,7 +8,8 @@ body {
     <div class="memberList">
         <div id="letter"></div>
         <div class="sort_box">
-        {% for detail in data %}
+        {% for detail in data.data %}
+
         		<div class="sort_list">
                 <div class="num_logo"><img src="{{detail.wImage}}" /></div>
                 <div class="num_name">{{detail.wName}}</div>

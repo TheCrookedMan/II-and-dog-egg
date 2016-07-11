@@ -3,6 +3,7 @@ const router = express.Router();
 import common from './tools/common';
 import user from './api/user';
 import product from './api/product';
+import distribution from './api/distribution';
 import cart from './api/cart';
 
 /*
@@ -105,4 +106,15 @@ router.get('/template/profile/profile_coupon.t', [user.couponList_link], functio
         data: record['/api/user/couponList']
     });
 })
+
+/*
+    推广中心－－－获取下级销量列表
+ */
+router.get('/template/sale/salesList.t',[distribution.getSalesByMounth],function(req,res,next){
+    let record = common.toRecord(res.data);
+    return res.render('../template/sale/salesList', {
+        data: record['/api/Distribution/GetSalesByMounth']
+    });
+})
+
 module.exports = router;

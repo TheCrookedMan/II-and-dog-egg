@@ -1,0 +1,32 @@
+{% include "../_partial/head.html" %}
+<section class="withdraw-alipay-2">
+    <p class="alipay-AccountNo">提现支付宝账号：15512345678</p>
+    <div class="withdraw-info">
+        <h1>提现金额：</h1>
+        <ul>
+            <li>
+                <p>
+                    <em>金额</em>
+                    <input type="number" placeholder="本次最多提现金额为800.00元">
+                </p>
+            </li>
+            <li>
+                <p class="fee">
+                    手续费：<em>0.00</em>
+                </p>
+            </li>
+        </ul>
+    </div>
+    <p class="alipay-button">
+        <a href="#" class="am-btn am-btn-default" data-am-modal="{target: '#alipay-password'}">提交申请</a>
+    </p>
+</section>
+<div class="am-modal-actions am-modal am-modal-alert" id="alipay-password">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">请输入提现密码<span data-am-modal-close class="am-close">&times;</span></div>
+        <div class="am-modal-bd">
+        
+        </div>
+    </div>
+</div>
+{% include "../_partial/foot.html" %}

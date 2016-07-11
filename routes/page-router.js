@@ -402,6 +402,27 @@ router.get('/sale/code.html', (req, res, next) => {
     return res.render('sale/code', { title: '我的二维码' });
 });
 
+/*
+    选择提现方式页面
+ */
+router.get('/sale/request-withdraw.html',(req,res,next)=>{
+    return res.render('sale/request-withdraw', { title: '申请提现' });
+});
+
+/*
+    提现至支付宝
+ */
+
+router.get('/sale/withdraw-alipay.html',(req,res,next)=>{
+    return res.render('sale/withdraw-alipay', { title: '提现至支付宝' });
+});
+
+/*
+    申请提现页面
+ */
+router.get('/sale/withdraw-alipay-2.html',(req,res,next)=>{
+    return res.render('sale/withdraw-alipay-2', { title: '申请提现' });
+})
 
 /*
     慈善
