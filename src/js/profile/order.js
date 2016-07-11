@@ -4,7 +4,7 @@
         this.pagesize = 20;
         this.isEnd = false;
         this.uid = 9;
-        this.orderstate = 0;
+        this.orderstate = 1;
     }
     gallery.prototype = {
         init: function() {
@@ -29,31 +29,8 @@
         },
         get: function() {
             var self = this;
-            if ($(".myOrder .tab ul li a.cur").data("id") == 0) {
+            if ($(".myOrder .tab ul li a.cur").data("id") == 1) {
                 $.get('/template/profile/order_noPay.t', {
-                    "pagenumber": self.pagenumber,
-                    "pagesize": self.pagesize,
-                    "uid": self.uid,
-                    "orderstate": 0
-                }).success(function(data) {
-                    data = data.replace(/(^\s+)|(\s+$)/g, "");
-                    if ("" == data) {
-                        self.isEnd = true;
-
-                    } else {
-                        self.isEnd = false;
-                        if (self.pagenumber == 1) {
-                            //console.log(data)
-                            $("#list").html(data);
-                        } else {
-                            $("#list").html(data);
-                            //console.log(data)
-                        }
-                    }
-                }).error(function(err) {});
-            }
-            else if ($(".myOrder .tab ul li a.cur").data("id") == 1) {
-                $.get('/template/profile/order_shiping.t', {
                     "pagenumber": self.pagenumber,
                     "pagesize": self.pagesize,
                     "uid": self.uid,
@@ -75,12 +52,12 @@
                     }
                 }).error(function(err) {});
             }
-            else if ($(".myOrder .tab ul li a.cur").data("id") == 2) {
-                $.get('/template/profile/order_done.t', {
+            else if ($(".myOrder .tab ul li a.cur").data("id") == 0) {
+                $.get('/template/profile/order_shiping.t', {
                     "pagenumber": self.pagenumber,
                     "pagesize": self.pagesize,
                     "uid": self.uid,
-                    "orderstate": 2
+                    "orderstate": 0
                 }).success(function(data) {
                     data = data.replace(/(^\s+)|(\s+$)/g, "");
                     if ("" == data) {
@@ -98,12 +75,35 @@
                     }
                 }).error(function(err) {});
             }
-            if ($(".myOrder .tab ul li a.cur").data("id") == 3) {
+            else if ($(".myOrder .tab ul li a.cur").data("id") == 6) {
+                $.get('/template/profile/order_done.t', {
+                    "pagenumber": self.pagenumber,
+                    "pagesize": self.pagesize,
+                    "uid": self.uid,
+                    "orderstate": 6
+                }).success(function(data) {
+                    data = data.replace(/(^\s+)|(\s+$)/g, "");
+                    if ("" == data) {
+                        self.isEnd = true;
+
+                    } else {
+                        self.isEnd = false;
+                        if (self.pagenumber == 1) {
+                            //console.log(data)
+                            $("#list").html(data);
+                        } else {
+                            $("#list").html(data);
+                            //console.log(data)
+                        }
+                    }
+                }).error(function(err) {});
+            }
+            if ($(".myOrder .tab ul li a.cur").data("id") == 5) {
                 $.get('/template/profile/order_cancel.t', {
                     "pagenumber": self.pagenumber,
                     "pagesize": self.pagesize,
                     "uid": self.uid,
-                    "orderstate": 3
+                    "orderstate": 5
                 }).success(function(data) {
                     data = data.replace(/(^\s+)|(\s+$)/g, "");
                     if ("" == data) {
