@@ -1,15 +1,16 @@
 (function() {
-
-
     $.get('/template/basket/basket_list.t', { "uid": 9 }).success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
         if ("" !== data) {
-            $(".pub_noData").hide();
+            $('.pub_noData').hide();
             $(".list-ul").html(data);
+            if( $(".list-ul .list-li").length > 0){
+                $("#total").show()
+            }
             $('.list-li').touchWipe({itemDelete: '.btn'});
 
             //选择商品
-            $('.list-li .set-default').on("click", function() {
+            $('.list-li .set-default').on("touchstart", function() {
                 $(this).toggleClass("cur");
                 var len=$('.list-li .set-default.cur').length;
                 if(len>0)
@@ -64,7 +65,7 @@
             
 
             //增加购物车数量
-            $(".btn .add").on('click',function(){
+            $(".btn .add").on('touchstart',function(){
                 var pid=$(this).data('id');
                 var thisnum = $(this).siblings("input").val();
                 var buy_num_now = parseInt(thisnum)+1;
@@ -84,7 +85,7 @@
             });
 
             //减少购物车数量
-            $(".btn .min").on('click',function(){
+            $(".btn .min").on('touchstart',function(){
                 var pid=$(this).data('id');
                 var thisnum = $(this).siblings("input").val();
                 if(parseInt(thisnum)-1<0){
@@ -109,16 +110,22 @@
             });
 
             //删除购物车
-            $('.del a').on('click',function(){
-                alert("saf")
+            $('.del a').on('touchstart',function(){
                 var pid=$(this).data("id");
                 $.post('/cart/delForCart.post', { "pids": pid,"uid":9 }).success(function(data) {
                     $('#'+pid).remove();
                     modal.tip("删除成功！");
+                    if( $(".list-ul .list-li").length <=0){
+                        $("#total").hide();
+                        $('.pub_noData').show();
+                    }
                     $('.am-dimmer').hide();
                 }).error(function(err) {});
             })
-        }  
+        }
+        else{
+            
+        }
 
     }).error(function(err) {});
 

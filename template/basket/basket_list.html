@@ -27,8 +27,8 @@
  	</div>
  </div>
 </li>
-{% else %}
-<li class="list-li disable">
+{% elseif list.proStatus ==0 %}
+<li class="list-li disable" id="{{list.pId}}">
  <div class="con">
      <div class="fl">
      	<img src="{{list.pImgUrl}}">
@@ -46,4 +46,5 @@
  </div>
 </li>
 {% endif %}
-{% endfor %} {% endif %}
+{% endfor %}
+ {% endif %}
