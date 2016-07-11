@@ -6,7 +6,7 @@
 	<div class="list">
 		<ul>
 			{% for list in data['data'].receiverList %}
-			<li class="default" id="{{list.said}}">
+			<li class="default{{list.isdefault}}" id="{{list.said}}">
 				<div class="tit">
 					<span class="fl">{{ list.Consignee }}</span>
 					<span class="fr">{{list.Mobile}}</span>

@@ -156,7 +156,10 @@
 			li{
 				margin: 0;padding: 0;border-left: #a0a0a0 solid 4px;margin-left: 1rem;
 				padding-left: 1rem;margin-bottom: 1rem;background-color: #fff;padding: 0.5rem 0;
-				&.default{
+				&.default0{
+					border-left: #a0a0a0 solid 4px;
+				}
+				&.default1{
 					border-left: #9bc32e solid 4px;
 				}
 				.tit{
