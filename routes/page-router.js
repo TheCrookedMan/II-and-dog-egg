@@ -205,7 +205,12 @@ router.get('/profile/address-add.html', (req, res, next) => {
 
 router.get('/profile/address-edit.html', (req, res, next) => {
     let said = req.query.said;
-    return res.render('profile/address-edit', { title: '编辑地址' });
+    let address = req.query.address;
+    let mobile = req.query.mobile;
+    let isdefault = req.query.isdefault;
+    let consignee = req.query.consignee;
+    let regionid = req.query.regionid;
+    return res.render('profile/address-edit', { title: '编辑地址', said:said, address:address, mobile:mobile, isdefault:isdefault, consignee:consignee, regionid:regionid});
 });
 
 /*

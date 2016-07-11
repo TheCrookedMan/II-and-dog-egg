@@ -6,7 +6,7 @@
 	<div class="list">
 		<ul>
 			{% for list in data['data'].receiverList %}
-			<li class="default">
+			<li class="default{{list.isdefault}}" id="{{list.said}}">
 				<div class="tit">
 					<span class="fl">{{ list.Consignee }}</span>
 					<span class="fr">{{list.Mobile}}</span>
@@ -17,9 +17,9 @@
 					<span class="fl">-默认地址</span>
 					{% endif %}
 					<div class="fr">
-						<a href="/profile/address-edit.html?said={{list.said}}"><i class="am-icon-edit"></i>编辑</a>
+						<a href="/profile/address-edit.html?said={{list.said}}&address={{list.Address}}&mobile={{list.Mobile}}&isdefault={{list.isdefault}}&consignee={{list.Consignee}}&regionid={{list.RegionId}}"><i class="am-icon-edit"></i>编辑</a>
 						<em>|</em>
-						<a href="javascript:void(0)" data-id="{{list.said}}"><i class="am-icon-trash-o"></i>删除</a>
+						<a href="javascript:void(0)" data-id="{{list.said}}" class="delAddress" data-regionid="{{list.RegionId}}" data-address='{{list.Address}}' data-mobile='{{list.Mobile}}' data-consignee='{{list.Consignee}}' data-isdefault='{{list.isdefault}}'><i class="am-icon-trash-o"></i>删除</a>
 					</div>
 				</div>
 			</li>
