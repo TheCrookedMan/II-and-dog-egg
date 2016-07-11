@@ -213,7 +213,8 @@ router.get('/profile/address-edit.html', (req, res, next) => {
  */
 
 router.get('/profile/order-detail.html', (req, res, next) => {
-    return res.render('profile/order-detail', { title: '订单详情' });
+    let OSN = req.query.OSN;
+    return res.render('profile/order-detail', { title: '订单详情',OSN:OSN });
 });
 
 /*
