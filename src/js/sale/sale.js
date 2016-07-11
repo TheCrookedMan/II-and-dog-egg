@@ -2,12 +2,12 @@
     $.post('/distribution/getSalesCount.post', { Uid: 1 }).success(function(data) {
         if ("1" == data.code && !!data.data) {
             var record = data.data;
-            if (record.totalSales > 0) {
-                $(".totalSales").text(record.totalSales.toFixed(2));
-            }
-            if (record.totalCommission > 0) {
-                $(".totalCommission").text(record.totalCommission.toFixed(2));
-            }
+            // if (record.totalSales > 0) {
+            $(".totalSales").text(record.totalSales.toFixed(2));
+            // }
+            // if (record.totalCommission > 0) {
+            $(".totalCommission").text(record.totalCommission.toFixed(2));
+            // }
         }
     });
 

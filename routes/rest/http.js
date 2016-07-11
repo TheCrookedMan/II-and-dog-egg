@@ -13,6 +13,7 @@ export default class rest {
     rest(url, options, method, success, error) {
         let jsonObject, optionspost, postheaders, reqPost, contentType = "application/x-www-form-urlencoded";
 
+        console.log("options:::"+JSON.stringify(options));
         if ('GET' == method) {
             jsonObject = qs.stringify(options);
             url = !!jsonObject ? (url + '?' + jsonObject) : url;
