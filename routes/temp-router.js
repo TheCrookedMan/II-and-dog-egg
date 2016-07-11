@@ -161,6 +161,7 @@ router.get('/template/profile/order_cancel.t', [user.orderList_link], function(r
 /*
     个人中心----我的订单详情
  */
+
 router.get('/template/profile/order_detail.t', [user.orderDetailByOSN_link], function(req, res, next) {
     let record = common.toRecord(res.data);
     return res.render('../template/profile/order_detail', {
