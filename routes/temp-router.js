@@ -3,10 +3,11 @@ const router = express.Router();
 import common from './tools/common';
 import user from './api/user';
 import product from './api/product';
+import distribution from './api/distribution';
 import cart from './api/cart';
 
 /*
-	index 分类模板页
+    index 分类模板页
  */
 router.get('/template/index/index_category.t', [user.category_link], function(req, res, next) {
     let record = common.toRecord(res.data);
@@ -16,7 +17,7 @@ router.get('/template/index/index_category.t', [user.category_link], function(re
 });
 
 /*
-	首页左侧分类模板
+    首页左侧分类模板
  */
 router.get('/template/index/index_lett-nav.t', [user.category_link], function(req, res, next) {
     let record = common.toRecord(res.data);
@@ -26,7 +27,7 @@ router.get('/template/index/index_lett-nav.t', [user.category_link], function(re
 })
 
 /*
-	商品列表模板
+    商品列表模板
  */
 router.get('/template/product/list_gallery.t', [product.productList_link], function(req, res, next) {
     let record = common.toRecord(res.data);
@@ -107,8 +108,19 @@ router.get('/template/profile/profile_coupon.t', [user.couponList_link], functio
 })
 
 /*
+    推广中心－－－获取下级销量列表
+ */
+router.get('/template/sale/salesList.t', [distribution.getSalesByMounth], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/sale/salesList', {
+        data: record['/api/Distribution/GetSalesByMounth']
+    });
+})
+
+/*
     个人中心----我的订单未付款
  */
+
 router.get('/template/profile/order_noPay.t', [user.orderList_link], function(req, res, next) {
     let record = common.toRecord(res.data);
     return res.render('../template/profile/order_noPay', {
@@ -154,5 +166,6 @@ router.get('/template/profile/order_detail.t', [user.orderDetailByOSN_link], fun
     return res.render('../template/profile/order_detail', {
         data: record['/api/user/orderDetailByOSN']
     });
-})
+});
+
 module.exports = router;

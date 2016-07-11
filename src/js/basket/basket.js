@@ -6,6 +6,8 @@
         if ("" !== data) {
             $(".pub_noData").hide();
             $(".list-ul").html(data);
+            //滑动
+            $('.list-li').touchWipe({itemDelete: '.btn'});
             if ($(".list-ul li.can").length > 0) {
 
             } else {
@@ -64,15 +66,7 @@
             $('#total_price').html(goods_price);
         }
 
-        //滑动
-        $('.list-li').touchwipe({
-            wipeLeft: function() {
-               
-            },
-            wipeRight: function() {
-               
-            }
-        });
+        
 
 
         //增加购物车数量
@@ -132,7 +126,7 @@
             }).error(function(err) {});
         })
 
-    }).error(function(err) {});
 
+        }).error(function(err) {});
 
 }).call(this)

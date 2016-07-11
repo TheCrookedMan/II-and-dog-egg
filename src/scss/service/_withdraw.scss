@@ -1,0 +1,147 @@
+nav.withdraw {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    .panel {
+        padding: 0;
+        margin: 0;
+        $line-height-px: 50px;
+        $line-height: rem-calc($line-height-px);
+        li {
+            width: 50%;
+            display: inline-block;
+            float: left;
+            text-align: center;
+            background-color: $black;
+            // padding: 10px 0p;
+            color: $white;
+            p {
+                margin: 10px 0;
+                height: $line-height;
+                line-height: $line-height;
+                font-size: $font-size-xxl;
+                font-weight: 800;
+                color: $main-font-color;
+            }
+        }
+        .border-left {
+            border-left: 1px solid $white;
+        }
+    }
+}
+
+.request-withdraw {
+    margin-top: 2rem;
+    ul {
+        border-left: 3px solid $main-font-color;
+        margin: 0 0 0 20px;
+        p {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+            margin-right: 1.5rem;
+            font-size: $font-size-xxxl;
+            i {
+                float: right;
+            }
+        }
+    }
+    background-color: $white;
+    padding: 2rem 0;
+}
+
+.withdraw-alipay {
+    margin-top: 1rem;
+    ul {
+        border-left: 3px solid $main-font-color;
+        margin: 0 0 0 20px;
+        p {
+            padding: .4rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+            margin-right: 1.5rem;
+            font-size: $font-size-xl;
+            input {
+                border: 0;
+                padding: 1rem;
+            }
+        }
+    }
+    background-color: $white;
+    padding: 2rem 0;
+}
+
+.alipay-h1 {
+    font-size: rem-calc(30px);
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 100;
+    padding: 0 1.8rem;
+    margin: 2rem 0 0 0;
+}
+
+.alipay-tips {
+    color: red;
+    margin: 1.5rem;
+}
+
+.alipay-button {
+    margin: 5rem 1rem;
+    a {
+        width: 100%;
+        background-color: $black!important;
+        color: $main-font-color!important;
+        font-size: rem-calc(40px);
+    }
+}
+
+.withdraw-alipay-2 {
+    .alipay-AccountNo {
+        background-color: $white;
+        padding: 1rem 2rem;
+        font-size: $font-size-xxl;
+    }
+    .withdraw-info {
+        background-color: $white;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        h1 {
+            color: rgba(0, 0, 0, 0.8);
+            padding: 2rem 2rem 0;
+        }
+        ul {
+            border-left: 3px solid $main-font-color;
+            margin: 0 0 0 20px;
+            p {
+                padding: .4rem 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+                margin-right: 1.5rem;
+                font-size: $font-size-xxl;
+                input {
+                    border: 0;
+                    padding: 1rem;
+                    width: 80%;
+                }
+                em {
+                    font-size: $font-size-xxxl;
+                }
+            }
+            .fee {
+                border: 0;
+                margin-top: .5rem;
+            }
+        }
+        padding-bottom: 2rem;
+    }
+}
+
+#alipay-password {
+    .am-modal-hd {
+        margin: 20px 10px 5px 10px;
+        padding: 0px;
+        span{
+            font-size: rem-calc(50px);
+            top:8px;
+            right: 8px;
+        }
+        border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+        padding-bottom: 1rem;
+    }
+}
