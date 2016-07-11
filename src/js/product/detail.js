@@ -2,6 +2,60 @@
     $.post('/product/productDetail.post', { "pid": pid }).success(function(data) {
         if(data.code == "1" && !!data.data){
             var record = data.data;
+
+            var isSimpleTag=record.isSimpleTag;
+            if(isSimpleTag == 1){
+                var str='<div class="txt" id="title"></div>';
+                $("#ps").append(str);
+                $("#title").html(record.title);
+            }
+            else{
+                var str='<div class="time"><i class="am-icon-clock-o"></i><span>仅剩时间：<em></em></span></div>';
+                $("#ps").append(str);
+
+                // // 倒计时
+                // var timer = window.setInterval(function(){
+                //     var year=$(".pub-countdown").data("year");
+                //     var month=$(".pub-countdown").data("mm");
+                //     var day=$(".pub-countdown").data("day");
+
+                //     var now = new Date();
+                //     var endDate = new Date(year, month-1, day); 
+                //     var leftTime=endDate.getTime()-now.getTime(); 
+                //     var leftsecond = parseInt(leftTime/1000); 
+
+                //     var day1=Math.floor(leftsecond/(60*60*24)); 
+                //     var hour=Math.floor((leftsecond-day1*24*60*60)/3600); 
+                //     var minute=Math.floor((leftsecond-day1*24*60*60-hour*3600)/60); 
+                //     var second=Math.floor(leftsecond-day1*24*60*60-hour*3600-minute*60);
+
+                //     if (day1<10)
+                //     {
+                //         day1="0"+day1.toString();
+                //     }
+                //     if(hour<10){
+                //         hour="0"+hour.toString();
+                //     }
+                //     if(minute<10){
+                //         minute="0"+minute.toString(); 
+                //     }
+                //     if(second<10){
+                //         second="0"+second.toString();
+                //     }
+
+
+                //     if (leftsecond > 1) {
+                //         $(".pub-countdown").find(".t_d").text(day1);
+                //         $(".pub-countdown").find(".t_h").text(hour);
+                //         $(".pub-countdown").find(".t_m").text(minute);
+                //         $(".pub-countdown").find(".t_s").text(second);
+                //     } else {
+                //         clearInterval(timer);
+                //     } 
+                // }, 1000);
+                
+            }
+
             var img=record.img;
             var imgs=img.ImageArray;
             for(var p in imgs){
@@ -28,7 +82,6 @@
             $("#ShopPrice").html("￥"+record.ShopPrice);
             $("#skuPrice").html("￥"+record.ShopPrice);
             $("#StockNum").html(record.StockNum);
-            $("#title").html(record.title);
             $("#media").on('click',function(){
                 if(record.VideoId==null){
                     modal.tip("该商品没有视频介绍");

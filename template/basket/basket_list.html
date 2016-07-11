@@ -1,7 +1,7 @@
 {% if "1" == data['code'] %} 
 {% for list in data['data']['productList'] %}
 {% if list.proStatus ==1 %}
-<li class="list-li can">
+<li class="list-li can" id="{{list.pId}}">
  <div class="con">
      <div class="fl">
      	<a href="javascript:void(0)" class="set-default"><i class="am-icon-circle"></i><i class="am-icon-circle-o"></i></a>
@@ -9,18 +9,18 @@
      	<div class="txt">
      		<div class="tit">{{list.pName}}</div>
      		<div class="spec">{{list.pInfo}}</div>
-     		<div class="price">￥{{list.pPrice}}</div>
+     		<div class="price">￥<em>{{list.pPrice}}</em></div>
      	</div>
      </div>
      <div class="fr">
-     	<em>x</em>{{list.pNum}}
+     	<em>x</em><em id="pNum_{{list.pId}}" class="pNum">{{list.pNum}}</em>
      </div>
  </div>
  <div class="btn">
  	<div class="num">
- 		<a href="javascript:void(0)">-</a>
- 		<input type="text" value="1">
- 		<a href="javascript:void(0)">+</a>
+ 		<a href="javascript:void(0)" class="min" data-id="{{list.pId}}">-</a>
+ 		<input type="text" value="{{list.pNum}}" id="input_{{list.pId}}">
+ 		<a href="javascript:void(0)" class="add" data-id="{{list.pId}}">+</a>
  	</div>
  	<div class="del">
  		<a href="javascript:void(0)" data-id="{{list.pId}}"><i class="am-icon-trash-o"></i></a>
@@ -42,14 +42,7 @@
      </div>
  </div>
  <div class="btn">
- 	<div class="num">
- 		<a href="javascript:void(0)">-</a>
- 		<input type="text" value="1">
- 		<a href="javascript:void(0)">+</a>
- 	</div>
- 	<div class="del">
- 		<a href="javascript:void(0)" data-id="{{list.pId}}"><i class="am-icon-trash-o"></i></a>
- 	</div>
+ 	
  </div>
 </li>
 {% endif %}
