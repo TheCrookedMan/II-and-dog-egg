@@ -18,13 +18,7 @@
             $("#total").toggleClass("active");　　
         });
 
-        $('.list-li').touchwipe({
-            wipeLeft: function() {
-                console.log("left");
-                console.log("right");
-            },
-            wipeRight: function() {}
-        });
+        $('.list-li').touchWipe({itemDelete: '.btn'});
     }).error(function(err) {});
 
 
