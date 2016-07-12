@@ -127,6 +127,14 @@
             
         }
 
+        //存储商品pids传给订单确认页
+        var arrPids=[];
+        $("li.can").each(function(i,value){
+            var path=$(this).data("id");
+            arrPids[i]=path;  
+        });
+        $("#getPay").attr("href","/basket/order.html?pids="+arrPids)
+
     }).error(function(err) {});
 
 

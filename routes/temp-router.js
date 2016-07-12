@@ -76,6 +76,16 @@ router.get('/template/basket/basket_list.t', [cart.cartFullList_link], function(
     });
 })
 
+/*
+    确认订单
+ */
+router.get('/template/basket/order.t', [user.defaultAddressOrderInfo_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/basket/order', {
+        data: record['/api/user/defaultAddressOrderInfo']
+    });
+})
+
 
 /*
     个人中心----我的收货地址列表

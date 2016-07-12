@@ -356,7 +356,8 @@ router.get('/basket/yuer.html', (req, res, next) => {
  */
 
 router.get('/basket/order.html', (req, res, next) => {
-    return res.render('basket/order', { title: '订单确认' });
+    let pids = req.query.pids;
+    return res.render('basket/order', { title: '订单确认',pids:pids });
 });
 
 /*

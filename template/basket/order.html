@@ -1,0 +1,107 @@
+{% set receiverInfo = data['data']['receiverInfo'] %}
+<div class="list">
+  <div class="title">
+    <div class="fl">
+      <h2>收货地址</h2>
+    </div>
+  </div>
+  <div class="con">
+    <a href="/profile/address.html">
+      <div class="tit">
+        <span class="fl">{{receiverInfo.Consignee}}</span>
+        <span class="fl">{{receiverInfo.Mobile}}</span>
+        <i class="am-icon-angle-right fr"></i>
+      </div>
+      <div class="area">{{receiverInfo.ProvinceName}}，{{receiverInfo.CityName}}，{{receiverInfo.CountyName}}，{{receiverInfo.Address}}</div>
+    </a>
+  </div>
+</div>
+<div class="list">
+  <div class="plist">
+    <a href="/basket/productList.html">
+      {% for list in data['data']['expensesList'] %}
+      <img src="/img/test1.jpg">
+      <!-- <span>{{ list.shopName }}</span> -->
+      {% endfor %}
+      <span class="fr"><em>共99件</em><i class="am-icon-angle-right"></i></span>
+    </a>
+  </div>
+</div>
+<div class="list">
+  <a href="/profile/coupon.html">
+    <div class="title">
+      <div class="fl">
+        <h2>使用优惠券</h2>
+      </div>
+      <div class="fr">
+        <span><em>已选满200减20</em><i class="am-icon-angle-right"></i></span>
+      </div>
+    </div>
+  </a>
+</div>
+<div class="list">
+  <div class="title">
+    <div class="fl">
+        <h2>支付方式</h2>
+      </div>
+  </div>
+  <div class="con">
+    <a href="/basket/yuer.html">
+      <div class="fl">
+        <span class="col-grey">在线支付</span>
+      </div>
+      <div class="fr">
+        <i class="am-icon-circle col-g"></i>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="list">
+  <a href="/basket/invoice.html">
+    <div class="title">
+      <div class="fl">
+        <h2>发票信息</h2>
+      </div>
+      <div class="fr">
+        <span><em>需开发票</em><i class="am-icon-angle-right"></i></span>
+      </div>
+    </div>
+  </a>
+</div>
+<div class="list">
+  <div class="title">
+    <div class="fl">
+        <h2>备注</h2>
+      </div>
+  </div>
+  <div class="con">
+    <div class="fl">
+      <span class="col-grey">我的套餐要在在九月份第一周开始配送，周六上午十点送 到，不要吃韭菜、洋葱、胡萝卜，肉不要太肥！</span>
+    </div>
+  </div>
+</div>
+<div class="list">
+  <div class="title">
+    <div class="fl">
+        <h2>订单汇总</h2>
+      </div>
+  </div>
+  <div class="con">
+    <div class="priceList">
+      <span class="col-grey fl">商品总价</span>
+      <span class="col-grey fr">¥ 3956.39</span>
+    </div>
+    <div class="priceList">
+      <span class="col-grey fl">优惠券</span>
+      <span class="col-grey fr">¥ 3956.39</span>
+    </div>
+    <div class="priceList">
+      <span class="col-grey fl">运费</span>
+      <span class="col-grey fr">¥ 3956.39</span>
+    </div> 
+  </div>
+  <div class="total">
+    <span class="fl col-grey">合计</span>
+    <span class="fr col-grey">￥2364.01</span>
+  </div>
+</div>

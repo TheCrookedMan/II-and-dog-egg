@@ -156,6 +156,8 @@ exports.feedback = (req, res, next) => { new normalRequest('/api/user/feedback')
  */
 exports.defaultAddressOrderInfo = (req, res, next) => { new normalRequest('/api/user/defaultAddressOrderInfo').post(req, res, next); }
 
+exports.defaultAddressOrderInfo_link = (req, res, next) => { new normalRequest('/api/user/defaultAddressOrderInfo').link(req, res, next); }
+
 /*
 		提交订单 (api/user/submitOrder)
 		入参：
