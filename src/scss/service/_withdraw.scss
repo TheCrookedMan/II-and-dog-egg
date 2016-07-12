@@ -88,7 +88,7 @@ nav.withdraw {
         width: 100%;
         background-color: $black!important;
         color: $main-font-color!important;
-        font-size: rem-calc(40px);
+        font-size: rem-calc(30px);
     }
 }
 
@@ -136,12 +136,95 @@ nav.withdraw {
     .am-modal-hd {
         margin: 20px 10px 5px 10px;
         padding: 0px;
-        span{
-            font-size: rem-calc(50px);
-            top:8px;
+        color: rgba(0, 0, 0, 0.8);
+        span {
+            font-size: rem-calc(40px);
+            top: 8px;
             right: 8px;
         }
         border-bottom: 1px solid rgba(0, 0, 0, 0.11);
         padding-bottom: 1rem;
+    }
+    @media only screen and (max-width: 640px) {
+        .am-modal-bd {
+            $base-span-width-px: 60px;
+            $base-span-width: rem-calc($base-span-width-px);
+            $base-span-height-px: 54px;
+            $base-span-height: rem-calc($base-span-height-px);
+            .password-panel {
+                position: relative;
+                margin: 20px 0;
+                display: inline-block;
+                span {
+                    width: $base-span-width;
+                    height: $base-span-height;
+                    line-height: $base-span-height;
+                    text-align: center;
+                    display: inline-block;
+                    float: left;
+                    border-left: 1px solid rgba(0, 0, 0, 0.11);
+                    font-size: $font-size-xxl;
+                    font-weight: 800;
+                    color: #000;
+                    &:first-child {
+                        border: 0;
+                    }
+                }
+                $width: $base-span-width*6 + rem-calc(5px);
+                width: $width;
+                overflow: hidden;
+                border: 1px solid rgba(0, 0, 0, 0.11);
+                #password {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: $width;
+                    height: $base-span-height;
+                    opacity: 0;
+                }
+            }
+            margin: 0 auto!important;
+        }
+    }
+    @media only screen and (min-width: 641px) {
+        .am-modal-bd {
+            $base-span-width-px: 66px;
+            $base-span-width: rem-calc($base-span-width-px);
+            $base-span-height-px: 60px;
+            $base-span-height: rem-calc($base-span-height-px);
+            .password-panel {
+                position: relative;
+                margin: 20px 0;
+                display: inline-block;
+                span {
+                    width: $base-span-width;
+                    height: $base-span-height;
+                    line-height: $base-span-height;
+                    text-align: center;
+                    display: inline-block;
+                    float: left;
+                    border-left: 1px solid rgba(0, 0, 0, 0.11);
+                    font-size: $font-size-xxl;
+                    font-weight: 800;
+                    color: #000;
+                    &:first-child {
+                        border: 0;
+                    }
+                }
+                $width: $base-span-width*6 + rem-calc(5px);
+                width: $width;
+                overflow: hidden;
+                border: 1px solid rgba(0, 0, 0, 0.11);
+                #password {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: $width;
+                    height: $base-span-height;
+                    opacity: 0;
+                }
+            }
+            margin: 0 auto!important;
+        }
     }
 }
