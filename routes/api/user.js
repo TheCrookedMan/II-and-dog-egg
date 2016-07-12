@@ -268,3 +268,16 @@ exports.modifyAddressOrderInfo = (req, res, next) => { new normalRequest('/api/u
 		}
  */
 exports.applyRefund = (req, res, next) => { new normalRequest('/api/user/ApplyRefund').post(req, res, next); }
+
+
+
+/*
+
+慈善捐款统计 api/Distribution/GetDonationRecordList
+
+
+*/
+
+exports.cishan = (req, res, next) => { new normalRequest('/api/Distribution/GetDonationRecordList').post(req, res, next); }
+
+exports.cishan_link = (req, res, next) => { new normalRequest('/api/Distribution/GetDonationRecordList').link_g(req, res, next); }

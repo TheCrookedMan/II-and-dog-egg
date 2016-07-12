@@ -145,4 +145,8 @@ router.post('/product/homeSearch.post', product.homeSearch);
 // 注册手机获取验证码接口
 router.post('/smsCode/register_smscode.post', smsCode.register_smscode);
 
+
+// 慈善
+router.post('/user/cishan.post', user.cishan);
+
 module.exports = router;

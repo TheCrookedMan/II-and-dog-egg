@@ -179,4 +179,15 @@ router.get('/template/profile/order_detail.t', [user.orderDetailByOSN_link], fun
     });
 });
 
+/*
+    慈善页面
+ */
+
+router.get('/template/cishan/cishan.t', [user.cishan_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/cishan/cishan', {
+        data: record['/api/Distribution/GetDonationRecordList']
+    });
+});
+
 module.exports = router;

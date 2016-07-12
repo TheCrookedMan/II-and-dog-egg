@@ -34,6 +34,7 @@
   <div class="list">
     <ul class="list-ul">
         {% for list in data['data'].proList %}
+        {% if loop.index <=2 %}
         <li class="list-li">
              <div class="detail">
                   <img src="{{list.proImg}}">
@@ -47,12 +48,29 @@
                   </div>
              </div>
          </li>
+         {% else %}
+         <li class="list-li other">
+             <div class="detail">
+                  <img src="{{list.proImg}}">
+                  <div class="txt">
+                    <div class="tit">{{list.proName}}</div>
+                    <div class="spec">{{list.proDetail}}</div>
+                    <div class="fr">
+                      <em>x</em>{{list.number}}
+                     </div>
+                    <div class="price">￥{{list.proPrice}}<em>￥{{list.marketPrice}}</em></div>
+                  </div>
+             </div>
+         </li>
+         {% endif %}
         {% endfor %}
     </ul>
     <div class="more">
       <a href="#">
-        <p>查看其它6件商品</p>
-        <p><i class="am-icon-chevron-down"></i></p>
+        <p class="down">查看其它<em id="numOther"></em>件商品</p>
+        <p  class="down"><i class="am-icon-chevron-down"></i></p>
+        <p class="up">收起</p>
+        <p class="up"><i class="am-icon-chevron-up"></i></p>
       </a>
     </div>
   </div>
