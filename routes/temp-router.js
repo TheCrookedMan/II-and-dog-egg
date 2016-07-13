@@ -76,6 +76,26 @@ router.get('/template/basket/basket_list.t', [cart.cartFullList_link], function(
     });
 })
 
+/*
+    确认订单
+ */
+router.get('/template/basket/order.t', [user.defaultAddressOrderInfo_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/basket/order', {
+        data: record['/api/user/defaultAddressOrderInfo']
+    });
+})
+
+/*
+    确认订单--获取订单可用优惠券
+ */
+router.get('/template/basket/coupon.t', [user.validCouponList_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/basket/coupon', {
+        data: record['/api/user/ValidCouponList']
+    });
+})
+
 
 /*
     个人中心----我的收货地址列表
@@ -166,6 +186,17 @@ router.get('/template/profile/order_detail.t', [user.orderDetailByOSN_link], fun
     let record = common.toRecord(res.data);
     return res.render('../template/profile/order_detail', {
         data: record['/api/user/orderDetailByOSN']
+    });
+});
+
+/*
+    慈善页面
+ */
+
+router.get('/template/cishan/cishan.t', [user.cishan_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/cishan/cishan', {
+        data: record['/api/Distribution/GetDonationRecordList']
     });
 });
 

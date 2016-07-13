@@ -46,7 +46,7 @@
 			position: absolute;left: 1rem;top: -1rem;width: 55%;
 		}
 		marquee{
-			overflow: hidden;max-height: 8rem;margin-top: 3rem;
+			overflow: hidden;min-height: 8rem;margin-top: 3rem;
 		}
 		ul{
 			margin-left: 1rem;margin-right: 1rem;
@@ -59,7 +59,7 @@
 					}
 				}
 				.fr{
-					font-size: 1.2rem;color: #959595;margin-top: 0.7rem;
+					font-size: 1.2rem;color: #959595;margin-top: 1rem;
 				}
 			}
 		}

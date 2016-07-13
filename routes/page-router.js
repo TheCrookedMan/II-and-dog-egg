@@ -120,6 +120,14 @@ router.get('/package/package.html', (req, res, next) => {
 });
 
 /*
+    套餐二级页详情页
+ */
+
+router.get('/package/info.html', (req, res, next) => {
+    return res.render('package/info', { title: '宅配卡介绍' });
+});
+
+/*
     产品列表
  */
 
@@ -254,7 +262,9 @@ router.get('/profile/order-paySucess.html', (req, res, next) => {
  */
 
 router.get('/profile/order-pay.html', (req, res, next) => {
-    return res.render('profile/order-pay', { title: '订单支付' });
+    let osn = req.query.osn;
+    let orderAmount = req.query.orderAmount;
+    return res.render('profile/order-pay', { title: '订单支付', osn:osn, orderAmount:orderAmount });
 });
 
 /*
@@ -383,7 +393,8 @@ router.get('/basket/yuer.html', (req, res, next) => {
  */
 
 router.get('/basket/order.html', (req, res, next) => {
-    return res.render('basket/order', { title: '订单确认' });
+    let pids = req.query.pids;
+    return res.render('basket/order', { title: '订单确认',pids:pids });
 });
 
 /*

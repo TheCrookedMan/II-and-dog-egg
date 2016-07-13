@@ -159,6 +159,8 @@ exports.feedback = (req, res, next) => { new normalRequest('/api/user/feedback')
  */
 exports.defaultAddressOrderInfo = (req, res, next) => { new normalRequest('/api/user/defaultAddressOrderInfo').post(req, res, next); }
 
+exports.defaultAddressOrderInfo_link = (req, res, next) => { new normalRequest('/api/user/defaultAddressOrderInfo').link(req, res, next); }
+
 /*
 		提交订单 (api/user/submitOrder)
 		入参：
@@ -198,6 +200,8 @@ exports.couponList_link = (req, res, next) => { new normalRequest('/api/user/cou
 		}
  */
 exports.validCouponList = (req, res, next) => { new normalRequest('/api/user/ValidCouponList').post(req, res, next); }
+
+exports.validCouponList_link = (req, res, next) => { new normalRequest('/api/user/ValidCouponList').link(req, res, next); }
 
 
 /*
@@ -293,3 +297,15 @@ exports.checkLogin = (req, res, next) => {
         res.redirect("/profile/register.html?fromUrl=" + fromUrl);
     }
 }
+
+
+/*
+
+慈善捐款统计 api/Distribution/GetDonationRecordList
+
+
+*/
+
+exports.cishan = (req, res, next) => { new normalRequest('/api/Distribution/GetDonationRecordList', { post: distributionPost }).get(req, res, next); }
+
+exports.cishan_link = (req, res, next) => { new normalRequest('/api/Distribution/GetDonationRecordList', { post: distributionPost }).link_g(req, res, next); }

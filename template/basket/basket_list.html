@@ -1,7 +1,7 @@
 {% if "1" == data['code'] %} 
 {% for list in data['data']['productList'] %}
 {% if list.proStatus ==1 %}
-<li class="list-li can" id="{{list.pId}}">
+<li class="list-li can" id="{{list.pId}}" data-id="{{list.pId}}">
  <div class="con">
      <div class="fl">
      	<a href="javascript:void(0)" class="set-default"><i class="am-icon-circle"></i><i class="am-icon-circle-o"></i></a>
@@ -45,6 +45,7 @@
  	
  </div>
 </li>
+<span>{{list.pId}}</span>
 {% endif %}
 {% endfor %}
  {% endif %}

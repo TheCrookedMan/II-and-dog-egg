@@ -1,0 +1,110 @@
+{% set receiverInfo = data['data']['receiverInfo'] %}
+<div class="list">
+  <div class="title">
+    <div class="fl">
+      <h2>收货地址</h2>
+    </div>
+  </div>
+  <div class="con">
+    <a href="javascript:void(0)" id="getAddress">
+      <div class="tit">
+        <span class="fl">{{receiverInfo.Consignee}}</span>
+        <span class="fl">{{receiverInfo.Mobile}}</span>
+        <i class="am-icon-angle-right fr"></i>
+      </div>
+      <div class="area">{{receiverInfo.ProvinceName}}，{{receiverInfo.CityName}}，{{receiverInfo.CountyName}}，{{receiverInfo.Address}}</div>
+    </a>
+  </div>
+</div>
+<div class="list">
+  <div class="plist">
+    <a href="/basket/productList.html">
+      {% for list in data['data']['expensesList'] %}
+      <img src="/img/test1.jpg">
+      <!-- <span>{{ list.shopName }}</span> -->
+      {% endfor %}
+      <span class="fr"><em>共99件</em><i class="am-icon-angle-right"></i></span>
+    </a>
+  </div>
+</div>
+<div class="list">
+  <a href="javascript:void(0)" id="getCoupon">
+    <div class="title">
+      <div class="fl">
+        <h2>使用优惠券</h2>
+      </div>
+      <div class="fr">
+        <span><em id="couponTxt"></em><i class="am-icon-angle-right"></i></span>
+      </div>
+    </div>
+  </a>
+</div>
+<div class="list">
+  <div class="title">
+    <div class="fl">
+        <h2>支付方式</h2>
+      </div>
+  </div>
+  <div class="con">
+    <a href="/basket/yuer.html">
+      <div class="fl">
+        <span class="col-grey">在线支付</span>
+      </div>
+      <div class="fr">
+        <i class="am-icon-circle col-g"></i>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="list">
+  <a href="javascript:void(0)" id="getInvoice">
+    <div class="title">
+      <div class="fl">
+        <h2>发票信息</h2>
+      </div>
+      <div class="fr">
+        <span><em id="invoiceTxt">需开发票</em><i class="am-icon-angle-right"></i></span>
+      </div>
+    </div>
+  </a>
+</div>
+<div class="list">
+  <div class="title">
+    <div class="fl">
+        <h2>备注</h2>
+      </div>
+  </div>
+  <div class="con">
+    <div class="fl">
+      <input class="col-grey" type="text" value="afsffs">
+    </div>
+  </div>
+</div>
+<div class="list">
+  <div class="title">
+    <div class="fl">
+        <h2>订单汇总</h2>
+      </div>
+  </div>
+  <div class="con">
+    <div class="priceList">
+      <span class="col-grey fl">商品总价</span>
+      <span class="col-grey fr">¥ 3956.39</span>
+    </div>
+    <div class="priceList">
+      <span class="col-grey fl">优惠券</span>
+      <span class="col-grey fr">¥ 3956.39</span>
+    </div>
+    <div class="priceList">
+      <span class="col-grey fl">运费</span>
+      <span class="col-grey fr">¥ 3956.39</span>
+    </div> 
+  </div>
+  <div class="total">
+    <span class="fl col-grey">合计</span>
+    <span class="fr col-grey">￥2364.01</span>
+  </div>
+</div>
+<header class="am-topbar am-topbar-fixed-bottom detail_foot bge bd0">
+  <a href="/profile/order-pay.html?osn=1&orderAmount=2}}"  class="btn buy">去付款</a>
+</header>

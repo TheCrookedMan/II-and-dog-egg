@@ -64,6 +64,9 @@
 				&:focus{
 					border:0;box-shadow: none;
 				}
+				&:disabled{
+					background-color:none !important;background:none !important;
+				}
 			}
 		}
 		.con{
@@ -71,6 +74,11 @@
 			margin-top: 0.3rem;
 			.col-grey{
 				display: inline-block;margin-left: 0.7rem;font-size:1.4rem;
+			}
+			input{
+				&.col-grey{
+					border:0;width: 22rem !important;padding-bottom: 3rem;
+				}
 			}
 			.priceList{
 				width: 100%;display: inline-block;
@@ -111,4 +119,15 @@
 			}
 		}
 	}
+}
+
+#invoicePage{
+	display: none;
+}
+#orderCoupon{
+	display:none
+}
+
+#orderAddress{
+	display:none;
 }

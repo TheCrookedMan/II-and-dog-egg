@@ -1,0 +1,33 @@
+{% set info = data.data %}
+<p><img src="/img/ci_1.jpg"></p>
+<div class="con">
+	<p><img src="/img/ci.png"></p>
+	<ul id="total" data-id="{{info.TotalMoney}}">
+		
+	</ul>
+</div>
+<div class="num">
+	<span><i class="am-icon-users"></i>已有<em>{{info.TotalCount}}</em>人已捐款</span>
+</div>
+<div class="data">
+	<img src="/img/cit.png">
+	{% if data.data['Record'].length >0 %}
+	<marquee scrollamount="2" direction="up" >
+		<ul>
+		{% for list in data.data['Record'] %}
+		
+			<li>
+				<span class="fl"><em>.</em>用户“{{list.UserName}}”捐款 {{list.DonationMoney}}元</span>
+				<span class="fr">{{list.DonationTime}}</span>
+			</li>
+		{% endfor %}
+		</ul>
+	</marquee>
+	{% else %}
+		<p class="pub_noData">暂无数据！</p>
+	{% endif %}
+</div>
+<div class="con mb1">
+	<p><img src="/img/ciabout.png"></p>
+</div>
+<p><img src="/img/ci_con.jpg"></p>

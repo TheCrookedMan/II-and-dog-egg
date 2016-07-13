@@ -21,11 +21,25 @@
                 width: 32%;float: left;text-align: center;
                 a{
                     display:inline-block;padding-bottom:0.2rem;font-size:1.6rem;
+                    .am-icon-caret-up{
+                        display:inline-block;
+                    }
+                    .am-icon-caret-down{
+                        display:none;
+                    }
                     i{
                         margin-left:0.3rem;
                     }
                     &.cur{
                         border-bottom:#9bc32e solid 2px;
+                    }
+                    &.sort{
+                        .am-icon-caret-up{
+                            display:none;
+                        }
+                        .am-icon-caret-down{
+                            display:inline-block;
+                        }
                     }
                 }
             } 

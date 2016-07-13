@@ -22,8 +22,7 @@ $(function(){
 		//Set Width
 		$('.swiper-slide').css('width', imgWidth-20);
         $('.swiper-wrapper').css('width', (imgWidth+40)*len);
-        $('.swiper-wrapper').css('height', 'auto');
-       
+        $('.swiper-wrapper').css('height', 'auto');   
 	}
 
 	changeSize();
@@ -63,8 +62,8 @@ $(function(){
                  var j=$(".pagination span.swiper-active-switch").index();
                  j=j+1;
                  var url='url(../img/bg'+j+'.jpg)';
-                 //console.log(url);
-                 $(".swiper-container").css("background-image",url)
+                 $(".swiper-container").css("background-image",url);
+                 $(".title .tit.p"+j).show().siblings(".tit").hide();
             }
         }
         catch (e) {

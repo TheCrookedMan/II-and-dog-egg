@@ -7,7 +7,10 @@
     </div>
   <a href="/profile/order-detail.html?OSN={{list.OSN}}">
     {% for img in list.pImgUrls %}
+    {% if loop.index <=4 %}
     <img src="{{img}}">
+    {% else %}
+    {% endif %}
     {% endfor %}
     <div class="r">
       <p><em>共{{list.pNum}}件</em><i class="am-icon-angle-right"></i></p>

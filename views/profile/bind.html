@@ -3,13 +3,14 @@
 	<h2>请填写APP账号</h2>
 	<form action="" class="am-form">
 	  <div class="am-form-group">
-	    <input type="text" id="doc-vld-name" minlength="3" placeholder="请填写登录手机号码 " class="am-form-field" required/>
+	    <input type="text" id="name" minlength="3" placeholder="请填写登录手机号码 " class="am-form-field" required/>
 	  </div>
 	  <div class="am-form-group">
-	    <input type="text" id="doc-vld-password" minlength="3" placeholder="请填写登录密码" class="am-form-field" required/>
+	    <input type="text" id="password" minlength="3" placeholder="请填写登录密码" class="am-form-field" required/>
 	  </div>
 	</form>
-	<a href="javascript:void(0)"  class="pub_btn mt2">确认绑定</a>
-	<p class="txt-r mr1"><a href="#">忘记密码？</a></p>
+	<a href="javascript:void(0)"  class="pub_btn mt2" id="submit">确认绑定</a>
+<!-- 	<p class="txt-r mr1"><a href="#">忘记密码？</a></p> -->
 </div>
 {% include "../_partial/foot.html" %}
+<script src="/js/profile/bind.js"></script>

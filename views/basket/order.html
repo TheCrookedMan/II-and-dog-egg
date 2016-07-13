@@ -1,113 +1,70 @@
 {% include "../_partial/head.html" %}
-<div class="order_ok">
+<script type="text/javascript">
+var pids = "{{pids}}";
+</script>
+<style type="text/css">
+  .order_ok{
+    padding-bottom: 2rem;
+  }
+</style>
+<div class="order_ok" id="orderMain">
+  
+</div>
+
+<!-- 发票页面 -->
+<div class="order_ok" id="invoicePage">
   <div class="list">
     <div class="title">
       <div class="fl">
-        <h2>收货地址</h2>
-      </div>
-    </div>
-    <div class="con">
-      <a href="/profile/address.html">
-        <div class="tit">
-          <span class="fl">小二丫（收）</span>
-          <span class="fl">13918579133</span>
-          <i class="am-icon-angle-right fr"></i>
-        </div>
-        <div class="area">上海，上海，闵行区，黎安路688号强劲大厦606-608号鹿顶 记</div>
-      </a>
-    </div>
-  </div>
-  <div class="list">
-    <div class="plist">
-      <a href="/basket/productList.html">
-        <img src="/img/test1.jpg">
-        <img src="/img/test1.jpg">
-        <img src="/img/test1.jpg">
-        <img src="/img/test1.jpg">
-        <span class="fr"><em>共99件</em><i class="am-icon-angle-right"></i></span>
-      </a>
-    </div>
-  </div>
-  <div class="list">
-    <a href="/profile/coupon.html">
-      <div class="title">
-        <div class="fl">
-          <h2>使用优惠券</h2>
-        </div>
-        <div class="fr">
-          <span><em>已选满200减20</em><i class="am-icon-angle-right"></i></span>
-        </div>
-      </div>
-    </a>
-  </div>
-  <div class="list">
-    <div class="title">
-      <div class="fl">
-          <h2>支付方式</h2>
-        </div>
-    </div>
-    <div class="con">
-      <a href="/basket/yuer.html">
-        <div class="fl">
-          <span class="col-grey">在线支付</span>
-        </div>
-        <div class="fr">
-          <i class="am-icon-circle col-g"></i>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="list">
-    <a href="/basket/invoice.html">
-      <div class="title">
-        <div class="fl">
-          <h2>发票信息</h2>
-        </div>
-        <div class="fr">
-          <span><em>需开发票</em><i class="am-icon-angle-right"></i></span>
-        </div>
-      </div>
-    </a>
-  </div>
-  <div class="list">
-    <div class="title">
-      <div class="fl">
-          <h2>备注</h2>
-        </div>
-    </div>
-    <div class="con">
-      <div class="fl">
-        <span class="col-grey">我的套餐要在在九月份第一周开始配送，周六上午十点送 到，不要吃韭菜、洋葱、胡萝卜，肉不要太肥！</span>
+          <h2>是否要开发票</h2>
+       </div>
+       <div class="fr">
+        <a href="javascript:void(0)" class="cur toggle" ><i class="am-icon-toggle-on"></i><i class="am-icon-toggle-off"></i></a>
       </div>
     </div>
   </div>
   <div class="list">
     <div class="title">
       <div class="fl">
-          <h2>订单汇总</h2>
+          <h2>发票类型</h2>
         </div>
     </div>
     <div class="con">
-      <div class="priceList">
-        <span class="col-grey fl">商品总价</span>
-        <span class="col-grey fr">¥ 3956.39</span>
+      <div class="fl">
+        <span class="col-grey">纸质发票</span>
       </div>
-      <div class="priceList">
-        <span class="col-grey fl">优惠券</span>
-        <span class="col-grey fr">¥ 3956.39</span>
-      </div>
-      <div class="priceList">
-        <span class="col-grey fl">运费</span>
-        <span class="col-grey fr">¥ 3956.39</span>
-      </div> 
     </div>
     <div class="total">
-      <span class="fl col-grey">合计</span>
-      <span class="fr col-grey">￥2364.01</span>
+      <span class="fl col-9">注：目前只提供发票金额，不提供发票明细。</span>
     </div>
   </div>
+  <div class="list">
+    <div class="title">
+      <div class="fl">
+          <h2>发票抬头</h2>
+        </div>
+    </div>
+    <div class="input">
+      <input type="text" placeholder="默认“个人”（限35字符）" id="inputInoice">
+    </div>
+  </div>
+  <header class="am-topbar am-topbar-fixed-bottom detail_foot bge bd0">
+	  <a href="javascript:void(0)"  class="btn buy" id="ok">确认</a>
+	</header>
 </div>
-<header class="am-topbar am-topbar-fixed-bottom detail_foot bge bd0">
-  <a href="javascript:void(0)"  class="btn buy">去付款</a>
-</header>
+
+<!-- 获取可用优惠券 -->
+<div class="coupon" id="orderCoupon">
+	<div class="list">
+		<ul>
+			
+		</ul>
+	</div>
+</div>
+
+<!-- 获取收货地址 -->
+<div class="address" id="orderAddress">
+   
+</div>
 {% include "../_partial/foot.html" %}
+<script src="/js/basket/order.js"></script>
