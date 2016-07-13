@@ -1,4 +1,6 @@
 import normalRequest from '../rest/normalRequest';
+import config from '../rest/config';
+let distributionPost = config.wechat.distributionPost;
 /*
     登录 api/user/register
     入参
@@ -30,7 +32,7 @@ exports.login = (req, res, next) => { new normalRequest('/api/user/login').post(
 
  */
 
-exports.register = (req, res, next) => { new normalRequest('/api/user/register').post(req, res, next); }
+exports.register = (req, res, next) => { new normalRequest('/api/user/register', { post: distributionPost }).post(req, res, next); }
 
 /*
 		修改/新增/删除收货人地址（api/user/editReceiver）
@@ -130,7 +132,8 @@ exports.editUserInfo = (req, res, next) => { new normalRequest('/api/user/editUs
 */
 exports.getUserInfo = (openid, callback, next) => {
     new normalRequest('/api/user/GetUserInfo', {
-        data: { OpenID: openid }
+        params: { openid: openid },
+        post: distributionPost
     }).normalRequest(callback, next);
 }
 
@@ -241,6 +244,7 @@ exports.orderList_link = (req, res, next) => { new normalRequest('/api/user/Orde
  */
 exports.orderDetailByOSN = (req, res, next) => { new normalRequest('/api/user/orderDetailByOSN').post(req, res, next); }
 exports.orderDetailByOSN_link = (req, res, next) => { new normalRequest('/api/user/orderDetailByOSN').link(req, res, next); }
+
 /*
 		修改地址后获取运费(api/user/modifyAddressOrderInfo)
 		入参：
@@ -250,6 +254,7 @@ exports.orderDetailByOSN_link = (req, res, next) => { new normalRequest('/api/us
 		 "said": "463"
 		}
  */
+
 exports.modifyAddressOrderInfo = (req, res, next) => { new normalRequest('/api/user/modifyAddressOrderInfo').post(req, res, next); }
 
 /*
@@ -265,4 +270,26 @@ exports.modifyAddressOrderInfo = (req, res, next) => { new normalRequest('/api/u
 		 "pid":""
 		}
  */
+
 exports.applyRefund = (req, res, next) => { new normalRequest('/api/user/ApplyRefund').post(req, res, next); }
+
+/*
+	发送验证码，此接口只是提供于 设置 提现安全码  功能
+ */
+
+exports.SendSmscode = (req, res, next) => { new normalRequest('/api/user/SendSmscode', { post: distributionPost }).post(req, res, next); }
+
+/*
+	验证验证码
+ */
+
+exports.CheckSmsCode = (req, res, next) => { new normalRequest('/api/user/CheckSmsCode', { post: distributionPost }).get(req, res, next); }
+
+exports.checkLogin = (req, res, next) => {
+    let userinfo = req.cookies.userinfo,
+        fromUrl = req.url;;
+    if (!userinfo || !userinfo.Uid) {
+        //没有runningcatUserInfo表示没有注册或者登录过，需要跳转到注册
+        res.redirect("/profile/register.html?fromUrl=" + fromUrl);
+    }
+}

@@ -9,6 +9,10 @@
         this.reg_skip = /\s/;
         this.reg_beforeWeight = /^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$/;
         this.reg_height = /^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$/;
+        //单位：秒
+        // this.maxAge = 365 * 24 * 60 * 60;
+        // 单位：天
+        this.expires = 30;
     };
     common.prototype = {
         parseForm: function(selector) {
@@ -95,8 +99,19 @@
             }
             return map[date.getDay().toString()];
         },
-        setCookie: function() {},
-        getCookie: function() {}
+        setCookie: function(name, value) {
+            $.cookie(name, value, { expires: this.expires, path: '/' })
+        },
+        getCookie: function(name) {
+            var value = $.cookie(name);
+            if (undefined == value) {
+                return {}
+            }
+            return JSON.parse(value);
+        },
+        getOpenId:function(){
+            return $.cookie('openId');
+        }
     };
     this.common = new common();
 }).call(this);

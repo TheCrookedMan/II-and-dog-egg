@@ -17,6 +17,7 @@ export default class rest {
         if ('GET' == method) {
             jsonObject = qs.stringify(options);
             url = !!jsonObject ? (url + '?' + jsonObject) : url;
+            
         } else if ('POST' == method) {
             contentType = "application/json; charset=utf-8";
             jsonObject = JSON.stringify(options);

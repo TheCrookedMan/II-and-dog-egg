@@ -26,7 +26,7 @@
             position: relative;
             border-bottom: 1px solid #f2f2f2;
             padding-top: 1.8rem;
-            padding-bottom:2rem;
+            padding-bottom: 2rem;
             margin-top: .4rem;
         }
         .sort_list .num_logo {
@@ -289,6 +289,9 @@
                 top: -.2rem;
             }
         }
+    }
+    .mt05 {
+        display: none;
     }
     .saleList {
         .price {

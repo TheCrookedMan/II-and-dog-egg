@@ -1,5 +1,5 @@
 .distribution-price-info {
-    $totalPrice-height-px: 300px;
+    $totalPrice-height-px: 200px;
     $totalPrice-height: rem-calc($totalPrice-height-px);
     .totalCommission {
         background-color: white;
@@ -37,7 +37,7 @@
         width: 100%;
         background-color: white;
         margin-top: 12px;
-        $little-span-height-px: 300px;
+        $little-span-height-px: 250px;
         $little-span-height: rem-calc($little-span-height-px);
         ul {
             position: relative;
@@ -74,12 +74,12 @@
             text-align: center;
             position: relative;
             .FrozenMoney{
-            	padding-top: rem-calc(40px);
+            	padding-top: rem-calc(30px);
             	height: 50%;
             	border-bottom:  1px solid #bdbdbd;
             }
             .WithdrawMoney{
-            	padding-top: rem-calc(40px);
+            	padding-top: rem-calc(30px);
             	height: 50%;
             }
         }

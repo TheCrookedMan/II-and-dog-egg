@@ -23,7 +23,7 @@
                     $(".all").removeClass('cur');
                     $('#total_price').html('0');
                     
-                }　
+                }
             });
 
             //全选

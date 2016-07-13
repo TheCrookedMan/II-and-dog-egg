@@ -37,12 +37,31 @@ router.get('/wechatAuth.html', (req, res, next) => {
                          */
                         console.log("wechatUserInfo:::" + userinfo);
                         res.cookie('wechatUserInfo', userinfo, { maxAge: maxAge, path: '/' });
-                        res.redirect(redirect_uri);
+
+                        user.getUserInfo(openid, function(data) {
+                            if ("1" == data.code) {
+                                let userinfoRecord = data.data;
+                                console.log("userinfo:::" + JSON.stringify(userinfoRecord));
+                                userinfoRecord = JSON.stringify(userinfoRecord);
+                                res.cookie('userinfo', userinfoRecord, { maxAge: maxAge, path: '/' });
+                            } else {
+                                console.log("userinfo:::{}");
+                                res.cookie('userinfo', "{}", { maxAge: maxAge, path: '/' });
+                            }
+                            res.redirect(redirect_uri);
+                        }, next);
+                        // res.redirect(redirect_uri);
                     }
                 });
             } else if ("snsapi_base" == data.scope) {
                 user.getUserInfo(openid, function(data) {
-                    console.log("data:::" + JSON.stringify(data));
+                    if ("1" == data.code) {
+                        let userinfoRecord = data.data;
+                        userinfoRecord = JSON.stringify(userinfoRecord);
+                        res.cookie('userinfo', userinfoRecord, { maxAge: maxAge, path: '/' });
+                    } else {
+                        res.cookie('userinfo', "{}", { maxAge: maxAge, path: '/' });
+                    }
                     res.redirect(redirect_uri);
                 }, next);
             }
@@ -115,7 +134,7 @@ router.get('/product/list.html', (req, res, next) => {
 
 router.get('/product/detail.html', (req, res, next) => {
     let pid = req.query.pid;
-    return res.render('product/detail', { title: '产品详情' , pid: pid });
+    return res.render('product/detail', { title: '产品详情', pid: pid });
 });
 
 /*
@@ -139,7 +158,7 @@ router.get('/profile/profile.html', (req, res, next) => {
     我的订单
  */
 
-router.get('/profile/order.html', (req, res, next) => {
+router.get('/profile/order.html', [user.checkLogin], (req, res, next) => {
     return res.render('profile/order', { title: '我的订单' });
 });
 
@@ -147,7 +166,7 @@ router.get('/profile/order.html', (req, res, next) => {
     我的余额
  */
 
-router.get('/profile/balance.html', (req, res, next) => {
+router.get('/profile/balance.html', [user.checkLogin], (req, res, next) => {
     return res.render('profile/balance', { title: '我的余额' });
 });
 
@@ -155,7 +174,7 @@ router.get('/profile/balance.html', (req, res, next) => {
     我的优惠券
  */
 
-router.get('/profile/coupon.html', (req, res, next) => {
+router.get('/profile/coupon.html', [user.checkLogin], (req, res, next) => {
     return res.render('profile/coupon', { title: '我的优惠券' });
 });
 
@@ -163,7 +182,7 @@ router.get('/profile/coupon.html', (req, res, next) => {
     我的地址
  */
 
-router.get('/profile/address.html', (req, res, next) => {
+router.get('/profile/address.html', [user.checkLogin], (req, res, next) => {
     return res.render('profile/address', { title: '我的地址' });
 });
 
@@ -171,7 +190,7 @@ router.get('/profile/address.html', (req, res, next) => {
     激活礼金卡
  */
 
-router.get('/profile/card.html', (req, res, next) => {
+router.get('/profile/card.html', [user.checkLogin], (req, res, next) => {
     return res.render('profile/card', { title: '激活礼金卡' });
 });
 
@@ -179,7 +198,7 @@ router.get('/profile/card.html', (req, res, next) => {
     激活宅配礼品卡
  */
 
-router.get('/profile/activeCard.html', (req, res, next) => {
+router.get('/profile/activeCard.html', [user.checkLogin], (req, res, next) => {
     return res.render('profile/activeCard', { title: '激活宅配礼品卡' });
 });
 
@@ -210,7 +229,7 @@ router.get('/profile/address-edit.html', (req, res, next) => {
     let isdefault = req.query.isdefault;
     let consignee = req.query.consignee;
     let regionid = req.query.regionid;
-    return res.render('profile/address-edit', { title: '编辑地址', said:said, address:address, mobile:mobile, isdefault:isdefault, consignee:consignee, regionid:regionid});
+    return res.render('profile/address-edit', { title: '编辑地址', said: said, address: address, mobile: mobile, isdefault: isdefault, consignee: consignee, regionid: regionid });
 });
 
 /*
@@ -219,7 +238,7 @@ router.get('/profile/address-edit.html', (req, res, next) => {
 
 router.get('/profile/order-detail.html', (req, res, next) => {
     let OSN = req.query.OSN;
-    return res.render('profile/order-detail', { title: '订单详情',OSN:OSN });
+    return res.render('profile/order-detail', { title: '订单详情', OSN: OSN });
 });
 
 /*
@@ -320,10 +339,18 @@ router.get('/profile/help-goods.html', (req, res, next) => {
 });
 
 /*
+    用户注册
+ */
+router.get('/profile/register.html', (req, res, next) => {
+    let ParentID = req.query.ParentID;
+    return res.render('profile/register', { title: '用户注册', ParentID: ParentID });
+})
+
+/*
     我的菜篮子
  */
 
-router.get('/basket/basket.html', (req, res, next) => {
+router.get('/basket/basket.html', [user.checkLogin], (req, res, next) => {
     return res.render('basket/basket', { title: '我的菜篮子' });
 });
 
@@ -411,7 +438,7 @@ router.get('/sale/code.html', (req, res, next) => {
 /*
     选择提现方式页面
  */
-router.get('/sale/request-withdraw.html',(req,res,next)=>{
+router.get('/sale/request-withdraw.html', (req, res, next) => {
     return res.render('sale/request-withdraw', { title: '申请提现' });
 });
 
@@ -419,15 +446,50 @@ router.get('/sale/request-withdraw.html',(req,res,next)=>{
     提现至支付宝
  */
 
-router.get('/sale/withdraw-alipay.html',(req,res,next)=>{
+router.get('/sale/withdraw-alipay.html', (req, res, next) => {
     return res.render('sale/withdraw-alipay', { title: '提现至支付宝' });
 });
 
 /*
     申请提现页面
  */
-router.get('/sale/withdraw-alipay-2.html',(req,res,next)=>{
+router.get('/sale/withdraw-alipay-2.html', (req, res, next) => {
     return res.render('sale/withdraw-alipay-2', { title: '申请提现' });
+})
+
+/*
+    推广设置主页（提现密码相关）
+ */
+router.get('/sale/setting/main.html', (req, res, next) => {
+    return res.render('sale/setting/main', { title: '设置' });
+});
+
+/*
+    修改提现密码-1
+ */
+router.get('/sale/setting/updatePassword-1.html', (req, res, next) => {
+    return res.render('sale/setting/updatePassword-1', { title: '修改提现密码' });
+});
+
+/*
+    修改提现密码-2
+ */
+router.get('/sale/setting/updatePassword-2.html', (req, res, next) => {
+    return res.render('sale/setting/updatePassword-2', { title: '设置提现密码' });
+});
+
+/*
+    修改提现密码-3
+ */
+router.get('/sale/setting/updatePassword-3.html', (req, res, next) => {
+    return res.render('sale/setting/updatePassword-3', { title: '设置提现密码' });
+});
+
+/*
+    验证手机号
+ */
+router.get('/sale/setting/checkPhoneNumber.html', (req, res, next) => {
+    return res.render('sale/setting/checkPhoneNumber', { title: '设置提现密码' });
 })
 
 /*

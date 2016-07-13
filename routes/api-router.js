@@ -71,6 +71,19 @@ router.post('/user/modifyAddressOrderInfo.post', user.modifyAddressOrderInfo);
 router.post('/user/applyRefund.post', user.applyRefund);
 
 /*
+	发送验证码，此接口只是提供于 设置 提现安全码  功能
+ */
+
+router.post('/user/SendSmscode.post',user.SendSmscode);
+
+/*
+	验证验证码
+ */
+
+router.post('/user/CheckSmsCode.post',user.CheckSmsCode);
+
+
+/*
 	cart 购物车相关请求
  */
 
