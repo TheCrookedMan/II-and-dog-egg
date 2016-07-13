@@ -10,8 +10,24 @@
             $('.list-li').touchWipe({itemDelete: '.btn'});
 
             //选择商品
-            $('.list-li .set-default').on("touchstart", function() {
-                $(this).toggleClass("cur");
+            // $('.list-li .set-default').on("touchstart", function() {
+            //     $(this).toggleClass("cur");
+            //     var len=$('.list-li .set-default.cur').length;
+            //     if(len>0)
+            //     {
+            //         $("#total").addClass("active");
+            //         set_pack_money();
+            //     }
+            //     else{
+            //         $("#total").removeClass("active");
+            //         $(".all").removeClass('cur');
+            //         $('#total_price').html('0');
+                    
+            //     }　
+            // });
+
+            $('.list-li.can').on("touchstart", function() {
+                $(this).find('.set-default').toggleClass("cur");
                 var len=$('.list-li .set-default.cur').length;
                 if(len>0)
                 {

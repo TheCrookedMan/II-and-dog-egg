@@ -1,4 +1,6 @@
 import normalRequest from '../rest/normalRequest';
+import config from '../rest/config';
+let distributionPost = config.wechat.distributionPost;
 /*
     登录 api/user/register
     入参
@@ -278,6 +280,6 @@ exports.applyRefund = (req, res, next) => { new normalRequest('/api/user/ApplyRe
 
 */
 
-exports.cishan = (req, res, next) => { new normalRequest('/api/Distribution/GetDonationRecordList').post(req, res, next); }
+exports.cishan = (req, res, next) => { new normalRequest('/api/Distribution/GetDonationRecordList', { post: distributionPost }).get(req, res, next); }
 
-exports.cishan_link = (req, res, next) => { new normalRequest('/api/Distribution/GetDonationRecordList').link_g(req, res, next); }
+exports.cishan_link = (req, res, next) => { new normalRequest('/api/Distribution/GetDonationRecordList', { post: distributionPost }).link_g(req, res, next); }
