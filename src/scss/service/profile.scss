@@ -699,33 +699,33 @@
         a:focus {
             color: $main-font-color!important;
         }
-        .register-bindApp {
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            p {
-                margin-top: -10px;
-                text-align: center;
-                .tit {
-                    background-color: #eee;
-                    padding: 0 10px;
-                }
+    }
+    .register-bindApp {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        p {
+            margin-top: -10px;
+            text-align: center;
+            .tit {
+                background-color: #eee;
+                padding: 0 10px;
             }
-            .link {
-                margin: 2rem 0;
-                img {
-                    max-width: 4rem;
-                }
+        }
+        .link {
+            margin: 2rem 0;
+            img {
+                max-width: 4rem;
             }
-            .tit2 {
-                font-size: $font-size-xxxl;
-                color: $black;
-                margin-bottom: 2rem;
-            }
-            hr {
-                border-top: 1px solid $black;
-                margin: 0;
-            }
+        }
+        .tit2 {
+            font-size: $font-size-xxxl;
+            color: $black;
+            margin-bottom: 2rem;
+        }
+        hr {
+            border-top: 1px solid $black;
+            margin: 0;
         }
     }
 }
