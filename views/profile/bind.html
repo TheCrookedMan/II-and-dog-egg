@@ -1,16 +1,20 @@
 {% include "../_partial/head.html" %}
 <div class="bind">
-	<h2>请填写APP账号</h2>
-	<form action="" class="am-form">
-	  <div class="am-form-group">
-	    <input type="text" id="name" minlength="3" placeholder="请填写登录手机号码 " class="am-form-field" required/>
-	  </div>
-	  <div class="am-form-group">
-	    <input type="text" id="password" minlength="3" placeholder="请填写登录密码" class="am-form-field" required/>
-	  </div>
-	</form>
-	<a href="javascript:void(0)"  class="pub_btn mt2" id="submit">确认绑定</a>
-<!-- 	<p class="txt-r mr1"><a href="#">忘记密码？</a></p> -->
+    <h2>请填写APP账号</h2>
+    <form action="post" class="am-form">
+        <div class="body">
+            <div class="am-form-group">
+                <input type="text" id="name" name="name" minlength="3" placeholder="请填写登录手机号码 " class="am-form-field" required/>
+            </div>
+            <div class="am-form-group">
+                <input type="text" id="password" name="password" minlength="3" placeholder="请填写登录密码" class="am-form-field" required/>
+            </div>
+        </div>
+        <p class="alipay-button">
+            <button type="submit" class="am-btn am-btn-default">确认绑定</button>
+        </p>
+    </form>
+    <!-- 	<p class="txt-r mr1"><a href="#">忘记密码？</a></p> -->
 </div>
 {% include "../_partial/foot.html" %}
 <script src="/js/profile/bind.js"></script>

@@ -1,45 +1,47 @@
 {% include "../_partial/head.html" %}
 <style type="text/css">
-	body{
-		background: #fff;
-	}
+body {
+    background: #fff;
+}
 </style>
 <div class="index profile">
-	<div class="pinfo">
-		<img src="/img/profileBg.jpg">
-		<div class="con">
-			<div class="img">
-				<img src="/img/jiankangdashi@2x.png" class="bg">
-				<img src="/img/t1.jpg" class="people">
-			</div>
-			<div class="txt">
-				<p class="tit">- 我就是小二丫 -</p>
-				<p>身份：健康推广大使</p>
-			</div>
-		</div>
-	</div>
-	<div class="mySale">
-		<div class="code">
-			<p class="ps"><a href="javascript:void(0)" data-am-modal="{target: '#my-alert'}">二维码相关说明</a></p>
-			<div class="img">
-				<p><img src="/img/code.jpg"></p>
-				<p class="txt">分享二维码，传递健康生活!</p>
-			</div>
-		</div>
-	</div>
+    <div class="pinfo">
+        <img src="/img/profileBg.jpg">
+        <div class="con">
+            <div class="img">
+                <img src="/img/jiankangdashi@2x.png" class="bg">
+                <img src="#" class="people">
+            </div>
+            <div class="txt">
+                <p class="tit"></p>
+                <p class="UserIdentity"></p>
+            </div>
+        </div>
+    </div>
+    <div class="mySale">
+        <div class="code">
+            <p class="ps"><a href="javascript:void(0)" data-am-modal="{target: '#my-alert'}">二维码相关说明</a></p>
+            <div class="img">
+                <p>
+                    <div id="doc-qrcode"></div>
+                </p>
+                <p class="txt">分享二维码，传递健康生活!</p>
+            </div>
+        </div>
+    </div>
 </div>
-
 <div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
-  <div class="am-modal-dialog">
-    <div class="am-modal-hd">二维码相关说明</div>
-    <div class="am-modal-bd txt-l mt1">
-      1、成为健康大使的第四个自然月开始（一个自然月按30天计算），每月需完成单笔消费额（不含运费）≥100元的任务；<br>
-2、未完成任务的“健康推广大使”，从第五个自然月开始：a.健康推广大使身份失效；b.个人专属二维码失效；c.无法获得身份失效日之后的提成。<br>
-3、身份失效之后任意时间，满足单笔消费（不含运费）≥100元，可重新获取“健康推广大使”的的身份，获得新的个人专属二维码，并享受下线销售提成。
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">二维码相关说明</div>
+        <div class="am-modal-bd txt-l mt1">
+            1、成为健康大使的第四个自然月开始（一个自然月按30天计算），每月需完成单笔消费额（不含运费）≥100元的任务；
+            <br> 2、未完成任务的“健康推广大使”，从第五个自然月开始：a.健康推广大使身份失效；b.个人专属二维码失效；c.无法获得身份失效日之后的提成。
+            <br> 3、身份失效之后任意时间，满足单笔消费（不含运费）≥100元，可重新获取“健康推广大使”的的身份，获得新的个人专属二维码，并享受下线销售提成。
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn col-g">确定</span>
+        </div>
     </div>
-    <div class="am-modal-footer">
-      <span class="am-modal-btn col-g">确定</span>
-    </div>
-  </div>
 </div>
 {% include "../_partial/foot.html" %}
+<script src="/js/sale/code.js"></script>
