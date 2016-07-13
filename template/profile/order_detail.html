@@ -2,7 +2,11 @@
   <div class="list">
     <div class="title">
       <div class="fl">
-        <h2>未付款{{ data['data'].orderStatus }}</h2>
+        {% if data['data'].orderStatusTitle == '去支付' %}
+        <h2>未付款</h2>
+        {% else %}
+        <h2>{{ data['data'].orderStatusTitle }}</h2>
+        {% endif %}
       </div>
     </div>
     <div class="con">
@@ -11,6 +15,9 @@
           <span class="fl">{{ data['data'].mobile }}</span>
       </div>
       <div class="area mt05">{{ data['data'].address }}</div>
+    </div>
+    <div class="pub_linex"></div>
+    <div class="con">
       <div class="priceList">
         <div class="l">
           <span class="col-grey fl">订单编号</span>
@@ -21,14 +28,20 @@
           <span class="col-grey fr">{{ data['data'].addTime }}</span>
         </div>
       </div>
+    </div>
+    <div class="pub_linex"></div>
+    <div class="con">
+      {% if data['data'].orderStatusTitle == '去支付' %}
+      <div class="priceList">
+          <span class="col-grey fl">订单状态</span>
+          <span class="col-grey fr">未付款</span>
+      </div>
+      {% else %}
       <div class="priceList">
           <span class="col-grey fl">订单状态<em>{{ data['data'].orderStatusTitle }}</em></span>
           <span class="col-grey fr"><a href="#" class="ship"><i class="am-icon-truck"></i><em>|</em>跟踪它</a></span>
       </div>
-      <div class="priceList">
-          <span class="col-grey fl">订单状态</span>
-          <span class="col-grey fr">{{ data['data'].orderStatusTitle }}</span>
-      </div>
+      {% endif %}
     </div>
   </div>
   <div class="list">
@@ -123,10 +136,10 @@
     </div>
     <div class="total">
       <span class="fl col-grey">合计</span>
-      <span class="fr col-grey">￥{{ data['data'].surplusmoney }}</span>
+      <span class="fr col-grey">￥{{ data['data'].orderAmount }}</span>
     </div>
   </div>
 </div>
 <header class="am-topbar am-topbar-fixed-bottom detail_foot bge bd0">
-  <a href="javascript:void(0)"  class="btn buy">去付款</a>
+  <a href="/profile/order-pay.html?osn={{ data['data'].OSN }}&orderAmount={{ data['data'].orderAmount }}"  class="btn buy">去付款</a>
 </header>

@@ -200,6 +200,8 @@ exports.couponList_link = (req, res, next) => { new normalRequest('/api/user/cou
  */
 exports.validCouponList = (req, res, next) => { new normalRequest('/api/user/ValidCouponList').post(req, res, next); }
 
+exports.validCouponList_link = (req, res, next) => { new normalRequest('/api/user/ValidCouponList').link(req, res, next); }
+
 
 /*
 		取消订单(api/user/CancelOrder)

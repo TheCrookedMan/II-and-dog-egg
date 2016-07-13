@@ -1,16 +1,20 @@
 {% include "../_partial/head.html" %}
+<script type="text/javascript">
+var osn = "{{osn}}";
+var orderAmount = "{{orderAmount}}";
+</script>
 <div class="order_ok order_detail">
   <div class="list">
     <div class="con">
       <div class="l">
           <span class="col-grey fl">订单编号</span>
-          <span class="col-grey fr">256987411332155</span>
+          <span class="col-grey fr">{{osn}}</span>
       </div>
     </div>
     <div class="con">
       <div class="l">
           <span class="col-grey fl">订单金额</span>
-          <span class="col-grey fr">￥2563.00</span>
+          <span class="col-grey fr">￥{{orderAmount}}</span>
       </div>
     </div>
   </div>

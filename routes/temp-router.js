@@ -86,6 +86,16 @@ router.get('/template/basket/order.t', [user.defaultAddressOrderInfo_link], func
     });
 })
 
+/*
+    确认订单--获取订单可用优惠券
+ */
+router.get('/template/basket/coupon.t', [user.validCouponList_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/basket/coupon', {
+        data: record['/api/user/ValidCouponList']
+    });
+})
+
 
 /*
     个人中心----我的收货地址列表

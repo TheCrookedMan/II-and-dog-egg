@@ -1,13 +1,13 @@
 {% if "1" == data['code'] && !!data['data'] %} 
 {% if data['data']['couponList'].length %}
 {% for list in data['data']['couponList'] %}
-<li class="can">
-	<a href="#">
+<li class="can" data-id="{{list.giveMoney}}">
+	<a href="javascript:void(0)">
 		<img src="/img/couponBg.jpg">
 		<div class="txt">
 			<p class="price">{{list.giveMoney}}<em>元</em></p>
-			<p class="tit">庆祝二丫和狗蛋小店开张，特发此券！{{list.couponNum}}</p>
-			<p class="ps">订单金额高于{{list.couponNum}}元可用</p>
+			<p class="tit">{{list.couponRange}}</p>
+			<p class="ps">订单金额高于{{list.threshold}}元可用</p>
 			<p class="ps">有效期{{list.startTime}}-{{list.endTime}}</p>
 		</div>
 	</a>
