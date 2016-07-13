@@ -32,7 +32,6 @@
                     $("#getPay").attr("href", "javascript:void(0)");
                     $("#getPay").addClass('disable');
                     $('#total_price').html('0');
-
                 }
             });
             // $('.list-li.can').on("touchstart", function() {
