@@ -1,5 +1,5 @@
 (function() {
-    $.post('/distribution/getLowerLevelCount.post', { Uid: 1 }).success(function(data) {
+    $.post('/distribution/getLowerLevelCount.post', { Uid: userinfo.Uid }).success(function(data) {
     	if(data.code == "1" && !!data.data){
     		var record = data.data;
     		$.each(record,function(i,I){

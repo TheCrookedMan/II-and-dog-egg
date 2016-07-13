@@ -1,5 +1,5 @@
 (function() {
-    $.post('/distribution/getSalesCount.post', { Uid: 1 }).success(function(data) {
+    $.post('/distribution/getSalesCount.post', { Uid: userinfo.Uid }).success(function(data) {
         if ("1" == data.code && !!data.data) {
             var record = data.data;
             // if (record.totalSales > 0) {

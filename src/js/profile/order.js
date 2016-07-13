@@ -3,7 +3,7 @@
         this.pagenumber = 1;
         this.pagesize = 20;
         this.isEnd = false;
-        this.uid = 9;
+        this.uid = userinfo.Uid;
         this.orderstate = 1;
     }
     gallery.prototype = {
@@ -51,8 +51,7 @@
                         }
                     }
                 }).error(function(err) {});
-            }
-            else if ($(".myOrder .tab ul li a.cur").data("id") == 0) {
+            } else if ($(".myOrder .tab ul li a.cur").data("id") == 0) {
                 $.get('/template/profile/order_shiping.t', {
                     "pagenumber": self.pagenumber,
                     "pagesize": self.pagesize,
@@ -74,8 +73,7 @@
                         }
                     }
                 }).error(function(err) {});
-            }
-            else if ($(".myOrder .tab ul li a.cur").data("id") == 6) {
+            } else if ($(".myOrder .tab ul li a.cur").data("id") == 6) {
                 $.get('/template/profile/order_done.t', {
                     "pagenumber": self.pagenumber,
                     "pagesize": self.pagesize,

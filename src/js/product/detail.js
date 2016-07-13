@@ -1,16 +1,15 @@
 (function() {
     $.post('/product/productDetail.post', { "pid": pid }).success(function(data) {
-        if(data.code == "1" && !!data.data){
+        if (data.code == "1" && !!data.data) {
             var record = data.data;
 
-            var isSimpleTag=record.isSimpleTag;
-            if(isSimpleTag == 1){
-                var str='<div class="txt" id="title"></div>';
+            var isSimpleTag = record.isSimpleTag;
+            if (isSimpleTag == 1) {
+                var str = '<div class="txt" id="title"></div>';
                 $("#ps").append(str);
                 $("#title").html(record.title);
-            }
-            else{
-                var str='<div class="time"><i class="am-icon-clock-o"></i><span>仅剩时间：<em></em></span></div>';
+            } else {
+                var str = '<div class="time"><i class="am-icon-clock-o"></i><span>仅剩时间：<em></em></span></div>';
                 $("#ps").append(str);
 
                 // // 倒计时
@@ -53,126 +52,123 @@
                 //         clearInterval(timer);
                 //     } 
                 // }, 1000);
-                
+
             }
 
-            var img=record.img;
-            var imgs=img.ImageArray;
-            for(var p in imgs){
-                var str='<li><img src="'+imgs[p]+'"/></li>';
+            var img = record.img;
+            var imgs = img.ImageArray;
+            for (var p in imgs) {
+                var str = '<li><img src="' + imgs[p] + '"/></li>';
                 $("#imgs").append(str);
             }
             var weight;
 
-            var isEnd=false;
+            var isEnd = false;
             $("#Description").html('');
             $(".nav-tab").hide();
             scroll.on(function() {
-                isEnd=true;
+                isEnd = true;
                 if (isEnd) {
                     $(".nav-tab").show();
                     $("#Description").html(record.Description);
                 }
             }, function() {
-                isEnd=false;
+                isEnd = false;
                 $(".nav-tab").hide()
             });
             $("#Name").html(record.Name);
             $("#shipAddres").html(record.shipAddres);
-            $("#ShopPrice").html("￥"+record.ShopPrice);
-            $("#skuPrice").html("￥"+record.ShopPrice);
+            $("#ShopPrice").html("￥" + record.ShopPrice);
+            $("#skuPrice").html("￥" + record.ShopPrice);
             $("#StockNum").html(record.StockNum);
-            $("#media").on('click',function(){
-                if(record.VideoId==null){
+            $("#media").on('click', function() {
+                if (record.VideoId == null) {
                     modal.tip("该商品没有视频介绍");
                     $('.am-dimmer').hide();
-                }
-                else{
+                } else {
 
                 }
             })
 
-            var sku=record.SkuInfoArray;
-            for(var i in sku){
-                var str='<dl><dt>'+sku[i].key+'</dt><dd></dd></dl/>';
+            var sku = record.SkuInfoArray;
+            for (var i in sku) {
+                var str = '<dl><dt>' + sku[i].key + '</dt><dd></dd></dl/>';
                 $("#sku").append(str);
-                var v=sku[i].value;
-                for(var j in v){
-                    weight=v[j].AttrValue;
+                var v = sku[i].value;
+                for (var j in v) {
+                    weight = v[j].AttrValue;
                     $("#weight").html(weight);
-                    if(v[j].State==0){
-                        var str0='<a href="javascript:void(0)" class="can">'+v[j].AttrValue+'</a>';
+                    if (v[j].State == 0) {
+                        var str0 = '<a href="javascript:void(0)" class="can">' + v[j].AttrValue + '</a>';
+                        $("#sku dl dd").append(str0);
+                    } else {
+                        var str0 = '<a href="javascript:void(0)" class="disable">' + v[j].AttrValue + '</a>';
                         $("#sku dl dd").append(str0);
                     }
-                    else{
-                       var str0='<a href="javascript:void(0)" class="disable">'+v[j].AttrValue+'</a>';
-                       $("#sku dl dd").append(str0);
-                    }
                     $("a.can:first").addClass("cur");
-                    $("#skuImg").attr("src",v[j].Image);
+                    $("#skuImg").attr("src", v[j].Image);
                 }
             }
-           
-            var tips=record.goodsAttributeList;
-            for(var i in tips){
-                var str='<p class="title">｜'+tips[i].key+'｜</p><p>'+tips[i].values+'</p>';
+
+            var tips = record.goodsAttributeList;
+            for (var i in tips) {
+                var str = '<p class="title">｜' + tips[i].key + '｜</p><p>' + tips[i].values + '</p>';
                 $("#tips").after(str);
             }
 
             var $modal = $('#my-actions');
 
-            if(record.StockNum >0 ){
-                var str='<a href="javascript:void(0)"  class="btn buy" data-am-modal="{target: "#my-actions"}">加入菜篮子</a>';
-                var str0='<a href="javascript:void(0)"  class="btn add">加入菜篮子</a>';
+            if (record.StockNum > 0) {
+                var str = '<a href="javascript:void(0)"  class="btn buy" data-am-modal="{target: "#my-actions"}">加入菜篮子</a>';
+                var str0 = '<a href="javascript:void(0)"  class="btn add">加入菜篮子</a>';
                 $(".detail_foot").append(str);
                 $(".detail_foot").append(str0);
                 $('.btn.add').hide();
-                $(".buy").on('click',function(){
+                $(".buy").on('click', function() {
                     $(this).hide();
                     $('.btn.add').show();
                     $modal.modal();
                 })
-                $("#openmodel").on('click',function(){
+                $("#openmodel").on('click', function() {
                     $modal.modal();
                     $('.btn.add').show();
                     $('.btn.buy').hide();
                 })
-            }
-            else{
-                var str='<a href="javascript:void(0)"  class="btn disable">已售罄</a>';
+            } else {
+                var str = '<a href="javascript:void(0)"  class="btn disable">已售罄</a>';
                 $(".detail_foot").append(str);
             }
 
 
-            $(".pdetail_modal .pinfo .close").on('click',function(){
+            $(".pdetail_modal .pinfo .close").on('click', function() {
                 $('.btn.add').hide()
                 $('.btn.buy').show();
             })
 
-            $("a.can").on('click',function(){
+            $("a.can").on('click', function() {
                 $(this).addClass("cur").siblings(".can").removeClass("cur");
-                var txt=$(this).text();
+                var txt = $(this).text();
                 $("#skuSelected").html(txt);
             })
 
-            $(".pdetail_modal .select dl dd a.cur").each(function(){
+            $(".pdetail_modal .select dl dd a.cur").each(function() {
                 $("#skuSelected").html($(this).text());
-                var str='<em>“'+$(this).text()+'”</em>';
+                var str = '<em>“' + $(this).text() + '”</em>';
                 $("#selected").after(str);
             });
 
-            $(".nav-tab a").on('click',function(){
+            $(".nav-tab a").on('click', function() {
                 $(this).addClass("cur").siblings("a").removeClass("cur");
-                var url=$(this).data("id");
-                $(".con ."+url).show().siblings().hide();
+                var url = $(this).data("id");
+                $(".con ." + url).show().siblings().hide();
             })
 
             $('.am-slider').flexslider();
 
-            $('.btn.add').on('click',function(){
+            $('.btn.add').on('click', function() {
                 $('.btn.add').hide()
                 $('.btn.buy').show();
-                $.post('/cart/addProdToCart.post', { "pid": pid,"uid":9,'number':1 }).success(function(data) {
+                $.post('/cart/addProdToCart.post', { "pid": pid, "uid": userinfo.Uid, 'number': 1 }).success(function(data) {
                     $modal.modal('close');
                     modal.tip("添加菜篮子成功！");
                     $('.am-dimmer').hide();

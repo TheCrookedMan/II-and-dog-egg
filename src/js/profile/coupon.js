@@ -1,10 +1,10 @@
 (function() {
-    
+
     function gallery() {
-            this.pagenumber = 1;
-            this.pagesize = 20;
-            this.isEnd = false;
-        }
+        this.pagenumber = 1;
+        this.pagesize = 20;
+        this.isEnd = false;
+    }
     gallery.prototype = {
         init: function() {
             var self = this;
@@ -23,7 +23,7 @@
             $.get('/template/profile/profile_coupon.t', {
                 "pagenumber": self.pagenumber,
                 "pagesize": self.pagesize,
-                "uid": 9
+                "uid": userinfo.Uid
             }).success(function(data) {
                 data = data.replace(/(^\s+)|(\s+$)/g, "");
                 if ("" == data) {
@@ -36,11 +36,11 @@
                         $(".coupon .list ul").append(data);
                     }
                 }
-                var len =$(".coupon .list ul li.can").length;
+                var len = $(".coupon .list ul li.can").length;
                 $("#couponNum").text(len);
             }).error(function(err) {});
         }
     }
     var productList = new gallery();
-        productList.init();
+    productList.init();
 }).call(this)

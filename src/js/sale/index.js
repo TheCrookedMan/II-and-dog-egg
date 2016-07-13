@@ -1,5 +1,5 @@
 (function() {
-    $.post('/distribution/commitionMoney.post', { Uid: 1 }).success(function(data) {
+    $.post('/distribution/commitionMoney.post', { Uid: userinfo.Uid }).success(function(data) {
         if (data.code == "1" && !!data.data) {
             var record = data.data;
             $(".FrozenMoney").text(record.FrozenMoney.toFixed(2));
