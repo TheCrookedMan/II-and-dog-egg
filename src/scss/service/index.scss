@@ -74,15 +74,15 @@
             
         }
         div.fr{
-            width: 78%;margin-top: 0.8rem;position: relative;
+            width: 78%;margin-top: 0.9rem;position: relative;
         }
         .fr {
             margin-right: 1rem;
             input {
                 width: 94%;
                 font-size: 1.4rem;background: #f8f8f8;border: 0;border-radius: 5px;
-                text-indent:3rem;
-                padding: 0.7rem 0;
+                text-indent:3.4rem;
+                height: 38px;
                 position: relative;
                 z-index: 8;
                 &::-webkit-input-placeholder {
@@ -109,8 +109,8 @@
         }
     }
     .am-slider {
-        top: -50px;
-        margin-bottom: -35px;
+        top: 12px;
+        margin-bottom: 12px;
         .am-control-nav li a {
             background: rgba(256, 256, 256, 0.5);
             width: 16px;

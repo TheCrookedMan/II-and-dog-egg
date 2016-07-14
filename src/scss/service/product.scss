@@ -1,5 +1,6 @@
 .product {
     padding-bottom: 10px;
+    
     .am-gallery{
         li{
             p{
@@ -97,7 +98,7 @@
         background: #fff;
         display: inline-block;
         border-bottom: 0;
-        min-height: auto;
+        min-height: 2rem;
         padding: 0.5rem 0;width: 100%;
         .search{
             background: #fff;position: absolute;top: 0;left: 0;width: 100%;display: none;
@@ -185,6 +186,9 @@
 
 .detail{
     padding-bottom:0;
+    .pub_basket{
+        margin-top:-0.6rem;
+    }
     .media{
         display: block;border-radius: 50px;background-color: #fff;position: absolute;
             width: 4.5rem;height: 3rem;line-height: 2.4rem;font-size: 1.8rem;z-index: 9;right: -2rem;bottom: 1rem;
@@ -193,7 +197,7 @@
             }
     }
     .am-slider{
-        margin-bottom:-50px;
+        margin-bottom:-50px;top: -51px;
     }
     .info{
         margin-bottom:10px;background-color:#fff;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;
@@ -314,7 +318,7 @@
     .select{
         width:100%;display:inline-block;margin-top:1.5rem;padding-bottom: 4rem;
         dl{
-            width:100%;display:inline-block;margin:0;padding:0;border-left:#9bc32e solid 1px;margin-bottom:2.2rem;
+            margin:0;padding:0;border-left:#9bc32e solid 1px;margin-bottom:2.2rem;
             dt{
                 width:100%;display:inline-block;margin:0;padding:0;text-shadow:none;font-weight:normal;text-align:left;font-size:1.6rem;color:#000;text-indent:10px;
             }
@@ -357,8 +361,11 @@
 }
 
 .nav-tab{
-    background:none;font-size: 1.8rem;position: fixed;top: 0;left: 0;text-align: center;width: 89%;padding-top: 1.3rem;border:0;
-    z-index: 9999;
+    background:#fff;font-size: 1.8rem;position: fixed;top: 0;left: 0;text-align: center;width: 100%;padding-top: 0.8rem;border:0;padding-bottom:1.2rem;
+    z-index: 999;
+    .pub_basket{
+        margin-top:-1.2rem;margin-right:1rem;font-size:2.4rem;
+    }
     span{
         margin: 0 0.8rem;
     }

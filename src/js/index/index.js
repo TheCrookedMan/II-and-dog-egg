@@ -34,20 +34,20 @@
         return false;
     })
 
-    $("#keywords").change(function(){
-      var content = $(this).val(); 
-      if($.trim(content) == ''){
-        $(this).siblings().hide()
-      }
-      else{
-        $(this).siblings().show();
-      }
-    });
+    // $("#keywords").change(function(){
+    //   var content = $(this).val(); 
+    //   if($.trim(content) == ''){
+    //     $(this).siblings().hide()
+    //   }
+    //   else{
+    //     $(this).siblings().show();
+    //   }
+    // });
 
-    $("#deltxt").on('click',function(){
-        $(this).hide();
-        $(this).siblings().val('')
-    })
+    // $("#deltxt").on('click',function(){
+    //     $(this).hide();
+    //     $(this).siblings().val('')
+    // })
 
     // $("#oftenKeyword p a").click(function() {
     //     var keyword = $(this).data("id");

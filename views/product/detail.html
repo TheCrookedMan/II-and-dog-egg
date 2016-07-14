@@ -2,10 +2,15 @@
 <script type="text/javascript">
 var pid = "{{pid}}";
 </script>
+<style type="text/css">
+    .am-panel{
+        box-shadow: none;
+    }
+</style>
 <div class="index detail">
     <!-- Header -->
     <header class="am-topbar am-topbar-fixed-top bg0">
-        <a href="/basket/basket.html" class="fr pub_basket" data-am-modal="{target: '#search'}"><i class="icon-basket_3x"><em></em></i></a>
+        <a href="/basket/basket.html" class="fr pub_basket"><i class="icon-basket_3x"><em></em></i></a>
     </header>
     <!-- Slider -->
     <div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{"directionNav":false}'>
@@ -37,10 +42,11 @@ var pid = "{{pid}}";
     <div class="line">
         <span>继续拖动，查看图文详情</span>
     </div>
-    <div class="am-panel am-panel-default nav-tab">
+    <div class="am-panel am-panel-default nav-tab" style="display: none">
         <a href="javascript:void(0)" class="cur" data-id="pic">图文说</a>
         <span>|</span>
         <a href="javascript:void(0)" data-id="tips">小提示</a>
+        <a href="/basket/basket.html" class="fr pub_basket"><i class="icon-basket_3x"><em></em></i></a>
     </div>
     <div class="con">
         <div class="tips">
