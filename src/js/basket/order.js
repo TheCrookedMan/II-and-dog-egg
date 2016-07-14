@@ -1,5 +1,5 @@
 (function() {
-    $.get('/template/basket/order.t', { "uid": userinfo.Uid, 'type': 1, 'pids': pids }).success(function(data) {
+    $.get('/template/basket/order.t', { "uid": userinfo.UserID, 'type': 1, 'pids': pids }).success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
         if ("" !== data) {
 
@@ -31,11 +31,11 @@
 
             //获取优惠券
             $("#getCoupon").on('click', function() {
-                $.post('/user/validCouponList.post', { "uid": userinfo.Uid, 'allproductamount': 30 }).success(function(data) {
+                $.post('/user/validCouponList.post', { "uid": userinfo.UserID, 'allproductamount': 30 }).success(function(data) {
                     var record = data.data;
                     var couponList = record.couponList;
                     if (couponList.length > 0) {
-                        $.get('/template/basket/coupon.t', { "uid": userinfo.Uid, 'allproductamount': 30 }).success(function(data) {
+                        $.get('/template/basket/coupon.t', { "uid": userinfo.UserID, 'allproductamount': 30 }).success(function(data) {
                             $("#orderMain").hide();
                             $(".coupon .list ul").html(data);
                             $("#orderCoupon").show();
@@ -50,7 +50,7 @@
 
             //获取收货地址
             $("#getAddress").on('click', function() {
-                $.get('/template/profile/address.t', { "uid": userinfo.Uid }).success(function(data) {
+                $.get('/template/profile/address.t', { "uid": userinfo.UserID }).success(function(data) {
                     data = data.replace(/(^\s+)|(\s+$)/g, "");
                     if ("" !== data) {
                         $("#orderMain").hide();

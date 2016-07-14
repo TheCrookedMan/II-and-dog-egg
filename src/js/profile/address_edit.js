@@ -16,7 +16,7 @@
             "address": address,
             "mobile": mobile,
             "regionid": 148,
-            "uid": userinfo.Uid,
+            "uid": userinfo.UserID,
             "isdefault": isdefault,
             "consignee": consignee,
             "edittag": 1, //0表示新增  1表示更新  -1表示删除

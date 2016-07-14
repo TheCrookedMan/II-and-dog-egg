@@ -2,7 +2,7 @@
     var wechatUserInfo = common.getCookie("wechatUserInfo");
     $(".people").attr('src', wechatUserInfo.headimgurl);
     $(".pinfo .txt .tit").text(wechatUserInfo.nickname);
-    if (!userinfo.Uid) {
+    if (!userinfo.UserID) {
         $(".pinfo .UserIdentity").text("身份：普通会员");
         normal();
     } else {

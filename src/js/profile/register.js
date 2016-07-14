@@ -2,6 +2,7 @@
     var time, count = 60;
     var OpenID = common.getOpenId();
     var wechatUserInfo = common.getCookie("wechatUserInfo");
+    var fromUrl = window.location.search.substr(1).replace("fromUrl=", "");
     $(".am-form").on("click", ".sendSMS", function(ev) {
         var data = common.parseForm(".am-form");
         if (common.regMobileNo(data.mobileNo)) {
@@ -41,6 +42,7 @@
                     if ("1" == data.code) {
                     	var record = data.data;
                     	common.setCookie('userinfo',JSON.stringify(record));
+                        window.location.href = fromUrl;
                     } else {
                     	modal.alert({ text: data.message });
                     }

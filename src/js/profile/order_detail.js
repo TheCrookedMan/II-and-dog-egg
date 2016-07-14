@@ -1,7 +1,7 @@
 (function() {
     $.get('/template/profile/order_detail.t', {
         "osn": osn,
-        "uid": userinfo.Uid
+        "uid": userinfo.UserID
     }).success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
         $("#order_detail").html(data);

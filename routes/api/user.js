@@ -292,9 +292,12 @@ exports.CheckSmsCode = (req, res, next) => { new normalRequest('/api/user/CheckS
 exports.checkLogin = (req, res, next) => {
     let userinfo = req.cookies.userinfo,
         fromUrl = req.url;
-    if (!userinfo || !userinfo.Uid) {
+    userinfo = JSON.parse(userinfo);
+    if (!userinfo || !userinfo.UserID) {
         //没有runningcatUserInfo表示没有注册或者登录过，需要跳转到注册
         res.redirect("/profile/register.html?fromUrl=" + fromUrl);
+    } else {
+    	next();
     }
 }
 

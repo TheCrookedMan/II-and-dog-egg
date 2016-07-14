@@ -1,5 +1,5 @@
 (function() {
-    $.post('/distribution/commitionMoney.post', { Uid: userinfo.Uid }).success(function(data) {
+    $.post('/distribution/commitionMoney.post', { Uid: userinfo.UserID }).success(function(data) {
         if (data.code == "1" && !!data.data) {
             var record = data.data;
             $(".FrozenMoney").text(record.FrozenMoney.toFixed(2));
@@ -11,7 +11,7 @@
     $(".people").attr('src', wechatUserInfo.headimgurl);
     $(".pinfo .txt .tit").text(wechatUserInfo.nickname);
 
-    if (!userinfo.Uid) {
+    if (!userinfo.UserID) {
         $(".pinfo .UserIdentity").text("身份：普通会员");
         normal();
     } else {
