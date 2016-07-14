@@ -2,8 +2,14 @@
 <div class="index">
     <!-- Header -->
     <header class="am-topbar am-topbar-fixed-top">
-        <a href="#left-nav" data-am-offcanvas class="fl"><i class="am-icon-bars"></i></a>
-        <a href="javascript:void(0)" class="fr" data-am-modal="{target: '#search'}"><i class="am-icon-search"></i></a>
+        <div class="fl"><a href="#left-nav" data-am-offcanvas><p><i class="am-icon-bars"></i></p><p><span>分类</span></p></a></div>
+        <div class="fr">
+            <form id="searchForm" method='get' action="">
+                <input  id="keywords" placeholder="搜索食材、商品名称" type="text">
+                <a href="javascript:void(0)" id="deltxt" style="display: none;"><i class="am-icon-times-circle"></i></a> 
+                <i class="am-icon-search"></i>
+             </form>
+        </div>
     </header>
     <!-- 侧边栏内容 -->
     <div id="left-nav" class="am-offcanvas">
@@ -24,19 +30,63 @@
     <div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{"directionNav":false}'>
         <ul class="am-slides">
             <li>
-                <a href="/product/detail.html"><img src="/img/banner.jpg"></a>
-            </li>
-            <li>
-                <a href="/product/detail.html"><img src="/img/banner.jpg"></a>
-            </li>
-            <li>
-                <a href="/product/detail.html"><img src="/img/banner.jpg"></a>
-            </li>
-            <li>
-                <a href="/product/detail.html"><img src="/img/banner.jpg"></a>
+                <a href="javascript:void(0)"><img src="/img/index_02.jpg"></a>
             </li>
         </ul>
     </div>
+
+    <!-- 分类 -->
+    <div class="index_catelog">
+        <p><img src="/img/index_03.jpg"></p>
+        <ul>
+            <li>
+                <a href="/product/list.html?categoryId=114"><img src="/img/c1.jpg"></a>
+            </li>
+            <li>
+                <a href="/product/list.html?categoryId=116"><img src="/img/c2.jpg"></a>
+            </li>
+            <li>
+                <a href="/product/list.html?categoryId=115"><img src="/img/c3.jpg"></a>
+            </li>
+            <li>
+                <a href="/product/list.html?categoryId=22"><img src="/img/c4.jpg"></a>
+            </li>
+            <li>
+                <a href="/product/list.html?categoryId=117"><img src="/img/c5.jpg"></a>
+            </li>
+            <li>
+                <a href="/product/list.html?categoryId=119"><img src="/img/c6.jpg"></a>
+            </li>
+            <li>
+                <a href="/product/list.html?categoryId=22"><img src="/img/c7.jpg"></a>
+            </li>
+            <li>
+                <a href="/product/list.html?categoryId=0"><img src="/img/c8.jpg"></a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 视频 -->
+    <div class="index_media">
+        <a href="/index/h5.html"><img src="/img/index_14.jpg"></a>
+    </div>
+
+    <!-- 大家都在买 -->
+    <div class="often_buy">
+        <p><img src="/img/basket.png"></p>
+        <div class="data-list">
+            <div class="list swiper">
+                <div class="wrapper">
+                    <a href="/product/detail.html?pid=1787"><img src="/img/buy_03.jpg"></a>
+                    <a href="/product/detail.html?pid=1550"><img src="/img/buy_05.jpg"></a>
+                    <a href="/product/detail.html?pid=1720"><img src="/img/buy_07.jpg"></a>
+                    <a href="/product/detail.html?pid=1564"><img src="/img/buy_09.jpg"></a>
+                    <a href="/product/detail.html?pid=1712"><img src="/img/buy_11.jpg"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="catelog text-c">
         <!-- <p>
             <a href="/index/h5.html"><img src="/img/media.jpg"></a>
@@ -147,8 +197,13 @@
             <a href="/product/detail.html"><img src="/img/p4-10.jpg"></a>
         </p> -->
     </div>
+
+    <!-- 底部 -->
+    <div class="index_media">
+        <img src="/img/index_16.jpg">
+    </div>
 </div>
-<div class="am-popup index_popup" id="search">
+<!-- <div class="am-popup index_popup" id="search">
     <div class="am-popup-inner">
         <div class="am-popup-hd">
             <h4 class="am-popup-title">
@@ -171,6 +226,6 @@
             <p><a href="javascript:void(0)" data-id="菜园里的菠菜">菜园里的菠菜</a></p>
         </div>
     </div>
-</div>
+</div> -->
 {% include "../_partial/footer.html" %} {% include "../_partial/foot.html" %}
 <script src="/js/index/index.js"></script>
