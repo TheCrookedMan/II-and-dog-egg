@@ -78,7 +78,7 @@
         var remarks = $("#remarks").val();
         submitOrder({
             pids: pids,
-            uid: userinfo.Uid,
+            uid: userinfo.UBID,
             remarks: remarks,
             is_rece: is_rece,
             /*

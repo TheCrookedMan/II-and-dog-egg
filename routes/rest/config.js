@@ -21,12 +21,12 @@ if ("dev" == argv) {
     }
 } else {
     exports.wechat = {
-        'appId': 'wx16cd0f3f1f4ee12a',
-        'appsecret': 'defcd1c0a12f0e6e383cfde5aff6d30e',
+        'appId': 'wx4e6f77b139c239fc',
+        'appsecret': '6b20f42b75e608d229e5046744c0fa0e',
         /* REST 接口 服务器地址 */
         'host':'203.156.219.94',
         /* REST 接口 服务器端口 */
-        'post':'5698',
+        'post':'8123',
         /* 推广接口 服务器端口 */
         'distributionPost':'8123',
         /* 图片显示前缀 */

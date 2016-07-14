@@ -5,7 +5,7 @@
     $("body").on('click', '.btn.buy', function(ev) {
         $.post('/user/eycharges.post', {
             'order_no': osn+random,
-            'amount': orderAmount,
+            'amount': orderAmount*100,
             'channel': 'wx_pub',
             'currency': 'cny',
             'subject': 'test',
