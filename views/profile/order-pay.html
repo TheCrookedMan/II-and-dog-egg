@@ -1,6 +1,6 @@
 {% include "../_partial/head.html" %}
 <script type="text/javascript">
-var osn = "{{osn}}";
+var osn = "{{oNum}}";
 var orderAmount = "{{orderAmount}}";
 </script>
 <div class="order_ok order_detail">
@@ -8,7 +8,7 @@ var orderAmount = "{{orderAmount}}";
     <div class="con">
       <div class="l">
           <span class="col-grey fl">订单编号</span>
-          <span class="col-grey fr">{{osn}}</span>
+          <span class="col-grey fr">{{oNum}}</span>
       </div>
     </div>
     <div class="con">
@@ -38,3 +38,5 @@ var orderAmount = "{{orderAmount}}";
   <a href="javascript:void(0)"  class="btn buy">确认支付</a>
 </header>
 {% include "../_partial/foot.html" %}
+<script src="/plugins/pingpp.min.js"></script>
+<script src="/js/profile/order-pay.js"></script>

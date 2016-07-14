@@ -1,4 +1,4 @@
-{% if "1" == data['code'] %} 
+{% if "1" == data['code'] && !!data['data'] %} 
 {% for list in data['data']['productList'] %}
 {% if list.proStatus ==1 %}
 <li class="list-li can" id="{{list.pId}}" data-id="{{list.pId}}">

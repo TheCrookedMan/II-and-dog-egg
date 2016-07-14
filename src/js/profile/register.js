@@ -40,11 +40,12 @@
                     wName: wechatUserInfo.nickname
                 }).success(function(data) {
                     if ("1" == data.code) {
-                    	var record = data.data;
-                    	common.setCookie('userinfo',JSON.stringify(record));
-                        window.location.href = fromUrl;
+                        getUserInfo();
+                        // var record = data.data;
+                        // common.setCookie('userinfo',JSON.stringify(record));
+                        // window.location.href = fromUrl;
                     } else {
-                    	modal.alert({ text: data.message });
+                        modal.alert({ text: data.message });
                     }
                 });
                 return false;
@@ -52,6 +53,19 @@
             return false;
         }
     });
+
+    function getUserInfo() {
+        $.post('/user/getUserInfo.post', { OpenID: OpenID }).success(function(data) {
+            if ("1" == data.code && !!data.data) {
+                var record = data.data;
+                common.setCookie('userinfo', JSON.stringify(record));
+                window.location.href = fromUrl;
+            } else {
+                common.setCookie('userinfo', '{}');
+                window.location.href = fromUrl;
+            }
+        })
+    }
 
     function sendSMS(mobileNo) {
         $.post('/smsCode/register_smscode.post', { phone: mobileNo, type: 0 }).success(function(data) {

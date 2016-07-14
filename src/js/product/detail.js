@@ -168,7 +168,7 @@
             $('.btn.add').on('click', function() {
                 $('.btn.add').hide()
                 $('.btn.buy').show();
-                $.post('/cart/addProdToCart.post', { "pid": pid, "uid": userinfo.UserID, 'number': 1 }).success(function(data) {
+                $.post('/cart/addProdToCart.post', { "pid": pid, "uid": userinfo.Uid, 'number': 1 }).success(function(data) {
                     $modal.modal('close');
                     modal.tip("添加菜篮子成功！");
                     $('.am-dimmer').hide();
