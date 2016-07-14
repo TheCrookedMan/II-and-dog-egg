@@ -23,7 +23,7 @@
             $.get('/template/profile/profile_coupon.t', {
                 "pagenumber": self.pagenumber,
                 "pagesize": self.pagesize,
-                "uid": userinfo.Uid
+                "uid": userinfo.UserID
             }).success(function(data) {
                 data = data.replace(/(^\s+)|(\s+$)/g, "");
                 if ("" == data) {

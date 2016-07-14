@@ -702,8 +702,9 @@
     }
     .register-bindApp {
         width: 100%;
-        position: fixed;
-        bottom: 0;
+        // position: fixed;
+        // bottom: 0;
+        margin-top: 8rem;
         p {
             margin-top: -10px;
             text-align: center;

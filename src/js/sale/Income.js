@@ -1,6 +1,6 @@
 (function() {
     $.post('/distribution/getIncome.post', {
-        Uid: userinfo.Uid
+        Uid: userinfo.UserID
     }).success(function(data) {
         if ('1' == data.code && !!data.data) {
             var recode = data.data;

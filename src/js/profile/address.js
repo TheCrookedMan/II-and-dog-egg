@@ -1,5 +1,5 @@
 (function() {
-    $.get('/template/profile/profile_address.t', { 'uid': userinfo.Uid }).success(function(data) {
+    $.get('/template/profile/profile_address.t', { 'uid': userinfo.UserID }).success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
         if ("" !== data) {
 
@@ -16,7 +16,7 @@
                     "address": address,
                     "mobile": mobile,
                     "regionid": regionid,
-                    "uid": userinfo.Uid,
+                    "uid": userinfo.UserID,
                     "isdefault": isdefault,
                     "consignee": consignee,
                     "edittag": -1, //0表示新增  1表示更新  -1表示删除

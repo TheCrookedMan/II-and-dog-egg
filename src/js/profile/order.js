@@ -3,7 +3,7 @@
         this.pagenumber = 1;
         this.pagesize = 20;
         this.isEnd = false;
-        this.uid = userinfo.Uid;
+        this.uid = userinfo.UserID;
         this.orderstate = 1;
     }
     gallery.prototype = {
