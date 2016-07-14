@@ -186,6 +186,9 @@
 
 .detail{
     padding-bottom:0;
+    header{
+        z-index:99 !important;
+    }
     .pub_basket{
         margin-top:-0.6rem;
     }
