@@ -1,5 +1,5 @@
 (function() {
-    $.get('/template/basket/basket_list.t', { "uid": userinfo.UserID }).success(function(data) {
+    $.get('/template/basket/basket_list.t', { "uid": userinfo.Uid }).success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
         if ("" !== data) {
             $('.pub_noData').hide();
@@ -100,7 +100,7 @@
                 var pid = $(this).data('id');
                 var thisnum = $(this).siblings("input").val();
                 var buy_num_now = parseInt(thisnum) + 1;
-                $.post('/cart/editCart.post', { "pid": pid, "uid": userinfo.UserID, 'num': buy_num_now }).success(function(data) {
+                $.post('/cart/editCart.post', { "pid": pid, "uid": userinfo.Uid, 'num': buy_num_now }).success(function(data) {
                     if (data.code == 1) {
                         $("#input_" + pid).val(buy_num_now);
                         $("#pNum_" + pid).html(buy_num_now);
@@ -125,7 +125,7 @@
                 if (buy_num_now < 0) {
                     buy_num_now = 1;
                 }
-                $.post('/cart/editCart.post', { "pid": pid, "uid": userinfo.UserID, 'num': buy_num_now }).success(function(data) {
+                $.post('/cart/editCart.post', { "pid": pid, "uid": userinfo.Uid, 'num': buy_num_now }).success(function(data) {
                     if (data.code == 1) {
                         $("#input_" + pid).val(buy_num_now);
                         $("#pNum_" + pid).html(buy_num_now);
@@ -141,7 +141,7 @@
             //删除购物车
             $('.del a').on('touchstart', function() {
                 var pid = $(this).data("id");
-                $.post('/cart/delForCart.post', { "pids": pid, "uid": userinfo.UserID }).success(function(data) {
+                $.post('/cart/delForCart.post', { "pids": pid, "uid": userinfo.Uid }).success(function(data) {
                     $('#' + pid).remove();
                     modal.tip("删除成功！");
                     if ($(".list-ul .list-li").length <= 0) {

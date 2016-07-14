@@ -35,7 +35,7 @@ router.post('/user/editPwd.post', user.editPwd);
 router.post('/user/editUserInfo.post', user.editUserInfo);
 
 // 获取用户基本信息
-router.post('/user/getUserInfo.post', user.getUserInfo);
+router.post('/user/getUserInfo.post', user.getUserInfo_Post);
 
 // 留言反馈
 router.post('/user/feedback.post', user.feedback);
@@ -82,6 +82,11 @@ router.post('/user/SendSmscode.post',user.SendSmscode);
 
 router.post('/user/CheckSmsCode.post',user.CheckSmsCode);
 
+/*
+	支付
+ */
+
+router.post('/user/eycharges.post',user.eycharges);
 
 /*
 	cart 购物车相关请求

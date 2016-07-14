@@ -1,5 +1,5 @@
 (function() {
-    $.post('/distribution/commitionMoney.post', { Uid: userinfo.UserID }).success(function(data) {
+    $.post('/distribution/commitionMoney.post', { Uid: userinfo.Uid }).success(function(data) {
         if (data.code == "1" && !!data.data) {
             var record = data.data;
             $(".FrozenMoney").text(record.FrozenMoney.toFixed(2));
@@ -11,13 +11,13 @@
     $(".people").attr('src', wechatUserInfo.headimgurl);
     $(".pinfo .txt .tit").text(wechatUserInfo.nickname);
 
-    if (!userinfo.UserID) {
+    if (!userinfo.Uid) {
         $(".pinfo .UserIdentity").text("身份：普通会员");
         normal();
     } else {
         $(".pinfo .setting").show();
         $(".mySale .list.mt05").show();
-        if (userinfo.UserIdentity == 1) {
+        if (userinfo.Uidentity == 1) {
             $(".pinfo .UserIdentity").text("身份：推广大使");
             $(".pinfo .link a").text("如何推广？");
             $(".pinfo .link a").attr('src', '/profile/how_1.html');

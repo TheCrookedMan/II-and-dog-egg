@@ -55,6 +55,8 @@ router.get('/wechatAuth.html', (req, res, next) => {
                 });
             } else if ("snsapi_base" == data.scope) {
                 user.getUserInfo(openid, function(data) {
+
+                    console.log("data:::" + JSON.stringify(data));
                     if ("1" == data.code) {
                         let userinfoRecord = data.data;
                         userinfoRecord = JSON.stringify(userinfoRecord);
@@ -262,9 +264,13 @@ router.get('/profile/order-paySucess.html', (req, res, next) => {
  */
 
 router.get('/profile/order-pay.html', (req, res, next) => {
-    let osn = req.query.osn;
-    let orderAmount = req.query.orderAmount;
-    return res.render('profile/order-pay', { title: '订单支付', osn:osn, orderAmount:orderAmount });
+    let oId = req.query.oId,
+        oNum = req.query.oNum,
+        orderAmount = req.query.orderAmount,
+        orderState = req.query.orderState,
+        orderTitle = req.query.orderTitle;
+
+    return res.render('profile/order-pay', { title: '订单支付', oId: oId, oNum: oNum, orderAmount: orderAmount, orderState: orderState, orderTitle: orderTitle });
 });
 
 /*
@@ -394,7 +400,7 @@ router.get('/basket/yuer.html', (req, res, next) => {
 
 router.get('/basket/order.html', (req, res, next) => {
     let pids = req.query.pids;
-    return res.render('basket/order', { title: '订单确认',pids:pids });
+    return res.render('basket/order', { title: '订单确认', pids: pids });
 });
 
 /*
@@ -501,7 +507,7 @@ router.get('/sale/setting/updatePassword-3.html', (req, res, next) => {
  */
 router.get('/sale/setting/checkPhoneNumber.html', (req, res, next) => {
     return res.render('sale/setting/checkPhoneNumber', { title: '设置提现密码' });
-})
+});
 
 /*
     慈善

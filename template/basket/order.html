@@ -1,4 +1,7 @@
 {% set receiverInfo = data['data']['receiverInfo'] %}
+<script type="text/javascript">
+  var said = "{{receiverInfo.said}}";
+</script>
 <div class="list">
   <div class="title">
     <div class="fl">
@@ -76,7 +79,7 @@
   </div>
   <div class="con">
     <div class="fl">
-      <input class="col-grey" type="text" value="afsffs">
+      <input class="col-grey" id="remarks" type="text" value="">
     </div>
   </div>
 </div>
@@ -106,5 +109,5 @@
   </div>
 </div>
 <header class="am-topbar am-topbar-fixed-bottom detail_foot bge bd0">
-  <a href="/profile/order-pay.html?osn=1&orderAmount=2}}"  class="btn buy">去付款</a>
+  <a href="javascript:void(0);"  class="btn buy submitOrder">去付款</a>
 </header>

@@ -183,7 +183,7 @@ gulp.task('js:build', () => {
 });
 
 const plugins_src = {
-    inputfile_js: [src_plugins_dir + "/jquery.min.js", src_plugins_dir + "/jquery.cookie.js",src_plugins_dir + "/common.js", src_plugins_dir + "/upload.js", src_plugins_dir+'/echo.js'],
+    inputfile_js: [src_plugins_dir + "/jquery.min.js", src_plugins_dir + "/jquery.cookie.js", src_plugins_dir + "/common.js", src_plugins_dir + "/upload.js", src_plugins_dir + '/echo.js'],
     inputfile_css: src_plugins_dir + "/**/*.css",
     outputfile: plugins_dir
 }
@@ -206,11 +206,20 @@ gulp.task('plugin:watch', () => {
         .pipe(gulp.dest(plugins_src.outputfile));
 
     /*
+    ping++ 第三方支付对接平台
+     */
+
+    gulp.src(src_plugins_dir + '/pingpp.js')
+        .pipe(concat('pingpp.min.js'))
+        .pipe(gulp.dest(plugins_src.outputfile));
+
+
+    /*
        wechat相关代码打包
     */
-    return gulp.src(plugins_wechat.inputfile_js)
-        .pipe(concat('wechat.min.js'))
-        .pipe(gulp.dest(plugins_wechat.outputfile));
+    // return gulp.src(plugins_wechat.inputfile_js)
+    //     .pipe(concat('wechat.min.js'))
+    //     .pipe(gulp.dest(plugins_wechat.outputfile));
 
     // return gulp.src(plugins_src.inputfile_css)
     //     .pipe(concat('plugins.min.css'))
@@ -234,20 +243,26 @@ gulp.task('plugin:build', () => {
         }))
         .pipe(gulp.dest(plugins_src.outputfile));
 
+    /*
+    ping++ 第三方支付对接平台
+     */
 
+    gulp.src(src_plugins_dir + '/pingpp.js')
+        .pipe(concat('pingpp.min.js'))
+        .pipe(gulp.dest(plugins_src.outputfile));
     /*
         wechat相关代码打包
      */
 
-    return gulp.src(plugins_wechat.inputfile_js)
-        .pipe(concat('wechat.min.js'))
-        .pipe(uglify({
-            mangle: true, //类型：Boolean 默认：true 是否修改变量名
-            compress: true, //类型：Boolean 默认：true 是否完全压缩
-            // preserveComments: 'all' //保留所有注释
-            preserveComments: false
-        }))
-        .pipe(gulp.dest(plugins_wechat.outputfile));
+    // return gulp.src(plugins_wechat.inputfile_js)
+    //     .pipe(concat('wechat.min.js'))
+    //     .pipe(uglify({
+    //         mangle: true, //类型：Boolean 默认：true 是否修改变量名
+    //         compress: true, //类型：Boolean 默认：true 是否完全压缩
+    //         // preserveComments: 'all' //保留所有注释
+    //         preserveComments: false
+    //     }))
+    //     .pipe(gulp.dest(plugins_wechat.outputfile));
 
     // return gulp.src(plugins_src.inputfile_css)
     //     .pipe(concat('plugins.min.css'))

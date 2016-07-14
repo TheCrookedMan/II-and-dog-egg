@@ -137,6 +137,9 @@ exports.getUserInfo = (openid, callback, next) => {
     }).normalRequest(callback, next);
 }
 
+
+exports.getUserInfo_Post = (req, res, next) => { new normalRequest('/api/user/GetUserInfo', { post: distributionPost }).get(req, res, next); }
+
 /*
 		留言反馈 (api/user/feedback)
 		入参：
@@ -292,12 +295,14 @@ exports.CheckSmsCode = (req, res, next) => { new normalRequest('/api/user/CheckS
 exports.checkLogin = (req, res, next) => {
     let userinfo = req.cookies.userinfo,
         fromUrl = req.url;
-    userinfo = JSON.parse(userinfo);
-    if (!userinfo || !userinfo.UserID) {
+    if (!!userinfo) {
+        userinfo = JSON.parse(userinfo);
+    }
+    if (!userinfo || !userinfo.Uid) {
         //没有runningcatUserInfo表示没有注册或者登录过，需要跳转到注册
         res.redirect("/profile/register.html?fromUrl=" + fromUrl);
     } else {
-    	next();
+        next();
     }
 }
 
@@ -305,10 +310,15 @@ exports.checkLogin = (req, res, next) => {
 /*
 
 慈善捐款统计 api/Distribution/GetDonationRecordList
-
-
 */
 
 exports.cishan = (req, res, next) => { new normalRequest('/api/Distribution/GetDonationRecordList', { post: distributionPost }).get(req, res, next); }
 
 exports.cishan_link = (req, res, next) => { new normalRequest('/api/Distribution/GetDonationRecordList', { post: distributionPost }).link_g(req, res, next); }
+
+/*
+	支付接口
+ */
+exports.eycharges = (req, res, next) => { new normalRequest('/api/user/Eycharges', { post: distributionPost }).post(req, res, next); }
+
+
