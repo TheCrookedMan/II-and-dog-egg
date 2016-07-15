@@ -1,41 +1,41 @@
 {% include "../_partial/head.html" %}
 <script type="text/javascript">
-var osn = "{{oNum}}";
+var osn = "{{osn}}";
 var orderAmount = "{{orderAmount}}";
 </script>
 <div class="order_ok order_detail">
-  <div class="list">
-    <div class="con">
-      <div class="l">
-          <span class="col-grey fl">订单编号</span>
-          <span class="col-grey fr">{{oNum}}</span>
-      </div>
-    </div>
-    <div class="con">
-      <div class="l">
-          <span class="col-grey fl">订单金额</span>
-          <span class="col-grey fr">￥{{orderAmount}}</span>
-      </div>
-    </div>
-  </div>
-  <div class="list">
-    <div class="title">
-      <div class="fl">
-          <h2>还需支付： 545.99元<em>（已优惠5元）</em></h2>
+    <div class="list">
+        <div class="con">
+            <div class="l">
+                <span class="col-grey fl">订单编号</span>
+                <span class="col-grey fr">{{osn}}</span>
+            </div>
+        </div>
+        <div class="con">
+            <div class="l">
+                <span class="col-grey fl">订单金额</span>
+                <span class="col-grey fr">￥{{orderAmount}}</span>
+            </div>
         </div>
     </div>
-    <div class="payMethod">
-      <i class="am-icon-weixin"></i>
-      <div class="tit">
-        <p class="t">微信支付</p>
-        <p>推荐安装微信5.0及以上版本的使用</p>
-      </div>
-      <i class="am-icon-circle"></i>
+    <div class="list">
+        <div class="title">
+            <div class="fl">
+                <h2>还需支付： 545.99元<em>（已优惠5元）</em></h2>
+            </div>
+        </div>
+        <div class="payMethod">
+            <i class="am-icon-weixin"></i>
+            <div class="tit">
+                <p class="t">微信支付</p>
+                <p>推荐安装微信5.0及以上版本的使用</p>
+            </div>
+            <i class="am-icon-circle"></i>
+        </div>
     </div>
-  </div>
 </div>
 <header class="am-topbar am-topbar-fixed-bottom detail_foot bge bd0">
-  <a href="javascript:void(0)"  class="btn buy">确认支付</a>
+    <a href="javascript:void(0)" class="btn buy">确认支付</a>
 </header>
 {% include "../_partial/foot.html" %}
 <script src="/plugins/pingpp.min.js"></script>

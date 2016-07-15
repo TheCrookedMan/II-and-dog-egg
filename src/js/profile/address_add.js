@@ -36,4 +36,6 @@
     $('.set-default').on("click", function() {　　　　
         $(this).toggleClass("cur");
     });
+
+    
 }).call(this)

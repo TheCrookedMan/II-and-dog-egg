@@ -94,7 +94,7 @@
         $.post('/user/submitOrder.post', params).success(function(data) {
             if ("1" == data.code && !!data.data) {
                 var record = data.data;
-                window.location.href = "/profile/order-pay.html?oId="+record.oId+"&oNum="+record.oNum+"&orderAmount="+record.orderAmount+"&orderState="+record.orderState+"&orderTitle="+record.orderTitle;
+                window.location.href = "/profile/order-pay.html?osn="+record.oNum+"&orderAmount="+record.orderAmount;
             } else {
                 modal.alert({ text: data.message });
             }

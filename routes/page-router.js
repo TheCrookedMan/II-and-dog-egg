@@ -264,13 +264,9 @@ router.get('/profile/order-paySucess.html', (req, res, next) => {
  */
 
 router.get('/profile/order-pay.html', (req, res, next) => {
-    let oId = req.query.oId,
-        oNum = req.query.oNum,
-        orderAmount = req.query.orderAmount,
-        orderState = req.query.orderState,
-        orderTitle = req.query.orderTitle;
-
-    return res.render('profile/order-pay', { title: '订单支付', oId: oId, oNum: oNum, orderAmount: orderAmount, orderState: orderState, orderTitle: orderTitle });
+    let osn = req.query.osn,
+        orderAmount = req.query.orderAmount;
+    return res.render('profile/order-pay', { title: '订单支付', osn: osn, orderAmount: orderAmount });
 });
 
 /*

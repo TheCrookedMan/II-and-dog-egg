@@ -8,20 +8,23 @@
 
     $.get('/template/index/index_lett-nav.t').success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
+        // console.log("build data:::");
         if ("" !== data) {
             $("#left-nav ul").html(data);
+            // echo.render();
         }
     }).error(function(err) {});
-
+    
     echo.init({
         offset: 100,
-        throttle: 250,
+        throttle: 500,
         unload: false,
         callback: function(element, op) {
             $(element).parents(".echo-loading").removeClass("echo-loading");
             console.log(element, 'has been', op + 'ed');
         }
     });
+
 
     //搜索
 

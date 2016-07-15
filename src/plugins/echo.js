@@ -32,6 +32,7 @@
   };
 
   var debounceOrThrottle = function () {
+    // console.log("debounceOrThrottle:::"+debounceOrThrottle);
     if(!useDebounce && !!poll) {
       return;
     }
@@ -73,6 +74,7 @@
   echo.render = function () {
     var nodes = document.querySelectorAll('img[data-echo], [data-echo-background]');
     var length = nodes.length;
+    // console.log("length:::"+length);
     var src, elem;
     var view = {
       l: 0 - offset.l,
@@ -116,7 +118,8 @@
       }
     }
     if (!length) {
-      echo.detach();
+      // console.log("detach:::");
+      // echo.detach();
     }
   };
 
