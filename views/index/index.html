@@ -2,14 +2,8 @@
 <div class="index">
     <!-- Header -->
     <header class="am-topbar am-topbar-fixed-top">
-        <div class="fl"><a href="#left-nav" data-am-offcanvas><p><i class="am-icon-bars"></i></p><p><span>分类</span></p></a></div>
-        <div class="fr">
-            <form id="searchForm" method='get' action="">
-                <input  id="keywords" placeholder="搜索食材、商品名称" type="text">
-                <!-- <a href="javascript:void(0)" id="deltxt" style="display: none;"><i class="am-icon-times-circle"></i></a>  -->
-                <i class="am-icon-search"></i>
-             </form>
-        </div>
+        <a href="#left-nav" data-am-offcanvas class="fl"><i class="am-icon-bars"></i></a>
+        <a href="javascript:void(0)" class="fr" data-am-modal="{target: '#search'}"><i class="am-icon-search"></i></a>
     </header>
     <!-- 侧边栏内容 -->
     <div id="left-nav" class="am-offcanvas">
@@ -200,10 +194,10 @@
 
     <!-- 底部 -->
     <div class="index_media">
-        <img src="/img/index_16.jpg">
+        <a href="/index/h5.html"><img src="/img/index_16.jpg"></a>
     </div>
 </div>
-<!-- <div class="am-popup index_popup" id="search">
+<div class="am-popup index_popup" id="search">
     <div class="am-popup-inner">
         <div class="am-popup-hd">
             <h4 class="am-popup-title">
@@ -226,6 +220,6 @@
             <p><a href="javascript:void(0)" data-id="菜园里的菠菜">菜园里的菠菜</a></p>
         </div>
     </div>
-</div> -->
+</div>
 {% include "../_partial/footer.html" %} {% include "../_partial/foot.html" %}
 <script src="/js/index/index.js"></script>

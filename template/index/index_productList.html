@@ -1,0 +1,7 @@
+{% if "1" == data['code'] && !!data['data'] %} {% for product in data['data']['porList'] %}
+<p class="echo-loading">
+    <a href="/product/detail.html?pid={{product.pid}}">
+        <img src="/img/ajax-loader.gif" alt="二丫与狗蛋" data-echo="{{product.Image}}" height="100%">
+    </a>
+</p>
+{% endfor %} {% endif %}

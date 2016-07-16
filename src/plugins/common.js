@@ -109,7 +109,7 @@
             }
             return JSON.parse(value);
         },
-        getOpenId:function(){
+        getOpenId: function() {
             return $.cookie('openId');
         }
     };
@@ -258,4 +258,66 @@
         }
     }
     this.scroll = new scroll();
+}).call(this);
+
+/*
+    countdown 倒计时
+ */
+(function() {
+    var countdown = function() {
+        this.timer;
+        this.endDate;
+    }
+    countdown.prototype = {
+        init: function(date, callback) {
+            var self = this;
+            self.endDate = new Date(date);
+            clearInterval(self.timer);
+            self.timer = setInterval(function() {
+                self.formatTime(self.endDate, callback);
+            }, 1000);
+        },
+        formatTime: function(end, callback) {
+            var self = this,
+                lastTimeObj = {
+                    day: '00',
+                    hour: '00',
+                    min: '00',
+                    sec: '00'
+                };
+            var now = new Date().getTime();
+            var end = end * 1;
+            var difference = end - now;
+            if (difference <= 0) {
+                clearInterval(self.timer);
+                return callback(lastTimeObj);
+            }
+            var t = difference,
+                list = [];
+            var d = Math.floor(t / 1000 / 60 / 60 / 24);
+            var h = Math.floor(t / 1000 / 60 / 60 % 24);
+            var m = Math.floor(t / 1000 / 60 % 60);
+            var s = Math.floor(t / 1000 % 60);
+            if (d >= 1) {
+                lastTimeObj['day'] = d;
+            }
+            if (h < 10) {
+                lastTimeObj['hour'] = "0" + h.toString();
+            } else {
+                lastTimeObj['hour'] = h;
+            }
+            if (m < 10) {
+                lastTimeObj['min'] = "0" + m.toString();
+            } else {
+                lastTimeObj['min'] = m;
+            }
+            if (s < 10) {
+                lastTimeObj['sec'] = "0" + s.toString();
+            } else {
+                lastTimeObj['sec'] = s;
+            }
+            return callback(lastTimeObj);
+        }
+    }
+    this.countdownTimer = new countdown();
 }).call(this);

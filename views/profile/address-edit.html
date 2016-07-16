@@ -8,24 +8,27 @@ var consignee = "{{consignee}}";
 var regionid = "{{regionid}}";
 </script>
 <div class="edit_address">
-	<form action="" class="am-form">
-	  <div class="am-form-group">
-	    <input type="text" id="consignee" minlength="3" placeholder="收件人 " class="am-form-field" required value="{{consignee}}" />
-	  </div>
-	  <div class="am-form-group">
-	    <input type="text" id="mobile" minlength="3" placeholder="联系电话 " class="am-form-field" required value="{{mobile}}" />
-	  </div>
-	  <div class="am-form-group">
-	    <select id="demo-test-select"></select>
-	  </div>
-	  <div class="am-form-group">
-	    <input type="text" id="address" minlength="3" placeholder="详细地址 " class="am-form-field" required value="{{address}}" />
-	  </div>
-	  <div class="am-form-group">
-	    <a href="javascript:void(0)" class="btn set-default"><i class="am-icon-circle"></i><i class="am-icon-circle-o"></i>设为默认地址</a>
-	  </div>
-	</form>
-	<a href="javascript:void(0)"  class="pub_btn mt2" id="submit">确定</a>
+    <form action="" class="am-form">
+        <div class="am-form-group">
+            <input type="text" id="consignee" minlength="3" placeholder="收件人 " class="am-form-field" required value="{{consignee}}" />
+        </div>
+        <div class="am-form-group">
+            <input type="text" id="mobile" minlength="3" placeholder="联系电话 " class="am-form-field" required value="{{mobile}}" />
+        </div>
+        <div class="am-form-group">
+            <select id="select-provinces"></select>
+            <select id="select-city"></select>
+            <select id="select-area"></select>
+        </div>
+        <div class="am-form-group">
+            <input type="text" id="address" minlength="3" placeholder="详细地址 " class="am-form-field" required value="{{address}}" />
+        </div>
+        <div class="am-form-group">
+            <a href="javascript:void(0)" class="btn set-default"><i class="am-icon-circle"></i><i class="am-icon-circle-o"></i>设为默认地址</a>
+        </div>
+    </form>
+    <a href="javascript:void(0)" class="pub_btn mt2" id="submit">确定</a>
 </div>
 {% include "../_partial/foot.html" %}
+<script src="/plugins/area.min.js"></script>
 <script src="/js/profile/address_edit.js"></script>

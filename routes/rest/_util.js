@@ -51,13 +51,18 @@ export default class Rest {
         let opts, self = this,
             url, success, error;
         success = (d) => {
-            let data;
+            let data = {};
             if (undefined == d || "" == d) {
                 next({
                     msg: "服务器异常!"
                 });
             } else {
-                data = JSON.parse(d);
+                try {
+                    data = JSON.parse(d);
+                } catch (e) {
+                    console.trace();
+                    console.error(e);
+                }
             }
             if (!res.data) {
                 res.data = {};
@@ -92,13 +97,18 @@ export default class Rest {
         let [next, success, error] = rest;
 
         __success = (d) => {
-            let $list, data;
+            let $list, data = {};
             if (undefined == d || "" == d) {
                 next({
                     msg: "服务器异常!"
                 });
             } else {
-                data = JSON.parse(d);
+                try {
+                    data = JSON.parse(d);
+                } catch (e) {
+                    console.trace();
+                    console.error(e);
+                }
             }
             if (typeof success === "function") {
                 success(data);
@@ -139,14 +149,19 @@ export default class Rest {
 
     normalRequest(success, next) {
         let url = this._getRestUrl(this.functionCode);
-        let __success, __error, data;
+        let __success, __error, data = {};
         __success = (d) => {
             if (undefined == d || "" == d) {
                 next({
                     msg: "服务器异常!"
                 });
             } else {
-                data = JSON.parse(d);
+                try {
+                    data = JSON.parse(d);
+                } catch (e) {
+                    console.trace();
+                    console.error(e);
+                }
                 success(data);
             }
         }

@@ -1,12 +1,4 @@
 (function() {
-    $.post('/distribution/commitionMoney.post', { Uid: userinfo.Uid }).success(function(data) {
-        if (data.code == "1" && !!data.data) {
-            var record = data.data;
-            $(".FrozenMoney").text(record.FrozenMoney.toFixed(2));
-            $(".WithdrawMoney").text(record.WithdrawMoney.toFixed(2));
-        }
-    });
-
     var wechatUserInfo = common.getCookie("wechatUserInfo");
     $(".people").attr('src', wechatUserInfo.headimgurl);
     $(".pinfo .txt .tit").text(wechatUserInfo.nickname);
@@ -15,6 +7,7 @@
         $(".pinfo .UserIdentity").text("身份：普通会员");
         normal();
     } else {
+        initCommitionMoney();
         $(".pinfo .setting").show();
         $(".mySale .list.mt05").show();
         if (userinfo.Uidentity == 1) {
@@ -30,6 +23,13 @@
         if (userinfo.IdentityState == 1) {
             $(".pinfo .link a").text("如何恢复身份？");
             $(".pinfo .link a").attr('src', '/profile/how_3.html');
+            $(".IdentityStateDisable").show();
+        } else {
+            $(".IdentityStateActive").show();
+            // countdownTimer.init("2016-10-10 10:10:00",function(d){
+            countdownTimer.init(userinfo.LostAgentTime, function(d) {
+                $(".IdentityStateActive .time").html("距截止还有<em>" + d.day + "</em>天<em>" + d.hour + "</em>时<em>" + d.min + "</em>分<em>" + d.sec + "</em>秒 ");
+            });
         }
     }
 
@@ -46,5 +46,15 @@
         $(".mySale").on("click", "a", function() {
             modal.alert({ text: "啊哦暂无记录！单次购满699即可升级为健康推广大使获得丰厚收益，快来吧！" })
         })
+    }
+
+    function initCommitionMoney() {
+        $.post('/distribution/commitionMoney.post', { Uid: userinfo.Uid }).success(function(data) {
+            if (data.code == "1" && !!data.data) {
+                var record = data.data;
+                $(".FrozenMoney").text(record.FrozenMoney.toFixed(2));
+                $(".WithdrawMoney").text(record.WithdrawMoney.toFixed(2));
+            }
+        });
     }
 }).call(this);

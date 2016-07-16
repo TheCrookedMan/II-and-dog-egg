@@ -127,6 +127,7 @@
                     } else {
                         $("ul.am-gallery").append(data);
                     }
+                    echo.render();
                 }
             }).error(function(err) {});
         },

@@ -6,6 +6,7 @@
         $(".pinfo .UserIdentity").text("身份：普通会员");
         normal();
     } else {
+        $(".pinfo .setting").show();
         if (userinfo.Uidentity == 1) {
             $(".pinfo .UserIdentity").text("身份：推广大使");
             $(".pinfo .link a").text("如何推广？");

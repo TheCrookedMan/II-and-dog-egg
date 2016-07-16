@@ -22,4 +22,7 @@
         background: "#ffffff", // 背景色
         foreground: "#000000" // 前景色
     });
+    if(userinfo.IdentityState == 1){
+        $(".qrcode-disabled").show();
+    }
 }).call(this)

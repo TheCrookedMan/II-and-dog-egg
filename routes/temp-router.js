@@ -17,6 +17,16 @@ router.get('/template/index/index_category.t', [user.category_link], function(re
 });
 
 /*
+    首页分类下面的商品
+ */
+router.get('/template/index/index_productList.t', [product.productList_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/index/index_productList', {
+        data: record['/api/Product/ProductList']
+    });
+});
+
+/*
     首页左侧分类模板
  */
 router.get('/template/index/index_lett-nav.t', [user.category_link], function(req, res, next) {

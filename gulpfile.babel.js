@@ -183,7 +183,7 @@ gulp.task('js:build', () => {
 });
 
 const plugins_src = {
-    inputfile_js: [src_plugins_dir + "/jquery.min.js", src_plugins_dir + "/jquery.cookie.js", src_plugins_dir + "/common.js", src_plugins_dir + "/upload.js", src_plugins_dir + '/echo.js', src_plugins_dir + '/area.js'],
+    inputfile_js: [src_plugins_dir + "/jquery.min.js", src_plugins_dir + "/jquery.cookie.js", src_plugins_dir + "/common.js", src_plugins_dir + "/upload.js", src_plugins_dir + '/echo.js'],
     inputfile_css: src_plugins_dir + "/**/*.css",
     outputfile: plugins_dir
 }
@@ -211,6 +211,13 @@ gulp.task('plugin:watch', () => {
 
     gulp.src(src_plugins_dir + '/pingpp.js')
         .pipe(concat('pingpp.min.js'))
+        .pipe(gulp.dest(plugins_src.outputfile));
+
+    /*
+        省市区原数据
+     */
+    gulp.src(src_plugins_dir + '/area.js')
+        .pipe(concat('area.min.js'))
         .pipe(gulp.dest(plugins_src.outputfile));
 
 
@@ -249,6 +256,18 @@ gulp.task('plugin:build', () => {
 
     gulp.src(src_plugins_dir + '/pingpp.js')
         .pipe(concat('pingpp.min.js'))
+        .pipe(gulp.dest(plugins_src.outputfile));
+    /*
+        省市区原数据
+     */
+    gulp.src(src_plugins_dir + '/area.js')
+        .pipe(concat('area.min.js'))
+        .pipe(uglify({
+            mangle: true, //类型：Boolean 默认：true 是否修改变量名
+            compress: true, //类型：Boolean 默认：true 是否完全压缩
+            // preserveComments: 'all' //保留所有注释
+            preserveComments: false
+        }))
         .pipe(gulp.dest(plugins_src.outputfile));
     /*
         wechat相关代码打包

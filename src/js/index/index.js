@@ -11,20 +11,42 @@
         // console.log("build data:::");
         if ("" !== data) {
             $("#left-nav ul").html(data);
-            // echo.render();
+            echo.render();
         }
     }).error(function(err) {});
-    
+
     echo.init({
-        offset: 100,
+        offset: 0,
         throttle: 500,
         unload: false,
         callback: function(element, op) {
-            $(element).parents(".echo-loading").removeClass("echo-loading");
-            console.log(element, 'has been', op + 'ed');
+            var categoryId = $(element).data('categoryId');
+            console.log("categoryId:::"+categoryId);
+            if (!!categoryId) {
+                getProductList(categoryId, function(html) {
+                    console.log(element, 'has been', op + 'ed');
+                    $(element).parents('.echo-loading').after(html);
+                    echo.render();
+                });
+            }
+
+            // $(element).parents(".echo-loading").removeClass("echo-loading");
+
         }
     });
 
+    function getProductList(categoryId, callback) {
+        $.get('/template/index/index_productList.t', {
+            "page": 1,
+            "pagesize": 10,
+            "cid": categoryId
+        }).success(function(data) {
+            data = data.replace(/(^\s+)|(\s+$)/g, "");
+            if ("" != data) {
+                callback(data);
+            }
+        }).error(function(err) {});
+    }
 
     //搜索
 
@@ -59,7 +81,7 @@
 
 
     //经常购买
-     function swiper(selector, options) {
+    function swiper(selector, options) {
         this.slider = selector.find(".slider")[0];
         this.$slider = $(this.slider);
         this.$wrapper = selector.find(".wrapper");
@@ -143,13 +165,13 @@
     function initSwiperList() {
         $(".data-list").swiper({
             onClick: function(selector) {
-               
+
             },
             onComplete: function(selector) {
-               
+
             }
         });
     }
-     initSwiperList()
-    // openid:::oLy9ruJlZgr8DmR8NM86JDoV6Ep8
+    initSwiperList()
+        // openid:::oLy9ruJlZgr8DmR8NM86JDoV6Ep8
 }).call(this)

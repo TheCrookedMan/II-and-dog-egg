@@ -10,10 +10,13 @@
             isdefault = 0;
         }
 
+        var regionid = $("#select-area")[0].selectedOptions;
+        regionid = $(regionid).data("regionid");
+
         $.post('/user/editReceiver.post', {
             "address": address,
             "mobile": mobile,
-            "regionid": 148,
+            "regionid": regionid,
             "uid": userinfo.Uid,
             "isdefault": isdefault,
             "consignee": consignee,
@@ -37,5 +40,48 @@
         $(this).toggleClass("cur");
     });
 
-    
+
+
+    $("#select-provinces").change(function(ev) {
+        var index = this.selectedIndex;
+        initCity(arealist[index]['L']);
+    });
+
+    $("#select-city").change(function(ev) {
+        var index = this.selectedIndex;
+        initArea(cityData[index]['L']);
+    })
+
+    initProvinces(arealist);
+    this.cityData = [];
+    function initProvinces(data) {
+        var list = [];
+        $.each(data, function(i, I) {
+            list.push("<option>" + I.N + "</option>");
+        });
+        $("#select-provinces").html(list.join(""));
+        var index = $("#select-provinces")[0].selectedIndex;
+        initCity(arealist[index]['L']);
+    }
+
+    function initCity(data) {
+        var list = [];
+        cityData = data;
+        $.each(data, function(i, I) {
+            list.push("<option>" + I.N + "</option>");
+        });
+        $("#select-city").html(list.join(""));
+        var index = $("#select-city")[0].selectedIndex;
+        initArea(data[index]['L']);
+    }
+
+    function initArea(data) {
+        var list = [];
+        $.each(data, function(i, I) {
+            list.push("<option data-regionid="+I.I+">" + I.N + "</option>");
+        });
+        $("#select-area").html(list.join(""));
+    }
+
+
 }).call(this)

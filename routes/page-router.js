@@ -474,7 +474,15 @@ router.get('/sale/withdraw-alipay-2.html', (req, res, next) => {
     推广设置主页（提现密码相关）
  */
 router.get('/sale/setting/main.html', (req, res, next) => {
-    return res.render('sale/setting/main', { title: '设置' });
+    let userinfo = req.cookies.userinfo;
+    userinfo = JSON.parse(userinfo);
+
+    if (!!userinfo && userinfo.IsSetSecurityCode) {
+        return res.render('sale/setting/main', { title: '设置' });
+        
+    } else {
+        return res.redirect("/sale/setting/checkPhoneNumber.html");
+    }
 });
 
 /*
