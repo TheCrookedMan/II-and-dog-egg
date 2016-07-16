@@ -41,7 +41,7 @@
         this.pageNo = 1;
         this.pageSize = 20;
         this.isEnd = false;
-        this.sortdirection = 0;
+        this.sortdirection = 'ASC';
         this.sortcolumn = 0;
         this.searchkey = searchkey;
     }
@@ -55,15 +55,15 @@
                     $(this).toggleClass("sort");
                     if($(this).hasClass("sort")){
                         $("ul.am-gallery").html("");
-                        self.sortcolumn = 1;
-                        self.sortdirection = 0;
+                        self.sortcolumn = 3;
+                        self.sortdirection = 'DESC';
                         $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
                         self.get();
                     }
                     else{
                         $("ul.am-gallery").html("");
-                        self.sortcolumn = 0;
-                        self.sortdirection = 0;
+                        self.sortcolumn = 3;
+                        self.sortdirection = 'DESC';
                         $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
                         self.get();
                     }
@@ -74,29 +74,40 @@
                     $(this).toggleClass("sort");
                     if($(this).hasClass("sort")){
                         $("ul.am-gallery").html("");
-                        self.sortdirection = 1;
-                        self.sortcolumn = 0;
+                        self.sortcolumn = 2;
+                        self.sortdirection = 'ASC';
                         $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
                         self.get();
                     }
                     else{
                         $("ul.am-gallery").html("");
-                        self.sortdirection = 0;
-                        self.sortcolumn = 0;
+                        self.sortcolumn = 2;
+                        self.sortdirection = 'DESC';
                         $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
                         self.get();
                     }
                 }
-                else{
+                else if ($(this).data("id") == "defult") {
                     $(".product .tab ul li a.cur").removeClass("cur");
                     $(this).addClass("cur");
-                    self.sortdirection = 0;
-                    self.sortcolumn = 0;
-                    $("ul.am-gallery").html("");
-                    $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
-                    self.get();
+                    $(this).toggleClass("sort");
+                    if($(this).hasClass("sort")){
+                        $("ul.am-gallery").html("");
+                        self.sortcolumn = 0;
+                        self.sortdirection = 'ASC';
+                        $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
+                        self.get();
+                    }
+                    else{
+                        $("ul.am-gallery").html("");
+                        self.sortcolumn = 0;
+                        self.sortdirection = 'DESC';
+                        $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
+                        self.get();
+                    }
                 }
             });
+
             self.get();
             scroll.on(function() {
                 if (!self.isEnd) {

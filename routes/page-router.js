@@ -525,5 +525,4 @@ router.get('*', (req, res, next) => {
     res.redirect('/index/index.html');
 });
 
-
 module.exports = router;

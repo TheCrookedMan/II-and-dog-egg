@@ -167,4 +167,10 @@ router.post('/smsCode/register_smscode.post', smsCode.register_smscode);
 // 慈善
 router.post('/user/cishan.post', user.cishan);
 
+// 首页轮播
+router.post('/user/homeslide.post', user.homeslide);
+
+// 搜索关键字推荐
+router.post('/user/homeSearchRecommend.post', user.homeSearchRecommend);
+
 module.exports = router;

@@ -124,6 +124,13 @@
             $("#ShopPrice").html("￥" + record.ShopPrice);
             $("#skuPrice").html("￥" + record.ShopPrice);
             $("#StockNum").html(record.StockNum);
+
+            if(record.VideoId == null){
+                $("#media").hide()
+            }
+            else{
+                $("#media").show()
+            }
             $("#media").on('click', function() {
                 if (record.VideoId == null) {
                     modal.tip("该商品没有视频介绍");

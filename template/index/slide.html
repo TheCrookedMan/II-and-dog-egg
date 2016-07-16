@@ -1,0 +1,5 @@
+{% if "1" == data['code'] %} {% for slide in data['data'] %}
+<li>
+    <a href="{{slide.aUrl}}"><img src="{{slide.aImg}}"></a>
+</li>
+{% endfor %} {% endif %}

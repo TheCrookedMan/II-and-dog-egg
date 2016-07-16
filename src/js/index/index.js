@@ -15,6 +15,37 @@
         }
     }).error(function(err) {});
 
+
+    $.get('/template/index/keyword.t').success(function(data) {
+        data = data.replace(/(^\s+)|(\s+$)/g, "");
+        if ("" !== data) {
+            $(".keywordlist").html(data);
+        }
+    }).error(function(err) {});
+
+
+    $.get('/template/index/slide.t').success(function(data) {
+        data = data.replace(/(^\s+)|(\s+$)/g, "");
+        if ("" !== data) {
+            $(".am-slides").html(data);
+            $('.am-slider').flexslider();
+        }
+        else{
+            var str='<li><a href="javascript:void(0)"><img src="../img/index_02.jpg"></a></li>';
+            $(".am-slides").html(str);
+            $('.am-slider').flexslider();
+        }
+    }).error(function(err) {});
+
+    // $.post('/user/homeSearchRecommend.post').success(function(data) {
+    //     console.log(data.data);
+    // }).error(function(err) {});
+
+    // $.post('/user/homeslide.post').success(function(data) {
+    //     console.log(data.data);
+    // }).error(function(err) {});
+    
+
     echo.init({
         offset: 0,
         throttle: 500,
@@ -59,25 +90,25 @@
         return false;
     })
 
-    // $("#keywords").change(function(){
-    //   var content = $(this).val(); 
-    //   if($.trim(content) == ''){
-    //     $(this).siblings().hide()
-    //   }
-    //   else{
-    //     $(this).siblings().show();
-    //   }
-    // });
+    $("#keywords").change(function(){
+      var content = $(this).val(); 
+      if($.trim(content) == ''){
+        $(this).siblings().hide()
+      }
+      else{
+        $(this).siblings().show();
+      }
+    });
 
-    // $("#deltxt").on('click',function(){
-    //     $(this).hide();
-    //     $(this).siblings().val('')
-    // })
+    $("#deltxt").on('click',function(){
+        $(this).hide();
+        $(this).siblings().val('')
+    })
 
-    // $("#oftenKeyword p a").click(function() {
-    //     var keyword = $(this).data("id");
-    //     window.location.href = '/product/search.html?searchkey=' + $.trim(keyword);
-    // });
+    $("#oftenKeyword p a").click(function() {
+        var keyword = $(this).data("id");
+        window.location.href = '/product/search.html?searchkey=' + $.trim(keyword);
+    });
 
 
     //经常购买

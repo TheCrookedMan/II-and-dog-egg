@@ -37,6 +37,26 @@ router.get('/template/index/index_lett-nav.t', [user.category_link], function(re
 })
 
 /*
+    首页轮播
+ */
+router.get('/template/index/slide.t', [user.homeslide_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/index/slide', {
+        data: record['/api/user/homeH5']
+    });
+})
+
+/*
+    首页搜索倾情推荐
+ */
+router.get('/template/index/keyword.t', [user.homeSearchRecommend_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/index/keyword', {
+        data: record['/api/user/homeSearchRecommend']
+    });
+})
+
+/*
     商品列表模板
  */
 router.get('/template/product/list_gallery.t', [product.productList_link], function(req, res, next) {
