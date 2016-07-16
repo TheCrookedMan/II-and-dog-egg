@@ -29,30 +29,8 @@
         },
         get: function() {
             var self = this;
-            if ($(".myOrder .tab ul li a.cur").data("id") == 1) {
+            if ($(".myOrder .tab ul li a.cur").data("id") == 0) {
                 $.get('/template/profile/order_noPay.t', {
-                    "pagenumber": self.pagenumber,
-                    "pagesize": self.pagesize,
-                    "uid": self.uid,
-                    "orderstate": 1
-                }).success(function(data) {
-                    data = data.replace(/(^\s+)|(\s+$)/g, "");
-                    if ("" == data) {
-                        self.isEnd = true;
-
-                    } else {
-                        self.isEnd = false;
-                        if (self.pagenumber == 1) {
-                            //console.log(data)
-                            $("#list").html(data);
-                        } else {
-                            $("#list").html(data);
-                            //console.log(data)
-                        }
-                    }
-                }).error(function(err) {});
-            } else if ($(".myOrder .tab ul li a.cur").data("id") == 0) {
-                $.get('/template/profile/order_shiping.t', {
                     "pagenumber": self.pagenumber,
                     "pagesize": self.pagesize,
                     "uid": self.uid,
@@ -73,12 +51,34 @@
                         }
                     }
                 }).error(function(err) {});
-            } else if ($(".myOrder .tab ul li a.cur").data("id") == 6) {
+            } else if ($(".myOrder .tab ul li a.cur").data("id") == 1) {
+                $.get('/template/profile/order_shiping.t', {
+                    "pagenumber": self.pagenumber,
+                    "pagesize": self.pagesize,
+                    "uid": self.uid,
+                    "orderstate": 1
+                }).success(function(data) {
+                    data = data.replace(/(^\s+)|(\s+$)/g, "");
+                    if ("" == data) {
+                        self.isEnd = true;
+
+                    } else {
+                        self.isEnd = false;
+                        if (self.pagenumber == 1) {
+                            //console.log(data)
+                            $("#list").html(data);
+                        } else {
+                            $("#list").html(data);
+                            //console.log(data)
+                        }
+                    }
+                }).error(function(err) {});
+            } else if ($(".myOrder .tab ul li a.cur").data("id") == 2) {
                 $.get('/template/profile/order_done.t', {
                     "pagenumber": self.pagenumber,
                     "pagesize": self.pagesize,
                     "uid": self.uid,
-                    "orderstate": 6
+                    "orderstate": 2
                 }).success(function(data) {
                     data = data.replace(/(^\s+)|(\s+$)/g, "");
                     if ("" == data) {
@@ -96,12 +96,12 @@
                     }
                 }).error(function(err) {});
             }
-            if ($(".myOrder .tab ul li a.cur").data("id") == 5) {
+            if ($(".myOrder .tab ul li a.cur").data("id") == 3) {
                 $.get('/template/profile/order_cancel.t', {
                     "pagenumber": self.pagenumber,
                     "pagesize": self.pagesize,
                     "uid": self.uid,
-                    "orderstate": 5
+                    "orderstate": 3
                 }).success(function(data) {
                     data = data.replace(/(^\s+)|(\s+$)/g, "");
                     if ("" == data) {
