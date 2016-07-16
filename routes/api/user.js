@@ -322,3 +322,13 @@ exports.cishan_link = (req, res, next) => { new normalRequest('/api/Distribution
 exports.eycharges = (req, res, next) => { new normalRequest('/api/user/Eycharges', { post: distributionPost }).post(req, res, next); }
 
 
+/*首页轮播*/
+exports.homeslide = (req, res, next) => { new normalRequest('/api/user/homeH5').post(req, res, next); }
+exports.homeslide_link = (req, res, next) => { new normalRequest('/api/user/homeH5').link_g(req, res, next); }
+
+
+/*首页关键字倾情推荐*/
+exports.homeSearchRecommend = (req, res, next) => { new normalRequest('/api/user/homeSearchRecommend').post(req, res, next); }
+exports.homeSearchRecommend_link = (req, res, next) => { new normalRequest('/api/user/homeSearchRecommend').link_g(req, res, next); }
+
+

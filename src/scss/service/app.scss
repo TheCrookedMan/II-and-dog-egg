@@ -154,6 +154,25 @@ p {
 
 .navbar-footer .navbar-li{
     width: 20%;clear: none !important;
+    a{
+        .default{
+            display: inline-block;
+        }
+        .cur{
+            display: none;
+        }
+        &.active{
+            .default{
+                display: none
+            }
+            .cur{
+                display: inline-block;
+            }
+        }
+    }
+    img{
+        width: 45%;
+    }
 }
 
 li.no-data{

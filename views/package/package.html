@@ -1,46 +1,70 @@
-{% include "../_partial/head.html" %}
-<div class="swiper-container package">
-	<div class="pagination"></div>
-	<div class="swiper-wrapper">
+<!DOCTYPE html>
+<html lang="zh-cn" class="full">
 
-		<div class="swiper-slide">
+<head>
+    <meta charset="UTF-8">
+    <title>宅配套餐</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" href="/styles/normalize.css">
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body class="full" id="full">
+    <div class="secend-bg" id="secendBg">
+        <div class="secend-bg-item active" style="background-image:url(/img/bg-01.jpg);"></div>
+        <div class="secend-bg-item" style="background-image:url(/img/bg-02.jpg);"></div>
+        <div class="secend-bg-item" style="background-image:url(/img/bg-03.jpg);"></div>
+    </div>
+    <div class="secend-warp" id="secendWarp">
+        <!-- <header class="head">
+            <a href="javascript:;" class="head-btn head-left-btn"><i class="icon icon-back"></i></a>
+        </header> -->
+        <div class="secend-warp-box">
+            <div class="secend-slide" id="touchSlider">
+                <div class="secend-slide-item">
+                    <a href="delivery.html" class="secend-slide-item-link">
+                        <img src="/img/01.jpg" alt="">
+                    </a>
+                </div>
+                <div class="secend-slide-item">
+                    <a href="/tc/1738.html" class="secend-slide-item-link">
+                        <img src="/img/02.jpg" alt="">
+                    </a>
+                </div>
+                <div class="secend-slide-item">
+                    <a href="/tc/1740.html" class="secend-slide-item-link">
+                        <img src="/img/03.jpg" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <footer class="secend-foot"><i></i>
+            <div class="secend-foot-box" id="secendFoot">
+                <div class="secend-foot-box-item">
+		   <p>买菜难·配菜难·我们来解决</p>
+                 
+                   <p>淳朴 ｜ 山野 ｜ 农家 ｜ 食材</p>
+		   
+                   
+                </div>
+                <div class="secend-foot-box-item hide">
+                     <p>今天在菜地·明天上餐桌</p>
 
-			<div class="inner">
+                   <p>淳朴 ｜ 山野 ｜ 农家 ｜ 食材</p>
+                </div>
+                <div class="secend-foot-box-item hide">
+                     <p>送礼不如送健康</p>
 
-			<a href="/package/info.html" target="_blank">
+                   <p>淳朴 ｜ 山野 ｜ 农家 ｜ 食材</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
 
-			<img src="/img/l1.jpg" alt=""></a></div>
-
-		</div>
-
-		<div class="swiper-slide">
-
-			<div class="inner">
-
-			<a href="/package/info.html" target="_blank">
-
-			<img src="/img/l2.jpg" alt=""></a></div>
-
-		</div>
-
-		<div class="swiper-slide">
-
-			<div class="inner">
-
-			<a href="/package/info.html" target="_blank">
-
-			<img src="/img/l3.jpg" alt=""></a></div>
-
-		</div>
-	</div>
-	<div class="title">
-		<p class="tit p1">买菜难<em> · </em>配菜难<em> · </em>我们来解决</p>
-		<p class="tit p2" style="display: none;">今天在菜地<em> · </em>明天上餐桌</p>
-		<p class="tit p3" style="display: none;">送礼不如送健康</p>
-		<p>淳朴<em>｜</em> 山野<em>｜</em>农家<em>｜</em>食材</p>
-	</div>
-</div>
-
-{% include "../_partial/foot.html" %}
-<script src="/js/package/idangerous.swiper-2.0.min.js"></script>
-<script src="/js/package/package.js"></script>
+<script src="/js/plugins/jquery.min.js"></script>
+<script src="/js/main.js"></script>

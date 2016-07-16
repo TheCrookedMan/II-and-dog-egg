@@ -49,68 +49,25 @@
         }
     }
     header {
-        background: rgba(256, 256, 256, 1);
+        background: rgba(256, 256, 256, 0.1);
         display: inline-block;
         border-bottom: 0;
         min-height: auto;
         padding: 0.2rem 0;
         a {
-            font-size: 2.4rem;line-height: auto !important;
+            font-size: 2rem;
             color: #000;
         }
         .fl {
             margin-left: 1rem;
-            p{
-                padding: 0;margin: 0;width: 3rem;
-                &:first-child{
-                    margin-bottom: -0.8em;
-                }
-            }
-            span{
-                font-size: 1.2rem;
-            }
-        }
-        a.fr{
-            
-        }
-        div.fr{
-            width: 78%;margin-top: 0.9rem;position: relative;
         }
         .fr {
             margin-right: 1rem;
-            input {
-                width: 94%;
-                font-size: 1.4rem;background: #f8f8f8;border: 0;border-radius: 5px;
-                text-indent:3.4rem;
-                height: 38px;
-                position: relative;
-                z-index: 8;
-                &::-webkit-input-placeholder {
-                    color:    #000;
-                }
-                &:-moz-placeholder {
-                    color:    #000;
-                }
-            }
-            .am-icon-search{
-               position: absolute;font-size: 2rem;
-                left: 1rem;
-                color: #000;
-                top: 0rem;
-                z-index: 9; 
-            }
-            a {
-                position: absolute;display:none;
-                right: 2.6rem;
-                color: #000;
-                top: -0.1rem;
-                z-index: 9;
-            }
         }
     }
     .am-slider {
-        top: 12px;
-        margin-bottom: 12px;
+        top: -12px;
+        
         .am-control-nav li a {
             background: rgba(256, 256, 256, 0.5);
             width: 16px;
@@ -285,7 +242,7 @@
 }
 
 .index_catelog{
-    background: #fff;width: 100%;display: inline-block;padding-bottom: 1.5rem;
+    background: #fff;width: 100%;display: inline-block;padding-bottom: 1.5rem;margin-top:-2.5rem;
     ul{
         margin: 0;padding: 0;
         li{
