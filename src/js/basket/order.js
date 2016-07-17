@@ -1,5 +1,7 @@
 (function() {
     var is_rece = 1;
+    var TotalCouponPrice = 0;
+    var countTotalPrice = 0;
     $.get('/template/basket/order.t', { "uid": userinfo.Uid, 'type': 1, 'pids': pids }).success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
         if ("" !== data) {
@@ -34,26 +36,27 @@
 
             //获取优惠券
             $("#getCoupon").on('click', function() {
-                $.post('/user/validCouponList.post', { "uid": userinfo.Uid, 'allproductamount': 30 }).success(function(data) {
+                $.post('/user/validCouponList.post', { "uid": userinfo.Uid, 'allproductamount': TotalPrice }).success(function(data) {
                     var record = data.data;
                     var couponList = record.couponList;
                     if (couponList.length > 0) {
-                        $.get('/template/basket/coupon.t', { "uid": userinfo.Uid, 'allproductamount': 30 }).success(function(data) {
+                        $.get('/template/basket/coupon.t', { "uid": userinfo.Uid, 'allproductamount': TotalPrice }).success(function(data) {
                             $("#orderMain").hide();
                             $(".coupon .list ul").html(data);
                             $("#orderCoupon").show();
                         }).error(function(err) {});
                     } else {
+                        $(".couponPrice").text("- ¥ 0.00");
                         modal.tip('没有可用的优惠券！');
                         $('.am-dimmer').hide();
                         return false;
                     }
                 }).error(function(err) {});
-            })
+            });
 
             //获取收货地址
             $("#getAddress").on('click', function() {
-                $.get('/template/profile/address.t', { "uid": userinfo.Uid }).success(function(data) {
+                $.get('/template/profile/profile_address.t', { "uid": userinfo.Uid }).success(function(data) {
                     data = data.replace(/(^\s+)|(\s+$)/g, "");
                     if ("" !== data) {
                         $("#orderMain").hide();
@@ -61,7 +64,7 @@
                         $("#orderAddress").show();
                     }
                 }).error(function(err) {});
-            })
+            });
 
             //选择优惠券
             $(".coupon .list ul li a").on('click', function() {
@@ -69,7 +72,11 @@
                 $("#orderMain").show();
                 $("#orderCoupon").hide();
                 $("#couponTxt").html(txt);
-            })
+                // $(".couponPrice").text("－¥ 0.00");
+                // TotalCouponPrice = 0;
+            });
+            $(".link-to-product-list").attr('href','/basket/productList.html?uid='+userinfo.Uid+'&type=1&pids='+pids);
+            count();
         }
 
     }).error(function(err) {});
@@ -101,6 +108,21 @@
         })
     }
 
-    // 
+    function getDefaultAddress(){
+        $.post('/user/defaultAddressOrderInfo.post',{ "uid": userinfo.Uid, 'type': 1, 'pids': pids }).success(function(data){
+            if("1" == data.code && !!data.data && !!data.data.receiverInfo){
+                var record = data.data.receiverInfo;
+                $('#getAddress .name').text(record.Consignee);
+                $('#getAddress .mobile').text(record.Mobile);
+                $('#getAddress .area').text(record.ProvinceName+"，"+record.CityName+"，"+record.CountyName+"，"+record.Address);
+            }
+        })
+    }
+    getDefaultAddress();
+
+    function count(){
+        countTotalPrice = parseInt(TotalPrice) + parseInt(TotalShipFee) - parseInt(TotalCouponPrice);
+        $(".countTotalPrice").text("¥ "+countTotalPrice.toFixed(2));
+    }
 
 }).call(this)
