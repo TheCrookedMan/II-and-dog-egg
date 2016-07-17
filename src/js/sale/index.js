@@ -12,17 +12,17 @@
         $(".mySale .list.mt05").show();
         if (userinfo.Uidentity == 1) {
             $(".pinfo .UserIdentity").text("身份：推广大使");
-            $(".pinfo .link a").text("如何推广？");
-            $(".pinfo .link a").attr('src', '/profile/how_1.html');
+            $(".pinfo .link a").text("爱心传递");
+            $(".pinfo .link a").attr('href', '/profile/how_1.html');
         } else {
             $(".pinfo .UserIdentity").text("身份：普通会员");
             $(".pinfo .link a").text("如何成为健康推广大使？");
-            $(".pinfo .link a").attr('src', '/profile/how_2.html');
+            $(".pinfo .link a").attr('href', '/profile/how_2.html');
         }
 
         if (userinfo.IdentityState == 1) {
-            $(".pinfo .link a").text("如何恢复身份？");
-            $(".pinfo .link a").attr('src', '/profile/how_3.html');
+            $(".pinfo .link a").text("如何继续做公益");
+            $(".pinfo .link a").attr('href', '/profile/how_3.html');
             $(".IdentityStateDisable").show();
         } else {
             $(".IdentityStateActive").show();
@@ -36,7 +36,7 @@
     function normal() {
         $(".pinfo .UserIdentity").text("身份：普通会员");
         $(".pinfo .link a").text("如何成为健康推广大使？");
-        $(".pinfo .link a").attr('src', '/profile/how_2.html');
+        $(".pinfo .link a").attr('href', '/profile/how_2.html');
 
         $(".mySale .link-toPrice").attr('href', 'javascript:;');
         $(".mySale .link-toCode").attr('href', 'javascript:;');
@@ -44,7 +44,7 @@
         $(".mySale .link-toSale").attr('href', 'javascript:;');
 
         $(".mySale").on("click", "a", function() {
-            modal.alert({ text: "啊哦暂无记录！单次购满699即可升级为健康推广大使获得丰厚收益，快来吧！" })
+            modal.alert({ text: "暂无记录，购买土鸡蛋年卡套餐即可成为健康推广大使获得爱心回报，快来吧！" })
         })
     }
 
