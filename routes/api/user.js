@@ -332,3 +332,13 @@ exports.homeSearchRecommend = (req, res, next) => { new normalRequest('/api/user
 exports.homeSearchRecommend_link = (req, res, next) => { new normalRequest('/api/user/homeSearchRecommend').link_g(req, res, next); }
 
 
+/*我的余额*/
+exports.accountBalance = (req, res, next) => { new normalRequest('/api/user/accountBalance').post(req, res, next); }
+exports.accountBalance_link = (req, res, next) => { new normalRequest('/api/user/accountBalance').link(req, res, next); }
+
+/*物流信息*/
+exports.expressDetail = (req, res, next) => { new normalRequest('/api/User/expressDetail').post(req, res, next); }
+exports.expressDetail_link = (req, res, next) => { new normalRequest('/api/User/expressDetail').link(req, res, next); }
+
+
+

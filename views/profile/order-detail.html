@@ -1,7 +1,13 @@
 {% include "../_partial/head.html" %}
 <script type="text/javascript">
 var osn = "{{OSN}}";
+var orderId = "{{orderId}}";
 </script>
+<style type="text/css">
+	.order_detail .priceList{
+		border-top: 0;margin-top: 0;padding-top: 0;
+	}
+</style>
 <div id="order_detail"></div>
 {% include "../_partial/foot.html" %}
 <script src="/js/profile/order_detail.js"></script>

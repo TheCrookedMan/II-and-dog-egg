@@ -18,6 +18,7 @@
                 self.get();
             });
             self.get();
+
             scroll.on(function() {
                 if (!self.isEnd) {
                     self.pagenumber++;
@@ -50,6 +51,12 @@
                             //console.log(data)
                         }
                     }
+                    $(".time").each(function(){
+                        var time=parseInt($(this).html().replace(/[^0-9]/ig,""));
+                        var d=new Date(time); 
+                            time=formatDate(d);
+                        $(this).html(time);
+                    })
                 }).error(function(err) {});
             } else if ($(".myOrder .tab ul li a.cur").data("id") == 1) {
                 $.get('/template/profile/order_shiping.t', {
@@ -72,6 +79,12 @@
                             //console.log(data)
                         }
                     }
+                    $(".time").each(function(){
+                        var time=parseInt($(this).html().replace(/[^0-9]/ig,""));
+                        var d=new Date(time); 
+                            time=formatDate(d);
+                        $(this).html(time);
+                    })
                 }).error(function(err) {});
             } else if ($(".myOrder .tab ul li a.cur").data("id") == 2) {
                 $.get('/template/profile/order_done.t', {
@@ -94,6 +107,12 @@
                             //console.log(data)
                         }
                     }
+                    $(".time").each(function(){
+                        var time=parseInt($(this).html().replace(/[^0-9]/ig,""));
+                        var d=new Date(time); 
+                            time=formatDate(d);
+                        $(this).html(time);
+                    })
                 }).error(function(err) {});
             }
             if ($(".myOrder .tab ul li a.cur").data("id") == 3) {
@@ -117,10 +136,43 @@
                             //console.log(data)
                         }
                     }
+                    $(".time").each(function(){
+                        var time=parseInt($(this).html().replace(/[^0-9]/ig,""));
+                        var d=new Date(time); 
+                            time=formatDate(d);
+                        $(this).html(time);
+                    })
                 }).error(function(err) {});
             }
         }
     }
     var orderList = new gallery();
     orderList.init();
+
+    function formatDate(now) { 
+        var year=now.getFullYear(); 
+        var month=now.getMonth()+1; 
+        var date=now.getDate(); 
+        var hour=now.getHours(); 
+        var minute=now.getMinutes(); 
+        var second=now.getSeconds(); 
+
+        if (month<10)
+        {
+            month="0"+month.toString();
+        }
+        if(date<10){
+            date="0"+date.toString();
+        }
+        if(hour<10){
+            hour="0"+hour.toString();
+        }
+        if(minute<10){
+            minute="0"+minute.toString();
+        }
+        if(second<10){
+            second="0"+second.toString();
+        }
+        return year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second; 
+    } 
 }).call(this);

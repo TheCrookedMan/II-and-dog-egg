@@ -7,7 +7,7 @@
         if (common.regMobileNo(data.mobileNo)) {
             sendSMS(data.mobileNo)
         } else {
-            modal.alert({ text: "情确认手机号是否输入正确！" });
+            modal.alert({ text: "请确认手机号是否输入正确！" });
         }
     })
 

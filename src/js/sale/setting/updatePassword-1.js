@@ -40,6 +40,16 @@
     })
 
     function submitPassword() {
-    	// do something
+    	var SecurityCode=$("#password").val();
+        $("#ok_shiping").on('click', function() {
+            $.post('/distribution/setSecurityCode.post', { "Uid": userinfo.Uid,'SecurityCode':SecurityCode }).success(function(data) {
+                if (data.code == 1) {
+                    window.location.href='/sale/setting/updatePassword-2.html';
+                } else {
+                    modal.tip(data.message);
+                    $('.am-dimmer').hide();
+                }
+            }).error(function(err) {});
+        });
     }
 }).call(this)

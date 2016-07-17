@@ -4,6 +4,10 @@
       <div class="fl">
         {% if data['data'].orderStatusTitle == '去支付' %}
         <h2>未付款</h2>
+        {% elseif data['data'].orderStatusTitle == '审核中' %}
+        <h2>未发货</h2>
+        {% elseif data['data'].orderStatus == 6 %}
+        <h2>已完成</h2>
         {% else %}
         <h2>{{ data['data'].orderStatusTitle }}</h2>
         {% endif %}
@@ -25,7 +29,7 @@
         </div>
         <div class="l">
           <span class="col-grey fl">订单时间</span>
-          <span class="col-grey fr">{{ data['data'].addTime }}</span>
+          <span class="col-grey fr time">{{ data['data'].addTime }}</span>
         </div>
       </div>
     </div>
@@ -36,10 +40,25 @@
           <span class="col-grey fl">订单状态</span>
           <span class="col-grey fr">未付款</span>
       </div>
-      {% else %}
+      {% elseif data['data'].orderStatusTitle == '审核中' %}
       <div class="priceList">
           <span class="col-grey fl">订单状态<em>{{ data['data'].orderStatusTitle }}</em></span>
           <span class="col-grey fr"><a href="#" class="ship"><i class="am-icon-truck"></i><em>|</em>跟踪它</a></span>
+      </div>
+      {% elseif data['data'].orderStatusTitle == '已发货' %}
+      <div class="priceList">
+          <span class="col-grey fl">订单状态</span>
+          <span class="col-grey fr"><a href="#" class="ship"><i class="am-icon-truck"></i><em>|</em>跟踪它</a></span>
+      </div>
+      {% elseif data['data'].orderStatus == 6 %}
+      <div class="priceList">
+          <span class="col-grey fl">订单状态</span>
+          <span class="col-grey fr"><a href="#" class="ship"><i class="am-icon-truck"></i><em>|</em>跟踪它</a></span>
+      </div>
+      {% else %}
+      <div class="priceList">
+          <span class="col-grey fl">订单状态</span>
+          <span class="col-grey fr">{{data['data'].orderStatusTitle}}</span>
       </div>
       {% endif %}
     </div>
@@ -89,7 +108,7 @@
   </div>
 
   <div class="list">
-    <a href="/basket/invoice.html">
+    <a>
       <div class="title">
         <div class="fl">
           <h2>发票信息</h2>
@@ -140,6 +159,18 @@
     </div>
   </div>
 </div>
+{% if data['data'].orderStatusTitle == '去支付' %}
 <header class="am-topbar am-topbar-fixed-bottom detail_foot bge bd0">
   <a href="/profile/order-pay.html?osn={{ data['data'].OSN }}&orderAmount={{ data['data'].orderAmount }}"  class="btn buy">去付款</a>
 </header>
+{% elseif data['data'].orderStatusTitle == '审核中' %}
+
+{% elseif data['data'].orderStatusTitle == '已发货' %}
+<header class="am-topbar am-topbar-fixed-bottom detail_foot bge bd0">
+  <a href="javascript:void(0)"  class="btn buy" id="ok_shiping">确认收货</a>
+</header>
+{% elseif data['data'].orderStatus == 6 %}
+<header class="am-topbar am-topbar-fixed-bottom detail_foot bge bd0">
+  <a href="javascript:void(0)"  class="btn buy" id="del_order">删除订单</a>
+</header>
+{% endif %}

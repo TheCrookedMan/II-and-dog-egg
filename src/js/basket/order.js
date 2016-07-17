@@ -34,6 +34,25 @@
                 $("#orderMain").show();
             })
 
+            //余额
+            $("#getyuer").on('click', function() {
+                $("#yuer").show();
+                $.post('/user/accountBalance.post', { "uid": userinfo.Uid }).success(function(data) {
+                    if (data.code == "1" && !!data.data) {
+                        var record = data.data;
+                        $(".yuer").html(record.balan)
+                    }
+                }).error(function(err) {});
+                $("#orderMain").hide();
+            })
+
+            //确认余额
+            $("#ok_yuer").on('click', function() {
+                $("#yuer").hide();
+                $("#yuerTxt").html($(".yuer").html());
+                $("#orderMain").show();
+            })
+
             //获取优惠券
             $("#getCoupon").on('click', function() {
                 $.post('/user/validCouponList.post', { "uid": userinfo.Uid, 'allproductamount': TotalPrice }).success(function(data) {

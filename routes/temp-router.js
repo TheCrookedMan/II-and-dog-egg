@@ -230,4 +230,15 @@ router.get('/template/cishan/cishan.t', [user.cishan_link], function(req, res, n
     });
 });
 
+/*
+    物流信息
+ */
+
+router.get('/template/profile/order_status.t', [user.expressDetail_link], function(req, res, next) {
+    let record = common.toRecord(res.data);
+    return res.render('../template/profile/order_status', {
+        data: record['/api/User/expressDetail']
+    });
+});
+
 module.exports = router;
