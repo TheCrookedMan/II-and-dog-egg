@@ -58,6 +58,14 @@
                         self.sortdirection = 'DESC';
                         $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
                         self.get();
+                        scroll.on(function() {
+                            if (!self.isEnd) {
+                                self.pageNo++;
+                                self.get();
+                            }
+                        }, function() {
+                            /* 上拉到顶 */
+                        });
                     }
                     else{
                         $("ul.am-gallery").html("");
@@ -65,6 +73,14 @@
                         self.sortdirection = 'DESC';
                         $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
                         self.get();
+                        scroll.on(function() {
+                            if (!self.isEnd) {
+                                self.pageNo++;
+                                self.get();
+                            }
+                        }, function() {
+                            /* 上拉到顶 */
+                        });
                     }
                 }
                 else if ($(this).data("id") == "sortdirection") {
@@ -77,6 +93,14 @@
                         self.sortdirection = 'ASC';
                         $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
                         self.get();
+                        scroll.on(function() {
+                            if (!self.isEnd) {
+                                self.pageNo++;
+                                self.get();
+                            }
+                        }, function() {
+                            /* 上拉到顶 */
+                        });
                     }
                     else{
                         $("ul.am-gallery").html("");
@@ -84,6 +108,14 @@
                         self.sortdirection = 'DESC';
                         $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
                         self.get();
+                        scroll.on(function() {
+                            if (!self.isEnd) {
+                                self.pageNo++;
+                                self.get();
+                            }
+                        }, function() {
+                            /* 上拉到顶 */
+                        });
                     }
                 }
                 else if ($(this).data("id") == "defult") {
@@ -96,6 +128,14 @@
                         self.sortdirection = 'ASC';
                         $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
                         self.get();
+                        scroll.on(function() {
+                            if (!self.isEnd) {
+                                self.pageNo++;
+                                self.get();
+                            }
+                        }, function() {
+                            /* 上拉到顶 */
+                        });
                     }
                     else{
                         $("ul.am-gallery").html("");
@@ -103,6 +143,14 @@
                         self.sortdirection = 'DESC';
                         $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
                         self.get();
+                        scroll.on(function() {
+                            if (!self.isEnd) {
+                                self.pageNo++;
+                                self.get();
+                            }
+                        }, function() {
+                            /* 上拉到顶 */
+                        });
                     }
                 }
             });
