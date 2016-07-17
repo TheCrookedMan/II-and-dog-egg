@@ -248,7 +248,8 @@ router.get('/profile/address-edit.html', (req, res, next) => {
 
 router.get('/profile/order-detail.html', (req, res, next) => {
     let OSN = req.query.OSN;
-    return res.render('profile/order-detail', { title: '订单详情', OSN: OSN });
+    let orderId = req.query.orderId;
+    return res.render('profile/order-detail', { title: '订单详情', OSN: OSN ,orderId:orderId});
 });
 
 /*
@@ -523,6 +524,16 @@ router.get('/sale/setting/checkPhoneNumber.html', (req, res, next) => {
 
 router.get('/cishan/cishan.html', (req, res, next) => {
     return res.render('cishan/cishan', { title: '慈善' });
+});
+
+/*
+    物流
+ */
+
+router.get('/profile/order-status.html', (req, res, next) => {
+    let OSN = req.query.OSN;
+    let orderId = req.query.orderId;
+    return res.render('profile/order-status', { title: '物流信息',OSN:OSN, orderId:orderId});
 });
 
 router.get('*', (req, res, next) => {

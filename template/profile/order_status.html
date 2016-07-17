@@ -1,0 +1,24 @@
+<div class="order_ok order_detail">
+{% if data['data'].length>0 %}
+  <div class="list">   
+    {% for list in data['data'] %}
+    <div class="con">
+      <div class="priceList">
+        <div class="l">
+          <span class="col-grey fl">{{ list.datetime }}</span>
+        </div>
+        <div class="l">
+          <span class="col-grey fl">{{ list.remark }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="pub_linex"></div>
+    {% endfor %}
+  </div>
+  {% else %}
+    <div class="pub_noData">
+        <p><img src="/img/em2.png"></p>
+        <p>还没有待付款的订单</p>
+    </div>
+    {% endif %}
+</div>
