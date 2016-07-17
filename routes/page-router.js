@@ -370,8 +370,12 @@ router.get('/basket/basket.html', [user.checkLogin], (req, res, next) => {
     产品列表
  */
 
-router.get('/basket/productList.html', (req, res, next) => {
-    return res.render('basket/productList', { title: '产品列表' });
+router.get('/basket/productList.html', [user.defaultAddressOrderInfo_link], (req, res, next) => {
+    let record = common.toRecord(res.data);
+    return res.render('basket/productList', {
+        title: '产品列表',
+        data: record['/api/user/defaultAddressOrderInfo']
+    });
 });
 
 /*
@@ -479,7 +483,7 @@ router.get('/sale/setting/main.html', (req, res, next) => {
 
     if (!!userinfo && userinfo.IsSetSecurityCode) {
         return res.render('sale/setting/main', { title: '设置' });
-        
+
     } else {
         return res.redirect("/sale/setting/checkPhoneNumber.html");
     }
