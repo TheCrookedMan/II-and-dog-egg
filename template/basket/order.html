@@ -19,15 +19,24 @@ var said = "{{receiverInfo.said}}";
         </div>
     </a>
 </div>
-{% set TotalCount = 0 %}
-{% set TotalShipFee = 0 %}
+{% set TotalCount = 0; %}
+{% set TotalShipFee = 0; %}
+{% set TotalPrice = 0; %}
 <div class="list">
     <a href="javascript:void(0);" class="link-to-product-list">
         <div class="plist">
             {% for list in data['data']['expensesList'] %} 
 
+            {% set num = list.TotalCount; %}
+            {% set TotalCount += num %}
+
+            {% set ShipFee = list.ShipFee; %}
+            {% set TotalShipFee += ShipFee %}
 
             {% for proinfo in list['proList'] %}
+
+            {% set price = proinfo.ShopPrice * proinfo.BuyCount %}
+            {% set TotalPrice += price %}
             <img src="{{proinfo.ShowImg}}"> {% endfor %}
             <!-- <span>{{ list.shopName }}</span> -->
             <span class="fr"><em>共{{list.TotalCount}}件</em><i class="am-icon-angle-right"></i></span> {% endfor %}
@@ -87,6 +96,10 @@ var said = "{{receiverInfo.said}}";
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var TotalPrice = "{{TotalPrice}}";
+    var TotalShipFee = "{{TotalShipFee}}";
+</script>
 <div class="list">
     <div class="title">
         <div class="fl">
@@ -96,20 +109,20 @@ var said = "{{receiverInfo.said}}";
     <div class="con">
         <div class="priceList">
             <span class="col-grey fl">商品总价</span>
-            <span class="col-grey fr">¥ 3956.39</span>
+            <span class="col-grey fr">＋¥ {{TotalPrice.toFixed(2)}}</span>
         </div>
         <div class="priceList">
             <span class="col-grey fl">优惠券</span>
-            <span class="col-grey fr">¥ 3956.39</span>
+            <span class="col-grey fr couponPrice">- ¥ 0.00</span>
         </div>
         <div class="priceList">
             <span class="col-grey fl">运费</span>
-            <span class="col-grey fr">¥ 0</span>
+            <span class="col-grey fr">＋¥ {{TotalShipFee.toFixed(2)}}</span>
         </div>
     </div>
     <div class="total">
         <span class="fl col-grey">合计</span>
-        <span class="fr col-grey">￥2364.01</span>
+        <span class="fr col-grey countTotalPrice">￥0.00</span>
     </div>
 </div>
 <header class="am-topbar am-topbar-fixed-bottom detail_foot bge bd0">

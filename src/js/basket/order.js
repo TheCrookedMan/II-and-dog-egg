@@ -1,5 +1,7 @@
 (function() {
     var is_rece = 1;
+    var TotalCouponPrice = 0;
+    var countTotalPrice = 0;
     $.get('/template/basket/order.t', { "uid": userinfo.Uid, 'type': 1, 'pids': pids }).success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
         if ("" !== data) {
@@ -34,16 +36,17 @@
 
             //获取优惠券
             $("#getCoupon").on('click', function() {
-                $.post('/user/validCouponList.post', { "uid": userinfo.Uid, 'allproductamount': TotalCount }).success(function(data) {
+                $.post('/user/validCouponList.post', { "uid": userinfo.Uid, 'allproductamount': TotalPrice }).success(function(data) {
                     var record = data.data;
                     var couponList = record.couponList;
                     if (couponList.length > 0) {
-                        $.get('/template/basket/coupon.t', { "uid": userinfo.Uid, 'allproductamount': TotalCount }).success(function(data) {
+                        $.get('/template/basket/coupon.t', { "uid": userinfo.Uid, 'allproductamount': TotalPrice }).success(function(data) {
                             $("#orderMain").hide();
                             $(".coupon .list ul").html(data);
                             $("#orderCoupon").show();
                         }).error(function(err) {});
                     } else {
+                        $(".couponPrice").text("- ¥ 0.00");
                         modal.tip('没有可用的优惠券！');
                         $('.am-dimmer').hide();
                         return false;
@@ -69,8 +72,11 @@
                 $("#orderMain").show();
                 $("#orderCoupon").hide();
                 $("#couponTxt").html(txt);
+                // $(".couponPrice").text("－¥ 0.00");
+                // TotalCouponPrice = 0;
             });
             $(".link-to-product-list").attr('href','/basket/productList.html?uid='+userinfo.Uid+'&type=1&pids='+pids);
+            count();
         }
 
     }).error(function(err) {});
@@ -113,4 +119,10 @@
         })
     }
     getDefaultAddress();
+
+    function count(){
+        countTotalPrice = parseInt(TotalPrice) + parseInt(TotalShipFee) - parseInt(TotalCouponPrice);
+        $(".countTotalPrice").text("¥ "+countTotalPrice.toFixed(2));
+    }
+
 }).call(this)
