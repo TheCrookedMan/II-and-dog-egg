@@ -2,6 +2,7 @@
     var is_rece = 1;
     var TotalCouponPrice = 0;
     var countTotalPrice = 0;
+    var balance = 0;
     $.get('/template/basket/order.t', { "uid": userinfo.Uid, 'type': 1, 'pids': pids }).success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
         if ("" !== data) {
@@ -40,7 +41,8 @@
                 $.post('/user/accountBalance.post', { "uid": userinfo.Uid }).success(function(data) {
                     if (data.code == "1" && !!data.data) {
                         var record = data.data;
-                        $(".yuer").html(record.balan)
+                        $("#balance").val(record.balan * 1);
+                        $(".yuer").html(record.balan);
                     }
                 }).error(function(err) {});
                 $("#orderMain").hide();
@@ -51,6 +53,9 @@
                 $("#yuer").hide();
                 $("#yuerTxt").html($(".yuer").html());
                 $("#orderMain").show();
+                balance = $("#balance").val();
+                balance *= 1;
+                count();
             })
 
             //获取优惠券
@@ -94,7 +99,7 @@
                 // $(".couponPrice").text("－¥ 0.00");
                 // TotalCouponPrice = 0;
             });
-            $(".link-to-product-list").attr('href','/basket/productList.html?uid='+userinfo.Uid+'&type=1&pids='+pids);
+            $(".link-to-product-list").attr('href', '/basket/productList.html?uid=' + userinfo.Uid + '&type=1&pids=' + pids);
             count();
         }
 
@@ -112,7 +117,7 @@
              */
             type: 1,
             said: said,
-            balance: 0
+            balance: balance
         });
     });
 
@@ -120,28 +125,29 @@
         $.post('/user/submitOrder.post', params).success(function(data) {
             if ("1" == data.code && !!data.data) {
                 var record = data.data;
-                window.location.href = "/profile/order-pay.html?osn="+record.oNum+"&orderAmount="+record.orderAmount;
+                window.location.href = "/profile/order-pay.html?osn=" + record.oNum + "&orderAmount=" + record.orderAmount + "&TotalAmount=" + record.TotalAmount + "&CouponMoney=" + record.CouponMoney;
             } else {
                 modal.alert({ text: data.message });
             }
         })
     }
 
-    function getDefaultAddress(){
-        $.post('/user/defaultAddressOrderInfo.post',{ "uid": userinfo.Uid, 'type': 1, 'pids': pids }).success(function(data){
-            if("1" == data.code && !!data.data && !!data.data.receiverInfo){
+    function getDefaultAddress() {
+        $.post('/user/defaultAddressOrderInfo.post', { "uid": userinfo.Uid, 'type': 1, 'pids': pids }).success(function(data) {
+            if ("1" == data.code && !!data.data && !!data.data.receiverInfo) {
                 var record = data.data.receiverInfo;
                 $('#getAddress .name').text(record.Consignee);
                 $('#getAddress .mobile').text(record.Mobile);
-                $('#getAddress .area').text(record.ProvinceName+"，"+record.CityName+"，"+record.CountyName+"，"+record.Address);
+                $('#getAddress .area').text(record.ProvinceName + "，" + record.CityName + "，" + record.CountyName + "，" + record.Address);
             }
         })
     }
     getDefaultAddress();
 
-    function count(){
-        countTotalPrice = parseInt(TotalPrice) + parseInt(TotalShipFee) - parseInt(TotalCouponPrice);
-        $(".countTotalPrice").text("¥ "+countTotalPrice.toFixed(2));
+    function count() {
+        $(".balancePrice").text("－¥" + balance.toFixed(2));
+        countTotalPrice = parseInt(TotalPrice) + parseInt(TotalShipFee) - parseInt(TotalCouponPrice) - parseInt(balance);
+        $(".countTotalPrice").text("¥ " + countTotalPrice.toFixed(2));
     }
 
 }).call(this)
