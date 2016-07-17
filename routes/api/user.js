@@ -133,12 +133,12 @@ exports.editUserInfo = (req, res, next) => { new normalRequest('/api/user/editUs
 exports.getUserInfo = (openid, callback, next) => {
     new normalRequest('/api/user/GetUserInfo', {
         params: { openid: openid },
-        post: distributionPost
+        // post: distributionPost
     }).normalRequest(callback, next);
 }
 
 
-exports.getUserInfo_Post = (req, res, next) => { new normalRequest('/api/user/GetUserInfo', { post: distributionPost }).get(req, res, next); }
+exports.getUserInfo_Post = (req, res, next) => { new normalRequest('/api/user/GetUserInfo' /*, { post: distributionPost }*/).get(req, res, next); }
 
 /*
 		留言反馈 (api/user/feedback)
@@ -284,13 +284,13 @@ exports.applyRefund = (req, res, next) => { new normalRequest('/api/user/ApplyRe
 	发送验证码，此接口只是提供于 设置 提现安全码  功能
  */
 
-exports.SendSmscode = (req, res, next) => { new normalRequest('/api/user/SendSmscode', { post: distributionPost }).post(req, res, next); }
+exports.SendSmscode = (req, res, next) => { new normalRequest('/api/smscode/sendsmscode', { post: distributionPost }).post(req, res, next); }
 
 /*
 	验证验证码
  */
 
-exports.CheckSmsCode = (req, res, next) => { new normalRequest('/api/user/CheckSmsCode', { post: distributionPost }).get(req, res, next); }
+exports.CheckSmsCode = (req, res, next) => { new normalRequest('/api/smscode/checksmscode', { post: distributionPost }).get(req, res, next); }
 
 exports.checkLogin = (req, res, next) => {
     let userinfo = req.cookies.userinfo,
