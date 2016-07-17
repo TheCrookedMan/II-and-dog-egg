@@ -173,4 +173,7 @@ router.post('/user/homeslide.post', user.homeslide);
 // 搜索关键字推荐
 router.post('/user/homeSearchRecommend.post', user.homeSearchRecommend);
 
+// 我的余额
+router.post('/user/accountBalance.post', user.accountBalance);
+
 module.exports = router;
