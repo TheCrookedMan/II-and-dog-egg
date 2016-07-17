@@ -19,13 +19,14 @@ var said = "{{receiverInfo.said}}";
         </div>
     </a>
 </div>
+{% set TotalCount = 0 %}
+{% set TotalShipFee = 0 %}
 <div class="list">
     <a href="javascript:void(0);" class="link-to-product-list">
         <div class="plist">
             {% for list in data['data']['expensesList'] %} 
-            <script type="text/javascript">
-            var TotalCount = "{{list.TotalCount}}";
-            </script>
+
+
             {% for proinfo in list['proList'] %}
             <img src="{{proinfo.ShowImg}}"> {% endfor %}
             <!-- <span>{{ list.shopName }}</span> -->
@@ -103,7 +104,7 @@ var said = "{{receiverInfo.said}}";
         </div>
         <div class="priceList">
             <span class="col-grey fl">运费</span>
-            <span class="col-grey fr">¥ 3956.39</span>
+            <span class="col-grey fr">¥ 0</span>
         </div>
     </div>
     <div class="total">
