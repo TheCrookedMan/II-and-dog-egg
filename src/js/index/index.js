@@ -51,17 +51,17 @@
         throttle: 500,
         unload: false,
         callback: function(element, op) {
-            var categoryId = $(element).data('categoryId');
-            console.log("categoryId:::"+categoryId);
-            if (!!categoryId) {
-                getProductList(categoryId, function(html) {
-                    console.log(element, 'has been', op + 'ed');
-                    $(element).parents('.echo-loading').after(html);
-                    echo.render();
-                });
-            }
+            // var categoryId = $(element).data('categoryId');
+            // console.log("categoryId:::"+categoryId);
+            // if (!!categoryId) {
+            //     getProductList(categoryId, function(html) {
+            //         console.log(element, 'has been', op + 'ed');
+            //         $(element).parents('.echo-loading').after(html);
+            //         echo.render();
+            //     });
+            // }
 
-            // $(element).parents(".echo-loading").removeClass("echo-loading");
+            $(element).parents(".echo-loading").removeClass("echo-loading");
 
         }
     });
