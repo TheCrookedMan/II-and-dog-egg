@@ -14,14 +14,14 @@ var orderAmount = "{{orderAmount}}";
         <div class="con">
             <div class="l">
                 <span class="col-grey fl">订单金额</span>
-                <span class="col-grey fr">￥{{orderAmount.toFixed(2)}}</span>
+                <span class="col-grey fr">￥{{TotalAmount.toFixed(2)}}</span>
             </div>
         </div>
     </div>
     <div class="list">
         <div class="title">
             <div class="fl">
-                <h2>还需支付： {{TotalAmount.toFixed(2)}}元<em>（已优惠{{CouponMoney.toFixed(2)}}元）</em></h2>
+                <h2>还需支付： {{orderAmount.toFixed(2)}}元<em>（已优惠{{CouponMoney.toFixed(2)}}元）</em></h2>
             </div>
         </div>
         <div class="payMethod">

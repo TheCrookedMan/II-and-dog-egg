@@ -3,6 +3,7 @@
     var TotalCouponPrice = 0;
     var countTotalPrice = 0;
     var balance = 0;
+    var maxBalance = 0;
     $.get('/template/basket/order.t', { "uid": userinfo.Uid, 'type': 1, 'pids': pids }).success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
         if ("" !== data) {
@@ -37,12 +38,14 @@
 
             //余额
             $("#getyuer").on('click', function() {
+                $("input.yuer").val('');
                 $("#yuer").show();
                 $.post('/user/accountBalance.post', { "uid": userinfo.Uid }).success(function(data) {
                     if (data.code == "1" && !!data.data) {
                         var record = data.data;
-                        $("#balance").val(record.balan * 1);
-                        $(".yuer").html(record.balan);
+                        $("i.yuer").text(record.balan);
+                        maxBalance = record.balan;
+                        $("input.yuer").attr('placeholder', '余额支付 ' + record.balan + " 元");
                     }
                 }).error(function(err) {});
                 $("#orderMain").hide();
@@ -50,12 +53,18 @@
 
             //确认余额
             $("#ok_yuer").on('click', function() {
-                $("#yuer").hide();
-                $("#yuerTxt").html($(".yuer").html());
+                var inputBalance = $("input.yuer").val();
+                inputBalance *= 1;
+                if(maxBalance < inputBalance){
+                    modal.alert({text:'超出可用余额！'})
+                    return false;
+                }
+                $("#yuerTxt").html(inputBalance.toFixed(2));
                 $("#orderMain").show();
-                balance = $("#balance").val();
+                balance = inputBalance;
                 balance *= 1;
                 count();
+                $("#yuer").hide();
             })
 
             //获取优惠券
@@ -151,7 +160,7 @@
         })
     }
 
-    
+
 
     function count() {
         $(".balancePrice").text("- ¥" + balance.toFixed(2));

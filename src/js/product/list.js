@@ -200,7 +200,7 @@
 
     echo.init({
         offset: 100,
-        throttle: 250,
+        throttle: 25000,
         unload: false,
         callback: function(element, op) {
             // $(element).parents(".productList-echo-loading").removeClass("productList-echo-loading");

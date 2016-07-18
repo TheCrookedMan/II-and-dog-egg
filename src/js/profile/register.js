@@ -8,7 +8,7 @@
         if (common.regMobileNo(data.mobileNo)) {
             sendSMS(data.mobileNo)
         } else {
-            modal.alert({ text: "情确认手机号是否输入正确！" });
+            modal.alert({ text: "请确认手机号是否输入正确！" });
         }
     });
 
@@ -69,10 +69,18 @@
 
     function sendSMS(mobileNo) {
         $.post('/smsCode/register_smscode.post', { phone: mobileNo, type: 0 }).success(function(data) {
-            modal.alert({ text: data.message });
-            if ("1" == data.code) {
+            
+            if ("1" == data.code && data.data) {
+                modal.alert({ text: data.message });
                 $(".am-form .sendSMS").attr('disabled', 'disabled');
                 timeout();
+            } else if(data.data['IsExist']){
+                modal.tip(data.message);
+                setTimeout(function(){
+                    window.location.href = "/profile/bind.html";
+                },2000)
+            } else {
+                modal.alert({ text: data.message });
             }
         })
     }

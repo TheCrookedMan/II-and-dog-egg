@@ -108,6 +108,7 @@
                 //函数内判断，距离底部50px的时候则进行数据加载
                 if (getScrollTop() + getWindowHeight() + 50 >= getScrollHeight()) {
                    $(".nav-tab").show();
+                   $(window).off("scroll");
                    $("#Description").html(record.Description);
                 }
                 else if(getScrollTop()<=400){
@@ -225,6 +226,10 @@
             $('.am-slider').flexslider();
 
             $('.btn.add').on('click', function() {
+                if(!userinfo.Uid){
+                    modal.tip("用户未登录！");
+                    return false;
+                }
                 $('.btn.add').hide()
                 $('.btn.buy').show();
                 $.post('/cart/addProdToCart.post', { "pid": pid, "uid": userinfo.Uid, 'number': 1 }).success(function(data) {
