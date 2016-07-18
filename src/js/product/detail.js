@@ -2,7 +2,7 @@
     $.post('/product/productDetail.post', { "pid": pid }).success(function(data) {
         if (data.code == "1" && !!data.data) {
             var record = data.data;
-
+            //console.log(record);
             var isSimpleTag = record.isSimpleTag;
             if (isSimpleTag == 1) {
                 var str = '<div class="txt" id="title"></div>';
@@ -141,24 +141,32 @@
             })
 
             var sku = record.SkuInfoArray;
-            for (var i in sku) {
-                var str = '<dl><dt>' + sku[i].key + '</dt><dd></dd></dl/>';
-                $("#sku").append(str);
-                var v = sku[i].value;
-                for (var j in v) {
-                    weight = v[j].AttrValue;
-                    $("#weight").html(weight);
-                    if (v[j].State == 0) {
-                        var str0 = '<a href="javascript:void(0)" class="can">' + v[j].AttrValue + '</a>';
-                        $("#sku dl dd").append(str0);
-                    } else {
-                        var str0 = '<a href="javascript:void(0)" class="disable">' + v[j].AttrValue + '</a>';
-                        $("#sku dl dd").append(str0);
+            if(sku.length>0){
+                for (var i in sku) {
+                    var str = '<dl><dt>' + sku[i].key + '</dt><dd></dd></dl/>';
+                    $("#sku").append(str);
+                    var v = sku[i].value;
+                    for (var j in v) {
+                        weight = v[j].AttrValue;
+                        $("#weight").html(weight);
+                        if (v[j].State == 0) {
+                            var str0 = '<a href="javascript:void(0)" class="can">' + v[j].AttrValue + '</a>';
+                            $("#sku dl dd").append(str0);
+                        } else {
+                            var str0 = '<a href="javascript:void(0)" class="disable">' + v[j].AttrValue + '</a>';
+                            $("#sku dl dd").append(str0);
+                        }
+                        $("a.can:first").addClass("cur");
+                        $("#skuImg").attr("src", v[j].Image);
                     }
-                    $("a.can:first").addClass("cur");
-                    $("#skuImg").attr("src", v[j].Image);
                 }
             }
+            else{
+                var urll=$(".am-slides li:first-child img").attr("src");
+                $("#skuSelected").html(record.Name);
+                $("#skuImg").attr("src", urll);
+            }
+            
 
             var tips = record.goodsAttributeList;
             for (var i in tips) {
