@@ -113,16 +113,20 @@ router.get('/template/basket/order.t', [user.defaultAddressOrderInfo_link], func
     let record = common.toRecord(res.data);
     let orderInfo = record['/api/user/defaultAddressOrderInfo'];
     let receiverInfo = orderInfo['data']['receiverInfo'];
-    if (typeof(receiverInfo.ProvinceName) == 'object' && JSON.stringify(receiverInfo.ProvinceName) == "null") {
-        console.log("hhahha");
-        receiverInfo.ProvinceName = "";
-        receiverInfo.CityName = "";
-        receiverInfo.CountyName = "";
-        receiverInfo.Address = "";
-    }
+    // if (typeof(receiverInfo.ProvinceName) == 'object' && JSON.stringify(receiverInfo.ProvinceName) == "null") {
+    //     console.log("hhahha");
+    //     receiverInfo.ProvinceName = " ";
+    //     receiverInfo.CityName = " ";
+    //     receiverInfo.CountyName = " ";
+    //     receiverInfo.Address = " ";
+    // }
+    // console.log("-----------------------------------------------------------------");
+    // console.log("receiverInfo:::"+typeof(receiverInfo.ProvinceName));
+    // console.log(":::::::::"+JSON.stringify(receiverInfo.ProvinceName));
+    // console.log(":::::::::"+receiverInfo.ProvinceName);
     return res.render('../template/basket/order', {
         data: orderInfo,
-        receiverInfo: receiverInfo
+        receiverInfoObject: receiverInfo
     });
 })
 

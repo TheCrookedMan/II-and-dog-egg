@@ -1,15 +1,15 @@
 {% if "1" == data['code'] && !!data['data'] %} {% for category in data['data'] %}
-<p class="full">
+<p class="echo-loading full">
     <a href="javascript:;">
         <!-- <img src="/img/ajax-loader.gif" alt="二丫与狗蛋" data-category-id="{{category.fid}}" data-echo="{{category.fImgUrl}}"> -->
-        <img src="/img/ajax-loader.gif" alt="二丫与狗蛋" data-category-id="{{category.fid}}" data-echo="/img/p4-2.jpg">
+        <img src="/img/ajax-loader.jpg" alt="二丫与狗蛋" data-category-id="{{category.fid}}" data-echo="/img/p4-2.jpg">
     </a>
 </p>
 {% for product in category['porList'] %}
-<p>
+<p class="echo-loading">
     <a href="/product/detail.html?pid={{product.pid}}">
         <!-- <img src="/img/ajax-loader.gif" alt="二丫与狗蛋" data-echo="{{product.Img}}" height="100%"> -->
-        <img src="/img/ajax-loader.gif" alt="二丫与狗蛋" data-echo="/img/p4-2.jpg">
+        <img src="/img/ajax-loader.jpg" alt="二丫与狗蛋" data-echo="/img/p4-2.jpg">
     </a>
 </p>
 {% endfor %}

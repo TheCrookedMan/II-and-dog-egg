@@ -1,10 +1,10 @@
 (function() {
-    $.get('/template/index/index_category.t').success(function(data) {
-        data = data.replace(/(^\s+)|(\s+$)/g, "");
-        if ("" !== data) {
-            $(".catelog.text-c").html(data);
-        }
-    }).error(function(err) {});
+    // $.get('/template/index/index_category.t').success(function(data) {
+    //     data = data.replace(/(^\s+)|(\s+$)/g, "");
+    //     if ("" !== data) {
+    //         $(".catelog.text-c").html(data);
+    //     }
+    // }).error(function(err) {});
 
     $.get('/template/index/index_lett-nav.t').success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
@@ -57,27 +57,26 @@
     }).error(function(err) {});
 
     //轮播
-    $.post('/Home/homeslide.post').success(function(data) {
-        var res=data.data;
-        if(res.length>0){
-             for(var i in res){
-                var str='<li><a href="'+res[i].aUrl+'"><img src="'+res[i].aImg+'"></a></li>'
-                $(".am-slides").append(str);  
-            }
-            $('.am-slider').flexslider();
-        }
-        else{
-           var str='<li><a href="javascript:void(0)"><img src="../img/index_02.jpg"></a></li>';
-            $(".am-slides").html(str);
-            $('.am-slider').flexslider(); 
-        }
+    // $.post('/Home/homeslide.post').success(function(data) {
+    //     var res=data.data;
+    //     if(res.length>0){
+    //          for(var i in res){
+    //             var str='<li><a href="'+res[i].aUrl+'"><img src="'+res[i].aImg+'"></a></li>'
+    //             $(".am-slides").append(str);  
+    //         }
+    //         $('.am-slider').flexslider();
+    //     }
+    //     else{
+    //        var str='<li><a href="javascript:void(0)"><img src="../img/index_02.jpg"></a></li>';
+    //         $(".am-slides").html(str);
+    //         $('.am-slider').flexslider(); 
+    //     }
        
-    }).error(function(err) {});
-    
-
+    // }).error(function(err) {});
+    $('.am-slider').flexslider(); 
     echo.init({
         offset: 0,
-        throttle: 500,
+        throttle: 200,
         unload: false,
         callback: function(element, op) {
             // var categoryId = $(element).data('categoryId');

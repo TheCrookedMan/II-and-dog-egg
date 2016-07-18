@@ -286,7 +286,7 @@
                     sec: '00'
                 };
             var now = new Date().getTime();
-            var end = end * 1;
+            var end = end.getTime();
             var difference = end - now;
             if (difference <= 0) {
                 clearInterval(self.timer);

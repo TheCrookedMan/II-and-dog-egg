@@ -178,7 +178,6 @@
                 data = data.replace(/(^\s+)|(\s+$)/g, "");
                 if ("" == data) {
                     self.isEnd = true;
-
                 } else {
                     self.isEnd = false;
                     if (self.pageNo == 1) {
@@ -186,7 +185,7 @@
                     } else {
                         $("ul.am-gallery").append(data);
                     }
-                    echo.render();
+                    // echo.render();
                 }
             }).error(function(err) {});
         },

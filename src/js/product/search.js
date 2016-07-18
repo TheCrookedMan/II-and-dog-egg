@@ -186,7 +186,7 @@
                     } else {
                         $("ul.am-gallery").append(data);
                     }
-                    echo.render();
+                    // echo.render();
                 }
             }).error(function(err) {});
         },

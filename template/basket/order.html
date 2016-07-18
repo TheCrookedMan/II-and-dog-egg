@@ -1,5 +1,5 @@
 <script type="text/javascript">
-var said = "{{receiverInfo.said}}";
+var said = "{{receiverInfoObject.said}}";
 </script>
 <div class="list">
     <div class="title">
@@ -10,15 +10,11 @@ var said = "{{receiverInfo.said}}";
     <a href="javascript:void(0)" id="getAddress">
         <div class="con">
             <div class="tit">
-                <span class="fl name">{{receiverInfo.Consignee}}</span>
-                <span class="fl mobile">{{receiverInfo.Mobile}}</span>
+                <span class="fl name">{{receiverInfoObject.Consignee}}</span>
+                <span class="fl mobile">{{receiverInfoObject.Mobile}}</span>
                 <i class="am-icon-angle-right fr"></i>
             </div>
-            {% set ProvinceName = receiverInfo.ProvinceName %}
-            {% set CityName = receiverInfo.CityName %}
-            {% set CountyName = receiverInfo.CountyName %}
-            {% set Address = receiverInfo.Address %}
-            <div class="area">{{ProvinceName}}，{{CityName}}，{{CountyName}}，{{Address}}</div>
+            <div class="area">{{receiverInfoObject.ProvinceName}}，{{receiverInfoObject.CityName}}，{{receiverInfoObject.CountyName}}，{{receiverInfoObject.Address}}</div>
         </div>
     </a>
 </div>

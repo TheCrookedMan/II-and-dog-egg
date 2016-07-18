@@ -1,9 +1,12 @@
 $echo-loading-panel-height:12.5rem;
 
 .echo-loading{
-	height: $echo-loading-panel-height;
+	height: $echo-loading-panel-height !important;
 	line-height: $echo-loading-panel-height;
 	text-align: center;
+	img{
+		height: 100%!important;
+	}
 }
 
 .productList-echo-loading{
@@ -15,6 +18,6 @@ $echo-loading-panel-height:12.5rem;
 	}
 	img{
 		width: auto!important;
-		padding: $echo-loading-panel-height/2;
+		// padding: $echo-loading-panel-height/2;
 	}
 }

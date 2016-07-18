@@ -85,8 +85,14 @@ router.get('/wechatAuth.html', (req, res, next) => {
     首页
  */
 
-router.get('/index/index.html', (req, res, next) => {
-    return res.render('index/index', { title: '首页' });
+router.get('/index/index.html', [user.HomeProductList_link, user.homeslide_link], (req, res, next) => {
+    let record = common.toRecord(res.data);
+    console.log("----------------------------------------------------------------------------------------------------------------------------");
+    return res.render('index/index', {
+        title: '首页',
+        data: record['/api/Home/HomeProductList'],
+        homeslide: record['/api/Home/homeH5']
+    });
 });
 
 /*
@@ -270,13 +276,13 @@ router.get('/profile/order-pay.html', (req, res, next) => {
         TotalAmount = req.query.TotalAmount,
         CouponMoney = req.query.CouponMoney;
 
-    if(!!orderAmount){
+    if (!!orderAmount) {
         orderAmount *= 1;
     }
-    if(!!TotalAmount){
+    if (!!TotalAmount) {
         TotalAmount *= 1;
     }
-    if(!!CouponMoney){
+    if (!!CouponMoney) {
         CouponMoney *= 1;
     }
     return res.render('profile/order-pay', { title: '订单支付', osn: osn, orderAmount: orderAmount, TotalAmount: TotalAmount, CouponMoney: CouponMoney });
@@ -551,11 +557,11 @@ router.get('/profile/order-status.html', (req, res, next) => {
 /*
     宅配页面
  */
-router.get('/home-delivery/index.html',(req, res, next) => {
+router.get('/home-delivery/index.html', (req, res, next) => {
     return res.render('home-delivery/index', { title: '宅配' });
 });
 
-router.get('*', (req, res, next) => {
+router.get('*.html', (req, res, next) => {
     res.redirect('/index/index.html');
 });
 

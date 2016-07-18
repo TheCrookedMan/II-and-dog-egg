@@ -1,8 +1,8 @@
 {% include "../_partial/head.html" %}
 <style type="text/css">
-    .navbar-footer{
-        z-index: 99;
-    }
+.navbar-footer {
+    z-index: 99;
+}
 </style>
 <div class="index">
     <!-- Header -->
@@ -28,12 +28,20 @@
     <!-- Slider -->
     <div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{"directionNav":false}'>
         <ul class="am-slides">
+            {% if "1" == homeslide['code'] && !!homeslide['data'] %} {% for slider in homeslide['data'] %}
+            <li>
+                <a href="{{slider.aUrl}}"><img src="{{slider.aImg}}"></a>
+            </li>
+            {% endfor %} {% else %}
+            <li>
+                <a href="javascript:void(0)"><img src="../img/index_02.jpg"></a>
+            </li>
+            {% endif %}
             <!-- <li>
                 <a href="javascript:void(0)"><img src="/img/index_02.jpg"></a>
             </li> -->
         </ul>
     </div>
-
     <!-- 分类 -->
     <div class="index_catelog">
         <p><img src="/img/index_03.jpg"></p>
@@ -64,12 +72,10 @@
             </li>
         </ul>
     </div>
-
     <!-- 视频 -->
     <div class="index_media">
         <a href="http://xian17.com/h5/dabieshan.html"><img src="/img/index_14.jpg"></a>
     </div>
-
     <!-- 大家都在买 -->
     <div class="often_buy">
         <p><img src="/img/basket.png"></p>
@@ -85,8 +91,22 @@
             </div>
         </div>
     </div>
-
     <div class="catelog text-c">
+        {% if "1" == data['code'] && !!data['data'] %} {% for category in data['data'] %}
+        <p class="echo-loading full">
+            <a href="javascript:;">
+                <!-- <img src="/img/ajax-loader.gif" alt="二丫与狗蛋" data-category-id="{{category.fid}}" data-echo="{{category.fImgUrl}}"> -->
+                <img src="/img/ajax-loader.jpg" alt="二丫与狗蛋" data-category-id="{{category.fid}}" data-echo="/img/p4-2.jpg">
+            </a>
+        </p>
+        {% for product in category['porList'] %}
+        <p class="echo-loading">
+            <a href="/product/detail.html?pid={{product.pid}}">
+                <!-- <img src="/img/ajax-loader.gif" alt="二丫与狗蛋" data-echo="{{product.Img}}" height="100%"> -->
+                <img src="/img/ajax-loader.jpg" alt="二丫与狗蛋" data-echo="/img/p4-2.jpg">
+            </a>
+        </p>
+        {% endfor %} {% endfor %} {% endif %}
         <!-- <p>
             <a href="/index/h5.html"><img src="/img/media.jpg"></a>
         </p>
@@ -196,7 +216,6 @@
             <a href="/product/detail.html"><img src="/img/p4-10.jpg"></a>
         </p> -->
     </div>
-
     <!-- 底部 -->
     <div class="index_media">
         <a href="/index/h5.html"><img src="/img/index_16.jpg"></a>
@@ -216,7 +235,6 @@
         <div class="am-popup-bd" id="oftenKeyword">
             <h2>倾情推荐</h2>
             <div class="keywordlist"></div>
-            
         </div>
     </div>
 </div>
