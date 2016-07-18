@@ -38,7 +38,26 @@
         $("#password").val("");
     })
 
+    $("#okPassword").on('click',function(){
+        var pwd=$("#password").val();
+        if(pwd==password){
+           submitPassword();
+        }
+        else if(pwd.length!=6){
+            modal.alert({ text: '请输入6位密码！' });
+        }
+        else{
+            modal.alert({ text: '密码不一致！' });
+        }
+    })
+
     function submitPassword() {
-    	// do something
+        $.post('/distribution/checkSetSecurityCode.post', { Uid: userinfo.Uid, SecurityCode: password }).success(function(data) {
+            if ("1" == data.code && !!data.data) {
+                  window.location.href = "/sale/setting/main.html";
+            } else {
+                modal.alert({ text: data.message });
+            }
+        });
     }
 }).call(this)
