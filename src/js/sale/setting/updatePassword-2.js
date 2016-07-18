@@ -40,6 +40,17 @@
     })
 
     function submitPassword() {
-    	// do something
+    	$.post('/distribution/checkSetSecurityCode.post', { Uid: userinfo.Uid, SecurityCode: $("#password").val() }).success(function(data) {
+            if ("1" == data.code && !!data.data) {
+                var record = data.data;
+                if (record.IsCheck) {
+                    window.location.href = "/sale/setting/updatePassword-2.html";
+                } else {
+                    modal.alert({ text: data.message });
+                }
+            } else {
+                modal.alert({ text: data.message });
+            }
+        });
     }
 }).call(this)
