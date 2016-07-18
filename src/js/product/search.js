@@ -204,8 +204,8 @@
         throttle: 250,
         unload: false,
         callback: function(element, op) {
-            $(element).parents(".productList-echo-loading").removeClass("productList-echo-loading");
-            console.log(element, 'has been', op + 'ed');
+            // $(element).parents(".productList-echo-loading").removeClass("productList-echo-loading");
+            // console.log(element, 'has been', op + 'ed');
         }
     });
 }).call(this)

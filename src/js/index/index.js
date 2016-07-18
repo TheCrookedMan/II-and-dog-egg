@@ -89,8 +89,7 @@
             //     });
             // }
 
-            $(element).parents(".echo-loading").removeClass("echo-loading");
-
+            // $(element).parents(".echo-loading").removeClass("echo-loading");
         }
     });
 
