@@ -7,6 +7,7 @@
         $(".pinfo .UserIdentity").text("身份：普通会员");
         normal();
     } else {
+        initMonthTask();
         initCommitionMoney();
         $(".pinfo .setting").show();
         $(".mySale .list.mt05").show();
@@ -75,7 +76,7 @@
             }
         });
     }
-    initMonthTask();
+    
 
 
 }).call(this);

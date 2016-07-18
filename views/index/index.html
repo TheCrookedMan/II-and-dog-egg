@@ -3,6 +3,9 @@
 .navbar-footer {
     z-index: 99;
 }
+.index{
+    padding-bottom: 5rem;
+}
 </style>
 <div class="index">
     <!-- Header -->
@@ -30,7 +33,13 @@
         <ul class="am-slides">
             {% if "1" == homeslide['code'] && !!homeslide['data'] %} {% for slider in homeslide['data'] %}
             <li>
+                {% if slider.aType == 1 %}
+                <a href="/product/detail.html?pid={{slider.aUrl}}"><img src="{{slider.aImg}}"></a>
+                {% elseif slider.aType == 2 %}
+                <a href="/product/list.html?categoryId={{slider.aUrl}}"><img src="{{slider.aImg}}"></a>
+                {% else %}
                 <a href="{{slider.aUrl}}"><img src="{{slider.aImg}}"></a>
+                {% endif %}
             </li>
             {% endfor %} {% else %}
             <li>
@@ -56,7 +65,7 @@
                 <a href="/product/list.html?categoryId=115"><img src="/img/c3.jpg"></a>
             </li>
             <li>
-                <a href="/product/list.html?categoryId=22"><img src="/img/c4.jpg"></a>
+                <a href="/product/list.html?categoryId=118"><img src="/img/c4.jpg"></a>
             </li>
             <li>
                 <a href="/product/list.html?categoryId=117"><img src="/img/c5.jpg"></a>
@@ -65,7 +74,7 @@
                 <a href="/product/list.html?categoryId=119"><img src="/img/c6.jpg"></a>
             </li>
             <li>
-                <a href="/product/list.html?categoryId=22"><img src="/img/c7.jpg"></a>
+                <a href="/product/list.html?categoryId=116"><img src="/img/c7.jpg"></a>
             </li>
             <li>
                 <a href="javascript:void(0)" data-am-offcanvas="{target: '#left-nav', effect: 'push'}"><img src="/img/c8.jpg"></a>
@@ -73,7 +82,7 @@
         </ul>
     </div>
     <!-- 视频 -->
-    <div class="index_media">
+    <div class="index_media mt0">
         <a href="http://xian17.com/h5/dabieshan.html"><img src="/img/index_14.jpg"></a>
     </div>
     <!-- 大家都在买 -->
@@ -91,131 +100,110 @@
             </div>
         </div>
     </div>
-    <div class="catelog text-c">
-        {% if "1" == data['code'] && !!data['data'] %} {% for category in data['data'] %}
-        <p class="echo-loading full">
-            <a href="javascript:;">
-                <img src="/img/ajax-loader-1.jpg" alt="二丫与狗蛋" data-category-id="{{category.fid}}" data-echo="{{category.fImgUrl}}">
-                <!-- <img src="/img/ajax-loader-1.jpg" alt="二丫与狗蛋" data-category-id="{{category.fid}}" data-echo="/img/p4-2.jpg"> -->
-            </a>
-        </p>
-        {% for product in category['porList'] %}
-        <p class="echo-loading">
-            <a href="/product/detail.html?pid={{product.pid}}">
-                <img src="/img/ajax-loader-1.jpg" alt="二丫与狗蛋" data-echo="{{product.Img}}" >
-                <!-- <img src="/img/ajax-loader-1.jpg" alt="二丫与狗蛋" data-echo="/img/p4-2.jpg"> -->
-            </a>
-        </p>
-        {% endfor %} {% endfor %} {% endif %}
-        <!-- <p>
-            <a href="/index/h5.html"><img src="/img/media.jpg"></a>
-        </p>
-        <p class="full">
-            <a href="/product/detail.html"><img src="/img/p1.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p1-1.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p1-2.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p1-3.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p1-4.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p1-5.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p1-6.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p1-7.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p1-8.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p1-9.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p1-10.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p1-11.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p1-12.jpg"></a>
-        </p>
-        <p class="full">
-            <a href="/product/detail.html"><img src="/img/p2.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p2-1.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p2-2.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p2-3.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p2-4.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p2-5.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p2-6.jpg"></a>
-        </p>
-        <p class="full">
-            <a href="/product/detail.html"><img src="/img/p3.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p3-1.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p3-2.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p3-3.jpg"></a>
-        </p>
-        <p class="full">
-            <a href="/product/detail.html"><img src="/img/p4.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p4-1.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p4-2.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p4-3.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p4-4.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p4-5.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p4-6.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p4-7.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p4-8.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p4-9.jpg"></a>
-        </p>
-        <p>
-            <a href="/product/detail.html"><img src="/img/p4-10.jpg"></a>
-        </p> -->
-    </div>
+    <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td colspan="2">
+                <img src="/img/index_new_01.jpg" alt=""></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/product/detail.html?pid=1787"><img src="/img/index_new_02.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/product/detail.html?pid=1788"><img src="/img/index_new_03.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/product/detail.html?pid=1789"><img src="/img/index_new_04.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/package/package.html"><img src="/img/index_new_05.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <img src="/img/index_new_06.jpg" alt=""></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/product/detail.html?pid=1723"><img src="/img/index_new_07.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/product/detail.html?pid=1720"><img src="/img/index_new_08.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/product/detail.html?pid=1540"><img src="/img/index_new_09.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <img src="/img/index_new_10.jpg" alt=""></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/product/detail.html?pid=1550"><img src="/img/index_new_11.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/product/detail.html?pid=1744"><img src="/img/index_new_12.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <img src="/img/index_new_13.jpg" alt=""></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/product/detail.html?pid=1564"><img src="/img/index_new_14.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/product/detail.html?pid=1662"><img src="/img/index_new_15.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/product/detail.html?pid=1719"><img src="/img/index_new_16.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <img src="/img/index_new_17.jpg" alt=""></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/product/detail.html?pid=1636"><img src="/img/index_new_18.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/product/detail.html?pid=1638"><img src="/img/index_new_19.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/product/detail.html?pid=1644"><img src="/img/index_new_20.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <img src="/img/index_new_21.jpg" alt=""></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/product/detail.html?pid=1788"><img src="/img/index_new_22.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="/product/detail.html?pid=1788"><img src="/img/index_new_23.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <img src="/img/index_new_24.jpg" alt=""></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="/product/detail.html?pid=1745"><img src="/img/index_new_25.jpg" alt=""></a></td>
+            <td>
+                <a href="/product/detail.html?pid=1746"><img src="/img/index_new_26.jpg" alt=""></a></td>
+        </tr>
+    </table>
     <!-- 底部 -->
     <div class="index_media">
         <a href="/index/h5.html"><img src="/img/index_16.jpg"></a>

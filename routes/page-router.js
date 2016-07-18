@@ -82,6 +82,20 @@ router.get('/wechatAuth.html', (req, res, next) => {
 });
 
 /*
+    根据二丫的规则获取对应的商品ID
+ */
+router.get('/pid/*',(req, res, next)=>{
+    let url = req.url;
+    let pid = url.replace('/pid/','').replace('.html','');
+    return res.render('product/detail', { title: '产品详情', pid: pid });
+});
+router.get('/tc/*',(req, res, next)=>{
+    let url = req.url;
+    let pid = url.replace('/pid/','').replace('.html','');
+    return res.render('product/detail', { title: '产品详情', pid: pid });
+});
+
+/*
     首页
  */
 

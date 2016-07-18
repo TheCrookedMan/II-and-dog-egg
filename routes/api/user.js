@@ -344,3 +344,10 @@ exports.expressDetail_link = (req, res, next) => { new normalRequest('/api/User/
 	首页产品列表获取
  */
 exports.HomeProductList_link = (req, res, next) => { new normalRequest('/api/Home/HomeProductList', { post: distributionPost }).link_g(req, res, next); }
+
+
+/*
+激活礼金卡
+ */
+
+exports.checkCard = (req,res,next) =>{ new normalRequest('/api/User/CheckCard', { post: distributionPost }).post(req, res, next); }

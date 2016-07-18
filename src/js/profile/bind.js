@@ -1,6 +1,6 @@
 (function() {
     var OpenID = common.getOpenId();
-    
+    var wechatUserInfo = common.getCookie("wechatUserInfo");
     $("#bindForm").validator({
         submit: function(form) {
             if (this.isFormValid()) {
@@ -9,15 +9,17 @@
                 $.post('/distribution/appBind.post', {
                     "username": params.name,
                     "userpwd": pd,
-                    'openid': OpenID
+                    'openid': OpenID,
+                    'wImage': wechatUserInfo.headimgurl,
+                    'wName': wechatUserInfo.nickname
                 }).success(function(data) {
-                    if (data.code == 1) {
+                    if (data.code == "1") {
                         modal.tip("绑定成功！");
                         $('.am-dimmer').hide();
                         //window.location.href='/profile/address.html';
                         setTimeout(function() {
-                            history.go(-1)
-                        }, 2000);
+                            history.go(-1);
+                        }, 1000);
                     } else {
                         modal.tip(data.message);
                         $('.am-dimmer').hide();

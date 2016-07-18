@@ -1,0 +1,242 @@
+{% include "../_partial/head.html" %}
+<style type="text/css">
+.navbar-footer {
+    z-index: 99;
+}
+</style>
+<div class="index">
+    <!-- Header -->
+    <header class="am-topbar am-topbar-fixed-top">
+        <a href="#left-nav" data-am-offcanvas class="fl"><i class="am-icon-bars"></i></a>
+        <a href="javascript:void(0)" class="fr" data-am-modal="{target: '#search'}"><i class="am-icon-search"></i></a>
+    </header>
+    <!-- 侧边栏内容 -->
+    <div id="left-nav" class="am-offcanvas">
+        <div class="am-offcanvas-bar">
+            <div class="am-offcanvas-content">
+                <h2>分类</h2>
+                <ul>
+                    <!-- <li><a href="/product/list.html"><em>—</em>蔬菜瓜果</a></li>
+                    <li><a href="/product/list.html"><em>—</em>肉禽蛋品</a></li>
+                    <li><a href="/product/list.html"><em>—</em>水产河鲜</a></li>
+                    <li><a href="/product/list.html"><em>—</em>粮油副食</a></li>
+                    <li><a href="/product/list.html"><em>—</em>腌制干货</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Slider -->
+    <div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{"directionNav":false}'>
+        <ul class="am-slides">
+            {% if "1" == homeslide['code'] && !!homeslide['data'] %} {% for slider in homeslide['data'] %}
+            <li>
+                <a href="{{slider.aUrl}}"><img src="{{slider.aImg}}"></a>
+            </li>
+            {% endfor %} {% else %}
+            <li>
+                <a href="javascript:void(0)"><img src="../img/index_02.jpg"></a>
+            </li>
+            {% endif %}
+            <!-- <li>
+                <a href="javascript:void(0)"><img src="/img/index_02.jpg"></a>
+            </li> -->
+        </ul>
+    </div>
+    <!-- 分类 -->
+    <div class="index_catelog">
+        <p><img src="/img/index_03.jpg"></p>
+        <ul>
+            <li>
+                <a href="/product/list.html?categoryId=114"><img src="/img/c1.jpg"></a>
+            </li>
+            <li>
+                <a href="/product/list.html?categoryId=116"><img src="/img/c2.jpg"></a>
+            </li>
+            <li>
+                <a href="/product/list.html?categoryId=115"><img src="/img/c3.jpg"></a>
+            </li>
+            <li>
+                <a href="/product/list.html?categoryId=22"><img src="/img/c4.jpg"></a>
+            </li>
+            <li>
+                <a href="/product/list.html?categoryId=117"><img src="/img/c5.jpg"></a>
+            </li>
+            <li>
+                <a href="/product/list.html?categoryId=119"><img src="/img/c6.jpg"></a>
+            </li>
+            <li>
+                <a href="/product/list.html?categoryId=22"><img src="/img/c7.jpg"></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" data-am-offcanvas="{target: '#left-nav', effect: 'push'}"><img src="/img/c8.jpg"></a>
+            </li>
+        </ul>
+    </div>
+    <!-- 视频 -->
+    <div class="index_media">
+        <a href="http://xian17.com/h5/dabieshan.html"><img src="/img/index_14.jpg"></a>
+    </div>
+    <!-- 大家都在买 -->
+    <div class="often_buy">
+        <p><img src="/img/basket.png"></p>
+        <div class="data-list">
+            <div class="list swiper">
+                <div class="wrapper">
+                    <a href="/product/detail.html?pid=1787"><img src="/img/buy_03.jpg"></a>
+                    <a href="/product/detail.html?pid=1550"><img src="/img/buy_05.jpg"></a>
+                    <a href="/product/detail.html?pid=1720"><img src="/img/buy_07.jpg"></a>
+                    <a href="/product/detail.html?pid=1564"><img src="/img/buy_09.jpg"></a>
+                    <a href="/product/detail.html?pid=1712"><img src="/img/buy_11.jpg"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="catelog text-c">
+        {% if "1" == data['code'] && !!data['data'] %} {% for category in data['data'] %}
+        <p class="echo-loading full">
+            <a href="javascript:;">
+                <img src="/img/ajax-loader-1.jpg" alt="二丫与狗蛋" data-category-id="{{category.fid}}" data-echo="{{category.fImgUrl}}">
+                <!-- <img src="/img/ajax-loader-1.jpg" alt="二丫与狗蛋" data-category-id="{{category.fid}}" data-echo="/img/p4-2.jpg"> -->
+            </a>
+        </p>
+        {% for product in category['porList'] %}
+        <p class="echo-loading">
+            <a href="/product/detail.html?pid={{product.pid}}">
+                <img src="/img/ajax-loader-1.jpg" alt="二丫与狗蛋" data-echo="{{product.Img}}" >
+                <!-- <img src="/img/ajax-loader-1.jpg" alt="二丫与狗蛋" data-echo="/img/p4-2.jpg"> -->
+            </a>
+        </p>
+        {% endfor %} {% endfor %} {% endif %}
+        <!-- <p>
+            <a href="/index/h5.html"><img src="/img/media.jpg"></a>
+        </p>
+        <p class="full">
+            <a href="/product/detail.html"><img src="/img/p1.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p1-1.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p1-2.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p1-3.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p1-4.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p1-5.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p1-6.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p1-7.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p1-8.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p1-9.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p1-10.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p1-11.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p1-12.jpg"></a>
+        </p>
+        <p class="full">
+            <a href="/product/detail.html"><img src="/img/p2.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p2-1.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p2-2.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p2-3.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p2-4.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p2-5.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p2-6.jpg"></a>
+        </p>
+        <p class="full">
+            <a href="/product/detail.html"><img src="/img/p3.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p3-1.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p3-2.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p3-3.jpg"></a>
+        </p>
+        <p class="full">
+            <a href="/product/detail.html"><img src="/img/p4.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p4-1.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p4-2.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p4-3.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p4-4.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p4-5.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p4-6.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p4-7.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p4-8.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p4-9.jpg"></a>
+        </p>
+        <p>
+            <a href="/product/detail.html"><img src="/img/p4-10.jpg"></a>
+        </p> -->
+    </div>
+    <!-- 底部 -->
+    <div class="index_media">
+        <a href="/index/h5.html"><img src="/img/index_16.jpg"></a>
+    </div>
+</div>
+<div class="am-popup index_popup" id="search">
+    <div class="am-popup-inner">
+        <div class="am-popup-hd">
+            <h4 class="am-popup-title">
+                <form id="searchForm" method='get' action="">
+                    <input  id="keywords" placeholder="" type="text">
+                    <a href="javascript:void(0)" id="deltxt"><i class="am-icon-times-circle"></i></a> 
+                 </form>
+            </h4>
+            <span data-am-modal-close class="am-close">取消</span>
+        </div>
+        <div class="am-popup-bd" id="oftenKeyword">
+            <h2>倾情推荐</h2>
+            <div class="keywordlist"></div>
+        </div>
+    </div>
+</div>
+{% include "../_partial/footer.html" %} {% include "../_partial/foot.html" %}
+<script src="/js/index/index.js"></script>

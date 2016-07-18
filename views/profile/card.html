@@ -1,14 +1,18 @@
 {% include "../_partial/head.html" %}
 <div class="bind">
-	<h2>添加礼金卡</h2>
-	<form action="" class="am-form">
-	  <div class="am-form-group">
-	    <input type="text" id="doc-vld-name" minlength="3" placeholder="礼金卡号 " class="am-form-field" required/>
-	  </div>
-	  <div class="am-form-group">
-	    <input type="text" id="doc-vld-password" minlength="3" placeholder="密码" class="am-form-field" required/>
-	  </div>
-	</form>
-	<a href="javascript:void(0)"  class="pub_btn mt2">确定</a>
+    <h2>添加礼金卡</h2>
+    <form method="post" class="am-form" data-am-validator id="cardForm">
+        <div class="am-form-group">
+            <input type="text" id="doc-vld-name" name="card" minlength="3" placeholder="礼金卡号 " class="am-form-field" required/>
+        </div>
+        <div class="am-form-group">
+            <input type="password" id="doc-vld-password" name="pwd" minlength="3" placeholder="密码" class="am-form-field" required/>
+        </div>
+        <!-- <a href="javascript:void(0)" class="pub_btn mt2">确定</a> -->
+        <p class="alipay-button">
+            <button type="submit" class="am-btn am-btn-default pub_btn">确认注册</button>
+        </p>
+    </form>
 </div>
 {% include "../_partial/foot.html" %}
+<script src="/js/profile/card.js"></script>
