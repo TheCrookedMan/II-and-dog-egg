@@ -12,6 +12,18 @@
 </body>
 <script type="text/javascript">
 var userinfo = common.getCookie('userinfo');
+
+
+//购物车数量
+$.post('/cart/GetCartCount.post', { "Uid": userinfo.Uid}).success(function(data) {
+    if (data.code == 1) {
+    	var res=data.data;
+        $('.basketNumTxt').html(res.count);
+        $('.basketNumTxt').show();
+    } else {
+       
+    }
+}).error(function(err) {});
 </script>
 
 </html>

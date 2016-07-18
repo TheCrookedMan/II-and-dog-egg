@@ -16,34 +16,63 @@
     }).error(function(err) {});
 
 
-    $.get('/template/index/keyword.t').success(function(data) {
-        data = data.replace(/(^\s+)|(\s+$)/g, "");
-        if ("" !== data) {
-            $(".keywordlist").html(data);
+    // $.get('/template/index/keyword.t').success(function(data) {
+    //     data = data.replace(/(^\s+)|(\s+$)/g, "");
+    //     if ("" !== data) {
+    //         $(".keywordlist").html(data);
+    //     }
+    // }).error(function(err) {});
+
+
+    // $.get('/template/index/slide.t').success(function(data) {
+    //     data = data.replace(/(^\s+)|(\s+$)/g, "");
+    //     if ("" !== data) {
+    //         $(".am-slides").html(data);
+    //         $('.am-slider').flexslider();
+    //     }
+    //     else{
+    //         var str='<li><a href="javascript:void(0)"><img src="../img/index_02.jpg"></a></li>';
+    //         $(".am-slides").html(str);
+    //         $('.am-slider').flexslider();
+    //     }
+    // }).error(function(err) {});
+
+    //搜索关键字推荐
+    $.post('/Home/homeSearchRecommend.post').success(function(data) {
+        var res=data.data;
+        if(res.length>0){
+             for(var i in res){
+                var str='<p><a href="javascript:void(0)" data-id="'+res[i].title+'">'+res[i].title+'</a></p>'
+                $(".keywordlist").append(str);  
+            }
         }
+        else{
+            var str='<p>'+res[i].title+'</p>'
+            $(".keywordlist").append(str);  
+        }
+        $("#oftenKeyword p a").on('click',function(){
+            var keyword = $(this).data("id");
+            window.location.href = '/product/search.html?searchkey=' + $.trim(keyword);
+        })
     }).error(function(err) {});
 
-
-    $.get('/template/index/slide.t').success(function(data) {
-        data = data.replace(/(^\s+)|(\s+$)/g, "");
-        if ("" !== data) {
-            $(".am-slides").html(data);
+    //轮播
+    $.post('/Home/homeslide.post').success(function(data) {
+        var res=data.data;
+        if(res.length>0){
+             for(var i in res){
+                var str='<li><a href="'+res[i].aUrl+'"><img src="'+res[i].aImg+'"></a></li>'
+                $(".am-slides").append(str);  
+            }
             $('.am-slider').flexslider();
         }
         else{
-            var str='<li><a href="javascript:void(0)"><img src="../img/index_02.jpg"></a></li>';
+           var str='<li><a href="javascript:void(0)"><img src="../img/index_02.jpg"></a></li>';
             $(".am-slides").html(str);
-            $('.am-slider').flexslider();
+            $('.am-slider').flexslider(); 
         }
+       
     }).error(function(err) {});
-
-    // $.post('/user/homeSearchRecommend.post').success(function(data) {
-    //     console.log(data.data);
-    // }).error(function(err) {});
-
-    // $.post('/user/homeslide.post').success(function(data) {
-    //     console.log(data.data);
-    // }).error(function(err) {});
     
 
     echo.init({
@@ -105,10 +134,6 @@
         $(this).siblings().val('')
     })
 
-    $("#oftenKeyword p a").click(function() {
-        var keyword = $(this).data("id");
-        window.location.href = '/product/search.html?searchkey=' + $.trim(keyword);
-    });
 
 
     //经常购买

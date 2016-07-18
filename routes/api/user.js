@@ -323,13 +323,13 @@ exports.eycharges = (req, res, next) => { new normalRequest('/api/user/Eycharges
 
 
 /*首页轮播*/
-exports.homeslide = (req, res, next) => { new normalRequest('/api/user/homeH5').post(req, res, next); }
-exports.homeslide_link = (req, res, next) => { new normalRequest('/api/user/homeH5').link_g(req, res, next); }
+exports.homeslide = (req, res, next) => { new normalRequest('/api/Home/homeH5', { post: distributionPost }).get(req, res, next); }
+exports.homeslide_link = (req, res, next) => { new normalRequest('/api/Home/homeH5', { post: distributionPost }).link_g(req, res, next); }
 
 
 /*首页关键字倾情推荐*/
-exports.homeSearchRecommend = (req, res, next) => { new normalRequest('/api/user/homeSearchRecommend').post(req, res, next); }
-exports.homeSearchRecommend_link = (req, res, next) => { new normalRequest('/api/user/homeSearchRecommend').link_g(req, res, next); }
+exports.homeSearchRecommend = (req, res, next) => { new normalRequest('/api/Home/homeSearchRecommend', { post: distributionPost }).get(req, res, next); }
+exports.homeSearchRecommend_link = (req, res, next) => { new normalRequest('/api/Home/homeSearchRecommend', { post: distributionPost }).link_g(req, res, next); }
 
 
 /*我的余额*/

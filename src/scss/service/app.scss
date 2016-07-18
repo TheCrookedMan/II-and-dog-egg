@@ -159,7 +159,11 @@ p {
 }
 
 .navbar-footer .navbar-li{
-    width: 20%;clear: none !important;
+    width: 20%;clear: none !important;position:relative;
+    .basketNum{
+        position:absolute;top: 0.2rem;right: 1rem;background: #ff5500;color: #fff;font-size: 1rem;border-radius: 100px;min-width: 1.7rem;min-height: 1.7rem;text-align: center;line-height:1.7rem;
+        display:none;
+    }
     a{
         .default{
             display: inline-block;
@@ -197,7 +201,7 @@ li.no-data{
         margin-top: 1rem;
     }
     em{
-        color: #9bc32e;font-size: 1rem;position: absolute;top: 50%;left: 50%;margin-left: -0.5rem;margin-top: -0.45rem;
+        color: #9bc32e;font-size: 1rem;position: absolute;top: 50%;left: 50%;margin-left: -0.3rem;margin-top: -0.45rem;
     }
 }
 

@@ -168,15 +168,18 @@ router.post('/smsCode/register_smscode.post', smsCode.register_smscode);
 router.post('/user/cishan.post', user.cishan);
 
 // 首页轮播
-router.post('/user/homeslide.post', user.homeslide);
+router.post('/Home/homeslide.post', user.homeslide);
 
 // 搜索关键字推荐
-router.post('/user/homeSearchRecommend.post', user.homeSearchRecommend);
+router.post('/Home/homeSearchRecommend.post', user.homeSearchRecommend);
 
 // 我的余额
 router.post('/user/accountBalance.post', user.accountBalance);
 
 // 物流信息
 router.post('/user/expressDetail.post', user.expressDetail);
+
+// 购物车数量
+router.post('/cart/GetCartCount.post', cart.GetCartCount);
 
 module.exports = router;

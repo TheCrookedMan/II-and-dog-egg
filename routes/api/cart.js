@@ -1,4 +1,6 @@
 import normalRequest from '../rest/normalRequest';
+import config from '../rest/config';
+let distributionPost = config.wechat.distributionPost;
 /*
 		添加购物车(api/Cart/AddProdToCart)
 		入参：
@@ -41,3 +43,13 @@ exports.editCart = (req, res, next) => { new normalRequest('/api/Cart/EditCart')
 		}
  */
 exports.delForCart = (req, res, next) => { new normalRequest('/api/Cart/DelForCart').post(req, res, next); }
+
+/*
+		购物车数量 (api/cart/GetCartCount)
+		入参：
+		{
+		 "uid": 9,
+		 "pids": "1699"
+		}
+ */
+exports.GetCartCount = (req, res, next) => { new normalRequest('/api/cart/GetCartCount', { post: distributionPost }).get(req, res, next); }
