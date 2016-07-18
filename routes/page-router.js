@@ -214,8 +214,41 @@ router.get('/profile/card.html', [user.checkLogin], (req, res, next) => {
     激活宅配礼品卡
  */
 
-router.get('/profile/activeCard.html', [user.checkLogin], (req, res, next) => {
-    return res.render('profile/activeCard', { title: '激活宅配礼品卡' });
+router.get('/profile/activate.html', [user.checkLogin], (req, res, next) => {
+    return res.render('profile/activate', { title: '激活宅配礼品卡' });
+});
+
+/*
+    激活宅配礼品卡-填写信息
+ */
+
+router.get('/profile/activate-info.html', [user.checkLogin], (req, res, next) => {
+    return res.render('profile/activate-info', { title: '填写信息' });
+});
+
+/*
+    激活宅配礼品卡-填写信息
+ */
+
+router.get('/profile/activate-age.html', [user.checkLogin], (req, res, next) => {
+    return res.render('profile/activate-age', { title: '填写信息' });
+});
+
+/*
+    激活宅配礼品卡-填写信息
+ */
+
+router.get('/profile/activate-other.html', [user.checkLogin], (req, res, next) => {
+    return res.render('profile/activate-other', { title: '填写信息' });
+});
+
+
+/*
+    激活宅配礼品卡-成功页面
+ */
+
+router.get('/profile/activate-success.html', [user.checkLogin], (req, res, next) => {
+    return res.render('profile/activate-success', { title: '激活成功' });
 });
 
 /*

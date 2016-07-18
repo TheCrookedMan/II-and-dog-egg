@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>宅配卡激活</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" href="http://xian17.com/h5/styles/normalize.css">
+    <link rel="stylesheet" href="http://xian17.com/h5/styles/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="/api/user/CheckCardVIP" method="post" name="activate">
+            <div class="activate">
+                <div class="form-section">
+                    <h3 class="form-section-title">验证宅配卡</h3>
+                    <div class="form-section-body">
+                        <div class="form-group">
+                            <label class="form-label">宅配卡号:</label>
+                       
+                            <input class="form-text" type="text" name="zpcard" datatype="*1-32" nullmsg="宅配卡号不能为空！" errormsg="你输入的宅配卡号超过最大长度！" placeholder="宅配卡号">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">密码：</label>
+                            <input class="form-text" type="password" name="zppwd" datatype="*1-16" nullmsg="密码不能为空！" errormsg="你输入的密码超过最大长度！" placeholder="密码">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group-btn">
+                    <p id="wrong" class="Validform_checktip Validform_wrong"></p>
+                    <button type="submit" class="form-btn">提交</button>
+                </div>
+ <div class="form-group-btn" style="font-size: 16px; color: red ">
+                  友情提示：如您收到的宅配卡上有金额，即为宅配礼金卡。请返回上一级菜单进入激活礼金卡。
+                </div>
+            </div>
+        </form>
+    </div>
+
+    
+    <!-- 当前页面 -->
+    <script>var CURRENT_PAGE = 'INDEX';</script>
+    <script src="/js/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/js/bower_components/Validform_v5.3.2_min/index.js"></script>
+    <script src="/js/scripts/activate.js"></script>
+</body>
+
+</html>

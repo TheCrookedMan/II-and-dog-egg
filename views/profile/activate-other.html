@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>填写信息</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" href="http://xian17.com/h5/styles/normalize.css">
+    <link rel="stylesheet" href="http://xian17.com/h5/styles/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="activate">
+            <form action="/api/user/EdemberBind2" method="post" name="other">
+               <div class="activete-tips">
+                   <span>家里人餐饮忌口有什么呢？</span>
+               </div>
+               <input type="hidden" name="id" id="cardId">
+               <div class="active-number">
+                   <div class="active-number-title">不喜欢吃！</div>
+                   <div class="active-number-list">
+                       <a href="javascript:;" class="select" key="dislike" data-val="鱼类">鱼类</a>
+                       <a href="javascript:;" class="select" key="dislike" data-val="虾">虾</a>
+                       <a href="javascript:;" class="select" key="dislike" data-val="鸡肉">鸡肉</a>
+                       <a href="javascript:;" class="select" key="dislike" data-val="羊肉">羊肉</a>
+                       <a href="javascript:;" class="select" key="dislike" data-val="牛肉">牛肉</a>
+                       <a href="javascript:;" class="select" key="dislike" data-val="猪肉">猪肉</a>
+                       <a href="javascript:;" class="select" key="dislike" data-val="香菜">香菜</a>
+                       <a href="javascript:;" class="select" key="dislike" data-val="芹菜">芹菜</a>
+                       <a href="javascript:;" class="select" key="dislike" data-val="韭菜">韭菜</a>
+                   </div>
+                   <input type="hidden" name="dislike" id="dislike">
+                   <div class="active-number-other">
+                       <textarea name="dislikeMore" placeholder="还有什么不喜欢吃的？" rows="1"></textarea>
+                   </div>
+               </div>
+
+               <div class="active-number">
+                   <div class="active-number-title">体质特征</div>
+                   <div class="active-number-list">
+                      <a href="javascript:;" class="select" key="constitution" data-val="想减肥">想减肥</a>
+                      <a href="javascript:;" class="select" key="constitution" data-val="高血压">高血压</a>
+                      <a href="javascript:;" class="select" key="constitution" data-val="糖尿病">糖尿病</a>
+                      <a href="javascript:;" class="select" key="constitution" data-val="心脏病">心脏病</a>
+                      <a href="javascript:;" class="select" key="constitution" data-val="孕妇">孕妇</a>
+                      <a href="javascript:;" class="select" key="constitution" data-val="胃病">胃病</a>
+                   </div>
+                   <input type="hidden" name="constitution" id="constitution">
+                   <div class="active-number-other">
+                       <textarea name="constitutionMore" placeholder="还有什么需要二丫注意呢？" rows="1"></textarea>
+                   </div>
+               </div>
+
+               <div class="form-group-btn">
+                   <p id="wrong" class="Validform_checktip Validform_wrong"></p>
+                   <button type="submit" class="form-btn">提交</button>
+               </div>
+            
+            </form>
+        </div>
+    </div>
+    
+
+    <!-- 当前页面 -->
+    <script>var CURRENT_PAGE = 'OTHER';</script>
+    <script src="/js/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/js/bower_components/Validform_v5.3.2_min/index.js"></script>
+    <script src="/js/scripts/activate.js"></script>
+</body>
+
+</html>
