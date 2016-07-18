@@ -39,17 +39,24 @@
         $("#password").val("");
     })
 
+    $("#setPassword").on('click',function(){
+        var pwd=$("#password").val();
+        if(pwd.length==6){
+           submitPassword();
+        }
+        else{
+            modal.alert({ text: '请输入6位密码！' });
+        }
+    })
+
     function submitPassword() {
-    	var SecurityCode=$("#password").val();
-        $("#ok_shiping").on('click', function() {
-            $.post('/distribution/setSecurityCode.post', { "Uid": userinfo.Uid,'SecurityCode':SecurityCode }).success(function(data) {
-                if (data.code == 1) {
-                    window.location.href='/sale/setting/updatePassword-2.html';
-                } else {
-                    modal.tip(data.message);
-                    $('.am-dimmer').hide();
-                }
-            }).error(function(err) {});
+        var password=$("#password").val();
+        $.post('/distribution/checkSetSecurityCode.post', { Uid: userinfo.Uid, SecurityCode: password }).success(function(data) {
+            if ("1" == data.code && !!data.data) {
+                  window.location.href = "/sale/setting/updatePassword-2.html";
+            } else {
+                modal.alert({ text: data.message });
+            }
         });
     }
 }).call(this)

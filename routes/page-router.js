@@ -520,7 +520,8 @@ router.get('/sale/setting/updatePassword-2.html', (req, res, next) => {
     修改提现密码-3
  */
 router.get('/sale/setting/updatePassword-3.html', (req, res, next) => {
-    return res.render('sale/setting/updatePassword-3', { title: '设置提现密码' });
+    let password = req.query.password;
+    return res.render('sale/setting/updatePassword-3', { title: '设置提现密码' ,password:password});
 });
 
 /*
