@@ -548,6 +548,13 @@ router.get('/profile/order-status.html', (req, res, next) => {
     return res.render('profile/order-status', { title: '物流信息', OSN: OSN, orderId: orderId });
 });
 
+/*
+    宅配页面
+ */
+router.get('/home-delivery/index.html',(req, res, next) => {
+    return res.render('home-delivery/index', { title: '宅配' });
+});
+
 router.get('*', (req, res, next) => {
     res.redirect('/index/index.html');
 });
