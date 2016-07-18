@@ -13,7 +13,6 @@
 <script type="text/javascript">
 var userinfo = common.getCookie('userinfo');
 
-
 //购物车数量
 $.post('/cart/GetCartCount.post', { "Uid": userinfo.Uid}).success(function(data) {
     if (data.code == 1) {
@@ -24,6 +23,21 @@ $.post('/cart/GetCartCount.post', { "Uid": userinfo.Uid}).success(function(data)
        
     }
 }).error(function(err) {});
-</script>
 
+$(document).ready(function() {
+    $(".navbar-footer a").each(function(i, I) {
+        var pageUrl = window.location.pathname;
+        var href = $(this).data("url");
+        var list = href.split(",");
+        $.each(list, function(j, J) {
+            if (pageUrl == J) {
+                $(I).addClass("active");
+            } else {
+            	$(I).removeClass("active");
+            }
+        });
+    }); 
+})
+
+</script>
 </html>
