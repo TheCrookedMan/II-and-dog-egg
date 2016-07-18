@@ -81,6 +81,13 @@
             padding: 0;
             width: 100%;
             display: inline-block;
+            a{
+                &:last-child {
+                    li{
+                        border-bottom: 0;
+                    }
+                }
+            }
             li {
                 margin: 0;
                 padding: 0;
