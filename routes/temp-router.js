@@ -9,10 +9,10 @@ import cart from './api/cart';
 /*
     index 分类模板页
  */
-router.get('/template/index/index_category.t', [user.category_link], function(req, res, next) {
+router.get('/template/index/index_category.t', [user.HomeProductList_link], function(req, res, next) {
     let record = common.toRecord(res.data);
     return res.render('../template/index/index_category', {
-        data: record['/api/user/category']
+        data: record['/api/Home/HomeProductList']
     });
 });
 

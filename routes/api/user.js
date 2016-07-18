@@ -138,7 +138,7 @@ exports.getUserInfo = (openid, callback, next) => {
 }
 
 
-exports.getUserInfo_Post = (req, res, next) => { new normalRequest('/api/user/GetUserInfo' /*, { post: distributionPost }*/).get(req, res, next); }
+exports.getUserInfo_Post = (req, res, next) => { new normalRequest('/api/user/GetUserInfo' /*, { post: distributionPost }*/ ).get(req, res, next); }
 
 /*
 		留言反馈 (api/user/feedback)
@@ -340,5 +340,7 @@ exports.accountBalance_link = (req, res, next) => { new normalRequest('/api/user
 exports.expressDetail = (req, res, next) => { new normalRequest('/api/User/expressDetail').post(req, res, next); }
 exports.expressDetail_link = (req, res, next) => { new normalRequest('/api/User/expressDetail').link(req, res, next); }
 
-
-
+/*
+	首页产品列表获取
+ */
+exports.HomeProductList_link = (req, res, next) => { new normalRequest('/api/Home/HomeProductList', { post: distributionPost }).link_g(req, res, next); }
