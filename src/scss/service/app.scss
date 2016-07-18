@@ -31,6 +31,12 @@ li {
 textarea {
     resize: none;
 }
+input{
+    &:focus{
+        box-shadow:none !important
+    }
+    box-shadow:none !important
+}
 .bgf{
     background:#fff !important
 }
