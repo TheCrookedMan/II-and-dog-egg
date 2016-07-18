@@ -24,11 +24,11 @@ if ("dev" == argv) {
         'appId': 'wx4e6f77b139c239fc',
         'appsecret': '6b20f42b75e608d229e5046744c0fa0e',
         /* REST 接口 服务器地址 */
-        'host':'203.156.219.94',
+        'host':'121.40.195.157',
         /* REST 接口 服务器端口 */
-        'post':'8123',
+        'post':'9555',
         /* 推广接口 服务器端口 */
-        'distributionPost':'8123',
+        'distributionPost':'9555',
         /* 图片显示前缀 */
         'imageAddress': "",
         /* 图片服务器 地址 */
