@@ -94,9 +94,14 @@ module.exports = (swig) => {
             return false;
         }
     }
+
+    let _typeof = (value)=>{
+        return typeof(value);
+    }
     swig.setFilter("dateFormat", dateFormat);
     swig.setFilter("toWeek", toWeek);
     swig.setFilter("compareDate", compareDate);
     swig.setFilter("toPercent", toPercent);
     swig.setFilter("isExpired",isExpired);
+    swig.setFilter("typeof",_typeof);
 }

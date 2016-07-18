@@ -1,4 +1,3 @@
-{% set receiverInfo = data['data']['receiverInfo'] %}
 <script type="text/javascript">
 var said = "{{receiverInfo.said}}";
 </script>
@@ -15,7 +14,11 @@ var said = "{{receiverInfo.said}}";
                 <span class="fl mobile">{{receiverInfo.Mobile}}</span>
                 <i class="am-icon-angle-right fr"></i>
             </div>
-            <div class="area">{{receiverInfo.ProvinceName}}，{{receiverInfo.CityName}}，{{receiverInfo.CountyName}}，{{receiverInfo.Address}}</div>
+            {% set ProvinceName = receiverInfo.ProvinceName %}
+            {% set CityName = receiverInfo.CityName %}
+            {% set CountyName = receiverInfo.CountyName %}
+            {% set Address = receiverInfo.Address %}
+            <div class="area">{{ProvinceName}}，{{CityName}}，{{CountyName}}，{{Address}}</div>
         </div>
     </a>
 </div>
@@ -128,7 +131,7 @@ var said = "{{receiverInfo.said}}";
         </div>
         <div class="priceList">
             <span class="col-grey fl">优惠券</span>
-            <span class="col-grey fr couponPrice">－¥ 0.00</span>
+            <span class="col-grey fr couponPrice">- ¥ 0.00</span>
         </div>
         <div class="priceList">
             <span class="col-grey fl">余额支付</span>

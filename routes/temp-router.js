@@ -111,8 +111,18 @@ router.get('/template/basket/basket_list.t', [cart.cartFullList_link], function(
  */
 router.get('/template/basket/order.t', [user.defaultAddressOrderInfo_link], function(req, res, next) {
     let record = common.toRecord(res.data);
+    let orderInfo = record['/api/user/defaultAddressOrderInfo'];
+    let receiverInfo = orderInfo['data']['receiverInfo'];
+    if (typeof(receiverInfo.ProvinceName) == 'object' && JSON.stringify(receiverInfo.ProvinceName) == "null") {
+        console.log("hhahha");
+        receiverInfo.ProvinceName = "";
+        receiverInfo.CityName = "";
+        receiverInfo.CountyName = "";
+        receiverInfo.Address = "";
+    }
     return res.render('../template/basket/order', {
-        data: record['/api/user/defaultAddressOrderInfo']
+        data: orderInfo,
+        receiverInfo: receiverInfo
     });
 })
 
