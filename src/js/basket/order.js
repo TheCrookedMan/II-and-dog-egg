@@ -142,11 +142,12 @@
             }
         })
     }
+
     getDefaultAddress();
 
     function count() {
-        $(".balancePrice").text("－¥" + balance.toFixed(2));
-        countTotalPrice = parseInt(TotalPrice) + parseInt(TotalShipFee) - parseInt(TotalCouponPrice) - parseInt(balance);
+        $(".balancePrice").text("- ¥" + balance.toFixed(2));
+        countTotalPrice = parseFloat(TotalPrice) + parseFloat(TotalShipFee) - parseFloat(TotalCouponPrice) - parseFloat(balance);
         $(".countTotalPrice").text("¥ " + countTotalPrice.toFixed(2));
     }
 

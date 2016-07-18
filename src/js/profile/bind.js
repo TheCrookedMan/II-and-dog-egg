@@ -7,7 +7,7 @@
                 $.post('/distribution/appBind.post', {
                     "username": params.name,
                     "userpwd": params.password,
-                    'OpenID': OpenID
+                    'openid': OpenID
                 }).success(function(data) {
                     if (data.code == 1) {
                         modal.tip("绑定成功！");
