@@ -7,7 +7,7 @@
         normal();
     } else {
         $(".pinfo .setting").show();
-        if (userinfo.Uidentity == 1) {
+        if (userinfo.UserIdentity == 1) {
             $(".pinfo .UserIdentity").text("身份：推广大使");
             $(".pinfo .link a").text("如何推广？");
             $(".pinfo .link a").attr('src', '/profile/how_1.html');
@@ -22,6 +22,7 @@
         }
     }
     function normal() {
+        $("#bindAppA").show();
         $(".pinfo .UserIdentity").text("身份：普通会员");
         $(".pinfo .link a").text("如何成为健康推广大使？");
         $(".pinfo .link a").attr('src', '/profile/how_2.html');

@@ -1,5 +1,5 @@
 import https from 'https';
-// import config from '../rest/config';
+import config from '../rest/config';
 import nodeCache from '../tools/cache';
 
 // 第一步：用户同意授权，获取code
@@ -65,10 +65,8 @@ exports.getUserInfo = (access_token, openid, callback) => {
  */
 
 exports.getJSApiTicket = (req, res, next) => {
-    let wechatPublicNumber = req.cookies.wechatPublicNumber;
-    wechatPublicNumber = JSON.parse(wechatPublicNumber);
-    let appid = wechatPublicNumber.appid,
-        appsecret = wechatPublicNumber.appsecret;
+    let appid = config.wechat.appId,
+        appsecret = config.wechat.appsecret;
     getAccessToken(appid, appsecret, (data) => {
         if (data.success) {
             getTicket(data.access_token, (record) => {

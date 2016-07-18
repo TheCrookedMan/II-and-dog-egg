@@ -7,6 +7,16 @@ import distribution from './api/distribution';
 import common from './tools/common';
 const router = express.Router();
 
+
+router.get('*.html', (req, res, next) => {
+    let shareParentId = req.query.shareParentId;
+    if(shareParentId != undefined){
+        res.cookie('shareParentId', shareParentId, { maxAge: maxAge, path: '/' });
+    }
+    next();
+});
+
+
 router.get('/wechatAuth.html', (req, res, next) => {
     let options = req.query,
         redirect_uri = options.state;
@@ -84,16 +94,16 @@ router.get('/wechatAuth.html', (req, res, next) => {
 /*
     根据二丫的规则获取对应的商品ID
  */
-router.get('/pid/*',(req, res, next)=>{
-    let url = req.url;
-    let pid = url.replace('/pid/','').replace('.html','');
-    return res.render('product/detail', { title: '产品详情', pid: pid });
-});
-router.get('/tc/*',(req, res, next)=>{
-    let url = req.url;
-    let pid = url.replace('/pid/','').replace('.html','');
-    return res.render('product/detail', { title: '产品详情', pid: pid });
-});
+// router.get('/pid/*', (req, res, next) => {
+//     let url = req.url;
+//     let pid = url.replace('/pid/', '').replace('.html', '');
+//     return res.render('product/detail', { title: '产品详情', pid: pid });
+// });
+// router.get('/tc/*', (req, res, next) => {
+//     let url = req.url;
+//     let pid = url.replace('/pid/', '').replace('.html', '');
+//     return res.render('product/detail', { title: '产品详情', pid: pid });
+// });
 
 /*
     首页
@@ -310,7 +320,12 @@ router.get('/profile/order-detail.html', (req, res, next) => {
  */
 
 router.get('/profile/order-paySucess.html', (req, res, next) => {
-    return res.render('profile/order-paySucess', { title: '订单付款成功' });
+    let userMobile = req.query.userMobile,
+        username = req.query.username,
+        addressInfo = req.query.addressInfo,
+        OSN = req.query.OSN,
+        orderId = req.query.orderId;
+    return res.render('profile/order-paySucess', { title: '订单付款成功', userMobile: userMobile, username: username, addressInfo: addressInfo, OSN: OSN, orderId: orderId });
 });
 
 /*
@@ -321,7 +336,12 @@ router.get('/profile/order-pay.html', (req, res, next) => {
     let osn = req.query.osn,
         orderAmount = req.query.orderAmount,
         TotalAmount = req.query.TotalAmount,
-        CouponMoney = req.query.CouponMoney;
+        CouponMoney = req.query.CouponMoney,
+        userMobile = req.query.userMobile,
+        username = req.query.username,
+        addressInfo = req.query.addressInfo,
+        OSN = req.query.osn,
+        orderId = req.query.orderId;
 
     if (!!orderAmount) {
         orderAmount *= 1;
@@ -332,7 +352,7 @@ router.get('/profile/order-pay.html', (req, res, next) => {
     if (!!CouponMoney) {
         CouponMoney *= 1;
     }
-    return res.render('profile/order-pay', { title: '订单支付', osn: osn, orderAmount: orderAmount, TotalAmount: TotalAmount, CouponMoney: CouponMoney });
+    return res.render('profile/order-pay', { title: '订单支付', osn: osn, orderAmount: orderAmount, TotalAmount: TotalAmount, CouponMoney: CouponMoney, userMobile: userMobile, username: username, addressInfo: addressInfo, OSN: OSN, orderId: orderId });
 });
 
 /*
@@ -574,7 +594,7 @@ router.get('/sale/setting/updatePassword-2.html', (req, res, next) => {
  */
 router.get('/sale/setting/updatePassword-3.html', (req, res, next) => {
     let password = req.query.password;
-    return res.render('sale/setting/updatePassword-3', { title: '设置提现密码' ,password:password});
+    return res.render('sale/setting/updatePassword-3', { title: '设置提现密码', password: password });
 });
 
 /*

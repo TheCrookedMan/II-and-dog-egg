@@ -11,7 +11,7 @@
         initCommitionMoney();
         $(".pinfo .setting").show();
         $(".mySale .list.mt05").show();
-        if (userinfo.Uidentity == 1) {
+        if (userinfo.UserIdentity == 1) {
             $(".pinfo .UserIdentity").text("身份：推广大使");
             $(".pinfo .link a").text("爱心传递");
             $(".pinfo .link a").attr('href', '/profile/how_1.html');

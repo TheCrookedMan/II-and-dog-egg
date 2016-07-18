@@ -8,15 +8,15 @@
     </div>
     <div class="con">
       <div class="tit">
-          <span class="fl">小二丫（收）</span>
-          <span class="fl">13918579133</span>
+          <span class="fl">{{username}}（收）</span>
+          <span class="fl">{{userMobile}}</span>
       </div>
-      <div class="area mt05">上海，上海，闵行区，黎安路688号强劲大厦606-608号鹿顶 记</div>
+      <div class="area mt05">{{addressInfo}}</div>
     </div>
   </div>
 </div>
 <div class="pub_btng">
-  <a href="/profile/order-detail.html" class="btn">订单详情</a>
+  <a href="/profile/order-detail.html?OSN={{OSN}}&orderId={{orderId}}" class="btn">订单详情</a>
   <a href="/index/index.html" class="btn">返回首页</a>
 </div>
 {% include "../_partial/foot.html" %}

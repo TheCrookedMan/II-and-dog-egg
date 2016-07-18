@@ -5,6 +5,7 @@ import distribution from './api/distribution';
 import product from './api/product';
 import smsCode from './api/smsCode';
 import user from './api/user';
+import wechat from './api/wechat';
 
 /*
 	user 用户相关请求
@@ -75,6 +76,9 @@ router.post('/user/applyRefund.post', user.applyRefund);
  */
 
 router.post('/user/SendSmscode.post', user.SendSmscode);
+
+//wechat
+router.post('/wechat/getJSApiTicket', wechat.getJSApiTicket);
 
 /*
 	验证验证码

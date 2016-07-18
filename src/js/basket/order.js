@@ -4,6 +4,9 @@
     var countTotalPrice = 0;
     var balance = 0;
     var maxBalance = 0;
+    var addressInfo = "";
+    var userMobile = "";
+    var username = "";
     $.get('/template/basket/order.t', { "uid": userinfo.Uid, 'type': 1, 'pids': pids }).success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
         if ("" !== data) {
@@ -55,8 +58,8 @@
             $("#ok_yuer").on('click', function() {
                 var inputBalance = $("input.yuer").val();
                 inputBalance *= 1;
-                if(maxBalance < inputBalance){
-                    modal.alert({text:'超出可用余额！'})
+                if (maxBalance < inputBalance) {
+                    modal.alert({ text: '超出可用余额！' })
                     return false;
                 }
                 $("#yuerTxt").html(inputBalance.toFixed(2));
@@ -135,7 +138,11 @@
         $.post('/user/submitOrder.post', params).success(function(data) {
             if ("1" == data.code && !!data.data) {
                 var record = data.data;
-                window.location.href = "/profile/order-pay.html?osn=" + record.oNum + "&orderAmount=" + record.orderAmount + "&TotalAmount=" + record.TotalAmount + "&CouponMoney=" + record.CouponMoney;
+                if (record.orderAmount > 0) {
+                    window.location.href = "/profile/order-pay.html?osn=" + record.oNum + "&orderAmount=" + record.orderAmount + "&TotalAmount=" + record.TotalAmount + "&CouponMoney=" + record.CouponMoney + "&userMobile=" + userMobile + "&username=" + username + "&addressInfo=" + addressInfo + "&orderId=" + record.oId;
+                } else {
+                    window.location.href = "/profile/order-paySucess.html?userMobile=" + userMobile + "&username=" + username + "&addressInfo=" + addressInfo + "&OSN=" + record.oNum + "&orderId=" + record.oId;
+                }
             } else {
                 modal.alert({ text: data.message });
             }
@@ -151,16 +158,17 @@
                     $('#getAddress .mobile').text("");
                     $('#getAddress .area').text("");
                 } else {
-                    $('#getAddress .name').text(record.Consignee);
-                    $('#getAddress .mobile').text(record.Mobile);
-                    $('#getAddress .area').text(record.ProvinceName + "，" + record.CityName + "，" + record.CountyName + "，" + record.Address);
+                    userMobile = record.Mobile;
+                    username = record.Consignee;
+                    addressInfo = record.ProvinceName + "，" + record.CityName + "，" + record.CountyName + "，" + record.Address;
+                    $('#getAddress .name').text(username);
+                    $('#getAddress .mobile').text(userMobile);
+                    $('#getAddress .area').text(addressInfo);
                 }
 
             }
         })
     }
-
-
 
     function count() {
         $(".balancePrice").text("- ¥" + balance.toFixed(2));

@@ -1,4 +1,5 @@
 (function() {
+    var productNameDetail = "";
     $.post('/product/productDetail.post', { "pid": pid }).success(function(data) {
         if (data.code == "1" && !!data.data) {
             var record = data.data;
@@ -67,9 +68,11 @@
             $("#Description").html('');
             $(".nav-tab").hide();
 
-           function getScrollTop() {
-            //滚动条在Y轴上的滚动距离
-                var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
+            function getScrollTop() {
+                //滚动条在Y轴上的滚动距离
+                var scrollTop = 0,
+                    bodyScrollTop = 0,
+                    documentScrollTop = 0;
                 if (document.body) {
                     bodyScrollTop = document.body.scrollTop;
                 }
@@ -93,7 +96,9 @@
 
             //文档的总高度
             function getScrollHeight() {
-                var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
+                var scrollHeight = 0,
+                    bodyScrollHeight = 0,
+                    documentScrollHeight = 0;
                 if (document.body) {
                     bodyScrollHeight = document.body.scrollHeight;
                 }
@@ -104,32 +109,29 @@
                 return scrollHeight;
             }
 
-            $(window).on("scroll", function(){
+            $(window).on("scroll", function() {
                 //函数内判断，距离底部50px的时候则进行数据加载
                 if (getScrollTop() + getWindowHeight() + 50 >= getScrollHeight()) {
-                   $(".nav-tab").show();
-                   $(window).off("scroll");
-                   $("#Description").html(record.Description);
-                }
-                else if(getScrollTop()<=400){
+                    $(".nav-tab").show();
+                    $(window).off("scroll");
+                    $("#Description").html(record.Description);
+                } else if (getScrollTop() <= 400) {
                     $(".nav-tab").hide();
-                }
-                else{
+                } else {
                     $(".nav-tab").show();
                 }
             })
 
-
+            productNameDetail = record.Name;
             $("#Name").html(record.Name);
             $("#shipAddres").html(record.shipAddres);
             $("#ShopPrice").html("￥" + record.ShopPrice);
             $("#skuPrice").html("￥" + record.ShopPrice);
             $("#StockNum").html(record.StockNum);
 
-            if(record.VideoId == null){
+            if (record.VideoId == null) {
                 $("#media").hide()
-            }
-            else{
+            } else {
                 $("#media").show()
             }
             $("#media").on('click', function() {
@@ -142,7 +144,7 @@
             })
 
             var sku = record.SkuInfoArray;
-            if(sku.length>0){
+            if (sku.length > 0) {
                 for (var i in sku) {
                     var str = '<dl><dt>' + sku[i].key + '</dt><dd></dd></dl/>';
                     $("#sku").append(str);
@@ -161,14 +163,13 @@
                         $("#skuImg").attr("src", v[j].Image);
                     }
                 }
-            }
-            else{
-                var urll=$(".am-slides li:first-child img").attr("src");
+            } else {
+                var urll = $(".am-slides li:first-child img").attr("src");
                 $("#skuSelected").html(record.Name);
                 $("#skuImg").attr("src", urll);
                 $("#selected").after(record.Name);
             }
-            
+
 
             var tips = record.goodsAttributeList;
             for (var i in tips) {
@@ -226,7 +227,7 @@
             $('.am-slider').flexslider();
 
             $('.btn.add').on('click', function() {
-                if(!userinfo.Uid){
+                if (!userinfo.Uid) {
                     modal.tip("用户未登录！");
                     return false;
                 }
@@ -238,6 +239,17 @@
                     $('.am-dimmer').hide();
                 }).error(function(err) {});
             })
+
+            wx.ready(function() {
+                var shareParentId = 0;
+                if (!!userinfo.Uid && userinfo.UserIdentity == 1) {
+                    shareParentId = userinfo.Uid;
+                }
+                var localhref = window.location.href;
+                // var linkUrl = "http://" + window.location.hostname + "/index/index.html?shareParentId=" + shareParentId;
+                var linkUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx4e6f77b139c239fc&redirect_uri=http%3a%2f%2fm.xian17.com%2fwechatAuth.html&response_type=code&scope=snsapi_userinfo&state=" + localhref + "&shareParentId=" + shareParentId + "&connect_redirect=1#wechat_redirect"
+                wxinit.shareWechat(productNameDetail, linkUrl, '我在@二丫和狗蛋 找到了真正大山里的土鸡蛋。吃的不错，还赚取了丰厚的佣金，分享一下，你也快来吧');
+            });
         }
     }).error(function(err) {});
 }).call(this);
