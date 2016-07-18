@@ -165,6 +165,7 @@
                 var urll=$(".am-slides li:first-child img").attr("src");
                 $("#skuSelected").html(record.Name);
                 $("#skuImg").attr("src", urll);
+                $("#selected").after(record.Name);
             }
             
 
