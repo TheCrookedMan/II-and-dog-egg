@@ -57,7 +57,7 @@
         if (password.length == 6) {
             password = $.md5(password);
             $.post('/distribution/checkSetSecurityCode.post', { Uid: userinfo.Uid, SecurityCode: password }).success(function(data) {
-                if ("1" == data.code && !!data.data) {
+                if ("1" == data.code && !!data.data && data.data.IsCheck ) {
                     window.location.href = "/sale/setting/updatePassword-2.html";
                 } else {
                     modal.alert({ text: data.message });

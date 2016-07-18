@@ -57,7 +57,7 @@
         }
 
         $.post('/distribution/SetSecurityCode.post', { Uid: userinfo.Uid, SecurityCode: password }).success(function(data) {
-            if ("1" == data.code && !!data.data && data.data.IsCheck) {
+            if ("1" == data.code && !!data.data) {
                 window.location.href = "/sale/setting/main.html";
             } else {
                 modal.alert({ text: data.message });
