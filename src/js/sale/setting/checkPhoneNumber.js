@@ -35,9 +35,6 @@
         }
     });
 
-    $("#next").click(function(){
-        
-    })
 
     function sendSMS(mobileNo) {
         $.post('/user/SendSmscode.post', { phone: mobileNo, type: 2 }).success(function(data) {

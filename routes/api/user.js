@@ -290,7 +290,7 @@ exports.SendSmscode = (req, res, next) => { new normalRequest('/api/smscode/send
 	验证验证码
  */
 
-exports.CheckSmsCode = (req, res, next) => { new normalRequest('/api/smscode/checksmscode', { post: distributionPost }).get(req, res, next); }
+exports.CheckSmsCode = (req, res, next) => { new normalRequest('/api/smscode/checksmscode', { post: distributionPost }).post(req, res, next); }
 
 exports.checkLogin = (req, res, next) => {
     let userinfo = req.cookies.userinfo,
