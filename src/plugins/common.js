@@ -287,6 +287,10 @@
                 };
             var now = new Date().getTime();
             var end = end.getTime();
+            if(!end){
+                clearInterval(self.timer);
+                return false;
+            }
             var difference = end - now;
             if (difference <= 0) {
                 clearInterval(self.timer);

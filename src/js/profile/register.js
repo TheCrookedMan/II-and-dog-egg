@@ -32,7 +32,7 @@
                 var params = common.parseForm(".am-form");
                 $.post('/user/register.post', {
                     username: params.mobileNo,
-                    userpwd: params.userpwd,
+                    userpwd: $.md5(params.userpwd),
                     verifycode: params.smsCode,
                     OpenID: OpenID,
                     ParentID: params.ParentID,

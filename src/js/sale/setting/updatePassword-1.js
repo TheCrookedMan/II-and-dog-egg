@@ -1,8 +1,10 @@
 (function() {
-    $(".updatePassword-password").on("keydown", "#password", function(ev) {
-        if (ev.keyCode >= 48 && ev.keyCode <= 57) {
+    $(".updatePassword-password").on("keyup", "#password", function(ev) {
+        var keyValue = $(this).val();
+        keyValue = keyValue.substr(-1);
+        if (keyValue >= 0 && keyValue <= 9) {
             var number = $(this).val();
-            var len = number.length + 1;
+            var len = number.length;
             if (len > 6) {
                 $(this).blur();
             } else {
@@ -20,7 +22,7 @@
             }
         } else if (ev.keyCode == 8) {
             var number = $(this).val();
-            var len = number.length - 1;
+            var len = number.length;
             $.each($(".password-panel span"), function(i, I) {
                 if (i < len) {
                     $(I).text("*");
@@ -39,24 +41,30 @@
         $("#password").val("");
     })
 
-    $("#setPassword").on('click',function(){
-        var pwd=$("#password").val();
-        if(pwd.length==6){
-           submitPassword();
-        }
-        else{
-            modal.alert({ text: '请输入6位密码！' });
-        }
+    $("#setPassword").on('click', function() {
+        // var pwd=$("#password").val();
+        // if(pwd.length==6){
+        //    submitPassword();
+        // }
+        // else{
+        //     modal.alert({ text: '请输入6位密码！' });
+        // }
+        submitPassword();
     })
 
     function submitPassword() {
-        var password=$("#password").val();
-        $.post('/distribution/checkSetSecurityCode.post', { Uid: userinfo.Uid, SecurityCode: password }).success(function(data) {
-            if ("1" == data.code && !!data.data) {
-                  window.location.href = "/sale/setting/updatePassword-2.html";
-            } else {
-                modal.alert({ text: data.message });
-            }
-        });
+        var password = $("#password").val();
+        if (password.length == 6) {
+            password = $.md5(password);
+            $.post('/distribution/checkSetSecurityCode.post', { Uid: userinfo.Uid, SecurityCode: password }).success(function(data) {
+                if ("1" == data.code && !!data.data) {
+                    window.location.href = "/sale/setting/updatePassword-2.html";
+                } else {
+                    modal.alert({ text: data.message });
+                }
+            });
+        } else {
+            modal.alert({ text: '请输入6位密码！' });
+        }
     }
 }).call(this)

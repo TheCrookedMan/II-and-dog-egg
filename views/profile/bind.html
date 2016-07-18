@@ -1,7 +1,7 @@
 {% include "../_partial/head.html" %}
 <div class="bind">
     <h2>请填写APP账号</h2>
-    <form action="post" class="am-form">
+    <form action="post" class="am-form" data-am-validator id="bindForm">
         <div class="body">
             <div class="am-form-group">
                 <input type="text" id="name" name="name" minlength="3" placeholder="请填写登录手机号码 " class="am-form-field" required/>
@@ -17,4 +17,5 @@
     <!-- 	<p class="txt-r mr1"><a href="#">忘记密码？</a></p> -->
 </div>
 {% include "../_partial/foot.html" %}
+<script src="/plugins/jquery.md5.min.js"></script>
 <script src="/js/profile/bind.js"></script>

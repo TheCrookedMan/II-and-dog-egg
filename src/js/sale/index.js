@@ -23,13 +23,13 @@
         if (userinfo.IdentityState == 1) {
             $(".pinfo .link a").text("如何继续做公益");
             $(".pinfo .link a").attr('href', '/profile/how_3.html');
-            $(".IdentityStateDisable").show();
+            // $(".IdentityStateDisable").show();
         } else {
-            $(".IdentityStateActive").show();
+            // $(".IdentityStateActive").show();
             // countdownTimer.init("2016-10-10 10:10:00",function(d){
-            countdownTimer.init(userinfo.LostAgentTime, function(d) {
-                $(".IdentityStateActive .time").html("距截止还有<em>" + d.day + "</em>天<em>" + d.hour + "</em>时<em>" + d.min + "</em>分<em>" + d.sec + "</em>秒 ");
-            });
+            // countdownTimer.init(userinfo.LostAgentTime, function(d) {
+            //     $(".IdentityStateActive .time").html("距截止还有<em>" + d.day + "</em>天<em>" + d.hour + "</em>时<em>" + d.min + "</em>分<em>" + d.sec + "</em>秒 ");
+            // });
         }
     }
 
@@ -57,4 +57,25 @@
             }
         });
     }
+    
+    function initMonthTask() {
+        $.post('/distribution/monthTask.post', { Uid: userinfo.Uid }).success(function(data) {
+            if (data.code == "1" && !!data.data) {
+                var record = data.data;
+                if (record.HaveTask) {
+                    if (!record.IsComplete) {
+                        $(".IdentityStateActive").show();
+                        countdownTimer.init(record.taskEnd, function(d) {
+                            $(".IdentityStateActive .time").html("距截止还有<em>" + d.day + "</em>天<em>" + d.hour + "</em>时<em>" + d.min + "</em>分<em>" + d.sec + "</em>秒 ");
+                        });
+                    } else {
+                        $(".IdentityStateDisable").show();
+                    }
+                }
+            }
+        });
+    }
+    initMonthTask();
+
+
 }).call(this);

@@ -1,8 +1,10 @@
 (function() {
-    $(".updatePassword-password").on("keydown", "#password", function(ev) {
-        if (ev.keyCode >= 48 && ev.keyCode <= 57) {
+    $(".updatePassword-password").on("keyup", "#password", function(ev) {
+        var keyValue = $(this).val();
+        keyValue = keyValue.substr(-1);
+        if (keyValue >= 0 && keyValue <= 9) {
             var number = $(this).val();
-            var len = number.length + 1;
+            var len = number.length;
             if (len > 6) {
                 $(this).blur();
             } else {
@@ -20,7 +22,7 @@
             }
         } else if (ev.keyCode == 8) {
             var number = $(this).val();
-            var len = number.length - 1;
+            var len = number.length;
             $.each($(".password-panel span"), function(i, I) {
                 if (i < len) {
                     $(I).text("*");
@@ -38,23 +40,25 @@
         $("#password").val("");
     })
 
-    $("#okPassword").on('click',function(){
-        var pwd=$("#password").val();
-        if(pwd==password){
-           submitPassword();
-        }
-        else if(pwd.length!=6){
-            modal.alert({ text: '请输入6位密码！' });
-        }
-        else{
-            modal.alert({ text: '密码不一致！' });
-        }
+    $("#okPassword").on('click', function() {
+        submitPassword();
     })
 
     function submitPassword() {
-        $.post('/distribution/checkSetSecurityCode.post', { Uid: userinfo.Uid, SecurityCode: password }).success(function(data) {
-            if ("1" == data.code && !!data.data) {
-                  window.location.href = "/sale/setting/main.html";
+        var pwd = $("#password").val();
+        if ($.md5(pwd) == password) {
+            // submitPassword();
+        } else if (pwd.length != 6) {
+            modal.alert({ text: '请输入6位密码！' });
+            return false;
+        } else {
+            modal.alert({ text: '密码不一致！' });
+            return false;
+        }
+
+        $.post('/distribution/SetSecurityCode.post', { Uid: userinfo.Uid, SecurityCode: password }).success(function(data) {
+            if ("1" == data.code && !!data.data && data.data.IsCheck) {
+                window.location.href = "/sale/setting/main.html";
             } else {
                 modal.alert({ text: data.message });
             }

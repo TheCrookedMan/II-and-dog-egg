@@ -101,6 +101,7 @@
             });
             $(".link-to-product-list").attr('href', '/basket/productList.html?uid=' + userinfo.Uid + '&type=1&pids=' + pids);
             count();
+            getDefaultAddress();
         }
 
     }).error(function(err) {});
@@ -150,7 +151,7 @@
         })
     }
 
-    getDefaultAddress();
+    
 
     function count() {
         $(".balancePrice").text("- ¥" + balance.toFixed(2));
