@@ -79,7 +79,7 @@ var said = "{{receiverInfo.said}}";
                 <h2>余额</h2>
             </div>
             <div class="fr">
-                <span><em id="yuerTxt"></em><i class="am-icon-angle-right"></i></span>
+                <span><em id="yuerTxt">0.00</em><i class="am-icon-angle-right"></i></span>
             </div>
         </div>
     </a>
@@ -114,6 +114,7 @@ var said = "{{receiverInfo.said}}";
     var TotalPrice = "{{TotalPrice}}";
     var TotalShipFee = "{{TotalShipFee}}";
 </script>
+<input type="hidden" id="balance" value="0">
 <div class="list">
     <div class="title">
         <div class="fl">
@@ -128,6 +129,10 @@ var said = "{{receiverInfo.said}}";
         <div class="priceList">
             <span class="col-grey fl">优惠券</span>
             <span class="col-grey fr couponPrice">- ¥ 0.00</span>
+        </div>
+        <div class="priceList">
+            <span class="col-grey fl">余额支付</span>
+            <span class="col-grey fr balancePrice">- ¥ 0.00</span>
         </div>
         <div class="priceList">
             <span class="col-grey fl">运费</span>

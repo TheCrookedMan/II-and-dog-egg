@@ -294,7 +294,7 @@ const copy_fonts_src = {
 }
 
 const copy_img_src = {
-    inputfiles: src_img_dir + "./*",
+    inputfiles: src_img_dir + "./**/*",
     outputfiles: img_dir
 }
 

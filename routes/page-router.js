@@ -249,7 +249,7 @@ router.get('/profile/address-edit.html', (req, res, next) => {
 router.get('/profile/order-detail.html', (req, res, next) => {
     let OSN = req.query.OSN;
     let orderId = req.query.orderId;
-    return res.render('profile/order-detail', { title: '订单详情', OSN: OSN ,orderId:orderId});
+    return res.render('profile/order-detail', { title: '订单详情', OSN: OSN, orderId: orderId });
 });
 
 /*
@@ -266,8 +266,20 @@ router.get('/profile/order-paySucess.html', (req, res, next) => {
 
 router.get('/profile/order-pay.html', (req, res, next) => {
     let osn = req.query.osn,
-        orderAmount = req.query.orderAmount;
-    return res.render('profile/order-pay', { title: '订单支付', osn: osn, orderAmount: orderAmount });
+        orderAmount = req.query.orderAmount,
+        TotalAmount = req.query.TotalAmount,
+        CouponMoney = req.query.CouponMoney;
+
+    if(!!orderAmount){
+        orderAmount *= 1;
+    }
+    if(!!TotalAmount){
+        TotalAmount *= 1;
+    }
+    if(!!CouponMoney){
+        CouponMoney *= 1;
+    }
+    return res.render('profile/order-pay', { title: '订单支付', osn: osn, orderAmount: orderAmount, TotalAmount: TotalAmount, CouponMoney: CouponMoney });
 });
 
 /*
@@ -533,7 +545,14 @@ router.get('/cishan/cishan.html', (req, res, next) => {
 router.get('/profile/order-status.html', (req, res, next) => {
     let OSN = req.query.OSN;
     let orderId = req.query.orderId;
-    return res.render('profile/order-status', { title: '物流信息',OSN:OSN, orderId:orderId});
+    return res.render('profile/order-status', { title: '物流信息', OSN: OSN, orderId: orderId });
+});
+
+/*
+    宅配页面
+ */
+router.get('/home-delivery/index.html',(req, res, next) => {
+    return res.render('home-delivery/index', { title: '宅配' });
 });
 
 router.get('*', (req, res, next) => {

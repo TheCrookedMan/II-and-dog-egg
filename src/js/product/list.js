@@ -48,6 +48,7 @@
         init: function() {
             var self = this;
             $(".product .tab ul li").on("click", "a", function(ev) {
+                self.pageNo = 1;
                 if ($(this).data("id") == "sortcolumn") {
                     $(".product .tab ul li a.cur").removeClass("cur");
                     $(this).addClass("cur");
