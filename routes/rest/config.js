@@ -30,7 +30,7 @@ if ("dev" == argv) {
         /* 推广接口 服务器端口 */
         'distributionPost':'8123',
         /* 图片显示前缀 */
-        'imageAddress': '',
+        'imageAddress': "",
         /* 图片服务器 地址 */
         'uploadHost': "",
         /* 图片服务器 端口 */
