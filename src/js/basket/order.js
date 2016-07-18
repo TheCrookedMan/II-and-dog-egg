@@ -136,9 +136,16 @@
         $.post('/user/defaultAddressOrderInfo.post', { "uid": userinfo.Uid, 'type': 1, 'pids': pids }).success(function(data) {
             if ("1" == data.code && !!data.data && !!data.data.receiverInfo) {
                 var record = data.data.receiverInfo;
-                $('#getAddress .name').text(record.Consignee);
-                $('#getAddress .mobile').text(record.Mobile);
-                $('#getAddress .area').text(record.ProvinceName + "，" + record.CityName + "，" + record.CountyName + "，" + record.Address);
+                if (typeof(record.ProvinceName) == 'object' && JSON.stringify(record.ProvinceName) == "null") {
+                    $('#getAddress .name').text("");
+                    $('#getAddress .mobile').text("");
+                    $('#getAddress .area').text("");
+                } else {
+                    $('#getAddress .name').text(record.Consignee);
+                    $('#getAddress .mobile').text(record.Mobile);
+                    $('#getAddress .area').text(record.ProvinceName + "，" + record.CityName + "，" + record.CountyName + "，" + record.Address);
+                }
+
             }
         })
     }
