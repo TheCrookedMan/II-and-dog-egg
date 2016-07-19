@@ -3,7 +3,7 @@
     $.post('/product/productDetail.post', { "pid": pid }).success(function(data) {
         if (data.code == "1" && !!data.data) {
             var record = data.data;
-            //console.log(record);
+            
             var isSimpleTag = record.isSimpleTag;
             if (isSimpleTag == 1) {
                 var str = '<div class="txt" id="title"></div>';
@@ -153,7 +153,7 @@
                         weight = v[j].AttrValue;
                         $("#weight").html(weight);
                         if (v[j].State == 0) {
-                            var str0 = '<a href="javascript:void(0)" class="can">' + v[j].AttrValue + '</a>';
+                            var str0 = '<a href="javascript:void(0)" class="can" data-id='+v[j].PId+'>' + v[j].AttrValue + '</a>';
                             $("#sku dl dd").append(str0);
                         } else {
                             var str0 = '<a href="javascript:void(0)" class="disable">' + v[j].AttrValue + '</a>';
@@ -209,13 +209,25 @@
             $("a.can").on('click', function() {
                 $(this).addClass("cur").siblings(".can").removeClass("cur");
                 var txt = $(this).text();
+                var PId=$(this).data("id");
+                $.post('/product/productDetail.post', { "pid": PId }).success(function(data) {
+                    var res=data.data;
+                    $("#skuPrice").html(res.ShopPrice);
+                }).error(function(err) {});
                 $("#skuSelected").html(txt);
+                var str = '<em>“' + $(this).text() + '”</em>';
+                $("#selected").append(str);
             })
 
             $(".pdetail_modal .select dl dd a.cur").each(function() {
+                var PId=$(this).data("id");
+                $.post('/product/productDetail.post', { "pid": PId }).success(function(data) {
+                    var res=data.data;
+                    $("#skuPrice").html(res.ShopPrice)
+                }).error(function(err) {});
                 $("#skuSelected").html($(this).text());
                 var str = '<em>“' + $(this).text() + '”</em>';
-                $("#selected").after(str);
+                $("#selected").append(str);
             });
 
             $(".nav-tab a").on('click', function() {
@@ -226,6 +238,8 @@
 
             $('.am-slider').flexslider();
 
+            var skupid;
+            //console.log(record.SkuInfoArray);
             $('.btn.add').on('click', function() {
                 if (!userinfo.Uid) {
                     // modal.tip("用户未登录！");
@@ -234,7 +248,9 @@
                 }
                 $('.btn.add').hide()
                 $('.btn.buy').show();
-                $.post('/cart/addProdToCart.post', { "pid": pid, "uid": userinfo.Uid, 'number': 1 }).success(function(data) {
+                skupid=$(".pdetail_modal .select dl dd a.cur").data("id");
+                //console.log(skupid);
+                $.post('/cart/addProdToCart.post', { "pid": skupid, "uid": userinfo.Uid, 'number': 1 }).success(function(data) {
                     $modal.modal('close');
                     modal.tip("添加菜篮子成功！");
                     $('.am-dimmer').hide();
