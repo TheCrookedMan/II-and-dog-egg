@@ -228,8 +228,9 @@
 
             $('.btn.add').on('click', function() {
                 if (!userinfo.Uid) {
-                    modal.tip("用户未登录！");
-                    return false;
+                    // modal.tip("用户未登录！");
+                    window.location.href='/profile/register.html';
+                    //return false;
                 }
                 $('.btn.add').hide()
                 $('.btn.buy').show();
