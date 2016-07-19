@@ -254,6 +254,9 @@
                     $modal.modal('close');
                     modal.tip("添加菜篮子成功！");
                     $('.am-dimmer').hide();
+                    $('.btn.buy').hide();
+                    var str0 = '<a href="/basket/basket.html"  class="btn default">去结算</a>';
+                    $(".detail_foot").append(str0);
                 }).error(function(err) {});
             })
 

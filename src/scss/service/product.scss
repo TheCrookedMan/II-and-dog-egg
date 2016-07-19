@@ -282,6 +282,12 @@
                 color: #9bc32e !important;
             }
         }
+        &.default{
+            background-color: #000;color: #9bc32e;
+            &:focus{
+                color: #9bc32e !important;
+            }
+        }
         &.add{
             background-color: #000;color: #9bc32e;
             &:focus{

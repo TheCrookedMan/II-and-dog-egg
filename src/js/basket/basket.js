@@ -11,8 +11,8 @@
 
 
             //选择商品
-            $('.list-li .set-default').on("touchstart", function() {
-                $(this).toggleClass("cur");
+            $('.list-li .con').on("touchstart", function() {
+                $(this).find('.set-default').toggleClass("cur");
                 var len = $('.list-li .set-default.cur').length;
                 //存储商品pids传给订单确认页
                 var arrPids = [];
