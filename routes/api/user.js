@@ -351,3 +351,11 @@ exports.HomeProductList_link = (req, res, next) => { new normalRequest('/api/Hom
  */
 
 exports.checkCard = (req,res,next) =>{ new normalRequest('/api/User/CheckCard', { post: distributionPost }).post(req, res, next); }
+
+/*
+	获取订单提示信息
+ */
+
+exports.GetPromptFlg = (req,res,next) =>{ new normalRequest('/api/user/GetPromptFlg').get(req, res, next); }
+
+exports.modifyAddressOrderInfo = (req,res,next) =>{ new normalRequest('/api/user/modifyAddressOrderInfo').post(req, res, next); }

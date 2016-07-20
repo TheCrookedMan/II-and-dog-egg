@@ -139,9 +139,9 @@
             if ("1" == data.code && !!data.data) {
                 var record = data.data;
                 if (record.orderAmount > 0) {
-                    window.location.href = "/profile/order-pay.html?osn=" + record.oNum + "&orderAmount=" + record.orderAmount + "&TotalAmount=" + record.TotalAmount + "&CouponMoney=" + record.CouponMoney + "&userMobile=" + userMobile + "&username=" + username + "&addressInfo=" + addressInfo + "&orderId=" + record.oId;
+                    window.location.href = "/profile/order-pay.html?osn=" + record.oNum + "&orderAmount=" + record.orderAmount + "&TotalAmount=" + record.TotalAmount + "&CouponMoney=" + record.CouponMoney + "&userMobile=" + userMobile + "&username=" + username + "&addressInfo=" + addressInfo + "&orderId=" + record.oId + "&TotalPrice=" + TotalPrice;
                 } else {
-                    window.location.href = "/profile/order-paySucess.html?userMobile=" + userMobile + "&username=" + username + "&addressInfo=" + addressInfo + "&OSN=" + record.oNum + "&orderId=" + record.oId;
+                    window.location.href = "/profile/order-paySucess.html?userMobile=" + userMobile + "&username=" + username + "&addressInfo=" + addressInfo + "&OSN=" + record.oNum + "&orderId=" + record.oId + "&TotalPrice=" + TotalPrice;
                 }
             } else {
                 modal.alert({ text: data.message });
@@ -165,9 +165,8 @@
                     $('#getAddress .mobile').text(userMobile);
                     $('#getAddress .area').text(addressInfo);
                 }
-
             }
-        })
+        });
     }
 
     function count() {
@@ -175,5 +174,34 @@
         countTotalPrice = parseFloat(TotalPrice) + parseFloat(TotalShipFee) - parseFloat(TotalCouponPrice) - parseFloat(balance);
         $(".countTotalPrice").text("¥ " + countTotalPrice.toFixed(2));
     }
+
+    $("#orderAddress").on('click', '.addressALink', function(ev) {
+        var said = $(this).data('said');
+        var self = this;
+        $.post('/user/modifyAddressOrderInfo.post', {
+            uid: userinfo.Uid,
+            weight: TotalWeight,
+            productamount: ProductAmount,
+            said: said
+        }).success(function(data) {
+            if ("1" == data.code && !!data.data) {
+                $("#orderMain").show();
+                $("#orderAddress").hide();
+
+                var Consignee = $(self).find('.Consignee').text();
+                var Mobile = $(self).find('.Mobile').text();
+                var area = $(self).find('.area').text();
+
+                $('#getAddress .name').text(Consignee);
+                $('#getAddress .mobile').text(Mobile);
+                $('#getAddress .area').text(area);
+
+                var record = data.data;
+                TotalShipFee = record.shopFee;
+                $(".TotalShipFee").text("＋¥"+TotalShipFee.toFixed(2));
+            }
+        })
+        ev.stopPropagation();
+    });
 
 }).call(this)

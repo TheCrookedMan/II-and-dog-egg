@@ -200,7 +200,6 @@
                 $(".detail_foot").append(str);
             }
 
-
             $(".pdetail_modal .pinfo .close").on('click', function() {
                 $('.btn.add').hide()
                 $('.btn.buy').show();

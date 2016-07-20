@@ -7,6 +7,7 @@
         $(".pinfo .UserIdentity").text("身份：普通会员");
         normal();
     } else {
+        $(".link-toCode").attr('href', '/sale/code.html?shareParentId=' + userinfo.Uid);
         initMonthTask();
         initCommitionMoney();
         $(".pinfo .setting").show();
@@ -14,11 +15,11 @@
         if (userinfo.UserIdentity == 1) {
             $(".pinfo .UserIdentity").text("身份：推广大使");
             $(".pinfo .link a").text("爱心传递");
-            $(".pinfo .link a").attr('href', '/profile/how_1.html');
+            $(".pinfo .link a").attr('href', '/profile/how_2.html');
         } else {
             $(".pinfo .UserIdentity").text("身份：普通会员");
             $(".pinfo .link a").text("如何成为健康大使？");
-            $(".pinfo .link a").attr('href', '/profile/how_2.html');
+            $(".pinfo .link a").attr('href', '/profile/how_1.html');
         }
 
         if (userinfo.IdentityState == 1) {
@@ -58,7 +59,7 @@
             }
         });
     }
-    
+
     function initMonthTask() {
         $.post('/distribution/monthTask.post', { Uid: userinfo.Uid }).success(function(data) {
             if (data.code == "1" && !!data.data) {
@@ -76,7 +77,7 @@
             }
         });
     }
-    
+
 
 
 }).call(this);

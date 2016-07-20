@@ -64,10 +64,10 @@
             if ("1" == data.code && !!data.data) {
                 var record = data.data;
                 common.setCookie('userinfo', JSON.stringify(record));
-                window.location.href = fromUrl;
+                window.location.href = '/profile/profile.html';
             } else {
                 common.setCookie('userinfo', '{}');
-                window.location.href = fromUrl;
+                window.location.href = '/profile/profile.html';
             }
         })
     }

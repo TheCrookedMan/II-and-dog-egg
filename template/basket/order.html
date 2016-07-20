@@ -21,10 +21,18 @@ var said = "{{receiverInfoObject.said}}";
 {% set TotalCount = 0; %}
 {% set TotalShipFee = 0; %}
 {% set TotalPrice = 0; %}
+
+
+{% set TotalWeight = 0; %}
+{% set ProductAmount = 0; %}
+
 <div class="list">
     <a href="javascript:void(0);" class="link-to-product-list">
         <div class="plist">
             {% for list in data['data']['expensesList'] %} 
+
+            {% set TotalWeight += list.TotalWeight %}
+            {% set ProductAmount += list.ProductAmount %}
 
             {% set num = list.TotalCount; %}
             {% set TotalCount += num %}
@@ -42,6 +50,12 @@ var said = "{{receiverInfoObject.said}}";
         </div>
     </a>
 </div>
+
+<script type="text/javascript">
+    var TotalWeight = "{{TotalWeight}}";
+    var ProductAmount = "{{ProductAmount}}";
+</script>
+
 <div class="list">
     <a href="javascript:void(0)" id="getCoupon">
         <div class="title">
@@ -135,7 +149,7 @@ var said = "{{receiverInfoObject.said}}";
         </div>
         <div class="priceList">
             <span class="col-grey fl">运费</span>
-            <span class="col-grey fr">＋¥ {{TotalShipFee.toFixed(2)}}</span>
+            <span class="col-grey fr TotalShipFee">＋¥ {{TotalShipFee.toFixed(2)}}</span>
         </div>
     </div>
     <div class="total">

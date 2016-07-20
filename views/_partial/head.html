@@ -1,39 +1,73 @@
 <!doctype html>
 <html class="no-js">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, user-scalable=no">
-  <title>{{title}}</title>
-  <!-- Set render engine for 360 browser -->
-  <meta name="renderer" content="webkit">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>{{title}}</title>
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="/img/app-icon72x72@2x.png">
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="apple-touch-icon-precomposed" href="/img/app-icon72x72@2x.png">
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="/img/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <!-- <link rel="stylesheet" href="/plugins/plugins.min.css"> -->
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.0/css/amazeui.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <script type="text/javascript">
+    // var browser = function() {
+    //     var u = window.navigator.userAgent;
+    //     var app = window.navigator.appVersion;
+    //     var ua = u.toLowerCase();
 
-  <!-- No Baidu Siteapp-->
-  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    //     //移动终端浏览器版本信息
+    //     return {
+    //         trident: u.indexOf('Trident') > -1, //IE内核
+    //         presto: u.indexOf('Presto') > -1, //opera内核
+    //         webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+    //         gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+    //         mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/), //是否为移动终端
+    //         ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+    //         android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+    //         iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
+    //         iPad: u.indexOf('iPad') > -1, //是否iPad
+    //         webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+    //         wechat: ua.match(/MicroMessenger/i) == 'micromessenger' //是否是微信
+    //     };
+    // }();
 
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+    // if (browser.ios || browser.iPhone || browser.iPad) {
+    //     if (browser.wechat) {} else {
+    //         modal.alert({
+    //             text: '请在微信中扫描二维码打开！'
+    //         })
+    //     }
 
-  <!-- Add to homescreen for Chrome on Android -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <link rel="icon" sizes="192x192" href="/img/app-icon72x72@2x.png">
+    // } else if (browser.wechat) {
 
-  <!-- Add to homescreen for Safari on iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
-  <link rel="apple-touch-icon-precomposed" href="/img/app-icon72x72@2x.png">
-
-  <!-- Tile icon for Win8 (144x144 + tile color) -->
-  <meta name="msapplication-TileImage" content="/img/app-icon72x72@2x.png">
-  <meta name="msapplication-TileColor" content="#0e90d2">
-
-  <!-- <link rel="stylesheet" href="/plugins/plugins.min.css"> -->
-  <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.0/css/amazeui.min.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <script type="text/javascript">
-  </script>
+    // } else if (browser.android) {
+    //     modal.alert({
+    //         text: '请在微信中扫描二维码打开！'
+    //     })
+    // } else {
+    //     modal.alert({
+    //         text: '请在微信中扫描二维码打开！'
+    //     })
+    // }
+    </script>
 </head>
+
 <body>

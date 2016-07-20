@@ -10,11 +10,11 @@
         if (userinfo.UserIdentity == 1) {
             $(".pinfo .UserIdentity").text("身份：推广大使");
             $(".pinfo .link a").text("如何推广？");
-            $(".pinfo .link a").attr('src', '/profile/how_1.html');
+            $(".pinfo .link a").attr('src', '/profile/how_2.html');
         } else {
             $(".pinfo .UserIdentity").text("身份：普通会员");
-            $(".pinfo .link a").text("如何成为健康推广大使？");
-            $(".pinfo .link a").attr('src', '/profile/how_2.html');
+            $(".pinfo .link a").text("如何成为健康大使？");
+            $(".pinfo .link a").attr('src', '/profile/how_1.html');
         }
         if (userinfo.IdentityState == 1) {
             $(".pinfo .link a").text("如何恢复身份？");
@@ -24,7 +24,7 @@
     function normal() {
         $("#bindAppA").show();
         $(".pinfo .UserIdentity").text("身份：普通会员");
-        $(".pinfo .link a").text("如何成为健康推广大使？");
+        $(".pinfo .link a").text("如何成为健康大使？");
         $(".pinfo .link a").attr('src', '/profile/how_2.html');
     }
 }).call(this);

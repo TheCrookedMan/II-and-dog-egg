@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get('*.html', (req, res, next) => {
     let shareParentId = req.query.shareParentId;
-    if(shareParentId != undefined){
+    if (shareParentId != undefined) {
         res.cookie('shareParentId', shareParentId, { maxAge: maxAge, path: '/' });
     }
     next();
@@ -324,8 +324,9 @@ router.get('/profile/order-paySucess.html', (req, res, next) => {
         username = req.query.username,
         addressInfo = req.query.addressInfo,
         OSN = req.query.OSN,
-        orderId = req.query.orderId;
-    return res.render('profile/order-paySucess', { title: '订单付款成功', userMobile: userMobile, username: username, addressInfo: addressInfo, OSN: OSN, orderId: orderId });
+        orderId = req.query.orderId,
+        TotalPrice = req.query.TotalPrice;
+    return res.render('profile/order-paySucess', { title: '订单付款成功', userMobile: userMobile, username: username, addressInfo: addressInfo, OSN: OSN, orderId: orderId, TotalPrice: TotalPrice });
 });
 
 /*
@@ -341,7 +342,8 @@ router.get('/profile/order-pay.html', (req, res, next) => {
         username = req.query.username,
         addressInfo = req.query.addressInfo,
         OSN = req.query.osn,
-        orderId = req.query.orderId;
+        orderId = req.query.orderId,
+        TotalPrice = req.query.TotalPrice;
 
     if (!!orderAmount) {
         orderAmount *= 1;
@@ -352,7 +354,7 @@ router.get('/profile/order-pay.html', (req, res, next) => {
     if (!!CouponMoney) {
         CouponMoney *= 1;
     }
-    return res.render('profile/order-pay', { title: '订单支付', osn: osn, orderAmount: orderAmount, TotalAmount: TotalAmount, CouponMoney: CouponMoney, userMobile: userMobile, username: username, addressInfo: addressInfo, OSN: OSN, orderId: orderId });
+    return res.render('profile/order-pay', { title: '订单支付', osn: osn, orderAmount: orderAmount, TotalAmount: TotalAmount, CouponMoney: CouponMoney, userMobile: userMobile, username: username, addressInfo: addressInfo, OSN: OSN, orderId: orderId, TotalPrice: TotalPrice });
 });
 
 /*
@@ -510,7 +512,14 @@ router.get('/sale/price.html', (req, res, next) => {
  */
 
 router.get('/sale/team.html', (req, res, next) => {
-    return res.render('sale/team', { title: '我的团队' });
+    let userinfo = req.cookies.userinfo,
+        Uid = 0;
+    if (!!userinfo) {
+        userinfo = JSON.parse(userinfo);
+        Uid = userinfo.Uid
+    }
+
+    return res.render('sale/team', { title: '我的团队', Uid: Uid });
 });
 
 /*
@@ -535,7 +544,8 @@ router.get('/sale/team-detail.html', [distribution.getLowerLevelDetail], (req, r
  */
 
 router.get('/sale/code.html', (req, res, next) => {
-    return res.render('sale/code', { title: '我的二维码' });
+    let shareParentId = req.query.shareParentId;
+    return res.render('sale/code', { title: '我的二维码', shareParentId: shareParentId });
 });
 
 /*

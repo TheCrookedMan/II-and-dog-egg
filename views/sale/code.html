@@ -4,6 +4,9 @@ body {
     background: #fff;
 }
 </style>
+<script type="text/javascript">
+    var shareParentId = "{{shareParentId}}";
+</script>
 <div class="index profile">
     <div class="pinfo">
         <img src="/img/profileBg.jpg">
@@ -47,4 +50,6 @@ body {
     </div>
 </div>
 {% include "../_partial/foot.html" %}
+<script src="/plugins/wechat.min.js"></script>
+{% include "../_partial/share.html" %}
 <script src="/js/sale/code.js"></script>
