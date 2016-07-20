@@ -259,16 +259,7 @@
                 }).error(function(err) {});
             })
 
-            wx.ready(function() {
-                var shareParentId = 0;
-                if (!!userinfo.Uid && userinfo.UserIdentity == 1) {
-                    shareParentId = userinfo.Uid;
-                }
-                var localhref = window.location.href;
-                // var linkUrl = "http://" + window.location.hostname + "/index/index.html?shareParentId=" + shareParentId;
-                var linkUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx4e6f77b139c239fc&redirect_uri=http%3a%2f%2fm.xian17.com%2fwechatAuth.html&response_type=code&scope=snsapi_userinfo&state=" + localhref + "&shareParentId=" + shareParentId + "&connect_redirect=1#wechat_redirect"
-                wxinit.shareWechat(productNameDetail, linkUrl, '我在@二丫和狗蛋 找到了真正大山里的土鸡蛋。吃的不错，还赚取了丰厚的佣金，分享一下，你也快来吧');
-            });
+            initShare(productNameDetail,"我在二丫家边吃边玩边做公益，你也一起来吧！");
         }
     }).error(function(err) {});
 }).call(this);

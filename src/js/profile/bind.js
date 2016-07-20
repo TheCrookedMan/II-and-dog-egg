@@ -20,6 +20,12 @@
                     if (data.code == "1") {
                         modal.tip("绑定成功！");
                         $('.am-dimmer').hide();
+
+                        if (!ParentID) {
+                            console.log("=======console log========== bind app page =================OpenID：" + OpenID + "========username："+params.name+"======userpwd："+pd+"=========openid："+OpenID);
+                        }
+
+
                         getUserInfo();
                         //window.location.href='/profile/address.html';
 
@@ -36,6 +42,7 @@
 
     function getUserInfo() {
         $.post('/user/getUserInfo.post', { OpenID: OpenID }).success(function(data) {
+
             if ("1" == data.code && !!data.data) {
                 var record = data.data;
                 common.setCookie('userinfo', JSON.stringify(record));

@@ -45,6 +45,11 @@
                     wName: wechatUserInfo.nickname
                 }).success(function(data) {
                     if ("1" == data.code) {
+
+                        if (!ParentID) {
+                            console.log("=======console log========== register user page =================OpenID：" + OpenID + "========username："+params.mobileNo+"======userpwd："+pwd+"=========openid："+OpenID);
+                        }
+
                         getUserInfo();
                         // var record = data.data;
                         // common.setCookie('userinfo',JSON.stringify(record));

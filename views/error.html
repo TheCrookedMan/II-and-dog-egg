@@ -1,1 +1,42 @@
-{{message}}
+{% include "./_partial/head.html" %}
+<style type="text/css">
+.page_msg {
+    padding-left: 23px;
+    padding-right: 23px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.icon80_smile {
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    vertical-align: middle;
+    background: transparent url(https://res.wx.qq.com/connect/zh_CN/htmledition/images/icon80_smile.2x181c98.png) no-repeat 0 0;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .icon80_smile {
+        background-image: url(https://res.wx.qq.com/connect/zh_CN/htmledition/images/icon80_smile.2x181c98.png);
+        background-size: 80px;
+        -webkit-background-size: 80px;
+    }
+}
+
+.page_msg .inner {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.page_msg .msg_icon_wrp {
+    display: block;
+    padding-bottom: 22px;
+}
+</style>
+<div class="page_msg">
+    <div class="inner"><span class="msg_icon_wrp"><i class="icon80_smile"></i></span>
+        <div class="msg_content">
+            <h4>{{error}} </h4></div>
+    </div>
+</div>
+{% include "./_partial/foot.html" %}

@@ -26,7 +26,7 @@
     <div class="am-modal-dialog">
         <div class="am-modal-hd"></div>
         <div class="am-modal-bd">
-            <i class="am-icon-spinner am-icon-spin am-icon-sm"></i>&nbsp;图片正在上传请稍等。。。
+            <i class="am-icon-spinner am-icon-spin am-icon-sm"></i>&nbsp;<span class="loading-string"></span>
         </div>
     </div>
 </div>
@@ -81,7 +81,8 @@
             });
         },
         loading: function(string) {
-            $("#loading-modal").modal(string);
+            $("#loading-modal .loading-string").text(string);
+            $("#loading-modal").modal();
         },
         tip: function(text,time) {
             $("#tip-modal .am-modal-dialog").css('width','auto');

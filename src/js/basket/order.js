@@ -172,12 +172,14 @@
     $("#orderAddress").on('click', '.addressALink', function(ev) {
         var said = $(this).data('said');
         var self = this;
+        modal.loading("正在请求数据，请稍等...")
         $.post('/user/modifyAddressOrderInfo.post', {
             uid: userinfo.Uid,
             weight: TotalWeight,
             productamount: ProductAmount,
             said: said
         }).success(function(data) {
+            modal.loading("正在请求数据，请稍等...");
             if ("1" == data.code && !!data.data) {
                 $("#orderMain").show();
                 $("#orderAddress").hide();
@@ -231,8 +233,10 @@
     }
 
     function getAddressFun() {
+        modal.loading("正在请求数据...");
         $.get('/template/profile/profile_address.t', { "uid": userinfo.Uid }).success(function(data) {
             data = data.replace(/(^\s+)|(\s+$)/g, "");
+            modal.loading("正在请求数据，请稍等...")
             if ("" !== data) {
                 $("#orderMain").hide();
                 $("#addUserAddress").hide();
@@ -245,7 +249,6 @@
     window.getAddressFun = getAddressFun;
 
     $("#orderAddress").on("click", ".delAddress", function(ev) {
-
         var said = $(this).data('id');
         var regionid = $(this).data('regionid');
         var mobile = $(this).data('mobile');

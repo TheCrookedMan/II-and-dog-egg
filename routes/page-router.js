@@ -80,14 +80,16 @@ router.get('/wechatAuth.html', (req, res, next) => {
         } else {
             //error
             next({
-                msg: "微信授权失败！"
+                msg: "微信授权失败，请返回上级页面重新打开！"
             });
+            console.log("==========wechatAuth===========微信授权失败！" + params);
         }
     }, function(err) {
         //error
         next({
-            msg: "微信授权失败！"
+            msg: "微信授权失败，请返回上级页面重新打开！"
         });
+        console.log("============wechatAuth=========微信授权失败！accessToken errorCallback::" + err);
     });
 });
 
@@ -111,7 +113,6 @@ router.get('/wechatAuth.html', (req, res, next) => {
 
 router.get('/index/index.html', [user.HomeProductList_link, user.homeslide_link], (req, res, next) => {
     let record = common.toRecord(res.data);
-    console.log("----------------------------------------------------------------------------------------------------------------------------");
     return res.render('index/index', {
         title: '首页',
         data: record['/api/Home/HomeProductList'],
