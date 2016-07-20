@@ -181,15 +181,13 @@
             if ("1" == data.code && !!data.data) {
                 $("#orderMain").show();
                 $("#orderAddress").hide();
-
                 var Consignee = $(self).find('.Consignee').text();
                 var Mobile = $(self).find('.Mobile').text();
                 var area = $(self).find('.area').text();
-
                 $('#getAddress .name').text(Consignee);
                 $('#getAddress .mobile').text(Mobile);
                 $('#getAddress .area').text(area);
-
+                window.said = said;
                 var record = data.data;
                 TotalShipFee = record.shopFee;
                 $(".TotalShipFee").text("＋¥" + TotalShipFee.toFixed(2));
