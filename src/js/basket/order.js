@@ -92,14 +92,8 @@
 
             //获取收货地址
             $("#getAddress").on('click', function() {
-                $.get('/template/profile/profile_address.t', { "uid": userinfo.Uid }).success(function(data) {
-                    data = data.replace(/(^\s+)|(\s+$)/g, "");
-                    if ("" !== data) {
-                        $("#orderMain").hide();
-                        $("#orderAddress").html(data);
-                        $("#orderAddress").show();
-                    }
-                }).error(function(err) {});
+                getAddressFun();
+
             });
 
             //选择优惠券
@@ -198,10 +192,95 @@
 
                 var record = data.data;
                 TotalShipFee = record.shopFee;
-                $(".TotalShipFee").text("＋¥"+TotalShipFee.toFixed(2));
+                $(".TotalShipFee").text("＋¥" + TotalShipFee.toFixed(2));
             }
         })
         ev.stopPropagation();
     });
+
+
+    $("#orderAddress").on("click", ".addAddress", function(ev) {
+        showAddAddressFun();
+        ev.stopPropagation();
+    });
+
+    $("#orderAddress").on("click", ".updateAddress", function(ev) {
+        var url = $(this).data('url');
+        updateAddressFun(url);
+        ev.stopPropagation();
+    });
+
+    function showAddAddressFun() {
+        $.get('/template/profile/profile_addressAdd.t').success(function(data) {
+            data = data.replace(/(^\s+)|(\s+$)/g, "");
+            if ("" !== data) {
+                $("#orderAddress").hide();
+                $("#addUserAddress").html(data);
+                $("#addUserAddress").show();
+            }
+        })
+    }
+
+    function updateAddressFun(url) {
+        $.get(url).success(function(data) {
+            data = data.replace(/(^\s+)|(\s+$)/g, "");
+            if ("" !== data) {
+                $("#orderAddress").hide();
+                $("#updateUserAddress").html(data);
+                $("#updateUserAddress").show();
+            }
+        })
+    }
+
+    function getAddressFun() {
+        $.get('/template/profile/profile_address.t', { "uid": userinfo.Uid }).success(function(data) {
+            data = data.replace(/(^\s+)|(\s+$)/g, "");
+            if ("" !== data) {
+                $("#orderMain").hide();
+                $("#addUserAddress").hide();
+                $("#updateUserAddress").hide();
+                $("#orderAddress").html(data);
+                $("#orderAddress").show();
+            }
+        }).error(function(err) {});
+    }
+    window.getAddressFun = getAddressFun;
+
+    $("#orderAddress").on("click", ".delAddress", function(ev) {
+
+        var said = $(this).data('id');
+        var regionid = $(this).data('regionid');
+        var mobile = $(this).data('mobile');
+        var address = $(this).data('address');
+        var isdefault = $(this).data('isdefault');
+        var consignee = $(this).data('consignee');
+        $.post('/user/editReceiver.post', {
+            "address": address,
+            "mobile": mobile,
+            "regionid": regionid,
+            "uid": userinfo.Uid,
+            "isdefault": isdefault,
+            "consignee": consignee,
+            "edittag": -1, //0表示新增  1表示更新  -1表示删除
+            "said": said
+        }).success(function(data) {
+            if (data.code == 1) {
+                modal.tip("删除成功！");
+                $('.am-dimmer').hide();
+                $('li#' + said).remove();
+            } else {
+                modal.tip(data.message);
+                $('.am-dimmer').hide();
+            }
+        }).error(function(err) {});
+
+        ev.stopPropagation();
+    });
+
+    $("#orderAddress").on("click", ".closeAddressList", function(ev) {
+        $("#orderMain").show();
+        $("#orderAddress").hide();
+        ev.stopPropagation();
+    })
 
 }).call(this)

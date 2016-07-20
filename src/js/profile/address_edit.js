@@ -26,7 +26,7 @@
             "said": said
         }).success(function(data) {
             if (data.code == 1) {
-                modal.tip("添加成功！");
+                modal.tip("修改成功！");
                 $('.am-dimmer').hide();
                 window.location.href = '/profile/address.html';
             } else {

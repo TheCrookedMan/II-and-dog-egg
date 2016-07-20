@@ -146,16 +146,28 @@ router.get('/template/profile/profile_address.t', [user.receiverList], function(
     return res.render('../template/profile/profile_address', {
         data: record['/api/user/receiverList']
     });
-})
+});
+
+/*
+    个人中心----新增收货地址
+ */
+
+router.get('/template/profile/profile_addressAdd.t', function(req, res, next) {
+    return res.render('../template/profile/profile_addressAdd');
+});
 
 /*
     个人中心----编辑收货地址
  */
-router.get('/template/profile/profile_addressEdit.t', [user.editReceiver], function(req, res, next) {
-    let record = common.toRecord(res.data);
-    return res.render('../template/profile/profile_addressEdit', {
-        data: record['/api/user/editReceiver']
-    });
+
+router.get('/template/profile/profile_addressEdit.t', function(req, res, next) {
+    let said = req.query.said;
+    let address = req.query.address;
+    let mobile = req.query.mobile;
+    let isdefault = req.query.isdefault;
+    let consignee = req.query.consignee;
+    let regionid = req.query.regionid;
+    return res.render('../template/profile/profile_addressEdit', { said: said, address: address, mobile: mobile, isdefault: isdefault, consignee: consignee, regionid: regionid });
 })
 
 /*

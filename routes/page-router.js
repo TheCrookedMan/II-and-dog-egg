@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get('*.html', (req, res, next) => {
     let shareParentId = req.query.shareParentId;
-    if (shareParentId != undefined) {
+    if (shareParentId != undefined && shareParentId != 0) {
         res.cookie('shareParentId', shareParentId, { maxAge: maxAge, path: '/' });
     }
     next();
