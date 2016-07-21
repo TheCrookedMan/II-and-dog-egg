@@ -40,7 +40,7 @@
         this.pageNo = 1;
         this.pageSize = 20;
         this.isEnd = false;
-        this.sortdirection = 'ASC';
+        this.sortdirection = 0;
         this.sortcolumn = 0;
         this.categoryId = categoryId;
     }
@@ -56,8 +56,8 @@
                     if($(this).hasClass("sort")){
                         $("ul.am-gallery").html("");
                         self.sortcolumn = 3;
-                        self.sortdirection = 'DESC';
-                        $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
+                        self.sortdirection = 1;
+                        $("ul.am-gallery").html('');
                         self.get();
                         scroll.on(function() {
                             if (!self.isEnd) {
@@ -71,8 +71,8 @@
                     else{
                         $("ul.am-gallery").html("");
                         self.sortcolumn = 3;
-                        self.sortdirection = 'DESC';
-                        $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
+                        self.sortdirection = 0;
+                        $("ul.am-gallery").html('');
                         self.get();
                         scroll.on(function() {
                             if (!self.isEnd) {
@@ -91,8 +91,8 @@
                     if($(this).hasClass("sort")){
                         $("ul.am-gallery").html("");
                         self.sortcolumn = 2;
-                        self.sortdirection = 'ASC';
-                        $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
+                        self.sortdirection = 1;
+                        $("ul.am-gallery").html('');
                         self.get();
                         scroll.on(function() {
                             if (!self.isEnd) {
@@ -106,8 +106,8 @@
                     else{
                         $("ul.am-gallery").html("");
                         self.sortcolumn = 2;
-                        self.sortdirection = 'DESC';
-                        $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
+                        self.sortdirection = 0;
+                        $("ul.am-gallery").html('');
                         self.get();
                         scroll.on(function() {
                             if (!self.isEnd) {
@@ -126,8 +126,8 @@
                     if($(this).hasClass("sort")){
                         $("ul.am-gallery").html("");
                         self.sortcolumn = 0;
-                        self.sortdirection = 'ASC';
-                        $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
+                        self.sortdirection = 1;
+                        $("ul.am-gallery").html('');
                         self.get();
                         scroll.on(function() {
                             if (!self.isEnd) {
@@ -141,8 +141,8 @@
                     else{
                         $("ul.am-gallery").html("");
                         self.sortcolumn = 0;
-                        self.sortdirection = 'DESC';
-                        $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
+                        self.sortdirection = 0;
+                        $("ul.am-gallery").html('');
                         self.get();
                         scroll.on(function() {
                             if (!self.isEnd) {
@@ -168,6 +168,7 @@
         },
         get: function() {
             var self = this;
+            modal.loading("open","正在加载...");
             $.get('/template/product/list_gallery.t', {
                 "page": self.pageNo,
                 "pagesize": self.pageSize,
@@ -176,6 +177,7 @@
                 "cid": self.categoryId
             }).success(function(data) {
                 data = data.replace(/(^\s+)|(\s+$)/g, "");
+                modal.loading("close")
                 if ("" == data) {
                     self.isEnd = true;
                 } else {
