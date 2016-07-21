@@ -63,7 +63,6 @@
         $.each(I.L, function(j, J) {
             $.each(J.L, function(k, K) {
                 if (K['I'] == regionid) {
-                    debugger
                     provincesId = I['I'];
                     cityId = J['I'];
                     areaId = K['I'];
