@@ -42,7 +42,7 @@
         var res=data.data;
         if(res.length>0){
              for(var i in res){
-                var str='<p><a href="javascript:void(0)" data-id="'+res[i].title+'">'+res[i].title+'</a></p>'
+                var str='<p><a href="/product/detail.html?pid='+res[i].pid+'" data-id="'+res[i].title+'">'+res[i].title+'</a></p>'
                 $(".keywordlist").append(str);  
             }
         }
@@ -50,10 +50,10 @@
             var str='<p>'+res[i].title+'</p>'
             $(".keywordlist").append(str);  
         }
-        $("#oftenKeyword p a").on('click',function(){
-            var keyword = $(this).data("id");
-            window.location.href = '/product/search.html?searchkey=' + $.trim(keyword);
-        })
+        // $("#oftenKeyword p a").on('click',function(){
+        //     var keyword = $(this).data("id");
+        //     window.location.href = '/product/search.html?searchkey=' + $.trim(keyword);
+        // })
     }).error(function(err) {});
 
     //轮播

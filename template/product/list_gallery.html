@@ -1,6 +1,9 @@
  {% if "1" == data['code'] && !!data['data'] %} 
+
+
  {% for product in data['data']['porList'] %}
- <li>
+
+ <li class="can">
     <div class="am-gallery-item productList-echo-loading">
         <a href="/product/detail.html?pid={{product.pid}}">
             <img src="/img/ajax-loader-1.jpg" alt="{{product.Name}}" data-echo="{{product.Image}}">
@@ -11,4 +14,6 @@
     </div>
 </li>
 {% endfor %}
+
+
 {% endif %}
