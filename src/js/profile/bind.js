@@ -3,6 +3,7 @@
     var wechatUserInfo = common.getCookie("wechatUserInfo");
 
     var ParentID = $.cookie('shareParentId');
+    var fromUrl = window.location.search.substr(1).replace("fromUrl=", "");
 
     $("#bindForm").validator({
         submit: function(form) {
@@ -22,7 +23,7 @@
                         $('.am-dimmer').hide();
 
                         if (!ParentID) {
-                            console.log("=======console log========== bind app page =================OpenID：" + OpenID + "========username："+params.name+"======userpwd："+pd+"=========openid："+OpenID);
+                            console.log("=======console log========== bind app page =================OpenID：" + OpenID + "========username：" + params.name + "======userpwd：" + pd + "=========openid：" + OpenID);
                         }
 
 
@@ -46,9 +47,15 @@
             if ("1" == data.code && !!data.data) {
                 var record = data.data;
                 common.setCookie('userinfo', JSON.stringify(record));
-                setTimeout(function() {
-                    window.location.href = '/profile/profile.html';
-                }, 1000);
+                if (!!fromUrl) {
+                    window.location.href = fromUrl;
+                } else {
+                    setTimeout(function() {
+                        // history.go(-1)
+                        window.location.href = '/profile/profile.html';
+                    }, 1000);
+                }
+
             } else {
                 common.setCookie('userinfo', '{}');
                 window.location.href = fromUrl;

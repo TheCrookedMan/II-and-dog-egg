@@ -26,6 +26,8 @@ var said = "{{receiverInfoObject.said}}";
 {% set TotalWeight = 0; %}
 {% set ProductAmount = 0; %}
 
+{% set payInfo = ""; %}
+
 <div class="list">
     <a href="javascript:void(0);" class="link-to-product-list">
         <div class="plist">
@@ -44,6 +46,8 @@ var said = "{{receiverInfoObject.said}}";
 
             {% set price = proinfo.ShopPrice * proinfo.BuyCount %}
             {% set TotalPrice += price %}
+
+            {% set payInfo += proinfo.proName + "," %}
             <img src="{{proinfo.ShowImg}}"> {% endfor %}
             <!-- <span>{{ list.shopName }}</span> -->
             <span class="fr"><em>共{{list.TotalCount}}件</em><i class="am-icon-angle-right"></i></span> {% endfor %}
@@ -54,6 +58,7 @@ var said = "{{receiverInfoObject.said}}";
 <script type="text/javascript">
     var TotalWeight = "{{TotalWeight}}";
     var ProductAmount = "{{ProductAmount}}";
+    var payInfo = "{{payInfo}}"
 </script>
 
 <div class="list">
@@ -75,7 +80,8 @@ var said = "{{receiverInfoObject.said}}";
         </div>
     </div>
     <div class="con">
-        <a href="/basket/yuer.html">
+        <!-- <a href="/basket/yuer.html"> -->
+        <a href="javascript:void(0);">
             <div class="fl">
                 <span class="col-grey">在线支付</span>
             </div>
@@ -145,7 +151,7 @@ var said = "{{receiverInfoObject.said}}";
         </div>
         <div class="priceList">
             <span class="col-grey fl">余额支付</span>
-            <span class="col-grey fr balancePrice">－¥ 0.00</span>
+            <span class="col-grey fr balancePrice">- ¥ 0.00</span>
         </div>
         <div class="priceList">
             <span class="col-grey fl">运费</span>

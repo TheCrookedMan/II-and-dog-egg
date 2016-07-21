@@ -65,12 +65,14 @@
   </div>
   <div class="list">
     <ul class="list-ul">
+    {% set payInfo = ""; %}
         {% for list in data['data'].proList %}
         {% if loop.index <=2 %}
         <li class="list-li">
              <div class="detail">
                   <img src="{{list.proImg}}">
                   <div class="txt">
+                  {% set payInfo += list.proName + ',' %}
                     <div class="tit">{{list.proName}}</div>
                     <div class="spec">{{list.proDetail}}</div>
                     <div class="fr">
@@ -85,6 +87,7 @@
              <div class="detail">
                   <img src="{{list.proImg}}">
                   <div class="txt">
+                  {% set payInfo += list.proName + ',' %}
                     <div class="tit">{{list.proName}}</div>
                     <div class="spec">{{list.proDetail}}</div>
                     <div class="fr">
@@ -142,26 +145,30 @@
     <div class="con">
       <div class="priceList">
         <span class="col-grey fl">商品总价</span>
-        <span class="col-grey fr">¥ {{ data['data'].productamount }}</span>
+        <span class="col-grey fr">¥ {{ data['data'].productamount.toFixed(2) }}</span>
       </div>
       <div class="priceList">
         <span class="col-grey fl">优惠券</span>
-        <span class="col-grey fr">¥ {{ data['data'].couponmoney }}</span>
+        <span class="col-grey fr">¥ {{ data['data'].couponmoney.toFixed(2) }}</span>
       </div>
       <div class="priceList">
+        <span class="col-grey fl">余额支付</span>
+        <span class="col-grey fr">¥ {{ data['data'].usedMoney.toFixed(2) }}</span>
+      </div> 
+      <div class="priceList">
         <span class="col-grey fl">运费</span>
-        <span class="col-grey fr">¥ {{ data['data'].expenses }}</span>
+        <span class="col-grey fr">¥ {{ data['data'].expenses.toFixed(2) }}</span>
       </div> 
     </div>
     <div class="total">
       <span class="fl col-grey">合计</span>
-      <span class="fr col-grey">￥{{ data['data'].orderAmount }}</span>
+      <span class="fr col-grey">￥{{ data['data'].OnlinePayAmount.toFixed(2) }}</span>
     </div>
   </div>
 </div>
 {% if data['data'].orderStatusTitle == '去支付' %}
 <header class="am-topbar am-topbar-fixed-bottom detail_foot bge bd0">
-  <a href="/profile/order-pay.html?osn={{ data['data'].OSN }}&orderAmount={{ data['data'].orderAmount }}"  class="btn buy">去付款</a>
+  <a href="/profile/order-pay.html?osn={{ data['data'].OSN }}&orderAmount={{ data['data'].orderAmount }}&TotalAmount={{data['data'].productamount}}&CouponMoney={{data['data'].couponmoney}}&userMobile={{data['data'].mobile}}&username={{data['data'].username}}&addressInfo={{data['data'].address}}&orderId={{data['data'].orderId}}&TotalPrice={{data['data'].productamount}}&payInfo={{payInfo}}"  class="btn buy">去付款</a>
 </header>
 {% elseif data['data'].orderStatusTitle == '审核中' %}
 

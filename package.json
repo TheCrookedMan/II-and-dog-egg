@@ -10,6 +10,7 @@
     "gulp-build": "gulp build",
     "build": "npm run gulp-build && npm run compile",
     "server": "forever start -a -l forever.log -o out.log -e err.log ./bin/www",
+    "server-dev": "forever start -a -l forever.log -o out.log -e err.log ./bin/www server-dev",
     "pm2-server":"pm2 start app-pm2.json"
   },
   "dependencies": {

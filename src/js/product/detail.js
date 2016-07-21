@@ -242,7 +242,7 @@
             $('.btn.add').on('click', function() {
                 if (!userinfo.Uid) {
                     // modal.tip("用户未登录！");
-                    window.location.href='/profile/register.html';
+                    window.location.href='/profile/register.html?fromUrl='+window.location.href;
                     //return false;
                 }
                 $('.btn.add').hide()

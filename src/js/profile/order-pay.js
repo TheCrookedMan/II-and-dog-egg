@@ -8,8 +8,8 @@
             'amount': orderAmount*100,
             'channel': 'wx_pub',
             'currency': 'cny',
-            'subject': 'test',
-            'body': 'test',
+            'subject': "二丫和狗蛋商场",
+            'body': payInfo,
             'client_ip': '203.156.219.94',
             'open_id': OpenID
         }).success(function(charge) {

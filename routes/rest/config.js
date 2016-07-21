@@ -1,6 +1,6 @@
 let argv = process.argv.slice(2);
 
-if ("dev" == argv) {
+if ("dev" == argv || "server-dev" == argv) {
     exports.wechat = {
         'appId': 'wx16cd0f3f1f4ee12a',
         'appsecret': 'defcd1c0a12f0e6e383cfde5aff6d30e',

@@ -69,10 +69,12 @@
             if ("1" == data.code && !!data.data) {
                 var record = data.data;
                 common.setCookie('userinfo', JSON.stringify(record));
-                window.location.href = '/profile/profile.html';
+                // window.location.href = '/profile/profile.html';
+                history.go(-1);
             } else {
                 common.setCookie('userinfo', '{}');
-                window.location.href = '/profile/profile.html';
+                // window.location.href = '/profile/profile.html';
+                history.go(-1);
             }
         })
     }
@@ -87,7 +89,7 @@
             } else if (!!data.data && data.data['IsExist']) {
                 modal.tip(data.message);
                 setTimeout(function() {
-                    window.location.href = "/profile/bind.html";
+                    window.location.href = "/profile/bind.html?fromUrl="+fromUrl;
                 }, 2000)
             } else {
                 modal.alert({ text: data.message });

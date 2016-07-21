@@ -26,7 +26,8 @@
             if (data.code == 1) {
                 modal.tip("添加成功！");
                 $('.am-dimmer').hide();
-                window.getAddressFun();
+                history.go(-1);
+                // window.getAddressFun();
                 // window.location.href = '/profile/address.html';
             } else {
                 modal.tip(data.message);

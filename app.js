@@ -13,6 +13,12 @@ if ("dev" == argv) {
     errorRouter = require('./routes/error-router');
     pageRouter = require('./routes/page-router');
     swigFilter = require('./routes/tools/filter');
+} else if ("server-dev" == argv) {
+    apiRouter = require('./lib/api-router');
+    templateRouter = require('./lib/temp-router');
+    errorRouter = require('./lib/error-router');
+    pageRouter = require('./lib/page-router');
+    swigFilter = require('./lib/tools/filter');
 } else {
     apiRouter = require('./lib/api-router');
     templateRouter = require('./lib/temp-router');

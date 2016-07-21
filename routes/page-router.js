@@ -345,6 +345,7 @@ router.get('/profile/order-pay.html', (req, res, next) => {
         OSN = req.query.osn,
         orderId = req.query.orderId,
         TotalPrice = req.query.TotalPrice;
+    payInfo = req.query.payInfo;
 
     if (!!orderAmount) {
         orderAmount *= 1;
@@ -355,7 +356,7 @@ router.get('/profile/order-pay.html', (req, res, next) => {
     if (!!CouponMoney) {
         CouponMoney *= 1;
     }
-    return res.render('profile/order-pay', { title: '订单支付', osn: osn, orderAmount: orderAmount, TotalAmount: TotalAmount, CouponMoney: CouponMoney, userMobile: userMobile, username: username, addressInfo: addressInfo, OSN: OSN, orderId: orderId, TotalPrice: TotalPrice });
+    return res.render('profile/order-pay', { title: '订单支付', osn: osn, orderAmount: orderAmount, TotalAmount: TotalAmount, CouponMoney: CouponMoney, userMobile: userMobile, username: username, addressInfo: addressInfo, OSN: OSN, orderId: orderId, TotalPrice: TotalPrice, payInfo: payInfo });
 });
 
 /*

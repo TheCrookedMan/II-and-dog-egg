@@ -28,7 +28,7 @@
             if (data.code == 1) {
                 modal.tip("修改成功！");
                 $('.am-dimmer').hide();
-                window.getAddressFun();
+                history.go(-1);
                 // window.location.href = '/profile/address.html';
             } else {
                 modal.tip(data.message);
@@ -63,6 +63,7 @@
         $.each(I.L, function(j, J) {
             $.each(J.L, function(k, K) {
                 if (K['I'] == regionid) {
+                    debugger
                     provincesId = I['I'];
                     cityId = J['I'];
                     areaId = K['I'];
