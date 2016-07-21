@@ -40,7 +40,7 @@
         this.pageNo = 1;
         this.pageSize = 20;
         this.isEnd = false;
-        this.sortdirection = 'ASC';
+        this.sortdirection = 0;
         this.sortcolumn = 0;
         this.categoryId = categoryId;
     }
@@ -56,7 +56,7 @@
                     if($(this).hasClass("sort")){
                         $("ul.am-gallery").html("");
                         self.sortcolumn = 3;
-                        self.sortdirection = 'DESC';
+                        self.sortdirection = 1;
                         $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
                         self.get();
                         scroll.on(function() {
@@ -71,7 +71,7 @@
                     else{
                         $("ul.am-gallery").html("");
                         self.sortcolumn = 3;
-                        self.sortdirection = 'DESC';
+                        self.sortdirection = 0;
                         $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
                         self.get();
                         scroll.on(function() {
@@ -91,7 +91,7 @@
                     if($(this).hasClass("sort")){
                         $("ul.am-gallery").html("");
                         self.sortcolumn = 2;
-                        self.sortdirection = 'ASC';
+                        self.sortdirection = 1;
                         $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
                         self.get();
                         scroll.on(function() {
@@ -106,7 +106,7 @@
                     else{
                         $("ul.am-gallery").html("");
                         self.sortcolumn = 2;
-                        self.sortdirection = 'DESC';
+                        self.sortdirection = 0;
                         $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
                         self.get();
                         scroll.on(function() {
@@ -126,7 +126,7 @@
                     if($(this).hasClass("sort")){
                         $("ul.am-gallery").html("");
                         self.sortcolumn = 0;
-                        self.sortdirection = 'ASC';
+                        self.sortdirection = 1;
                         $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
                         self.get();
                         scroll.on(function() {
@@ -141,7 +141,7 @@
                     else{
                         $("ul.am-gallery").html("");
                         self.sortcolumn = 0;
-                        self.sortdirection = 'DESC';
+                        self.sortdirection = 0;
                         $("ul.am-gallery").html('<li class="no-data"><p><img src="/img/em3.png"></p><p>二丫家还没有这款商品诶~ <br>您再看看别哒~</p></li>');
                         self.get();
                         scroll.on(function() {
