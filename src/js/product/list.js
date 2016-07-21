@@ -54,10 +54,10 @@
                     $(this).addClass("cur");
                     $(this).toggleClass("sort");
                     if($(this).hasClass("sort")){
-                        $("ul.am-gallery").html("");
+                        //$("ul.am-gallery").html("");
                         self.sortcolumn = 3;
                         self.sortdirection = 1;
-                        $("ul.am-gallery").html('');
+                       // $("ul.am-gallery").html('');
                         self.get();
                         scroll.on(function() {
                             if (!self.isEnd) {
@@ -69,10 +69,10 @@
                         });
                     }
                     else{
-                        $("ul.am-gallery").html("");
+                        //$("ul.am-gallery").html("");
                         self.sortcolumn = 3;
                         self.sortdirection = 0;
-                        $("ul.am-gallery").html('');
+                        //$("ul.am-gallery").html('');
                         self.get();
                         scroll.on(function() {
                             if (!self.isEnd) {
@@ -89,10 +89,10 @@
                     $(this).addClass("cur");
                     $(this).toggleClass("sort");
                     if($(this).hasClass("sort")){
-                        $("ul.am-gallery").html("");
+                        //$("ul.am-gallery").html("");
                         self.sortcolumn = 2;
                         self.sortdirection = 1;
-                        $("ul.am-gallery").html('');
+                        //$("ul.am-gallery").html('');
                         self.get();
                         scroll.on(function() {
                             if (!self.isEnd) {
@@ -104,10 +104,10 @@
                         });
                     }
                     else{
-                        $("ul.am-gallery").html("");
+                        //$("ul.am-gallery").html("");
                         self.sortcolumn = 2;
                         self.sortdirection = 0;
-                        $("ul.am-gallery").html('');
+                        //$("ul.am-gallery").html('');
                         self.get();
                         scroll.on(function() {
                             if (!self.isEnd) {
@@ -124,10 +124,10 @@
                     $(this).addClass("cur");
                     $(this).toggleClass("sort");
                     if($(this).hasClass("sort")){
-                        $("ul.am-gallery").html("");
+                        //$("ul.am-gallery").html("");
                         self.sortcolumn = 0;
                         self.sortdirection = 1;
-                        $("ul.am-gallery").html('');
+                        //$("ul.am-gallery").html('');
                         self.get();
                         scroll.on(function() {
                             if (!self.isEnd) {
@@ -139,10 +139,10 @@
                         });
                     }
                     else{
-                        $("ul.am-gallery").html("");
+                        //$("ul.am-gallery").html("");
                         self.sortcolumn = 0;
                         self.sortdirection = 0;
-                        $("ul.am-gallery").html('');
+                        
                         self.get();
                         scroll.on(function() {
                             if (!self.isEnd) {
@@ -177,7 +177,7 @@
                 "cid": self.categoryId
             }).success(function(data) {
                 data = data.replace(/(^\s+)|(\s+$)/g, "");
-                modal.loading("close")
+                modal.loading("close");
                 if ("" == data) {
                     self.isEnd = true;
                 } else {
@@ -188,6 +188,12 @@
                         $("ul.am-gallery").append(data);
                     }
                     echo.render();
+                }
+                if($("ul.am-gallery li.can").length<=0){
+                    $("ul.am-gallery li.no-data").show()
+                }
+                else{
+                    $("ul.am-gallery li.no-data").hide()
                 }
             }).error(function(err) {});
         },
