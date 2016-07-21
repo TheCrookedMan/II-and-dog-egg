@@ -37,6 +37,20 @@
         </div>
     </div>
 </div>
+<!-- prompt -->
+<div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd"></div>
+        <div class="am-modal-bd">
+            <p class="am-modal-bd-message"></p>
+            <input type="text" class="am-modal-prompt-input">
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+            <span class="am-modal-btn" data-am-modal-confirm>提交</span>
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
 (function() {
     var modal = function() {
@@ -80,17 +94,25 @@
                 onCancel: params.onCancel
             });
         },
-        loading: function(string) {
-            $("#loading-modal .loading-string").text(string);
-            $("#loading-modal").modal();
+        loading: function(status, string) {
+            if (!string) {
+                string = "正在请求数据，请稍等...";
+            }
+            if ('open' == status) {
+                $("#loading-modal .loading-string").text(string);
+                $("#loading-modal").modal('open');
+            } else {
+                $("#loading-modal").modal('close');
+            }
+
         },
-        tip: function(text,time) {
-            $("#tip-modal .am-modal-dialog").css('width','auto');
-            $("#tip-modal .am-modal-bd").css('opacity',1);
+        tip: function(text, time) {
+            $("#tip-modal .am-modal-dialog").css('width', 'auto');
+            $("#tip-modal .am-modal-bd").css('opacity', 1);
             $("#tip-modal .am-modal-bd").css('padding', '0px 10px');
             $("#tip-modal .am-modal-bd").css('margin', '5px 0px');
             var timeoutTime = time;
-            if(!timeoutTime){
+            if (!timeoutTime) {
                 timeoutTime = 2000;
             }
             $("#tip-modal .am-modal-bd").text(text);
@@ -99,6 +121,30 @@
             this.timer = setTimeout(function() {
                 $("#tip-modal").modal("close");
             }, timeoutTime);
+        },
+        prompt: function(params) {
+            var $input = $('#my-prompt .am-modal-bd input');
+            $input.val("")
+            if (!!params.title) {
+                $('#my-prompt .am-modal-hd').text(params.title);
+            }
+            $('#my-prompt .am-modal-bd .am-modal-bd-message').text(params.text);
+            if(!!params.placeholder){
+                $input.attr('placeholder',params.placeholder);
+            }
+            if(!!params.inputType){
+                $input.attr('type',params.inputType);
+            }
+            $('#my-prompt').modal({
+                relatedTarget: params.relatedTarget,
+                onConfirm: function(ev) {
+                    var value = $input.val();
+                    params.onConfirm(value,ev);
+                },
+                onCancel: params.onCancel
+            });
+            $(".am-dimmer").css('z-index','2000');
+            $(".am-modal").css('z-index','2001');
         }
     }
     this.modal = new modal();

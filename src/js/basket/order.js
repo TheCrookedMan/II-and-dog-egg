@@ -7,6 +7,7 @@
     var addressInfo = "";
     var userMobile = "";
     var username = "";
+    var usableBalance = 0;
     $.get('/template/basket/order.t', { "uid": userinfo.Uid, 'type': 1, 'pids': pids }).success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
         if ("" !== data) {
@@ -41,34 +42,73 @@
 
             //余额
             $("#getyuer").on('click', function() {
-                $("input.yuer").val('');
-                $("#yuer").show();
+                count();
+                // $("input.yuer").val('');
+                // $("#yuer").show();
                 $.post('/user/accountBalance.post', { "uid": userinfo.Uid }).success(function(data) {
                     if (data.code == "1" && !!data.data) {
                         var record = data.data;
                         $("i.yuer").text(record.balan);
                         maxBalance = record.balan;
-                        $("input.yuer").attr('placeholder', '余额支付 ' + record.balan + " 元");
+                        if (maxBalance > usableBalance) {
+                            var text = '可用余额' + maxBalance.toFixed(2);
+                            var placeholder = '可支付余额为：' + maxBalance.toFixed(2);
+                            modal.prompt({
+                                title: '余额',
+                                text: text,
+                                placeholder: placeholder,
+                                inputType: 'number',
+                                onConfirm: function(value) {
+                                    if (value > maxBalance) {
+                                        modal.alert({ text: '超出可用余额！' })
+                                    } else {
+                                        balance = value * 1;
+                                        $("#yuerTxt").html(balance.toFixed(2));
+                                        count();
+                                    }
+                                }
+                            });
+                        } else {
+                            var text = '可用余额' + usableBalance.toFixed(2);
+                            var placeholder = '可支付余额为：' + usableBalance.toFixed(2);
+                            modal.prompt({
+                                title: '余额',
+                                text: text,
+                                placeholder: placeholder,
+                                inputType: 'number',
+                                onConfirm: function(value) {
+                                    if (value > usableBalance) {
+                                        modal.alert({ text: '超出可用余额！' })
+                                    } else {
+                                        balance = value * 1;
+                                        $("#yuerTxt").html(balance.toFixed(2));
+                                        count();
+                                    }
+                                    return false;
+                                }
+                            });
+                        }
+                        // $("input.yuer").attr('placeholder', '余额支付 ' + record.balan + " 元");
                     }
                 }).error(function(err) {});
-                $("#orderMain").hide();
+                // $("#orderMain").hide();
             })
 
             //确认余额
-            $("#ok_yuer").on('click', function() {
-                var inputBalance = $("input.yuer").val();
-                inputBalance *= 1;
-                if (maxBalance < inputBalance) {
-                    modal.alert({ text: '超出可用余额！' })
-                    return false;
-                }
-                $("#yuerTxt").html(inputBalance.toFixed(2));
-                $("#orderMain").show();
-                balance = inputBalance;
-                balance *= 1;
-                count();
-                $("#yuer").hide();
-            })
+            // $("#ok_yuer").on('click', function() {
+            //     var inputBalance = $("input.yuer").val();
+            //     inputBalance *= 1;
+            //     if (maxBalance < inputBalance) {
+            //         modal.alert({ text: '超出可用余额！' })
+            //         return false;
+            //     }
+            //     $("#yuerTxt").html(inputBalance.toFixed(2));
+            //     $("#orderMain").show();
+            //     balance = inputBalance;
+            //     balance *= 1;
+            //     count();
+            //     $("#yuer").hide();
+            // })
 
             //获取优惠券
             $("#getCoupon").on('click', function() {
@@ -167,19 +207,20 @@
         $(".balancePrice").text("- ¥" + balance.toFixed(2));
         countTotalPrice = parseFloat(TotalPrice) + parseFloat(TotalShipFee) - parseFloat(TotalCouponPrice) - parseFloat(balance);
         $(".countTotalPrice").text("¥ " + countTotalPrice.toFixed(2));
+        usableBalance = parseFloat(TotalPrice) + parseFloat(TotalShipFee) - parseFloat(TotalCouponPrice);
     }
 
     $("#orderAddress").on('click', '.addressALink', function(ev) {
         var said = $(this).data('said');
         var self = this;
-        modal.loading("正在请求数据，请稍等...")
+        modal.loading("open");
         $.post('/user/modifyAddressOrderInfo.post', {
             uid: userinfo.Uid,
             weight: TotalWeight,
             productamount: ProductAmount,
             said: said
         }).success(function(data) {
-            modal.loading("正在请求数据，请稍等...");
+            modal.loading("close");
             if ("1" == data.code && !!data.data) {
                 $("#orderMain").show();
                 $("#orderAddress").hide();
@@ -233,10 +274,10 @@
     }
 
     function getAddressFun() {
-        modal.loading("正在请求数据...");
+        modal.loading("open");
         $.get('/template/profile/profile_address.t', { "uid": userinfo.Uid }).success(function(data) {
             data = data.replace(/(^\s+)|(\s+$)/g, "");
-            modal.loading("正在请求数据，请稍等...")
+            modal.loading("close");
             if ("" !== data) {
                 $("#orderMain").hide();
                 $("#addUserAddress").hide();
