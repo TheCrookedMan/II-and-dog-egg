@@ -58,11 +58,11 @@
                         maxBalance *= 1;
 
                         if (maxBalance > usableBalance) {
-                            $("i.yuer").text(usableBalance.toFixed(2));
-                            $("input.yuer").attr('placeholder', '余额支付 ' + usableBalance.toFixed(2) + " 元");
+                            $("i.yuer").text(maxBalance.toFixed(2));
+                            $("input.yuer").attr('placeholder', '本次可使用余额支付 ' + usableBalance.toFixed(2) + " 元");
                         } else {
                             $("i.yuer").text(maxBalance.toFixed(2));
-                            $("input.yuer").attr('placeholder', '余额支付 ' + maxBalance.toFixed(2) + " 元");
+                            $("input.yuer").attr('placeholder', '本次可使用余额支付 ' + maxBalance.toFixed(2) + " 元");
                         }
 
                         // if (maxBalance > usableBalance) {
@@ -115,6 +115,10 @@
                 inputBalance *= 1;
                 if (maxBalance < inputBalance) {
                     modal.alert({ text: '超出可用余额！' })
+                    return false;
+                }
+                if (usableBalance < inputBalance) {
+                    modal.alert({ text: '超出本次订单可使用余额！' })
                     return false;
                 }
                 $("#yuerTxt").html(inputBalance.toFixed(2));
@@ -198,7 +202,7 @@
             if ("1" == data.code && !!data.data) {
                 var record = data.data;
                 if (record.orderAmount > 0) {
-                    window.location.href = "/profile/order-pay.html?osn=" + record.oNum + "&orderAmount=" + record.orderAmount + "&TotalAmount=" + record.TotalAmount + "&CouponMoney=" + record.CouponMoney + "&userMobile=" + userMobile + "&username=" + username + "&addressInfo=" + addressInfo + "&orderId=" + record.oId + "&TotalPrice=" + TotalPrice+"&payInfo="+payInfo;
+                    window.location.href = "/profile/order-pay.html?osn=" + record.oNum + "&orderAmount=" + record.orderAmount + "&TotalAmount=" + record.TotalAmount + "&CouponMoney=" + record.CouponMoney + "&userMobile=" + userMobile + "&username=" + username + "&addressInfo=" + addressInfo + "&orderId=" + record.oId + "&TotalPrice=" + TotalPrice + "&payInfo=" + payInfo;
                 } else {
                     window.location.href = "/profile/order-paySucess.html?userMobile=" + userMobile + "&username=" + username + "&addressInfo=" + addressInfo + "&OSN=" + record.oNum + "&orderId=" + record.oId + "&TotalPrice=" + TotalPrice;
                 }
@@ -229,12 +233,13 @@
     }
 
     function count() {
+        TotalShipFee *= 1;
         countTotalPrice = parseFloat(TotalPrice) + parseFloat(TotalShipFee) - parseFloat(TotalCouponPrice) - parseFloat(balance);
         usableBalance = parseFloat(TotalPrice) + parseFloat(TotalShipFee) - parseFloat(TotalCouponPrice);
         $(".countTotalPrice").text("¥ " + countTotalPrice.toFixed(2));
         $(".couponPrice").text("- ¥ " + TotalCouponPrice.toFixed(2));
         $(".balancePrice").text("- ¥" + balance.toFixed(2));
-
+        $(".TotalShipFee").text("＋¥" + TotalShipFee.toFixed(2));
     }
 
     $("#orderAddress").on('click', '.addressALink', function(ev) {
@@ -254,13 +259,18 @@
                 var Consignee = $(self).find('.Consignee').text();
                 var Mobile = $(self).find('.Mobile').text();
                 var area = $(self).find('.area').text();
+
+                userMobile = Mobile;
+                username = Consignee;
+                addressInfo = area;
+
                 $('#getAddress .name').text(Consignee);
                 $('#getAddress .mobile').text(Mobile);
                 $('#getAddress .area').text(area);
                 window.said = said;
                 var record = data.data;
                 TotalShipFee = record.shopFee;
-                $(".TotalShipFee").text("＋¥" + TotalShipFee.toFixed(2));
+                count();
                 history.go(-1);
             }
         })
