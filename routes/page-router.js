@@ -344,8 +344,8 @@ router.get('/profile/order-pay.html', (req, res, next) => {
         addressInfo = req.query.addressInfo,
         OSN = req.query.osn,
         orderId = req.query.orderId,
-        TotalPrice = req.query.TotalPrice;
-    payInfo = req.query.payInfo;
+        TotalPrice = req.query.TotalPrice,
+        payInfo = req.query.payInfo;
 
     if (!!orderAmount) {
         orderAmount *= 1;
