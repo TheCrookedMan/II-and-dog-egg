@@ -15,11 +15,13 @@
 	<marquee scrollamount="2" direction="up" >
 		<ul>
 		{% for list in data.data['Record'] %}
-		
+			{% if loop.index <=10 %}
 			<li>
 				<span class="fl"><em>.</em>用户“{{list.UserName}}”捐款 {{list.DonationMoney}}元</span>
 				<span class="fr">{{list.DonationTime}}</span>
 			</li>
+			{% else %}
+    		{% endif %}
 		{% endfor %}
 		</ul>
 	</marquee>
