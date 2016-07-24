@@ -77,6 +77,8 @@ router.get('/wechatAuth.html', (req, res, next) => {
                     res.redirect(redirect_uri);
                 }, next);
             }
+        } else if (40029 == data.errcode) {
+            res.redirect(redirect_uri);
         } else {
             //error
             next({

@@ -13,7 +13,18 @@ exports.accessToken = (appid, appsecret, code, callback) => {
     post = "80";
     url = "/sns/oauth2/access_token?appid=" + appid + "&secret=" + appsecret + "&code=" + code + "&grant_type=authorization_code";
 
-    get(host, post, url, callback);
+    let authCode = nodeCache.get('authCode');
+    if (!authCode) {
+        /*
+            由于缓存的计时单位是毫秒，所以时间 需要 X1000 ；
+            存储时间为4分钟
+         */
+        nodeCache.put("authCode", code, 4 * 60 * 1000);
+        get(host, post, url, callback);
+    } else {
+        callback({ "errcode": 40029, "errmsg": "invalid code, hints: [ req_id: 0196ns89 ]" })
+    }
+
 }
 
 let get = (host, post, url, callback) => {
