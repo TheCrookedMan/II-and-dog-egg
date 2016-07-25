@@ -1,4 +1,11 @@
 <div class="order_ok order_detail">
+  {% if data['data'].orderStatusTitle == '去支付' %}
+  <div class="list pb0">
+    <div class="title">
+      <div class="fr"><a href="javascript:void(0)" class="fz16"  id="del_order">取消订单</a></div>
+    </div>
+  </div>
+  {% endif %}
   <div class="list">
     <div class="title">
       <div class="fl">
@@ -177,7 +184,7 @@
   <a href="javascript:void(0)"  class="btn buy" id="ok_shiping">确认收货</a>
 </header>
 {% elseif data['data'].orderStatus == 6 %}
-<header class="am-topbar am-topbar-fixed-bottom detail_foot bge bd0">
+<!-- <header class="am-topbar am-topbar-fixed-bottom detail_foot bge bd0">
   <a href="javascript:void(0)"  class="btn buy" id="del_order">删除订单</a>
-</header>
+</header> -->
 {% endif %}
