@@ -502,7 +502,7 @@ router.get('/basket/order.html', (req, res, next) => {
  */
 
 router.get('/sale/index.html', (req, res, next) => {
-    return res.render('sale/index', { title: '健康推广大使' });
+    return res.render('sale/index', { title: '我的推广' });
 });
 
 /*

@@ -8,15 +8,17 @@
         normal();
     } else {
         $(".link-toCode").attr('href', '/sale/code.html?shareParentId=' + userinfo.Uid);
-        initMonthTask();
-        initCommitionMoney();
+
         $(".pinfo .setting").show();
-        $(".mySale .list.mt05").show();
+
         if (userinfo.UserIdentity == 1) {
             $(".pinfo .UserIdentity").text("身份：推广大使");
             $(".pinfo .link a").text("爱心传递");
-            $(".pinfo .img .bg").attr('src','/img/jiankangdashi@2x.png');
+            $(".pinfo .img .bg").attr('src', '/img/jiankangdashi@2x.png');
             $(".pinfo .link a").attr('href', '/profile/how_2.html');
+            initMonthTask();
+            initCommitionMoney();
+            $(".mySale .list.mt05").show();
         } else {
             $(".pinfo .UserIdentity").text("身份：普通会员");
             $(".pinfo .link a").text("如何成为健康大使？");
@@ -24,15 +26,8 @@
         }
 
         if (userinfo.IdentityState == 1) {
-            $(".pinfo .link a").text("如何继续做公益");
+            $(".pinfo .link a").text("如何恢复身份？");
             $(".pinfo .link a").attr('href', '/profile/how_3.html');
-            // $(".IdentityStateDisable").show();
-        } else {
-            // $(".IdentityStateActive").show();
-            // countdownTimer.init("2016-10-10 10:10:00",function(d){
-            // countdownTimer.init(userinfo.LostAgentTime, function(d) {
-            //     $(".IdentityStateActive .time").html("距截止还有<em>" + d.day + "</em>天<em>" + d.hour + "</em>时<em>" + d.min + "</em>分<em>" + d.sec + "</em>秒 ");
-            // });
         }
     }
 
@@ -69,7 +64,7 @@
                     if (!record.IsComplete) {
                         $(".IdentityStateActive").show();
                         countdownTimer.init(record.taskEnd, function(d) {
-                            $(".IdentityStateActive .time").html("距截止还有<em>" + d.day + "</em>天<em>" + d.hour + "</em>时<em>" + d.min + "</em>分<em>" + d.sec + "</em>秒 ");
+                            $(".IdentityStateActive .time").html("距截止还有<em>" + d.day + "</em>天<em>" + d.hour + "</em>时<em>" + d.min + "</em>分");
                         });
                     } else {
                         $(".IdentityStateDisable").show();
