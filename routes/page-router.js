@@ -168,7 +168,8 @@ router.get('/package/info.html', (req, res, next) => {
 
 router.get('/product/list.html', (req, res, next) => {
     let categoryId = req.query.categoryId;
-    return res.render('product/list', { title: '产品列表', categoryId: categoryId });
+    let title = req.query.title;
+    return res.render('product/list', { title: '产品列表', categoryId: categoryId,title:title});
 });
 
 /*
@@ -186,7 +187,8 @@ router.get('/product/detail.html', (req, res, next) => {
 
 router.get('/product/search.html', (req, res, next) => {
     let searchkey = req.query.searchkey;
-    return res.render('product/search', { title: '产品搜索', searchkey: searchkey });
+    let title = req.query.title;
+    return res.render('product/search', { title: '产品搜索', searchkey: searchkey,title:title });
 });
 
 /*

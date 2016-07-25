@@ -214,8 +214,13 @@
                     $("#skuPrice").html(res.ShopPrice);
                 }).error(function(err) {});
                 $("#skuSelected").html(txt);
-                var str = '<em>“' + $(this).text() + '”</em>';
-                $("#selected").append(str);
+                if($("#openmodel em").hasClass(PId)){
+                    
+                }
+                else{
+                    var str = '<em class="'+PId+'">“' + $(this).text() + '”</em>';
+                    $("#selected").append(str);
+                }               
             })
 
             $(".pdetail_modal .select dl dd a.cur").each(function() {
@@ -225,7 +230,7 @@
                     $("#skuPrice").html(res.ShopPrice)
                 }).error(function(err) {});
                 $("#skuSelected").html($(this).text());
-                var str = '<em>“' + $(this).text() + '”</em>';
+                var str = '<em class="'+PId+'">“' + $(this).text() + '”</em>';
                 $("#selected").append(str);
             });
 

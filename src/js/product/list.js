@@ -1,4 +1,8 @@
 (function() {
+
+    $(document).attr("title","产品列表--"+title);
+
+
     $("#keyword").click(function() {
         $(this).siblings('.search').show();
     })
@@ -9,6 +13,10 @@
             $("#listNav").html(data);
         }
     }).error(function(err) {});
+
+    // $.post('/user/category.post').success(function(data) {
+    //     console.log(data)
+    // }).error(function(err) {});
 
     //搜索
 

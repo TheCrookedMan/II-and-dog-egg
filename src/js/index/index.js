@@ -15,6 +15,10 @@
         }
     }).error(function(err) {});
 
+    // $.post('/user/category.post').success(function(data) {
+    //     console.log(data.data)
+    // }).error(function(err) {});
+
 
     // $.get('/template/index/keyword.t').success(function(data) {
     //     data = data.replace(/(^\s+)|(\s+$)/g, "");

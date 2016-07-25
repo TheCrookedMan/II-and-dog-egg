@@ -371,7 +371,7 @@
 }
 
 .nav-tab{
-    background:#fff;font-size: 1.8rem;position: fixed;top: 0;left: 0;text-align: center;width: 100%;padding-top: 0.8rem;border:0;padding-bottom:1.2rem;
+    background:#fff;font-size: 1.8rem;position: fixed;top: 0;left: 0;text-align: center;width: 100%;padding-top: 0.8rem;border:0;padding-bottom:0.8rem;
     z-index: 999;
     .pub_basket{
         margin-top:-1.2rem;margin-right:1rem;font-size:2rem;
@@ -382,6 +382,16 @@
     a{
         &.cur{
             border-bottom: #9bc32e solid 2px;
+        }
+    }
+}
+
+.product{
+    .product_list{
+        li{
+            .am-gallery-title{
+                width:96%;text-align:center;
+            }
         }
     }
 }

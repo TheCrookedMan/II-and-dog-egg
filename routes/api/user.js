@@ -63,7 +63,7 @@ exports.receiverList = (req, res, next) => { new normalRequest('/api/user/receiv
 		分类（api/user/category）
 		入参：无
  */
-exports.category = (req, res, next) => { new normalRequest('/api/user/category').post(req, res, next); }
+exports.category = (req, res, next) => { new normalRequest('/api/user/category').get(req, res, next); }
 
 exports.category_link = (req, res, next) => { new normalRequest('/api/user/category').link_g(req, res, next); }
 

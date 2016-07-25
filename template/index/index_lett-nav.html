@@ -1,6 +1,6 @@
  {% if "1" == data['code'] %} {% for category in data['data'] %}
 <li>
-<a href="/product/list.html?categoryId={{category.fid}}">
+<a href="/product/list.html?categoryId={{category.fid}}&title={{category.fTitle}}">
 {% if category.secondCategoryArray.length > 0 %}
 <em>+</em>
 {% else %}
