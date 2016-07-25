@@ -9,6 +9,7 @@
         $(".pinfo .setting").show();
         if (userinfo.UserIdentity == 1) {
             $(".pinfo .UserIdentity").text("身份：推广大使");
+            $(".pinfo .img .bg").attr('src','/img/jiankangdashi@2x.png');
             $(".pinfo .link a").text("如何推广？");
             $(".pinfo .link a").attr('src', '/profile/how_2.html');
         } else {
