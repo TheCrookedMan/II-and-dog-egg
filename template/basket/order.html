@@ -47,7 +47,7 @@ var said = "{{receiverInfoObject.said}}";
             {% set price = proinfo.ShopPrice * proinfo.BuyCount %}
             {% set TotalPrice += price %}
 
-            {% set payInfo += proinfo.proName + "," %}
+            {% set payInfo += proinfo.Name + "," %}
             <img src="{{proinfo.ShowImg}}"> {% endfor %}
             <!-- <span>{{ list.shopName }}</span> -->
             <span class="fr"><em>共{{list.TotalCount}}件</em><i class="am-icon-angle-right"></i></span> {% endfor %}

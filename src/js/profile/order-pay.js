@@ -2,6 +2,9 @@
     var OpenID = common.getOpenId();
     var random = Math.random()*Math.random();
     random = random.toString().substr(-4,4);
+    if(!payInfo){
+        payInfo = "支付商品信息为空！";
+    }
     $("body").on('click', '.btn.buy', function(ev) {
         $.post('/user/eycharges.post', {
             'order_no': osn+random,
