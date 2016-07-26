@@ -27,7 +27,7 @@
             if (userinfo.UserIdentity == 1) {
                 $(".pinfo .UserIdentity").text("身份：推广大使");
                 $(".pinfo .img .bg").attr('src', '/img/jiankangdashi@2x.png');
-                qrcodeText = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx4e6f77b139c239fc&redirect_uri=http%3a%2f%2fm.xian17.com%2fwechatAuth.html&response_type=code&scope=snsapi_userinfo&state=/index/index.html?shareParentId=" + userinfo.Uid + "&connect_redirect=1#wechat_redirect";
+                qrcodeText = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+window.appid+"&redirect_uri="+window.redirect_uri+"&response_type=code&scope=snsapi_userinfo&state=/index/index.html?shareParentId=" + userinfo.Uid + "&connect_redirect=1#wechat_redirect";
             } else {
                 $(".pinfo .UserIdentity").text("身份：普通会员");
             }
@@ -48,7 +48,7 @@
                 if (userinfo.UserIdentity == 1) {
                     $(".pinfo .UserIdentity").text("身份：推广大使");
                     $(".pinfo .img .bg").attr('src', '/img/jiankangdashi@2x.png');
-                    qrcodeText = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx4e6f77b139c239fc&redirect_uri=http%3a%2f%2fm.xian17.com%2fwechatAuth.html&response_type=code&scope=snsapi_userinfo&state=/index/index.html?shareParentId=" + record.Uid + "&connect_redirect=1#wechat_redirect";
+                    qrcodeText = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+window.appid+"&redirect_uri="+window.redirect_uri+"&response_type=code&scope=snsapi_userinfo&state=/index/index.html?shareParentId=" + record.Uid + "&connect_redirect=1#wechat_redirect";
                 } else {
                     $(".pinfo .UserIdentity").text("身份：普通会员");
                 }

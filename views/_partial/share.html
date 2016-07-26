@@ -4,7 +4,7 @@
         this.nonceStr = this.generateMixed(32);
         this.timestamp = new Date().getTime();
         this.url = window.location.href;
-        this.appId = 'wx4e6f77b139c239fc';
+        this.appId = window.appid;
         this.debug = false;
         // 所有要调用的 API 都要加到这个列表中
         this.jsApiList = [
@@ -81,7 +81,7 @@
     window.initShare = function(title, detail) {
         wx.ready(function() {
             var shareParentId = 0;
-            var baseLink = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+window.wxinit.appId+"&redirect_uri=http%3a%2f%2fm.xian17.com%2fwechatAuth.html&response_type=code&scope=snsapi_userinfo&";
+            var baseLink = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+window.wxinit.appId+"&redirect_uri="+window.redirect_uri+"&response_type=code&scope=snsapi_userinfo&";
             var otherLink = "";
             var linkUrl = "";
             if (!!userinfo.Uid && userinfo.UserIdentity == 1) {

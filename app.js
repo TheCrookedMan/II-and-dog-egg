@@ -6,25 +6,29 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compression = require('compression');
 var argv = process.argv.slice(2);
-var apiRouter, templateRouter, errorRouter, pageRouter, swigFilter;
+var apiRouter, templateRouter, errorRouter, pageRouter, swigFilter,systemConfig;
+
 if ("dev" == argv) {
     apiRouter = require('./routes/api-router');
     templateRouter = require('./routes/temp-router');
     errorRouter = require('./routes/error-router');
     pageRouter = require('./routes/page-router');
     swigFilter = require('./routes/tools/filter');
+    systemConfig = require('./routes/rest/config');
 } else if ("server-dev" == argv) {
     apiRouter = require('./lib/api-router');
     templateRouter = require('./lib/temp-router');
     errorRouter = require('./lib/error-router');
     pageRouter = require('./lib/page-router');
     swigFilter = require('./lib/tools/filter');
+    systemConfig = require('./lib/rest/config');
 } else {
     apiRouter = require('./lib/api-router');
     templateRouter = require('./lib/temp-router');
     errorRouter = require('./lib/error-router');
     pageRouter = require('./lib/page-router');
     swigFilter = require('./lib/tools/filter');
+    systemConfig = require('./lib/rest/config');
 }
 var app = express();
 app.use(compression());
@@ -52,6 +56,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
+
+app.set('appid', systemConfig.appId);
+app.set('redirect_uri', systemConfig.redirect_uri);
 
 app.use('/', apiRouter);
 app.use('/', templateRouter);
