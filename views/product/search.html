@@ -2,14 +2,25 @@
 <script type="text/javascript">
 	var searchkey = "{{searchkey}}";
 </script>
+<style type="text/css">
+    .am-topbar{
+        padding-bottom: 0.5rem !important;
+    }
+    .am-topbar .search{
+        display: inline-block !important;
+    }
+    .am-topbar .search form{
+        margin-bottom: 0.5rem;
+    }
+</style>
 <div class="product">
     <!-- Header -->
     <header class="am-topbar am-topbar-fixed-top">
-        <a href="javascript:void(0)" data-am-modal="{target: '#search'}" class="fl">列表页<i class="am-icon-angle-down"></i></a>
-        <a href="javascript:void(0)" class="fr" id="keyword"><i class="am-icon-search"></i></a>
+        <!-- <a href="javascript:void(0)" data-am-modal="{target: '#search'}" class="fl">列表页<i class="am-icon-angle-down"></i></a>
+        <a href="javascript:void(0)" class="fr" id="keyword"><i class="am-icon-search"></i></a> -->
         <div class="search">
             <form id="searchForm" method='get' action="">
-                <input type="text" id="keywords"> 
+                <input type="text" id="keywords" value="{{searchkey}}"> 
                 <a href="javascript:void(0)" id="deltxt"><img src="/img/quxiao@3x.png"></a>
             </form>
         </div>

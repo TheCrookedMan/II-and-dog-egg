@@ -1,5 +1,5 @@
 (function() {
-    $.get('/template/basket/basket_list.t', { "uid": userinfo.Uid }).success(function(data) {
+    $.get('/template/basket/basket_list.t', { "uid": 3 }).success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
         if ("" !== data) {
             $('.pub_noData').hide();
