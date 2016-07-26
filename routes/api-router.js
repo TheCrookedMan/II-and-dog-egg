@@ -6,7 +6,8 @@ import product from './api/product';
 import smsCode from './api/smsCode';
 import user from './api/user';
 import wechat from './api/wechat';
-
+import log from './api/log';
+let logger = new log();
 /*
 	user 用户相关请求
  */
@@ -73,6 +74,9 @@ router.post('/user/applyRefund.post', user.applyRefund);
 
 // 订单提示信息
 router.post('/user/GetPromptFlg.post', user.GetPromptFlg);
+
+// 获取用户支付商品信息
+router.post('/user/GetOrderProdInfo.post',user.GetOrderProdInfo);
 
 /*
 	发送验证码，此接口只是提供于 设置 提现安全码  功能
@@ -195,5 +199,7 @@ router.post('/user/expressDetail.post', user.expressDetail);
 
 // 购物车数量
 router.post('/cart/GetCartCount.post', cart.GetCartCount);
+
+router.post('/log/write.post',logger.write);
 
 module.exports = router;

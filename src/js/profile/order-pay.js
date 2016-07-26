@@ -2,17 +2,29 @@
     var OpenID = common.getOpenId();
     var random = Math.random()*Math.random();
     random = random.toString().substr(-4,4);
-    if(!payInfo){
-        payInfo = "支付商品信息为空！";
-    }
+    var subject = "";
+    var body = "";
+    $.post('/user/GetOrderProdInfo.post',{oid:orderId}).success(function(data){
+        if("1" == data.code && !!data.data){
+            var record = data.data;
+            var info = record.Info;
+            subject = info.subject;
+            body = info.body;
+            $(".detail_foot a.btn").addClass('buy');
+            $(".detail_foot a.btn").removeClass('disable');
+        }
+    });
+    // if(!payInfo){
+    //     payInfo = "支付商品信息为空！";
+    // }
     $("body").on('click', '.btn.buy', function(ev) {
         $.post('/user/eycharges.post', {
             'order_no': osn+random,
             'amount': orderAmount*100,
             'channel': 'wx_pub',
             'currency': 'cny',
-            'subject': "二丫和狗蛋商场",
-            'body': payInfo,
+            'subject': subject,
+            'body': body,
             'client_ip': '203.156.219.94',
             'open_id': OpenID
         }).success(function(charge) {

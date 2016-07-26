@@ -23,7 +23,7 @@
                         $('.am-dimmer').hide();
 
                         if (!ParentID) {
-                            console.log("=======console log========== bind app page =================OpenID：" + OpenID + "========username：" + params.name + "======userpwd：" + pd + "=========openid：" + OpenID);
+                            $.post('/log/write.post', { info: "=======console log========== bind app page =================OpenID：" + OpenID + "========username：" + params.name + "======userpwd：" + pd + "=========openid：" + OpenID });
                         }
 
 

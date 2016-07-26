@@ -359,3 +359,8 @@ exports.checkCard = (req,res,next) =>{ new normalRequest('/api/User/CheckCard', 
 exports.GetPromptFlg = (req,res,next) =>{ new normalRequest('/api/user/GetPromptFlg').get(req, res, next); }
 
 exports.modifyAddressOrderInfo = (req,res,next) =>{ new normalRequest('/api/user/modifyAddressOrderInfo').post(req, res, next); }
+
+/*
+	获取用户支付商品信息
+ */
+exports.GetOrderProdInfo = (req,res,next) => {new normalRequest('/api/user/GetOrderProdInfo').get(req,res,next)}

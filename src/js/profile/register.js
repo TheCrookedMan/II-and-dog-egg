@@ -32,7 +32,7 @@
                 var params = common.parseForm(".am-form");
                 var pwd = $.md5(params.userpwd);
                 var ParentID = params.ParentID;
-                if(!ParentID){
+                if (!ParentID) {
                     ParentID = $.cookie('shareParentId');
                 }
                 $.post('/user/register.post', {
@@ -47,7 +47,7 @@
                     if ("1" == data.code) {
 
                         if (!ParentID) {
-                            console.log("=======console log========== register user page =================OpenID：" + OpenID + "========username："+params.mobileNo+"======userpwd："+pwd+"=========openid："+OpenID);
+                            $.post('/log/write.post', { info: "=======console log========== register user page =================OpenID：" + OpenID + "========username：" + params.mobileNo + "======userpwd：" + pwd + "=========openid：" + OpenID });
                         }
 
                         getUserInfo();
@@ -81,7 +81,6 @@
 
     function sendSMS(mobileNo) {
         $.post('/smsCode/register_smscode.post', { phone: mobileNo, type: 0 }).success(function(data) {
-
             if ("1" == data.code) {
                 modal.alert({ text: data.message });
                 $(".am-form .sendSMS").attr('disabled', 'disabled');
@@ -89,7 +88,7 @@
             } else if (!!data.data && data.data['IsExist']) {
                 modal.tip(data.message);
                 setTimeout(function() {
-                    window.location.href = "/profile/bind.html?fromUrl="+fromUrl;
+                    window.location.href = "/profile/bind.html?fromUrl=" + fromUrl;
                 }, 2000)
             } else {
                 modal.alert({ text: data.message });

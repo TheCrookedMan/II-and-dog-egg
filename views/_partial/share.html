@@ -90,9 +90,9 @@
             var localhref = window.location.href;
 
             if (-1 != localhref.indexOf('product/detail.html')) {
-                otherLink = "state=" + localhref + "&shareParentId=" + shareParentId + "&connect_redirect=1#wechat_redirect"
+                otherLink = "state=" + localhref + "&shareParentId=" + shareParentId + "&comeFromShare=1&connect_redirect=1#wechat_redirect"
             } else {
-                otherLink = "state=" + window.location.host + "/index/index.html&shareParentId=" + shareParentId + "&connect_redirect=1#wechat_redirect"
+                otherLink = "state=" + window.location.host + "/index/index.html&shareParentId=" + shareParentId + "&comeFromShare=1&connect_redirect=1#wechat_redirect"
             }
 
             linkUrl = baseLink + otherLink;
