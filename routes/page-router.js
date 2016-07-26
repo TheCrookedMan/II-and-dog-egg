@@ -78,7 +78,11 @@ router.get('/wechatAuth.html', (req, res, next) => {
                 }, next);
             }
         } else if (40029 == data.errcode) {
-            res.redirect(redirect_uri);
+            // res.redirect(redirect_uri);
+            next({
+                msg: "微信授权失败，请返回上级页面重新打开！"
+            });
+            console.log("==========wechatAuth===========微信授权失败！" + params);
         } else {
             //error
             next({
