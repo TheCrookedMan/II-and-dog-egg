@@ -46,7 +46,6 @@
         shareWechat: function(title, linkUrl, desc) {
             var self = this;
             var imgUrl = "http://" + window.location.hostname + "/img/shareLogo.jpg";
-
             wx.onMenuShareTimeline({
                 title: title, // 分享标题
                 link: linkUrl, // 分享链接
@@ -81,22 +80,23 @@
     window.initShare = function(title, detail) {
         wx.ready(function() {
             var shareParentId = 0;
-            var baseLink = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+window.wxinit.appId+"&redirect_uri="+window.redirect_uri+"&response_type=code&scope=snsapi_userinfo&";
+            var baseLink = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + window.wxinit.appId + "&redirect_uri=" + window.redirect_uri + "&response_type=code&scope=snsapi_userinfo&";
             var otherLink = "";
             var linkUrl = "";
+            var localhref = window.location.href;
             if (!!userinfo.Uid && userinfo.UserIdentity == 1) {
                 shareParentId = userinfo.Uid;
+                if (-1 != localhref.indexOf('product/detail.html')) {
+                    otherLink = "state=" + localhref + "?shareParentId=" + shareParentId + "*_*comeFromShare=1&connect_redirect=1#wechat_redirect"
+                } else if (-1 != localhref.indexOf('sale/code.html')) {
+                    otherLink = "state=/sale/code.html?shareParentId=" + shareParentId + "*_*comeFromShare=1&connect_redirect=1#wechat_redirect"
+                } else {
+                    otherLink = "state=/index/index.html?shareParentId=" + shareParentId + "*_*comeFromShare=1&connect_redirect=1#wechat_redirect"
+                }
+                linkUrl = baseLink + otherLink;
+                window.wxinit.shareWechat(title, linkUrl, detail);
             }
-            var localhref = window.location.href;
 
-            if (-1 != localhref.indexOf('product/detail.html')) {
-                otherLink = "state=" + localhref + "&shareParentId=" + shareParentId + "&comeFromShare=1&connect_redirect=1#wechat_redirect"
-            } else {
-                otherLink = "state=" + window.location.host + "/index/index.html&shareParentId=" + shareParentId + "&comeFromShare=1&connect_redirect=1#wechat_redirect"
-            }
-
-            linkUrl = baseLink + otherLink;
-            window.wxinit.shareWechat(title, linkUrl, detail);
         });
     }
 

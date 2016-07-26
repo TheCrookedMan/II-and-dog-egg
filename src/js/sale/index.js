@@ -23,6 +23,10 @@
             $(".pinfo .UserIdentity").text("身份：普通会员");
             $(".pinfo .link a").text("如何成为健康大使？");
             $(".pinfo .link a").attr('href', '/profile/how_1.html');
+            $(".mySale .link-toCode").attr('href', 'javascript:;');
+            $(".mySale").on("click", ".link-toCode", function() {
+                modal.alert({ text: "暂无记录，购买土鸡蛋年卡套餐即可成为健康推广大使获得爱心回报，快来吧！" })
+            });
         }
 
         if (userinfo.IdentityState == 1) {

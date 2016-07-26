@@ -22,6 +22,29 @@ router.get('/wechatAuth.html', (req, res, next) => {
         redirect_uri = options.state;
     let list = [];
 
+    redirect_uri = redirect_uri.replace('*_*','&');
+
+    console.log("options:::"+JSON.stringify(options));
+    console.log("redirect_uri:::"+redirect_uri);
+
+    // if(!!options.shareParentId){
+    //     if(-1 == redirect_uri.indexOf("?")){
+    //         redirect_uri += "?shareParentId="+options.shareParentId;
+    //     } else {
+    //         redirect_uri += "&shareParentId="+options.shareParentId;
+    //     }
+    // }
+
+    // if(!!options.comeFromShare){
+    //     if(-1 == redirect_uri.indexOf("?")){
+    //         redirect_uri += "?comeFromShare="+options.comeFromShare;
+    //     } else {
+    //         redirect_uri += "&comeFromShare="+options.comeFromShare;
+    //     }
+    // }
+
+    console.log("========= wechatAuth.html =======redirect_uri::::"+redirect_uri);
+
     wechatAuth.accessToken(config.wechat.appId, config.wechat.appsecret, options.code, function(params) {
         let data = JSON.parse(params);
         //没有errcode字段表示请求成功

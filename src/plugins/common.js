@@ -111,6 +111,12 @@
         },
         getOpenId: function() {
             return $.cookie('openId');
+        },
+        getQueryString:function(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
         }
     };
     this.common = new common();
@@ -287,7 +293,7 @@
                 };
             var now = new Date().getTime();
             var end = end.getTime();
-            if(!end){
+            if (!end) {
                 clearInterval(self.timer);
                 return false;
             }

@@ -57,8 +57,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.set('appid', systemConfig.appId);
-app.set('redirect_uri', systemConfig.redirect_uri);
+app.set('appid', systemConfig.wechat.appId);
+app.set('redirect_uri', systemConfig.wechat.redirect_uri);
 
 app.use('/', apiRouter);
 app.use('/', templateRouter);

@@ -1,5 +1,6 @@
 (function() {
     var qrcodeText = "不是推广大使，不能推广！";
+
     if ("1" == comeFromShare) {
         showShareUserInfo();
     } else {
@@ -45,7 +46,7 @@
                 var record = data.data;
                 $(".people").attr('src', record.wImage);
                 $(".pinfo .txt .tit").text(record.wName);
-                if (userinfo.UserIdentity == 1) {
+                if (record.UserIdentity == 1) {
                     $(".pinfo .UserIdentity").text("身份：推广大使");
                     $(".pinfo .img .bg").attr('src', '/img/jiankangdashi@2x.png');
                     qrcodeText = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+window.appid+"&redirect_uri="+window.redirect_uri+"&response_type=code&scope=snsapi_userinfo&state=/index/index.html?shareParentId=" + record.Uid + "&connect_redirect=1#wechat_redirect";
@@ -59,9 +60,10 @@
     }
 
     function initQRCode() {
+        // $("#doc-qrcode").attr('src','http://s.jiathis.com/qrcode.php?url='+qrcodeText);
         $('#doc-qrcode').empty().qrcode({
             text: qrcodeText, // 要生产二维码的文字
-            render: "svg", // 渲染方式，默认的选择顺序为 `canvas` -> `svg` -> `table`
+            render: "canvas", // 渲染方式，默认的选择顺序为 `canvas` -> `svg` -> `table`
             width: 175, // 二维码宽度 `px`
             height: 175, // 二维码高度 `px`
             correctLevel: 3, // 纠错级别，可取 0、1、2、3，数字越大说明所需纠错级别越大
