@@ -202,9 +202,9 @@
             if ("1" == data.code && !!data.data) {
                 var record = data.data;
                 if (record.orderAmount > 0) {
-                    window.location.href = "/profile/order-pay.html?osn=" + record.oNum + "&orderAmount=" + record.orderAmount + "&TotalAmount=" + record.TotalAmount + "&CouponMoney=" + record.CouponMoney + "&userMobile=" + userMobile + "&username=" + username + "&addressInfo=" + addressInfo + "&orderId=" + record.oId + "&TotalPrice=" + TotalPrice + "&payInfo=" + payInfo;
+                    window.location.href = "/profile/order-pay.html?osn=" + record.oNum + "&orderAmount=" + record.orderAmount + "&TotalAmount=" + record.TotalAmount + "&CouponMoney=" + record.CouponMoney + "&userMobile=" + userMobile + "&username=" + username + "&orderId=" + record.oId + "&TotalPrice=" + TotalPrice + "&payInfo=" + payInfo + "&addressInfo=" + addressInfo;
                 } else {
-                    window.location.href = "/profile/order-paySucess.html?userMobile=" + userMobile + "&username=" + username + "&addressInfo=" + addressInfo + "&OSN=" + record.oNum + "&orderId=" + record.oId + "&TotalPrice=" + TotalPrice;
+                    window.location.href = "/profile/order-paySucess.html?userMobile=" + userMobile + "&username=" + username + "&OSN=" + record.oNum + "&orderId=" + record.oId + "&TotalPrice=" + TotalPrice + "&addressInfo=" + addressInfo;
                 }
             } else {
                 modal.alert({ text: data.message });

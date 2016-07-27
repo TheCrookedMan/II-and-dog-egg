@@ -57,11 +57,11 @@
                 }
                 initQRCode();
             } else {}
-        })
-        
+        });
     }
 
     function initQRCode() {
+        // debugger
         // $("#doc-qrcode").attr('src','/qr/:text'+qrcodeText);
         $('#doc-qrcode').empty().qrcode({
             text: qrcodeText, // 要生产二维码的文字
