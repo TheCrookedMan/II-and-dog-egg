@@ -159,9 +159,10 @@ p {
 }
 
 .navbar-footer .navbar-li{
-    width: 20%;clear: none !important;position:relative;
+    width: 20%;clear: none !important;position:relative;margin: 0.225rem 0rem 0.525rem 0 !important;
     .basketNum{
-        position:absolute;top: 0.2rem;right: 1rem;background: #ff5500;color: #fff;font-size: 1rem;border-radius: 100px;min-width: 1.7rem;min-height: 1.7rem;text-align: center;line-height:1.7rem;
+        position:absolute;top: 0.2rem;right: 1rem;background: #ff5500;color: #fff;
+        font-size: 1rem;border-radius: 100px;min-width: 1.7rem;min-height: 1.7rem;text-align: center;line-height:1.7rem;
         display:none;
     }
     a{
@@ -181,7 +182,7 @@ p {
         }
     }
     img{
-        width: 45%;
+        width: 38%;
     }
 }
 
