@@ -6,8 +6,8 @@ import config from './rest/config';
 import distribution from './api/distribution';
 import common from './tools/common';
 import image from './api/image';
+import qr from 'qr-image';
 const router = express.Router();
-
 
 router.get('*.html', (req, res, next) => {
     let shareParentId = req.query.shareParentId;
@@ -23,10 +23,10 @@ router.get('/wechatAuth.html', (req, res, next) => {
         redirect_uri = options.state;
     let list = [];
 
-    redirect_uri = redirect_uri.replace('*_*','&');
+    redirect_uri = redirect_uri.replace('*_*', '&');
 
-    console.log("options:::"+JSON.stringify(options));
-    console.log("redirect_uri:::"+redirect_uri);
+    console.log("options:::" + JSON.stringify(options));
+    console.log("redirect_uri:::" + redirect_uri);
 
     // if(!!options.shareParentId){
     //     if(-1 == redirect_uri.indexOf("?")){
@@ -44,7 +44,7 @@ router.get('/wechatAuth.html', (req, res, next) => {
     //     }
     // }
 
-    console.log("========= wechatAuth.html =======redirect_uri::::"+redirect_uri);
+    console.log("========= wechatAuth.html =======redirect_uri::::" + redirect_uri);
 
     wechatAuth.accessToken(config.wechat.appId, config.wechat.appsecret, options.code, function(params) {
         let data = JSON.parse(params);
@@ -360,7 +360,7 @@ router.get('/profile/order-paySucess.html', (req, res, next) => {
         orderId = req.query.orderId,
         TotalPrice = req.query.TotalPrice;
 
-        addressInfo = unescape(addressInfo);
+    addressInfo = unescape(addressInfo);
     return res.render('profile/order-paySucess', { title: '订单付款成功', userMobile: userMobile, username: username, addressInfo: addressInfo, OSN: OSN, orderId: orderId, TotalPrice: TotalPrice });
 });
 
@@ -681,12 +681,15 @@ router.get('/home-delivery/index.html', (req, res, next) => {
     生成二维码图片
  */
 
-// router.get('/qr/:text', function(req,res){
-//     console.log("----------------"+JSON.stringify(req.params));
-//    var code = qr.image(req.params.text, { type: 'png', ec_level: 'H', size: 10, margin: 0 });
-//    res.setHeader('Content-type', 'image/png');
-//    code.pipe(res);
-// });
+router.get('/qr/qr-code', function(req, res) {
+    let redirect_uri = req.query.redirect_uri,
+        shareParentId = req.query.shareParentId;
+    let base = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + config.wechat.appId + "&redirect_uri=" + config.wechat.redirect_uri + "&response_type=code&scope=snsapi_userinfo&state="+redirect_uri+"?shareParentId=" + shareParentId + "&connect_redirect=1#wechat_redirect";
+    console.log("base:::"+base);
+    var code = qr.image(base, { type: 'png', ec_level: 'H', size: 10, margin: 0 });
+    res.setHeader('Content-type', 'image/png');
+    code.pipe(res);
+});
 
 router.get('*.html', (req, res, next) => {
     res.redirect('/index/index.html');
