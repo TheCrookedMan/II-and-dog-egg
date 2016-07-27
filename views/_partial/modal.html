@@ -24,7 +24,6 @@
 <!-- loding... -->
 <div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="loading-modal">
     <div class="am-modal-dialog">
-        <div class="am-modal-hd"></div>
         <div class="am-modal-bd">
             <i class="am-icon-spinner am-icon-spin am-icon-sm"></i>&nbsp;<span class="loading-string"></span>
         </div>
@@ -98,13 +97,13 @@
             if (!string) {
                 string = "正在请求数据，请稍等...";
             }
+            $(".am-modal .am-modal-bd").css('padding', '15px 0px');
             if ('open' == status) {
                 $("#loading-modal .loading-string").text(string);
                 $("#loading-modal").modal('open');
             } else {
                 $("#loading-modal").modal('close');
             }
-
         },
         tip: function(text, time) {
             $("#tip-modal .am-modal-dialog").css('width', 'auto');

@@ -1,6 +1,8 @@
 (function() {
     var qrcodeText = "不是推广大使，不能推广！";
 
+    qrcodeText = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+window.appid+"&redirect_uri="+window.redirect_uri+"&response_type=code&scope=snsapi_userinfo&state=/index/index.html?shareParentId=" + userinfo.Uid + "&connect_redirect=1#wechat_redirect";
+
     if ("1" == comeFromShare) {
         showShareUserInfo();
     } else {
@@ -60,7 +62,7 @@
     }
 
     function initQRCode() {
-        // $("#doc-qrcode").attr('src','http://s.jiathis.com/qrcode.php?url='+qrcodeText);
+        // $("#doc-qrcode").attr('src','/qr/:text'+qrcodeText);
         $('#doc-qrcode').empty().qrcode({
             text: qrcodeText, // 要生产二维码的文字
             render: "canvas", // 渲染方式，默认的选择顺序为 `canvas` -> `svg` -> `table`

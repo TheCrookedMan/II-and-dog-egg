@@ -5,6 +5,7 @@ import user from './api/user';
 import config from './rest/config';
 import distribution from './api/distribution';
 import common from './tools/common';
+import image from './api/image';
 const router = express.Router();
 
 
@@ -672,6 +673,17 @@ router.get('/profile/order-status.html', (req, res, next) => {
 router.get('/home-delivery/index.html', (req, res, next) => {
     return res.render('home-delivery/index', { title: '宅配' });
 });
+
+/*
+    生成二维码图片
+ */
+
+// router.get('/qr/:text', function(req,res){
+//     console.log("----------------"+JSON.stringify(req.params));
+//    var code = qr.image(req.params.text, { type: 'png', ec_level: 'H', size: 10, margin: 0 });
+//    res.setHeader('Content-type', 'image/png');
+//    code.pipe(res);
+// });
 
 router.get('*.html', (req, res, next) => {
     res.redirect('/index/index.html');
