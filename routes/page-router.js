@@ -359,6 +359,8 @@ router.get('/profile/order-paySucess.html', (req, res, next) => {
         OSN = req.query.OSN,
         orderId = req.query.orderId,
         TotalPrice = req.query.TotalPrice;
+
+        addressInfo = unescape(addressInfo);
     return res.render('profile/order-paySucess', { title: '订单付款成功', userMobile: userMobile, username: username, addressInfo: addressInfo, OSN: OSN, orderId: orderId, TotalPrice: TotalPrice });
 });
 
@@ -388,6 +390,7 @@ router.get('/profile/order-pay.html', (req, res, next) => {
     if (!!CouponMoney) {
         CouponMoney *= 1;
     }
+    addressInfo = unescape(addressInfo);
     return res.render('profile/order-pay', { title: '订单支付', osn: osn, orderAmount: orderAmount, TotalAmount: TotalAmount, CouponMoney: CouponMoney, userMobile: userMobile, username: username, addressInfo: addressInfo, OSN: OSN, orderId: orderId, TotalPrice: TotalPrice, payInfo: payInfo });
 });
 

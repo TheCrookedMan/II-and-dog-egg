@@ -97,7 +97,7 @@
             if (!string) {
                 string = "正在请求数据，请稍等...";
             }
-            $(".am-modal .am-modal-bd").css('padding', '15px 0px');
+            $("#loading-modal.am-modal .am-modal-bd").css('padding', '15px 0px');
             if ('open' == status) {
                 $("#loading-modal .loading-string").text(string);
                 $("#loading-modal").modal('open');

@@ -175,7 +175,7 @@
 </div>
 {% if data['data'].orderStatusTitle == '去支付' %}
 <header class="am-topbar am-topbar-fixed-bottom detail_foot bge bd0">
-  <a href="/profile/order-pay.html?osn={{ data['data'].OSN }}&orderAmount={{ data['data'].OnlinePayAmount }}&TotalAmount={{data['data'].orderAmount}}&CouponMoney={{data['data'].couponmoney}}&userMobile={{data['data'].mobile}}&username={{data['data'].username}}&addressInfo={{data['data'].address}}&orderId={{data['data'].orderId}}&TotalPrice={{data['data'].productamount}}&payInfo={{payInfo}}"  class="btn buy">去付款</a>
+  <a href="/profile/order-pay.html?osn={{ data['data'].OSN }}&orderAmount={{ data['data'].OnlinePayAmount }}&TotalAmount={{data['data'].orderAmount}}&CouponMoney={{data['data'].couponmoney}}&userMobile={{data['data'].mobile}}&username={{data['data'].username}}&addressInfo={{escape(data['data'].address)}}&orderId={{data['data'].orderId}}&TotalPrice={{data['data'].productamount}}&payInfo={{payInfo}}"  class="btn buy">去付款</a>
 </header>
 {% elseif data['data'].orderStatusTitle == '审核中' %}
 
