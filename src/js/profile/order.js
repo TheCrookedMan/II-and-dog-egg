@@ -47,7 +47,7 @@
                             //console.log(data)
                             $("#list").html(data);
                         } else {
-                            $("#list").html(data);
+                            $("#list").append(data);
                             //console.log(data)
                         }
                     }
@@ -57,6 +57,12 @@
                             time=formatDate(d);
                         $(this).html(time);
                     })
+                    if($(".plist").length<=0){
+                        $(".pub_noData").show()
+                    }
+                    else{
+                        $(".pub_noData").hide()
+                    }
                 }).error(function(err) {});
             } else if ($(".myOrder .tab ul li a.cur").data("id") == 1) {
                 $.get('/template/profile/order_shiping.t', {
@@ -75,7 +81,7 @@
                             //console.log(data)
                             $("#list").html(data);
                         } else {
-                            $("#list").html(data);
+                            $("#list").append(data);
                             //console.log(data)
                         }
                     }
@@ -85,6 +91,12 @@
                             time=formatDate(d);
                         $(this).html(time);
                     })
+                    if($(".plist").length<=0){
+                        $(".pub_noData").show()
+                    }
+                    else{
+                        $(".pub_noData").hide()
+                    }
                 }).error(function(err) {});
             } else if ($(".myOrder .tab ul li a.cur").data("id") == 2) {
                 $.get('/template/profile/order_done.t', {
@@ -103,7 +115,7 @@
                             //console.log(data)
                             $("#list").html(data);
                         } else {
-                            $("#list").html(data);
+                            $("#list").append(data);
                             //console.log(data)
                         }
                     }
@@ -113,6 +125,12 @@
                             time=formatDate(d);
                         $(this).html(time);
                     })
+                    if($(".plist").length<=0){
+                        $(".pub_noData").show()
+                    }
+                    else{
+                        $(".pub_noData").hide()
+                    }
                 }).error(function(err) {});
             }
             if ($(".myOrder .tab ul li a.cur").data("id") == 3) {
@@ -132,7 +150,7 @@
                             //console.log(data)
                             $("#list").html(data);
                         } else {
-                            $("#list").html(data);
+                            $("#list").append(data);
                             //console.log(data)
                         }
                     }
@@ -142,6 +160,12 @@
                             time=formatDate(d);
                         $(this).html(time);
                     })
+                    if($(".plist").length<=0){
+                        $(".pub_noData").show()
+                    }
+                    else{
+                        $(".pub_noData").hide()
+                    }
                 }).error(function(err) {});
             }
         }
