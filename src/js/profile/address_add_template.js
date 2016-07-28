@@ -1,16 +1,17 @@
 (function() {
-    $("#submit").click(function() {
-        var consignee = $("#consignee").val();
-        var mobile = $("#mobile").val();
-        var address = $("#address").val();
+    $("#addUserAddress").off('click', '#submit');
+    $("#addUserAddress").on('click', '#submit', function() {
+        var consignee = $("#addUserAddress #consignee").val();
+        var mobile = $("#addUserAddress #mobile").val();
+        var address = $("#addUserAddress #address").val();
         var isdefault;
-        if ($('.set-default').hasClass("cur")) {
+        if ($('#addUserAddress .set-default').hasClass("cur")) {
             isdefault = 1;
         } else {
             isdefault = 0;
         }
 
-        var regionid = $("#select-area")[0].selectedOptions;
+        var regionid = $("#addUserAddress #select-area")[0].selectedOptions;
         regionid = $(regionid).data("regionid");
 
         $.post('/user/editReceiver.post', {
@@ -38,30 +39,30 @@
         }).error(function(err) {});
     })
 
-    $('.set-default').on("click", function() {　　　　
+    $("#addUserAddress").off('click', '.set-default');
+    $("#addUserAddress").on('click', '.set-default', function() {　　　　
         $(this).toggleClass("cur");
     });
-
-
-
-    $("#select-provinces").change(function(ev) {
+    $("#addUserAddress").off('change', '#select-provinces');
+    $("#addUserAddress").on('change', '#select-provinces', function(ev) {
         var index = this.selectedIndex;
         initCity(arealist[index]['L']);
     });
-
-    $("#select-city").change(function(ev) {
+    $("#addUserAddress").off('change', '#select-city');
+    $("#addUserAddress").on('change', '#select-city', function(ev) {
         var index = this.selectedIndex;
         initArea(cityData[index]['L']);
     })
 
     initProvinces(arealist);
     this.cityData = [];
+
     function initProvinces(data) {
         var list = [];
         $.each(data, function(i, I) {
             list.push("<option>" + I.N + "</option>");
         });
-        $("#select-provinces").html(list.join(""));
+        $("#addUserAddress #select-provinces").html(list.join(""));
         var index = $("#select-provinces")[0].selectedIndex;
         initCity(arealist[index]['L']);
     }
@@ -72,7 +73,7 @@
         $.each(data, function(i, I) {
             list.push("<option>" + I.N + "</option>");
         });
-        $("#select-city").html(list.join(""));
+        $("#addUserAddress #select-city").html(list.join(""));
         var index = $("#select-city")[0].selectedIndex;
         initArea(data[index]['L']);
     }
@@ -80,9 +81,9 @@
     function initArea(data) {
         var list = [];
         $.each(data, function(i, I) {
-            list.push("<option data-regionid="+I.I+">" + I.N + "</option>");
+            list.push("<option data-regionid=" + I.I + ">" + I.N + "</option>");
         });
-        $("#select-area").html(list.join(""));
+        $("#addUserAddress #select-area").html(list.join(""));
     }
 
 

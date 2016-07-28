@@ -309,7 +309,6 @@
             if ("" !== data) {
                 history.pushState({ foo: "updateUserAddress" }, "修改地址");
                 currentPage = "updateUserAddress";
-
                 $("#orderAddress").hide();
                 $("#updateUserAddress").html(data);
                 $("#updateUserAddress").show();

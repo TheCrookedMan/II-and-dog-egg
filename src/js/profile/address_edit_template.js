@@ -1,18 +1,17 @@
 (function() {
+    $("#updateUserAddress").off('click', '#submit');
+    $("#updateUserAddress").on('click', '#submit', function() {
+        var consignee = $("#updateUserAddress #consignee").val();
+        var mobile = $("#updateUserAddress #mobile").val();
+        var address = $("#updateUserAddress #address").val();
 
-    $("#submit").click(function() {
-
-        var consignee = $("#consignee").val();
-        var mobile = $("#mobile").val();
-        var address = $("#address").val();
-
-        if ($('.set-default').hasClass("cur")) {
+        if ($('#updateUserAddress .set-default').hasClass("cur")) {
             isdefault = 1;
         } else {
             isdefault = 0;
         }
 
-        var areaId = $("#select-area")[0].selectedOptions;
+        var areaId = $("#updateUserAddress #select-area")[0].selectedOptions;
         areaId = $(areaId).data("regionid");
 
         $.post('/user/editReceiver.post', {
@@ -38,24 +37,24 @@
     })
 
     if (isdefault == 1) {
-        $('.set-default').addClass('cur');
+        $('#updateUserAddress .set-default').addClass('cur');
     }
 
-    $('.set-default').on("click", function() {　　　　 $(this).toggleClass("cur");　　 });
-
-    $("#select-provinces").change(function(ev) {
+    $("#updateUserAddress").off('click', '.set-default');
+    $('#updateUserAddress').on("click", ".set-default", function() {　　　　 $(this).toggleClass("cur");　　 });
+    $("#updateUserAddress").off('change', '#select-provinces');
+    $("#updateUserAddress").on('change', '#select-provinces', function(ev) {
         var index = this.selectedIndex;
         initCity(arealist[index]['L']);
     });
-
-    $("#select-city").change(function(ev) {
+    $("#updateUserAddress").off('change', '#select-city');
+    $("#updateUserAddress").on('change', '#select-city', function(ev) {
         var index = this.selectedIndex;
         initArea(cityData[index]['L']);
     })
 
-
     this.cityData = [];
-
+    regionid = parseInt(regionid);
     this.provincesId = -1;
     this.cityId = -1;
     this.areaId = -1;
@@ -74,33 +73,37 @@
     initProvinces(arealist);
 
     function initProvinces(data) {
-        var list = [];
+        var list = [],
+            _cityIndex = 0;
         $.each(data, function(i, I) {
             if (provincesId == I['I']) {
+                _cityIndex = i;
                 list.push("<option selected>" + I.N + "</option>");
             } else {
                 list.push("<option>" + I.N + "</option>");
             }
         });
-        $("#select-provinces").html(list.join(""));
-        var index = $("#select-provinces")[0].selectedIndex;
-        initCity(arealist[index]['L']);
+        $("#updateUserAddress #select-provinces").html(list.join(""));
+        // var index = $("#select-provinces")[0].selectedIndex;
+        initCity(arealist[_cityIndex]['L']);
     }
 
     function initCity(data) {
-        var list = [];
+        var list = [],
+            _areaIndex = 0;
         cityData = data;
         $.each(data, function(i, I) {
             if (cityId == I['I']) {
+                _areaIndex = i;
                 list.push("<option selected>" + I.N + "</option>");
             } else {
                 list.push("<option>" + I.N + "</option>");
             }
 
         });
-        $("#select-city").html(list.join(""));
-        var index = $("#select-city")[0].selectedIndex;
-        initArea(data[index]['L']);
+        $("#updateUserAddress #select-city").html(list.join(""));
+        // var index = $("#select-city")[0].selectedIndex;
+        initArea(data[_areaIndex]['L']);
     }
 
     function initArea(data) {
@@ -111,8 +114,7 @@
             } else {
                 list.push("<option data-regionid=" + I.I + ">" + I.N + "</option>");
             }
-
         });
-        $("#select-area").html(list.join(""));
+        $("#updateUserAddress #select-area").html(list.join(""));
     }
 }).call(this)
