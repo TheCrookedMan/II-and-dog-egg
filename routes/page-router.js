@@ -686,7 +686,7 @@ router.get('/qr/qr-code', function(req, res) {
         shareParentId = req.query.shareParentId;
     let base = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + config.wechat.appId + "&redirect_uri=" + config.wechat.redirect_uri + "&response_type=code&scope=snsapi_userinfo&state="+redirect_uri+"?shareParentId=" + shareParentId + "&connect_redirect=1#wechat_redirect";
     console.log("base:::"+base);
-    var code = qr.image(base, { type: 'png', ec_level: 'H', size: 10, margin: 0 });
+    let code = qr.image(base, { type: 'png', ec_level: 'H', size: 10, margin: 0 });
     res.setHeader('Content-type', 'image/png');
     code.pipe(res);
 });
