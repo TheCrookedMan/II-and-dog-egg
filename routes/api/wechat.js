@@ -106,10 +106,11 @@ let getAccessToken = (appid, appsecret, callback) => {
     host = "api.weixin.qq.com";
     post = "80";
     url = '/cgi-bin/token?grant_type=client_credential&appid=' + appid + '&secret=' + appsecret;
-
+    
     if (!access_token) {
         get(host, post, url, (data) => {
             let record = JSON.parse(data);
+            
             /*
                 返回的数据里面有 errcode 表示获取数据失败
              */
@@ -146,7 +147,6 @@ let getTicket = (access_token, callback) => {
     host = "api.weixin.qq.com";
     post = "80";
     url = '/cgi-bin/ticket/getticket?access_token=' + access_token + '&type=jsapi';
-
     if (!ticket) {
         get(host, post, url, (data) => {
             let record = JSON.parse(data);

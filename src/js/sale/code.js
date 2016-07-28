@@ -1,8 +1,6 @@
 (function() {
     var qrcodeText = "不是推广大使，不能推广！";
 
-
-
     if ("1" == comeFromShare) {
         showShareUserInfo();
     } else {

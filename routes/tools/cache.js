@@ -23,6 +23,7 @@ exports.put = (key, value, time, timeoutCallback) => {
 
     if (!isNaN(expire)) {
         let timeout = setTimeout(() => {
+            console.log("put::::key::"+key);
             exports.del(key);
             if (typeof timeoutCallback === 'function') {
                 timeoutCallback(key);
@@ -39,11 +40,15 @@ exports.del = (key) => {
 
     let oldRecord = cache[key];
     if (oldRecord) {
+        
         clearTimeout(oldRecord.timeout);
+
         if (!isNaN(oldRecord.expire) && oldRecord.expire < Date.now()) {
-            canDelete = false;
+            
+            canDelete = true;
         }
     } else {
+        
         canDelete = false;
     }
 

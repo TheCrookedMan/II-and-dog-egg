@@ -6,6 +6,7 @@
         this.url = window.location.href;
         this.appId = window.appid;
         this.debug = false;
+        // this.debug = false;
         // 所有要调用的 API 都要加到这个列表中
         this.jsApiList = [
             'onMenuShareTimeline',
@@ -46,6 +47,7 @@
         shareWechat: function(title, linkUrl, desc) {
             var self = this;
             var imgUrl = "http://" + window.location.hostname + "/img/shareLogo.jpg";
+
             wx.onMenuShareTimeline({
                 title: title, // 分享标题
                 link: linkUrl, // 分享链接
@@ -94,6 +96,7 @@
                     otherLink = "state=/index/index.html?shareParentId=" + shareParentId + "*_*comeFromShare=1&connect_redirect=1#wechat_redirect"
                 }
                 linkUrl = baseLink + otherLink;
+
                 window.wxinit.shareWechat(title, linkUrl, detail);
             }
 
