@@ -1,0 +1,38 @@
+<div class="title">
+        <a href="/profile/address-add.html" class="fr addAddress">新增地址</a>
+    </div>
+    {% if "1" == data['code'] %} {% if data['data']%}
+    <div class="list profile-address-list">
+        <ul>
+            {% for list in data['data'].receiverList %}
+            <li class="default{{list.isdefault}}" id="{{list.said}}">
+                <a href="javascript:void(0);" class="addressALink" data-said="{{list.said}}">
+                    <div class="tit">
+                        <span class="fl Consignee">{{ list.Consignee }}</span>
+                        <span class="fr Mobile">{{list.Mobile}}</span>
+                    </div>
+                    <div class="area">{{list.ProvinceName}}，{{list.CityName}}，{{list.CountyName}}，{{list.Address}}</div>
+                </a>
+                <div class="btn">
+                    {% if list.isdefault == 1%}
+                    <span class="fl">-默认地址</span> {% endif %}
+                    <div class="fr">
+                        <!-- -->
+                        <a href="/profile/address-edit.html?said={{list.said}}&address={{list.Address}}&mobile={{list.Mobile}}&isdefault={{list.isdefault}}&consignee={{list.Consignee}}&regionid={{list.RegionId}}" class="updateAddress"><i class="am-icon-edit"></i>编辑</a>
+                        <em>|</em>
+                        <a href="javascript:void(0)" data-id="{{list.said}}" class="delAddress" data-regionid="{{list.RegionId}}" data-address='{{list.Address}}' data-mobile='{{list.Mobile}}' data-consignee='{{list.Consignee}}' data-isdefault='{{list.isdefault}}'><i class="am-icon-trash-o"></i>删除</a>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+    <div class="pub_noData">
+        <p><img src="/img/em2.png"></p>
+        <p>没有地址狗蛋不知道往哪送哦！</p>
+    </div>
+    {% endif %}
+    <header class="am-topbar am-topbar-fixed-bottom detail_foot bge bd0">
+        <a href="javascript:void(0);" class="btn buy closeAddressList">关闭</a>
+    </header>
