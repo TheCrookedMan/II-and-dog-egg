@@ -81,9 +81,9 @@
             padding: 0;
             width: 100%;
             display: inline-block;
-            a{
+            a {
                 &:last-child {
-                    li{
+                    li {
                         border-bottom: 0;
                     }
                 }
@@ -249,6 +249,13 @@
             margin-right: 1rem;
             font-size: 1.4rem;
         }
+    }
+    .profile-address-list {
+        overflow-y: scroll;
+        bottom: rem-calc(50px);
+        position: fixed;
+        width: 100%;
+        top: rem-calc(50px);
     }
     .list {
         ul {
@@ -969,6 +976,6 @@
     }
 }
 
-#bindAppA{
+#bindAppA {
     display: none;
 }

@@ -1,8 +1,7 @@
 (function() {
-    $.get('/template/profile/profile_address.t', { 'uid': userinfo.Uid }).success(function(data) {
+    $.get('/template/profile/profile_address2.t', { 'uid': userinfo.Uid, random: Math.random() }).success(function(data) {
         data = data.replace(/(^\s+)|(\s+$)/g, "");
         if ("" !== data) {
-
             $(".address").html(data);
 
             $(".delAddress").click(function() {
