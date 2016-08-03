@@ -26,6 +26,9 @@
             // if (cashed > 0) {
             $(".CashedPrice").text(cashed.toFixed(2));
             // }
+            $(".withdraw").on("click",".withdrawButton",function(ev){
+                window.location.href = "/sale/request-withdraw.html?withdrawMoney="+withdrawMoney;
+            })
         }
-    })
+    });
 }).call(this)

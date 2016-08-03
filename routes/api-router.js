@@ -161,6 +161,9 @@ router.post('/distribution/checkSetSecurityCode.post', distribution.checkSetSecu
 // 绑定已有app账号
 router.post('/distribution/appBind.post', distribution.appBind);
 
+//提现验证金额/返回手续费
+router.post('/distribution/checkAccountBalance.post',distribution.checkAccountBalance);
+
 /*
 	product 相关请求 
  */

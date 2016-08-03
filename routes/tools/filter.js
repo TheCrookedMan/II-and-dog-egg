@@ -98,10 +98,22 @@ module.exports = (swig) => {
     let _typeof = (value)=>{
         return typeof(value);
     }
+
+    let bankCardFormat = (value)=>{
+        let list = value.split(""),i=0,len = list.length,__list=[];
+        for(;i<len;i++){
+            __list.push(list[i]);
+            if((i+1)%4 == 0){
+                __list.push(" ");
+            }
+        }
+        return __list.join("");
+    }
     swig.setFilter("dateFormat", dateFormat);
     swig.setFilter("toWeek", toWeek);
     swig.setFilter("compareDate", compareDate);
     swig.setFilter("toPercent", toPercent);
     swig.setFilter("isExpired",isExpired);
     swig.setFilter("typeof",_typeof);
+    swig.setFilter("bankCardFormat",bankCardFormat);
 }

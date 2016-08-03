@@ -39,7 +39,7 @@ nav.withdraw {
             padding: 1rem 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.11);
             margin-right: 1.5rem;
-            font-size: $font-size-xxxl;
+            font-size: $font-size-xl;
             i {
                 float: right;
             }
@@ -335,14 +335,16 @@ nav.withdraw {
     ul {
         border-left: 3px solid $main-font-color;
         margin: 0 0 0 20px;
-        li{
-            
-            .sendSMS{
-                position: absolute;right: 0rem;top: 0.5rem;
+        li {
+            .sendSMS {
+                position: absolute;
+                right: 0rem;
+                top: 0.5rem;
             }
         }
         p {
-            padding: .6rem 0;position:relative;
+            padding: .6rem 0;
+            position: relative;
             border-bottom: 1px solid rgba(0, 0, 0, 0.11);
             margin-right: 1.5rem;
             input {
@@ -362,11 +364,29 @@ nav.withdraw {
     padding: 2rem 0;
 }
 
-.withdraw-record{
-    .withdraw-record-panel{
-        .title{
+.withdraw-record {
+    .withdraw-record-panel {
+        .title {
             height: 1rem;
             background-color: rgba(0, 0, 0, 0.8);
         }
+    }
+}
+
+.withdraw-success {
+    text-align: center;
+    .title {
+        font-size: 2.5rem;
+        color: $main-font-color;
+        margin-top: 5rem;
+    }
+    p {
+        margin: 1rem;
+        font-size: $font-size-xl;
+    }
+    a {
+        text-decoration: underline!important;
+        margin-top: 3rem;
+        display: block;
     }
 }

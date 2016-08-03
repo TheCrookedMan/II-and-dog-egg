@@ -590,7 +590,8 @@ router.get('/sale/code.html', (req, res, next) => {
     选择提现方式页面
  */
 router.get('/sale/request-withdraw.html', (req, res, next) => {
-    return res.render('sale/request-withdraw', { title: '申请提现' });
+    let withdrawMoney = req.query.withdrawMoney;
+    return res.render('sale/request-withdraw', { title: '申请提现', withdrawMoney: withdrawMoney });
 });
 
 /*
@@ -598,15 +599,40 @@ router.get('/sale/request-withdraw.html', (req, res, next) => {
  */
 
 router.get('/sale/withdraw-alipay.html', (req, res, next) => {
-    return res.render('sale/withdraw-alipay', { title: '提现至支付宝' });
+    let withdrawMoney = req.query.withdrawMoney;
+    return res.render('sale/withdraw-alipay', { title: '提现至支付宝', withdrawMoney: withdrawMoney });
 });
 
 /*
     申请提现页面
  */
 router.get('/sale/withdraw-alipay-2.html', (req, res, next) => {
-    return res.render('sale/withdraw-alipay-2', { title: '申请提现' });
-})
+    let alipayInfo = req.query;
+    return res.render('sale/withdraw-alipay-2', { title: '申请提现', AccountNo: alipayInfo.AccountNo, TrueName: alipayInfo.TrueName, Type: alipayInfo.Type, withdrawMoney: alipayInfo.withdrawMoney });
+});
+/*
+    提现成功页面
+ */
+router.get('/sale/withdraw-success.html', (req, res, next) => {
+    return res.render('sale/withdraw-success', { title: '申请提现' });
+});
+
+/*
+    提现至银行卡
+ */
+
+router.get('/sale/withdraw-bank-card.html', (req, res, next) => {
+    let withdrawMoney = req.query.withdrawMoney;
+    return res.render('sale/withdraw-bank-card', { title: '提现至银行卡', withdrawMoney: withdrawMoney });
+});
+
+/*
+    申请提现至银行卡页面
+ */
+router.get('/sale/withdraw-bank-card-2.html', (req, res, next) => {
+    let bankCardInfo = req.query;
+    return res.render('sale/withdraw-bank-card-2', { title: '申请提现', AccountNo: bankCardInfo.AccountNo, TrueName: bankCardInfo.TrueName, Type: bankCardInfo.Type, withdrawMoney: bankCardInfo.withdrawMoney, Bank: bankCardInfo.Bank });
+});
 
 /*
     推广设置主页（提现密码相关）
@@ -684,8 +710,8 @@ router.get('/home-delivery/index.html', (req, res, next) => {
 router.get('/qr/qr-code', function(req, res) {
     let redirect_uri = req.query.redirect_uri,
         shareParentId = req.query.shareParentId;
-    let base = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + config.wechat.appId + "&redirect_uri=" + config.wechat.redirect_uri + "&response_type=code&scope=snsapi_userinfo&state="+redirect_uri+"?shareParentId=" + shareParentId + "&connect_redirect=1#wechat_redirect";
-    console.log("base:::"+base);
+    let base = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + config.wechat.appId + "&redirect_uri=" + config.wechat.redirect_uri + "&response_type=code&scope=snsapi_userinfo&state=" + redirect_uri + "?shareParentId=" + shareParentId + "&connect_redirect=1#wechat_redirect";
+    console.log("base:::" + base);
     let code = qr.image(base, { type: 'png', ec_level: 'H', size: 10, margin: 0 });
     res.setHeader('Content-type', 'image/png');
     code.pipe(res);

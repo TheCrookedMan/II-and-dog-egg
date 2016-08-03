@@ -237,3 +237,8 @@ exports.checkSetSecurityCode = (req, res, next) => { new normalRequest('/api/Dis
 
  */
 exports.appBind = (req, res, next) => { new normalRequest('/api/Distribution/AppBind', { post: distributionPost }).post(req, res, next); }
+
+/*
+	提现验证金额/返回手续费
+ */
+exports.checkAccountBalance = (req, res, next) => { new normalRequest('/api/Distribution/CheckAccountBalance', { post: distributionPost }).get(req, res, next); }

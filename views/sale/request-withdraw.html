@@ -1,7 +1,7 @@
 {% include "../_partial/head.html" %}
 <section class="request-withdraw">
     <ul>
-        <a href="/sale/withdraw-alipay.html">
+        <a href="/sale/withdraw-alipay.html?withdrawMoney={{withdrawMoney}}">
             <li>
                 <p>
                     提现至支付宝
@@ -9,7 +9,7 @@
                 </p>
             </li>
         </a>
-        <a href="#">
+        <a href="/sale/withdraw-bank-card.html?withdrawMoney={{withdrawMoney}}">
             <li>
                 <p>
                     提现至银行卡

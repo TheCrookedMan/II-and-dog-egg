@@ -1,28 +1,33 @@
 {% include "../_partial/head.html" %}
-<h1 class="alipay-h1">请完善支付宝账户信息</h1>
-<form action="/sale/withdraw-alipay-2.html" method="get">
+<h1 class="alipay-h1">请完善银行卡账户信息</h1>
+<form action="/sale/withdraw-bank-card-2.html" method="get">
 <section class="withdraw-alipay">
     <ul>
         <li>
             <p>
-                支付宝账号：
-                <input type="number" name="AccountNo" placeholder="如：13486759487" required>
+                卡号：
+                <input type="number" name="AccountNo" placeholder="仅支持储蓄卡" required>
             </p>
         </li>
         <li>
             <p>
-                真实姓名：
+                持卡人姓名：
                 <input type="text" name="TrueName" placeholder="请填写真实姓名，如：张三" required>
             </p>
         </li>
-        <input type="hidden" name="Type" value="1">
+        <li>
+            <p>
+                开户行：
+                <input type="text" name="Bank" placeholder="如：工商银行七莘路支行" required>
+            </p>
+        </li>
+        <input type="hidden" name="Type" value="2">
         <input type="hidden" name="withdrawMoney" value="{{withdrawMoney}}">
     </ul>
 </section>
 <p class="alipay-tips">为保障您的账户安全，请确认账户信息填写无误！</p>
 <p class="alipay-button">
     <button class="am-btn am-btn-default">下一步</button>
-    <!-- <a href="/sale/withdraw-alipay-2.html" class="am-btn am-btn-default">下一步</a> -->
 </p>
 </form>
 {% include "../_partial/foot.html" %}

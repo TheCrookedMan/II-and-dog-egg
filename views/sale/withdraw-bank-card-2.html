@@ -1,11 +1,12 @@
 {% include "../_partial/head.html" %}
-<form method="post" id="alipay" action="#">
+<form method="post" id="bankCard" action="#">
     <section class="withdraw-alipay-2">
         <input type="hidden" name="AccountNo" value="{{AccountNo}}">
         <input type="hidden" name="TrueName" value="{{TrueName}}">
         <input type="hidden" name="Type" value="{{Type}}">
+        <input type="hidden" name="Bank" value="{{Bank}}">
         <input type="hidden" name="withdrawMoney" id="withdrawMoney" value="{{withdrawMoney}}">
-        <p class="alipay-AccountNo">提现支付宝账号：{{AccountNo}}</p>
+        <p class="alipay-AccountNo">提现银行卡号：{{AccountNo|bankCardFormat()}}</p>
         <div class="withdraw-info">
             <h1>提现金额：</h1>
             <ul>
@@ -46,4 +47,4 @@
 </div>
 {% include "../_partial/foot.html" %}
 <script src="/plugins/jquery.md5.min.js"></script>
-<script src="/js/sale/withdraw-alipay-2.js"></script>
+<script src="/js/sale/withdraw-bank-card-2.js"></script>
