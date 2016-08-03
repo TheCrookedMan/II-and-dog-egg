@@ -38,9 +38,42 @@
                 }
                 var len = $(".coupon .list ul li.can").length;
                 $("#couponNum").text(len);
+                $(".time").each(function(){
+                    var time=parseInt($(this).html().replace(/[^0-9]/ig,""));
+                    var d=new Date(time); 
+                        time=formatDate(d);
+                    $(this).html(time);
+                })
             }).error(function(err) {});
         }
     }
     var productList = new gallery();
     productList.init();
+
+    function formatDate(now) { 
+        var year=now.getFullYear(); 
+        var month=now.getMonth()+1; 
+        var date=now.getDate(); 
+        var hour=now.getHours(); 
+        var minute=now.getMinutes(); 
+        var second=now.getSeconds(); 
+
+        if (month<10)
+        {
+            month="0"+month.toString();
+        }
+        if(date<10){
+            date="0"+date.toString();
+        }
+        if(hour<10){
+            hour="0"+hour.toString();
+        }
+        if(minute<10){
+            minute="0"+minute.toString();
+        }
+        if(second<10){
+            second="0"+second.toString();
+        }
+        return year+"-"+month+"-"+date; 
+    } 
 }).call(this)

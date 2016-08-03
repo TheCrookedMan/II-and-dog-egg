@@ -22,6 +22,23 @@
     			$(".level-"+I.Level+" .grade").text(I.Agent);
     			$(".level-"+I.Level+" .normal-member").text(I.Normal);
     		})
+            $(".grade").each(function(){
+                if($(this).html()==0){
+                    $(this).parents("a").attr("href","javascript:void(0)");
+                    $(this).parents("a").addClass("tips");
+                    $(".tips").on('click', function() {
+                        modal.tip("暂无记录");
+                        $('.am-dimmer').hide();
+                    })
+                }
+                else{
+
+                }
+            })
     	}
+    })
+    $(".am-list>li>a").click(function(){
+        $(this).find(".am-margin-right").toggleClass("am-icon-chevron-up");
+        $(this).find(".am-margin-right").toggleClass("am-icon-chevron-down");
     })
 }).call(this)

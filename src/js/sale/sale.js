@@ -21,6 +21,12 @@
         init: function() {
             var self = this;
             self.refresh();
+            if($(".cord table").length>0){
+                $(".pub_more").show()
+            }
+            else{
+                $(".pub_more").hide()
+            }
             // scroll.on(function() {
             //     if (!self.isEnd) {
             //         self.pageNo++;
@@ -36,7 +42,7 @@
                 "page": self.pageNo,
                 "pagesize": self.pageSize,
                 "condition": self.condition,
-                "Uid": 1
+                "Uid": userinfo.Uid
             }).success(function(data) {
                 data = data.replace(/(^\s+)|(\s+$)/g, "");
                 if ("" == data) {

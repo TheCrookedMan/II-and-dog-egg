@@ -5,6 +5,9 @@
             var record = data.data;
             
             var isSimpleTag = record.isSimpleTag;
+
+            var canSelect=0;
+
             if (isSimpleTag == 1) {
                 var str = '<div class="txt" id="title"></div>';
                 $("#ps").append(str);
@@ -191,9 +194,11 @@
                     $modal.modal();
                 })
                 $("#openmodel").on('click', function() {
-                    $modal.modal();
-                    $('.btn.add').show();
-                    $('.btn.buy').hide();
+                    if(canSelect==0){
+                        $modal.modal();
+                        $('.btn.add').show();
+                        $('.btn.buy').hide();
+                    }
                 })
             } else {
                 var str = '<a href="javascript:void(0)"  class="btn disable">已售罄</a>';
@@ -242,6 +247,7 @@
 
             $('.am-slider').flexslider();
 
+            
             var skupid;
             //console.log(record.SkuInfoArray);
             $('.btn.add').on('click', function() {
@@ -261,6 +267,7 @@
                     $('.btn.buy').hide();
                     var str0 = '<a href="/basket/basket.html"  class="btn default">去结算</a>';
                     $(".detail_foot").append(str0);
+                    canSelect=1;
                 }).error(function(err) {});
             })
 

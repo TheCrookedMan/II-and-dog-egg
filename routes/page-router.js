@@ -541,7 +541,7 @@ router.get('/sale/index.html', (req, res, next) => {
  */
 
 router.get('/sale/price.html', (req, res, next) => {
-    return res.render('sale/price', { title: '我的推广费' });
+    return res.render('sale/price', { title: '我的收益' });
 });
 
 /*

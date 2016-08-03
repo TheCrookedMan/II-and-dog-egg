@@ -48,7 +48,7 @@
                 $(".people").attr('src', record.wImage);
                 $(".pinfo .txt .tit").text(record.wName);
                 if (record.UserIdentity == 1) {
-                    $(".pinfo .UserIdentity").text("身份：推广大使");
+                    $(".pinfo .UserIdentity").text("身份：健康推广大使");
                     $(".pinfo .img .bg").attr('src', '/img/jiankangdashi@2x.png');
                     // qrcodeText = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+window.appid+"&redirect_uri="+window.redirect_uri+"&response_type=code&scope=snsapi_userinfo&state=/index/index.html?shareParentId=" + record.Uid + "&connect_redirect=1#wechat_redirect";
                     qrcodeText = "redirect_uri=/index/index.html&shareParentId="+record.Uid;
