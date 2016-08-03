@@ -30,7 +30,7 @@
         }).success(function(charge) {
             pingpp.createPayment(charge, function(result, err) {
                 if (result == "success") {
-                    window.location.href = "/profile/order-paySucess.html?userMobile="+userMobile+"&username="+username+"&addressInfo="+addressInfo+"&orderAmount="+orderAmount+"&TotalPrice="+TotalPrice;
+                    window.location.href = "/profile/order-paySucess.html?userMobile="+userMobile+"&username="+username+"&addressInfo="+addressInfo+"&orderAmount="+orderAmount+"&TotalPrice="+TotalPrice+"&OSN="+osn+"&orderId="+orderId;
                 	// debugger
                     // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的支付结果都会跳转到 extra 中对应的 URL。
                 } else if (result == "fail") {
