@@ -423,7 +423,7 @@ router.get('/profile/help.html', (req, res, next) => {
  */
 
 router.get('/profile/how_1.html', (req, res, next) => {
-    return res.render('profile/how_1', { title: '如何推广' });
+    return res.render('profile/how_1', { title: '如何成为健康大使' });
 });
 
 /*
@@ -431,7 +431,7 @@ router.get('/profile/how_1.html', (req, res, next) => {
  */
 
 router.get('/profile/how_2.html', (req, res, next) => {
-    return res.render('profile/how_2', { title: '如何成为推广大使' });
+    return res.render('profile/how_2', { title: '爱心传递' });
 });
 
 /*
@@ -439,7 +439,7 @@ router.get('/profile/how_2.html', (req, res, next) => {
  */
 
 router.get('/profile/how_3.html', (req, res, next) => {
-    return res.render('profile/how_3', { title: '如何恢复身份' });
+    return res.render('profile/how_3', { title: '如何继续做公益' });
 });
 
 /*
