@@ -1,6 +1,6 @@
 (function() {
 
-    $(document).attr("title","产品列表--"+title);
+    $(document).attr("title",title);
 
 
     $("#keyword").click(function() {
