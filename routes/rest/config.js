@@ -19,7 +19,7 @@ if ("dev" == argv || "server-dev" == argv) {
         /* 图片上传接口 */
         'uploadUrl': "",
         /*微信授权回调地址*/
-        'redirect_uri':"http%3a%2f%2f120.26.231.199%3a9555%2fwechatAuth.html"
+        'redirect_uri':"http%3a%2f%2fer.wechat.epeit.com%2fwechatAuth.html"
     }
 } else {
     exports.wechat = {

@@ -708,9 +708,25 @@ router.get('/home-delivery/index.html', (req, res, next) => {
  */
 
 router.get('/qr/qr-code', function(req, res) {
+    // let redirect_uri = req.query.redirect_uri,
+    //     shareParentId = req.query.shareParentId;
+    // let base = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + config.wechat.appId + "&redirect_uri=" + config.wechat.redirect_uri + "&response_type=code&scope=snsapi_userinfo&state=" + redirect_uri + "?shareParentId=" + shareParentId + "&connect_redirect=1#wechat_redirect";
+    // console.log("base:::" + base);
+    // let code = qr.image(base, { type: 'png', ec_level: 'H', size: 10, margin: 0 });
+    // res.setHeader('Content-type', 'image/png');
+    // code.pipe(res);
+    console.log("qr-code:::::");
     let redirect_uri = req.query.redirect_uri,
-        shareParentId = req.query.shareParentId;
-    let base = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + config.wechat.appId + "&redirect_uri=" + config.wechat.redirect_uri + "&response_type=code&scope=snsapi_userinfo&state=" + redirect_uri + "?shareParentId=" + shareParentId + "&connect_redirect=1#wechat_redirect";
+        requestParams = [],
+        params = req.query;
+    for (let p in params) {
+        if ("redirect_uri" != p) {
+            requestParams.push(p + "=" + params[p]);
+        }
+    }
+    requestParams = requestParams.join("*_*");
+    console.log("requestParams:::" + requestParams);
+    let base = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + config.wechat.appId + "&redirect_uri=" + config.wechat.redirect_uri + "&response_type=code&scope=snsapi_userinfo&state=" + redirect_uri + "?" + requestParams + "&connect_redirect=1#wechat_redirect";
     console.log("base:::" + base);
     let code = qr.image(base, { type: 'png', ec_level: 'H', size: 10, margin: 0 });
     res.setHeader('Content-type', 'image/png');

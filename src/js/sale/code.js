@@ -16,7 +16,6 @@
     // }
     initShare("扫描二维码看看我和二丫的故事", "我在二丫家边吃边玩边做公益，你也一起来吧！");
 
-
     function showUserInfo() {
         var wechatUserInfo = common.getCookie("wechatUserInfo");
         $(".people").attr('src', wechatUserInfo.headimgurl);
@@ -28,8 +27,9 @@
             if (userinfo.UserIdentity == 1) {
                 $(".pinfo .UserIdentity").text("身份：健康大使");
                 $(".pinfo .img .bg").attr('src', '/img/jiankangdashi@2x.png');
-                // qrcodeText = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+window.appid+"&redirect_uri="+window.redirect_uri+"&response_type=code&scope=snsapi_userinfo&state=/index/index.html?shareParentId=" + userinfo.Uid + "&connect_redirect=1#wechat_redirect";
-                qrcodeText = "redirect_uri=/index/index.html&shareParentId="+userinfo.Uid;
+                
+                // qrcodeText = "redirect_uri=/index/index.html&shareParentId="+userinfo.Uid;
+                qrcodeText = "redirect_uri=/product/detail.html&pid=1787&shareParentId="+userinfo.Uid;
             } else {
                 $(".pinfo .UserIdentity").text("身份：普通会员");
             }
@@ -50,8 +50,9 @@
                 if (record.UserIdentity == 1) {
                     $(".pinfo .UserIdentity").text("身份：健康推广大使");
                     $(".pinfo .img .bg").attr('src', '/img/jiankangdashi@2x.png');
-                    // qrcodeText = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+window.appid+"&redirect_uri="+window.redirect_uri+"&response_type=code&scope=snsapi_userinfo&state=/index/index.html?shareParentId=" + record.Uid + "&connect_redirect=1#wechat_redirect";
-                    qrcodeText = "redirect_uri=/index/index.html&shareParentId="+record.Uid;
+
+                    // qrcodeText = "redirect_uri=/index/index.html&shareParentId="+record.Uid;
+                    qrcodeText = "redirect_uri=/product/detail.html&pid=1787&shareParentId="+record.Uid;
                 } else {
                     $(".pinfo .UserIdentity").text("身份：普通会员");
                 }
