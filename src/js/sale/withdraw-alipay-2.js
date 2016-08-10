@@ -98,7 +98,7 @@
             if ("1" == data.code) {
                 window.location.href = "/sale/withdraw-success.html";
             } else {
-                modal.alert({ text: data.msg });
+                modal.alert({ text: data.message });
             }
         })
     }

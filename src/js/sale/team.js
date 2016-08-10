@@ -8,7 +8,7 @@
         $(".pinfo .UserIdentity").text("身份：普通会员");
     } else {
         if (userinfo.UserIdentity == 1) {
-            $(".pinfo .UserIdentity").text("身份：健康大使");
+            $(".pinfo .UserIdentity").text("身份：健康推广大使");
             $(".pinfo .img .bg").attr('src', '/img/jiankangdashi@2x.png');
         } else {
             $(".pinfo .UserIdentity").text("身份：普通会员");

@@ -21,7 +21,7 @@
             $(".mySale .list.mt05").show();
         } else {
             $(".pinfo .UserIdentity").text("身份：普通会员");
-            $(".pinfo .link a").text("如何成为健康大使？");
+            $(".pinfo .link a").text("如何成为健康推广大使？");
             $(".pinfo .link a").attr('href', '/profile/how_1.html');
             $(".mySale .link-toCode").attr('href', 'javascript:;');
             $(".mySale").on("click", ".link-toCode", function() {
@@ -37,7 +37,7 @@
 
     function normal() {
         $(".pinfo .UserIdentity").text("身份：普通会员");
-        $(".pinfo .link a").text("如何成为健康大使？");
+        $(".pinfo .link a").text("如何成为健康推广大使？");
         $(".pinfo .link a").attr('href', '/profile/how_2.html');
 
         $(".mySale .link-toPrice").attr('href', 'javascript:;');

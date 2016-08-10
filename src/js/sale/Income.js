@@ -26,8 +26,20 @@
             // if (cashed > 0) {
             $(".CashedPrice").text(cashed.toFixed(2));
             // }
-            $(".withdraw").on("click",".withdrawButton",function(ev){
-                window.location.href = "/sale/request-withdraw.html?withdrawMoney="+withdrawMoney;
+            $(".withdraw").on("click", ".withdrawButton", function(ev) {
+                if (userinfo.IsSetSecurityCode) {
+                    window.location.href = "/sale/request-withdraw.html?withdrawMoney=" + withdrawMoney;
+                } else {
+                    modal.confirm({
+                        text: '暂未设置提现密码',
+                        okValue: '去设置',
+                        cancelValue: '下次吧',
+                        onConfirm: function() {
+                            window.location.href = "/sale/setting/main.html";
+                        }
+                    })
+                }
+
             })
         }
     });
