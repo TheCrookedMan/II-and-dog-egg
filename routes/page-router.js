@@ -423,7 +423,7 @@ router.get('/profile/help.html', (req, res, next) => {
  */
 
 router.get('/profile/how_1.html', (req, res, next) => {
-    return res.render('profile/how_1', { title: '如何成为健康大使' });
+    return res.render('profile/how_1', { title: '如何成为健康推广大使' });
 });
 
 /*

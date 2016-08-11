@@ -35,7 +35,8 @@ export default class rest {
             'method': method,
             'headers': postheaders
         };
-        console.log("当前 REST 使用 " + method + "方式 请求数据，参数 ：" + JSON.stringify(optionspost));
+        console.log("当前 REST 使用 " + method + "方式 请求数据，参数 ：" + jsonObject);
+        console.log("当前 REST 使用 " + method + "方式 请求数据，请求头 ：" + JSON.stringify(optionspost));
 
         /*
           do the POST call

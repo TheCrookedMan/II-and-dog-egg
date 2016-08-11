@@ -85,7 +85,7 @@
     }
 
     function alipayWithDraw() {
-        var form = common.parseForm("#alipay");
+        var form = common.parseForm("#bankCard");
         $.post('/distribution/withdrawalApply.post', {
             Uid: userinfo.Uid,
             AccountNo: form.AccountNo,
@@ -98,7 +98,7 @@
             if ("1" == data.code) {
                 window.location.href = "/sale/withdraw-success.html";
             } else {
-                modal.alert({ text: data.msg });
+                modal.alert({ text: data.message });
             }
         })
     }

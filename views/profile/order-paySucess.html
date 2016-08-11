@@ -19,7 +19,7 @@
 
 {% if orderAmount >= 699 %}
 <div style="text-align: center;padding: 10px 0;">
-  <p><a style="color: red" href="/sale/code.html">恭喜晋升为健康大使，快去分享二维码吧！</a></p>
+  <p><a style="color: red" href="/sale/code.html">恭喜晋升为健康推广大使，快去分享二维码吧！</a></p>
 </div>
 {% endif %} -->
 <div class="pub_btng">
@@ -42,7 +42,7 @@ $.post('/user/GetPromptFlg.post', {
         if (1 == record.flg) {
             modal.confirm({
                 title: '提示',
-                text: '恭喜晋升为健康大使，快去分享二维码吧！',
+                text: '恭喜晋升为健康推广大使，快去分享二维码吧！',
                 onConfirm: function() {
                     window.location.href = "/sale/code.html?shareParentId=" + userinfo.Uid;
                 }

@@ -16,8 +16,8 @@
         <div class="am-modal-bd">
         </div>
         <div class="am-modal-footer">
-            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
-            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+            <span class="am-modal-btn ok" data-am-modal-confirm>确定</span>
+            <span class="am-modal-btn cancel" data-am-modal-cancel>取消</span>
         </div>
     </div>
 </div>
@@ -85,6 +85,12 @@
         confirm: function(params) {
             if (!!params.title) {
                 $('#my-confirm .am-modal-hd').text(params.title);
+            }
+            if(!!params.okValue){
+                $('#my-confirm .am-modal-footer .ok').text(params.okValue);
+            }
+            if(!!params.cancelValue){
+                $('#my-confirm .am-modal-footer .cancel').text(params.cancelValue);
             }
             $('#my-confirm .am-modal-bd').text(params.text);
             $('#my-confirm').modal({
