@@ -207,6 +207,13 @@
 }
 
 .bind {
+    background:#fff;margin-left:1rem;margin-right:1rem;margin-top:1rem;padding-top:0.3rem;position: relative;padding-bottom: 1.2rem;
+    .alipay-button{
+        position:absolute;bottom:-10rem;margin-left: 0;margin-right: 0;display: inline-block;width: 100%;
+        button{
+            padding: 1rem 0;display: inline-block;
+        }
+    }
     h2 {
         margin: 0;
         padding: 0;
@@ -214,22 +221,22 @@
         font-size: 1.6rem;
         margin-top: 0.5rem;
         margin-left: 1rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1.2rem;
     }
     .body {
         background-color: #fff;
         padding: 1.4rem 0 1.4rem 0;
     }
     .am-form-group {
-        border-left: #9bc32e solid 2px;
+        border-left: #9bc32e solid 3px;
         margin-left: 1rem;
         margin-bottom: 0;
-        padding: 0.2rem 0;
+        
         input {
-            border: 0;
-            text-indent: 5px;
+            border: 0;width: 88%;margin-left: 1.2rem;
+            border-bottom: #eee solid 1px !important;padding-left: 0;
             &:focus {
-                border: 0;
+                border: 0;border-bottom: #eee solid 1px !important;
                 box-shadow: none;
             }
         }

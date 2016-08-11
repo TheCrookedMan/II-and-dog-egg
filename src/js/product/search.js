@@ -1,5 +1,7 @@
 (function() {
 
+    $(document).attr("title",searchkey);
+    
     $("#keyword").click(function() {
         $(this).siblings('.search').show();
     })

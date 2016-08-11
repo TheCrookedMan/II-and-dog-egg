@@ -21,19 +21,22 @@
     		$.each(record,function(i,I){
     			$(".level-"+I.Level+" .grade").text(I.Agent);
     			$(".level-"+I.Level+" .normal-member").text(I.Normal);
-                $(".grade").each(function(){
-                    if($(this).html()==0){
-                        $(this).parents("a").attr("href","javascript:void(0)");
-                        $(this).parents("a").addClass("tips");
-                        $(".tips").on('click', function() {
-                            modal.tip("暂无记录");
-                            $('.am-dimmer').hide();
-                        })
-                    }
-                    else{
-
-                    }
-                })
+                if($(".level-"+I.Level+" .grade").text()==0){
+                    $(".level-"+I.Level+" .grade").parent().addClass("tips");
+                    $(".level-"+I.Level+" .grade").parent().attr("href","javascript:void(0)");
+                    $(".tips").on('click', function() {
+                        modal.tip("暂无记录");
+                        $('.am-dimmer').hide();
+                    })
+                }
+                if($(".level-"+I.Level+" .normal-member").text()==0){
+                   $(".level-"+I.Level+" .normal-member").parent().addClass("tips");
+                   $(".level-"+I.Level+" .normal-member").parent().attr("href","javascript:void(0)");
+                   $(".tips").on('click', function() {
+                        modal.tip("暂无记录");
+                        $('.am-dimmer').hide();
+                    })
+                }
     		})
     	}
     })
