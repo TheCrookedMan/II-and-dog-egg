@@ -13,7 +13,8 @@
                 $.post('/distribution/appBind.post', {
                     "username": params.name,
                     "userpwd": pd,
-                    'openid': OpenID,
+                    // 'openid': OpenID,
+                    'openid': wechatUserInfo.unionid,
                     'wImage': wechatUserInfo.headimgurl,
                     'wName': wechatUserInfo.nickname,
                     'ParentID': ParentID
@@ -25,8 +26,6 @@
                         if (!ParentID) {
                             $.post('/log/write.post', { info: "=======console log========== bind app page =================OpenID：" + OpenID + "========username：" + params.name + "======userpwd：" + pd + "=========openid：" + OpenID });
                         }
-
-
                         getUserInfo();
                         //window.location.href='/profile/address.html';
 

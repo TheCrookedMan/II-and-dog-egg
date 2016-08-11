@@ -2,8 +2,10 @@ let argv = process.argv.slice(2);
 
 if ("dev" == argv || "server-dev" == argv) {
     exports.wechat = {
-        'appId': 'wx16cd0f3f1f4ee12a',
-        'appsecret': 'defcd1c0a12f0e6e383cfde5aff6d30e',
+        // 'appId': 'wx16cd0f3f1f4ee12a',
+        // 'appsecret': 'defcd1c0a12f0e6e383cfde5aff6d30e',
+        'appId': 'wxf15f3b40b2675e27',
+        'appsecret': '4104f7da52db85821e8d8429e8afd617',
         /* REST 接口 服务器地址 */
         'host':'203.156.219.94',
         /* REST 接口 服务器端口 */

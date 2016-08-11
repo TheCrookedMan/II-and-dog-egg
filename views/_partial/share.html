@@ -89,7 +89,7 @@
             if (!!userinfo.Uid && userinfo.UserIdentity == 1) {
                 shareParentId = userinfo.Uid;
                 if (-1 != localhref.indexOf('product/detail.html')) {
-                    otherLink = "state=" + localhref + "?shareParentId=" + shareParentId + "*_*comeFromShare=1&connect_redirect=1#wechat_redirect"
+                    otherLink = "state=" + localhref + "*_*shareParentId=" + shareParentId + "*_*comeFromShare=1&connect_redirect=1#wechat_redirect"
                 } else if (-1 != localhref.indexOf('sale/code.html')) {
                     otherLink = "state=/sale/code.html?shareParentId=" + shareParentId + "*_*comeFromShare=1&connect_redirect=1#wechat_redirect"
                 } else {

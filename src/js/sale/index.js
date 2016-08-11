@@ -16,7 +16,12 @@
             $(".pinfo .link a").text("爱心传递？");
             $(".pinfo .img .bg").attr('src', '/img/jiankangdashi@2x.png');
             $(".pinfo .link a").attr('href', '/profile/how_2.html');
-            initMonthTask();
+            if (userinfo.IdentityState == 0) {
+                initMonthTask();
+            } else {
+                $(".IdentityStateDisable").show();
+            }
+
             initCommitionMoney();
             $(".mySale .list.mt05").show();
         } else {
@@ -61,18 +66,24 @@
     }
 
     function initMonthTask() {
+        $(".IdentityStateActive").show();
         $.post('/distribution/monthTask.post', { Uid: userinfo.Uid }).success(function(data) {
             if (data.code == "1" && !!data.data) {
                 var record = data.data;
                 if (record.HaveTask) {
                     if (!record.IsComplete) {
-                        $(".IdentityStateActive").show();
                         countdownTimer.init(record.taskEnd, function(d) {
-                            $(".IdentityStateActive .time").html("距截止还有<em>" + d.day + "</em>天<em>" + d.hour + "</em>时<em>" + d.min + "</em>分");
+                            if (d.min == '00') {
+                                $(".IdentityStateActive .time").html("<strong>未完成任务！</strong>");
+                            } else {
+                                $(".IdentityStateActive .time").html("距截止还有<em>" + d.day + "</em>天<em>" + d.hour + "</em>时<em>" + d.min + "</em>分");
+                            }
                         });
                     } else {
-                        $(".IdentityStateDisable").show();
+                        $(".IdentityStateActive .time").html("<strong>恭喜完成任务啦！</strong>");
                     }
+                } else {
+                    $(".mySale .mt05").hide();
                 }
             }
         });

@@ -733,8 +733,16 @@ router.get('/qr/qr-code', function(req, res) {
     code.pipe(res);
 });
 
+/*
+    提现记录页面
+ */
+router.get('/sale/withdraw-record.html', (req, res, next) => {
+    return res.render('sale/withdraw-record', { title: '提现记录' });
+});
+
 router.get('*.html', (req, res, next) => {
     res.redirect('/index/index.html');
 });
+
 
 module.exports = router;
