@@ -203,6 +203,9 @@ li.no-data{
     }
     em{
         color: #9bc32e;font-size: 1rem;position: absolute;top: 50%;margin-top: -0.4rem;width:100%;text-align:center;left:0;
+        &.home{
+                font-size: 2.5rem;color: #000;margin-top: -1.85rem;
+        }
     }
 }
 
