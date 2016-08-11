@@ -1,6 +1,8 @@
 (function() {
     var OpenID = common.getOpenId();
     var random = Math.random()*Math.random();
+    var wechatUserInfo = common.getCookie("wechatUserInfo");
+    var unionid = wechatUserInfo.unionid;
     random = random.toString().substr(-4,4);
     var subject = "";
     var body = "";
@@ -26,7 +28,7 @@
             'subject': subject,
             'body': body,
             'client_ip': '203.156.219.94',
-            'open_id': OpenID
+            'open_id': unionid
         }).success(function(charge) {
             pingpp.createPayment(charge, function(result, err) {
                 if (result == "success") {

@@ -366,9 +366,127 @@ nav.withdraw {
 
 .withdraw-record {
     .withdraw-record-panel {
+        margin: 1rem;
+        background-color: white;
         .title {
-            height: 1rem;
+            height: 2rem;
+            line-height: 2rem;
             background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding-left: 1.5rem;
+        }
+        .body {
+            overflow: hidden;
+            .record-li {
+                margin: 3rem 0rem;
+                $dot-width-px: 12px;
+                $dot-height-px: $dot-width-px;
+                $dot-radius-px: $dot-width-px/2;
+                .time-line {
+                    padding: .5rem;
+                    border-radius: 10px;
+                    background-color: rgba(0, 0, 0, 0.05);
+                    margin: 0 3rem;
+                    ul {
+                        margin: 0;
+                        // border-left: 2px solid #ddd;
+                        display: block;
+                        height: $dot-height-px;
+                        padding: 0;
+                        padding-top: $dot-radius-px;
+                        li {
+                            width: 48%;
+                            float: left;
+                            border-top: 2px solid rgba(0, 0, 0, 0.2);
+                        }
+                        li:first-child {
+                            b {
+                                background: #9bc32e;
+                            }
+                            border-top: 2px solid #9bc32e;
+                        }
+                        li:last-child {
+                            border: 0;
+                            width: 0;
+                            b {
+                                margin-top: -$dot-radius-px;
+                            }
+                        }
+                        li:hover b {
+                            border: 2px solid #ff6600;
+                        }
+                        li:hover span {
+                            color: #ff6600;
+                        }
+                        /*同上*/
+                        b {
+                            width: $dot-width-px;
+                            height: $dot-height-px;
+                            background: #fff;
+                            border: 2px solid rgba(0, 0, 0, 0.2);
+                            border-radius: $dot-radius-px;
+                            -webkit-border-radius: $dot-radius-px;
+                            -moz-border-radius: $dot-radius-px;
+                            overflow: hidden;
+                            display: inline-block;
+                            float: left;
+                            margin-top: -($dot-radius-px+1);
+                        }
+                    }
+                }
+                .active {
+                    b {
+                        border: 2px solid #9bc32e !important;
+                    }
+                }
+                .active-full {
+                    border-top: 2px solid #9bc32e !important;
+                }
+
+                .active-fail{
+                    b {
+                        border: 2px solid red !important;
+                    }
+                }
+                .active-full-fail {
+                    border-top: 2px solid red !important;
+                }
+                .disabled{
+                    color: rgba(0, 0, 0, 0.2);
+                }
+
+                .time-text {
+                    .span1,
+                    .span2,
+                    .span3 {
+                        width: 33%;
+                        display: inline-block;
+                        float: left;
+                        text-align: center;
+                        font-size: $font-size-xxl;
+                    }
+                    overflow: hidden;
+                    margin-top: $dot-radius-px*3;
+                    i {
+                        display: block;
+                    }
+                    .h2 {
+                        font-size: $font-size-sm;
+                        color: rgba(0, 0, 0, 0.5);
+                    }
+                    
+                }
+                .fail-reason{
+                    color: red;
+                    font-size: $font-size-sm;
+                    margin: 1rem 0rem 0rem 2rem;
+                }
+            }
+            hr {
+                height: 2px;
+                color: rgba(0, 0, 0, 0.5);
+                margin: 0 1.5rem;
+            }
         }
     }
 }

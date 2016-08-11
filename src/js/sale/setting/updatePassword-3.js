@@ -1,5 +1,7 @@
 (function() {
     var OpenID = common.getOpenId();
+    var wechatUserInfo = common.getCookie("wechatUserInfo");
+    var unionid = wechatUserInfo.unionid;
     $(".updatePassword-password").on("keyup", "#password", function(ev) {
         var keyValue = $(this).val();
         keyValue = keyValue.substr(-1);
@@ -67,7 +69,7 @@
         });
     }
     function getUserInfo() {
-        $.post('/user/getUserInfo.post', { OpenID: OpenID }).success(function(data) {
+        $.post('/user/getUserInfo.post', { OpenID: unionid }).success(function(data) {
             if ("1" == data.code && !!data.data) {
                 var record = data.data;
                 common.setCookie('userinfo', JSON.stringify(record));

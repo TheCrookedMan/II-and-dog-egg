@@ -137,6 +137,8 @@ exports.setSecurityCode = (req, res, next) => { new normalRequest('/api/Distribu
  */
 exports.commissionDrawList = (req, res, next) => { new normalRequest('/api/Distribution/CommissionDrawList', { post: distributionPost }).get(req, res, next); }
 
+exports.commissionDrawList_link = (req, res, next) => { new normalRequest('/api/Distribution/CommissionDrawList', { post: distributionPost }).link_g(req, res, next); }
+
 /*
 		三级推广团队的团队人数汇总接口 （ api/Distribution/GetLowerLevelCount ）
 		入参：Uid  帐户Uid  不能为空

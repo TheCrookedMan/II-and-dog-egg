@@ -2,6 +2,7 @@
     var time, count = 60;
     var OpenID = common.getOpenId();
     var wechatUserInfo = common.getCookie("wechatUserInfo");
+    var unionid = wechatUserInfo.unionid;
     var fromUrl = window.location.search.substr(1).replace("fromUrl=", "");
     $(".am-form").on("click", ".sendSMS", function(ev) {
         var data = common.parseForm(".am-form");
@@ -39,7 +40,7 @@
                     username: params.mobileNo,
                     userpwd: pwd,
                     verifycode: params.smsCode,
-                    OpenID: OpenID,
+                    OpenID: unionid,
                     ParentID: ParentID,
                     wImage: wechatUserInfo.headimgurl,
                     wName: wechatUserInfo.nickname
@@ -47,7 +48,7 @@
                     if ("1" == data.code) {
 
                         if (!ParentID) {
-                            $.post('/log/write.post', { info: "=======console log========== register user page =================OpenID：" + OpenID + "========username：" + params.mobileNo + "======userpwd：" + pwd + "=========openid：" + OpenID });
+                            $.post('/log/write.post', { info: "=======console log========== register user page =================unionid：" + unionid + "========username：" + params.mobileNo + "======userpwd：" + pwd + "=========unionid：" + unionid });
                         }
 
                         getUserInfo();
@@ -65,7 +66,7 @@
     });
 
     function getUserInfo() {
-        $.post('/user/getUserInfo.post', { OpenID: OpenID }).success(function(data) {
+        $.post('/user/getUserInfo.post', { OpenID: unionid }).success(function(data) {
             if ("1" == data.code && !!data.data) {
                 var record = data.data;
                 common.setCookie('userinfo', JSON.stringify(record));

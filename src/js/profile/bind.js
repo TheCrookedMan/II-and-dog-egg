@@ -1,7 +1,7 @@
 (function() {
     var OpenID = common.getOpenId();
     var wechatUserInfo = common.getCookie("wechatUserInfo");
-
+    var unionid = wechatUserInfo.unionid;
     var ParentID = $.cookie('shareParentId');
     var fromUrl = window.location.search.substr(1).replace("fromUrl=", "");
 
@@ -14,7 +14,7 @@
                     "username": params.name,
                     "userpwd": pd,
                     // 'openid': OpenID,
-                    'openid': wechatUserInfo.unionid,
+                    'openid': unionid,
                     'wImage': wechatUserInfo.headimgurl,
                     'wName': wechatUserInfo.nickname,
                     'ParentID': ParentID
@@ -41,7 +41,7 @@
     });
 
     function getUserInfo() {
-        $.post('/user/getUserInfo.post', { OpenID: OpenID }).success(function(data) {
+        $.post('/user/getUserInfo.post', { OpenID: unionid }).success(function(data) {
 
             if ("1" == data.code && !!data.data) {
                 var record = data.data;

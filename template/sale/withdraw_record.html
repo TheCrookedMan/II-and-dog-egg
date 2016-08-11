@@ -1,0 +1,64 @@
+{% for list in data.data %}
+<div class="withdraw-record-panel">
+    <p class="title">
+        {{list.Date}}
+    </p>
+    <div class="body">
+        {% for record in list.Record %}
+        <div class="record-li">
+            <div class="time-line">
+                <ul>
+                    <li class="active"><b></b></li>
+                    {% if "申请处理中" == record.State %}
+                    <li class="active"><b></b></li>
+                    <li><b></b></li>
+                    {% elseif "已打款" == record.State %}
+                    <li class="active active-full"><b></b></li>
+                    <li class="active"><b></b></li>
+                    {% elseif "打款失败" == record.State %}
+                    <li class="active active-full-fail"><b></b></li>
+                    <li class="active-fail"><b></b></li>
+                    {% endif %}
+                    
+                </ul>
+            </div>
+            <div class="time-text">
+                <span class="span1">
+                    <i class="h1">申请时间</i>
+                    <i class="h2">{{record.ApplyTime}}</i>
+                </span>
+                <span class="span2">
+                    <i class="h1">申请处理中</i>
+                    <i class="h2">申请金额：¥{{record.Amount.toFixed(2)}}</i>
+                    <i class="h2">手续费：¥{{record.Brokerage.toFixed(2)}}</i>
+                </span>
+                {% if "申请处理中" == record.State %}
+                    <span class="span3">
+                        <i class="h1 disabled">已打款</i>
+                    </span>
+                {% elseif "已打款" == record.State %}
+                    <span class="span3">
+                        <i class="h1">已打款</i>
+                        <i class="h2">{{record.VerifyTime}}</i>
+                    </span>
+                {% elseif "打款失败" == record.State %}
+                    <span class="span3">
+                        <i class="h1">打款失败</i>
+                        <i class="h2">{{record.VerifyTime}}</i>
+                    </span>
+                {% endif %}
+            </div>
+            {% if "打款失败" == record.State %}
+                <p class="fail-reason">
+                    失败原因：{{record.VerifyRemark}}
+                </p>
+            {% endif %}
+        </div>
+        {% if !loop.last %}
+        <hr>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+
