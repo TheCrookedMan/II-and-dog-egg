@@ -1,28 +1,78 @@
 {% include "../_partial/head.html" %}
+<style type="text/css">
+body {
+    background-color: #eee;
+}
+
+#vld-tooltip {
+    position: absolute;
+    z-index: 1000;
+    padding: 5px 10px;
+    background: #F37B1D;
+    min-width: 150px;
+    color: #fff;
+    transition: all 0.15s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+    display: none;
+}
+
+#vld-tooltip:before {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -8px;
+    content: "";
+    border-width: 0 8px 8px;
+    border-color: transparent transparent #F37B1D;
+    border-style: none inset solid;
+    --webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+#alipay_info input {
+    border: 0;
+}
+
+#alipay_info .am-u-sm-3,
+#alipay_info .am-u-sm-9 {
+    padding-left: 0;
+    padding-right: 0;
+}
+#alipay_info .am-form-label{
+    font-weight: 100;
+}
+</style>
 <h1 class="alipay-h1">请完善支付宝账户信息</h1>
-<form action="/sale/withdraw-alipay-2.html" method="get">
-<section class="withdraw-alipay">
-    <ul>
-        <li>
-            <p>
-                支付宝账号：
-                <input type="number" name="AccountNo" placeholder="如：13486759487" required>
-            </p>
-        </li>
-        <li>
-            <p>
-                真实姓名：
-                <input type="text" name="TrueName" placeholder="请填写真实姓名，如：张三" required>
-            </p>
-        </li>
-        <input type="hidden" name="Type" value="1">
-        <input type="hidden" name="withdrawMoney" value="{{withdrawMoney}}">
-    </ul>
-</section>
-<p class="alipay-tips">为保障您的账户安全，请确认账户信息填写无误！</p>
-<p class="alipay-button">
-    <button class="am-btn am-btn-default">下一步</button>
-    <!-- <a href="/sale/withdraw-alipay-2.html" class="am-btn am-btn-default">下一步</a> -->
-</p>
+<form action="/sale/withdraw-alipay-2.html" id="alipay_info" method="get" class="am-form am-form-horizontal">
+    <section class="withdraw-alipay">
+        <ul>
+            <li>
+                <div class="am-form-group">
+                    <label for="doc-ipt-3" class="am-u-sm-3 am-form-label">支付宝账号：</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="doc-ipt-3" name="AccountNo" placeholder="如：13486759487" required>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="am-form-group">
+                    <label for="doc-ipt-4" class="am-u-sm-3 am-form-label">真实姓名：</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="doc-ipt-4" name="TrueName" placeholder="请填写真实姓名，如：张三" required>
+                    </div>
+                </div>
+            </li>
+            <input type="hidden" name="Type" value="1">
+            <input type="hidden" name="withdrawMoney" value="{{withdrawMoney}}">
+        </ul>
+    </section>
+    <p class="alipay-tips">为保障您的账户安全，请确认账户信息填写无误！</p>
+    <p class="alipay-button">
+        <button class="am-btn am-btn-default">下一步</button>
+        <!-- <a href="/sale/withdraw-alipay-2.html" class="am-btn am-btn-default">下一步</a> -->
+    </p>
 </form>
 {% include "../_partial/foot.html" %}
+<script src="/js/sale/withdraw-alipay.js"></script>

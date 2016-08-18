@@ -72,7 +72,7 @@ router.get('/wechatAuth.html', (req, res, next) => {
                         console.log("wechatUserInfo:::" + userinfo);
                         res.cookie('wechatUserInfo', userinfo, { maxAge: maxAge, path: '/' });
 
-                        user.getUserInfo(openid, function(data) {
+                        user.getUserInfo(info.unionid, function(data) {
                             if ("1" == data.code) {
                                 let userinfoRecord = data.data;
                                 console.log("userinfo:::" + JSON.stringify(userinfoRecord));
@@ -88,7 +88,7 @@ router.get('/wechatAuth.html', (req, res, next) => {
                     }
                 });
             } else if ("snsapi_base" == data.scope) {
-                user.getUserInfo(openid, function(data) {
+                user.getUserInfo(info.unionid, function(data) {
 
                     console.log("data:::" + JSON.stringify(data));
                     if ("1" == data.code) {

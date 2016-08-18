@@ -13,6 +13,7 @@
         // this.maxAge = 365 * 24 * 60 * 60;
         // 单位：天
         this.expires = 30;
+        this.reg_email = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
     };
     common.prototype = {
         parseForm: function(selector) {
@@ -35,6 +36,9 @@
         },
         regSkip: function(str) {
             return this.reg_skip.test(str);
+        },
+        regEmail: function(str) {
+            return this.reg_email.test(str);
         },
         regBeforeWeight: function(value) {
             return this.reg_beforeWeight.test(value);
@@ -112,7 +116,7 @@
         getOpenId: function() {
             return $.cookie('openId');
         },
-        getQueryString:function(name) {
+        getQueryString: function(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
             var r = window.location.search.substr(1).match(reg);
             if (r != null) return unescape(r[2]);
@@ -253,7 +257,7 @@
                     //滚动到底部执行事件  
                     bottomCallback && bottomCallback();
 
-                    if($("body .scroll-prompt").length <= 0){
+                    if ($("body .scroll-prompt").length <= 0) {
                         $("body").append('<p class="scroll-prompt">-滑动加载更多-</p>');
                     }
                 }
