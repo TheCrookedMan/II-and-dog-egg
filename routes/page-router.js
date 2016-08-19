@@ -71,7 +71,7 @@ router.get('/wechatAuth.html', (req, res, next) => {
                          */
                         console.log("wechatUserInfo:::" + userinfo);
                         res.cookie('wechatUserInfo', userinfo, { maxAge: maxAge, path: '/' });
-
+                        console.log("info.unionid:::::" + info.unionid);
                         user.getUserInfo(info.unionid, function(data) {
                             if ("1" == data.code) {
                                 let userinfoRecord = data.data;
@@ -143,10 +143,13 @@ router.get('/wechatAuth.html', (req, res, next) => {
 
 router.get('/index/index.html', [user.HomeProductList_link, user.homeslide_link], (req, res, next) => {
     let record = common.toRecord(res.data);
+    let userAgentApp = req.headers['user-agent-app'];
+    console.log("userAgentApp::"+userAgentApp);
     return res.render('index/index', {
         title: '首页',
         data: record['/api/Home/HomeProductList'],
-        homeslide: record['/api/Home/homeH5']
+        homeslide: record['/api/Home/homeH5'],
+        userAgentApp: userAgentApp
     });
 });
 

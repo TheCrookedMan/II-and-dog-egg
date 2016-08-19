@@ -1,5 +1,6 @@
 (function() {
     var productNameDetail = "";
+    var shareLogoUrl;
     $.post('/product/productDetail.post', { "pid": pid }).success(function(data) {
         if (data.code == "1" && !!data.data) {
             var record = data.data;
@@ -163,12 +164,14 @@
                             $("#sku dl dd").append(str0);
                         }
                         $("a.can:first").addClass("cur");
+                        shareLogoUrl = v[j].Image;
                         $("#skuImg").attr("src", v[j].Image);
                     }
                 }
             } else {
                 var urll = $(".am-slides li:first-child img").attr("src");
                 $("#skuSelected").html(record.Name);
+                shareLogoUrl = urll;
                 $("#skuImg").attr("src", urll);
                 $("#selected").after(record.Name);
             }
@@ -271,7 +274,7 @@
                 }).error(function(err) {});
             })
 
-            initShare(productNameDetail,"我在二丫家边吃边玩边做公益，你也一起来吧！");
+            initShare(productNameDetail,"我在二丫家边吃边玩边做公益，你也一起来吧！",shareLogoUrl);
         }
     }).error(function(err) {});
 }).call(this);

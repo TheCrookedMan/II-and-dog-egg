@@ -44,9 +44,13 @@
             }
             return res;
         },
-        shareWechat: function(title, linkUrl, desc) {
+        shareWechat: function(title, linkUrl, desc, shareLogoUrl) {
             var self = this;
             var imgUrl = "http://" + window.location.hostname + "/img/shareLogo.jpg";
+
+            if (!!shareLogoUrl) {
+                imgUrl = shareLogoUrl;
+            }
 
             wx.onMenuShareTimeline({
                 title: title, // 分享标题
@@ -79,7 +83,7 @@
         }
     }
     window.wxinit = new initWXConfig();
-    window.initShare = function(title, detail) {
+    window.initShare = function(title, detail, shareLogoUrl) {
         wx.ready(function() {
             var shareParentId = 0;
             var baseLink = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + window.wxinit.appId + "&redirect_uri=" + window.redirect_uri + "&response_type=code&scope=snsapi_userinfo&";
@@ -97,7 +101,7 @@
                 }
                 linkUrl = baseLink + otherLink;
 
-                window.wxinit.shareWechat(title, linkUrl, detail);
+                window.wxinit.shareWechat(title, linkUrl, detail, shareLogoUrl);
             }
 
         });

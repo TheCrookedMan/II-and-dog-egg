@@ -11,9 +11,12 @@
 <div class="index">
     <!-- Header -->
     <header class="am-topbar am-topbar-fixed-top">
+    {% if !userAgentApp %}
         <a href="#left-nav" data-am-offcanvas class="fl"><i class="am-icon-bars"></i></a>
         <a href="javascript:void(0)" class="fr" data-am-modal="{target: '#search'}"><i class="am-icon-search"></i></a>
+    {% endif %}
     </header>
+
     <!-- 侧边栏内容 -->
     <div id="left-nav" class="am-offcanvas">
         <div class="am-offcanvas-bar">
@@ -77,9 +80,16 @@
             <li>
                 <a href="/product/list.html?categoryId=116"><img src="/img/c7.jpg"></a>
             </li>
+            {% if !userAgentApp %}
             <li>
                 <a href="javascript:void(0)" data-am-offcanvas="{target: '#left-nav', effect: 'push'}"><img src="/img/c8.jpg"></a>
             </li>
+            {% else %}
+            <li>
+                <a href="/product/list.html?categoryId=-1"><img src="/img/c8.jpg"></a>
+            </li>
+            {% endif %}
+            
         </ul>
     </div>
     <!-- 视频 -->
@@ -279,7 +289,11 @@
         </div>
     </div>
 </div>
-{% include "../_partial/footer.html" %} {% include "../_partial/foot.html" %}
+{% if !userAgentApp %}
+{% include "../_partial/footer.html" %}
+{% endif %}
+
+{% include "../_partial/foot.html" %}
 <script src="/js/index/index.js"></script>
 <script src="/plugins/wechat.min.js"></script>
 {% include "../_partial/share.html" %}

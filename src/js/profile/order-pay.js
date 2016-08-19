@@ -28,7 +28,7 @@
             'subject': subject,
             'body': body,
             'client_ip': '203.156.219.94',
-            'open_id': unionid
+            'open_id': OpenID
         }).success(function(charge) {
             pingpp.createPayment(charge, function(result, err) {
                 if (result == "success") {
