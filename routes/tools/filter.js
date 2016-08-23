@@ -3,6 +3,7 @@ module.exports = (swig) => {
         时间格式转换
      */
     let dateFormat = (data, format) => {
+        data = data.replace(/[^0-9]/ig, '');
         let date = typeof data == 'string' ? data * 1 : data;
         date = new Date(date);
         let map = {

@@ -144,7 +144,7 @@ router.get('/wechatAuth.html', (req, res, next) => {
 router.get('/index/index.html', [user.HomeProductList_link, user.homeslide_link], (req, res, next) => {
     let record = common.toRecord(res.data);
     let userAgentApp = req.headers['user-agent-app'];
-    console.log("userAgentApp::"+userAgentApp);
+    console.log("userAgentApp::" + userAgentApp);
     return res.render('index/index', {
         title: '首页',
         data: record['/api/Home/HomeProductList'],
@@ -317,6 +317,12 @@ router.get('/profile/activate-success.html', [user.checkLogin], (req, res, next)
 
 router.get('/profile/bind.html', (req, res, next) => {
     return res.render('profile/bind', { title: '绑定APP账号' });
+});
+/*
+    忘记密码
+ */
+router.get('/profile/recoveryPassword.html', (req, res, next) => {
+    return res.render('profile/recoveryPassword', { title: '忘记密码' });
 });
 
 /*

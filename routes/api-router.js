@@ -184,6 +184,8 @@ router.post('/product/homeSearch.post', product.homeSearch);
 // 注册手机获取验证码接口
 router.post('/smsCode/register_smscode.post', smsCode.register_smscode);
 
+//密码找回
+router.post('/sign_recovery.post',smsCode.sign_recovery);
 
 // 慈善
 router.post('/user/cishan.post', user.cishan);

@@ -51,16 +51,14 @@
                             //console.log(data)
                         }
                     }
-                    $(".time").each(function(){
-                        var time=parseInt($(this).html().replace(/[^0-9]/ig,""));
-                        var d=new Date(time); 
-                            time=formatDate(d);
-                        $(this).html(time);
-                    })
-                    if($(".plist").length<=0){
+                    // $(".time").each(function() {
+                    //     var time = parseInt($(this).html().replace(/[^0-9]/ig, ""));
+                    //     time = common.formatDate(time,'yyyy-MM-dd hh:mm:ss');
+                    //     $(this).html(time);
+                    // })
+                    if ($(".plist").length <= 0) {
                         $(".pub_noData").show()
-                    }
-                    else{
+                    } else {
                         $(".pub_noData").hide()
                     }
                 }).error(function(err) {});
@@ -85,16 +83,15 @@
                             //console.log(data)
                         }
                     }
-                    $(".time").each(function(){
-                        var time=parseInt($(this).html().replace(/[^0-9]/ig,""));
-                        var d=new Date(time); 
-                            time=formatDate(d);
-                        $(this).html(time);
-                    })
-                    if($(".plist").length<=0){
+                    // $(".time").each(function() {
+                    //     var time = parseInt($(this).html().replace(/[^0-9]/ig, ""));
+                    //     var d = new Date(time);
+                    //     time = formatDate(d);
+                    //     $(this).html(time);
+                    // })
+                    if ($(".plist").length <= 0) {
                         $(".pub_noData").show()
-                    }
-                    else{
+                    } else {
                         $(".pub_noData").hide()
                     }
                 }).error(function(err) {});
@@ -119,16 +116,15 @@
                             //console.log(data)
                         }
                     }
-                    $(".time").each(function(){
-                        var time=parseInt($(this).html().replace(/[^0-9]/ig,""));
-                        var d=new Date(time); 
-                            time=formatDate(d);
-                        $(this).html(time);
-                    })
-                    if($(".plist").length<=0){
+                    // $(".time").each(function() {
+                    //     var time = parseInt($(this).html().replace(/[^0-9]/ig, ""));
+                    //     var d = new Date(time);
+                    //     time = formatDate(d);
+                    //     $(this).html(time);
+                    // })
+                    if ($(".plist").length <= 0) {
                         $(".pub_noData").show()
-                    }
-                    else{
+                    } else {
                         $(".pub_noData").hide()
                     }
                 }).error(function(err) {});
@@ -154,16 +150,14 @@
                             //console.log(data)
                         }
                     }
-                    $(".time").each(function(){
-                        var time=parseInt($(this).html().replace(/[^0-9]/ig,""));
-                        var d=new Date(time); 
-                            time=formatDate(d);
-                        $(this).html(time);
-                    })
-                    if($(".plist").length<=0){
+                    // $(".time").each(function() {
+                    //     var time = parseInt($(this).html().replace(/[^0-9]/ig, ""));
+                    //     time = common.formatDate(time,'yyyy-MM-dd');
+                    //     $(this).html(time);
+                    // })
+                    if ($(".plist").length <= 0) {
                         $(".pub_noData").show()
-                    }
-                    else{
+                    } else {
                         $(".pub_noData").hide()
                     }
                 }).error(function(err) {});
@@ -173,30 +167,29 @@
     var orderList = new gallery();
     orderList.init();
 
-    function formatDate(now) { 
-        var year=now.getFullYear(); 
-        var month=now.getMonth()+1; 
-        var date=now.getDate(); 
-        var hour=now.getHours(); 
-        var minute=now.getMinutes(); 
-        var second=now.getSeconds(); 
+    function formatDate(now) {
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1;
+        var date = now.getDate();
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
 
-        if (month<10)
-        {
-            month="0"+month.toString();
+        if (month < 10) {
+            month = "0" + month.toString();
         }
-        if(date<10){
-            date="0"+date.toString();
+        if (date < 10) {
+            date = "0" + date.toString();
         }
-        if(hour<10){
-            hour="0"+hour.toString();
+        if (hour < 10) {
+            hour = "0" + hour.toString();
         }
-        if(minute<10){
-            minute="0"+minute.toString();
+        if (minute < 10) {
+            minute = "0" + minute.toString();
         }
-        if(second<10){
-            second="0"+second.toString();
+        if (second < 10) {
+            second = "0" + second.toString();
         }
-        return year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second; 
-    } 
+        return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
+    }
 }).call(this);

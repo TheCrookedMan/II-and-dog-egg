@@ -1,12 +1,22 @@
 (function() {
+    var publicNumber = "";
+    $("#password").val(publicNumber);
     $(".updatePassword-password").on("keyup", "#password", function(ev) {
         var keyValue = $(this).val();
+        if ((!/^[0-9]*$/.test(keyValue) || "" == keyValue) && ev.keyCode != 8) {
+            $("#password").val(publicNumber);
+            $("#password").focus().blur();
+            return false;
+        }
         keyValue = keyValue.substr(-1);
         if (keyValue >= 0 && keyValue <= 9) {
             var number = $(this).val();
+            publicNumber = number;
             var len = number.length;
             if (len > 6) {
-                $(this).blur();
+                $(this).val(number.substring(0, 6));
+                publicNumber = $(this).val();
+                $("#password").blur();
             } else {
                 $.each($(".password-panel span"), function(i, I) {
                     if (i < len) {
@@ -15,13 +25,10 @@
                         $(I).text("");
                     }
                 });
-                // if (len == 6) {
-                //     $(this).blur();
-                //     submitPassword();
-                // }
             }
         } else if (ev.keyCode == 8) {
             var number = $(this).val();
+            publicNumber = number;
             var len = number.length;
             $.each($(".password-panel span"), function(i, I) {
                 if (i < len) {
@@ -31,7 +38,6 @@
                 }
             });
         }
-
     });
     $(".updatePassword-password").on("open.modal.amui", function() {
         var list = $(this).find(".password-panel span");

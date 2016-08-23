@@ -1,6 +1,6 @@
 (function() {
     var time, count = 60;
-
+    $("#AccountName").val(userinfo.AccountName);
     $(".am-form").on("click", ".sendSMS", function(ev) {
         var data = common.parseForm(".am-form");
 

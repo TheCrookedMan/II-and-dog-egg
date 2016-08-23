@@ -257,9 +257,9 @@
                     //滚动到底部执行事件  
                     bottomCallback && bottomCallback();
 
-                    if ($("body .scroll-prompt").length <= 0) {
-                        $("body").append('<p class="scroll-prompt">-滑动加载更多-</p>');
-                    }
+                    // if ($("body .scroll-prompt").length <= 0) {
+                    //     $("body").append('<p class="scroll-prompt">-滑动加载更多-</p>');
+                    // }
                 }
                 if (scrollTop == 0) {
                     //滚动到头部部执行事件  

@@ -8,15 +8,21 @@
     padding-bottom: 5rem;
 }
 </style>
+{% if userAgentApp %}
+<style type="text/css">
+.am-with-topbar-fixed-top {
+    padding-top: 0!important;
+}
+</style>
+{% endif %}
 <div class="index">
     <!-- Header -->
-    <header class="am-topbar am-topbar-fixed-top">
     {% if !userAgentApp %}
+    <header class="am-topbar am-topbar-fixed-top">
         <a href="#left-nav" data-am-offcanvas class="fl"><i class="am-icon-bars"></i></a>
         <a href="javascript:void(0)" class="fr" data-am-modal="{target: '#search'}"><i class="am-icon-search"></i></a>
-    {% endif %}
     </header>
-
+    {% endif %}
     <!-- 侧边栏内容 -->
     <div id="left-nav" class="am-offcanvas">
         <div class="am-offcanvas-bar">
@@ -33,270 +39,265 @@
         </div>
     </div>
     <!-- Slider -->
+    {% if !userAgentApp %}
     <div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{"directionNav":false}'>
-        <ul class="am-slides">
-            {% if "1" == homeslide['code'] && !!homeslide['data'] %} {% for slider in homeslide['data'] %}
-            <li>
-                {% if slider.aType == 1 %}
-                <a href="/product/detail.html?pid={{slider.aUrl}}"><img src="{{slider.aImg}}"></a>
-                {% elseif slider.aType == 2 %}
-                <a href="/product/list.html?categoryId={{slider.aUrl}}"><img src="{{slider.aImg}}"></a>
-                {% else %}
-                <a href="{{slider.aUrl}}"><img src="{{slider.aImg}}"></a>
-                {% endif %}
-            </li>
-            {% endfor %} {% else %}
-            <li>
-                <a href="javascript:void(0)"><img src="../img/index_02.jpg"></a>
-            </li>
+        {% else %}
+        <div data-am-widget="slider" class="am-slider-a1" data-am-slider='{"directionNav":false}'>
             {% endif %}
-            <!-- <li>
+            <ul class="am-slides">
+                {% if "1" == homeslide['code'] && !!homeslide['data'] %} {% for slider in homeslide['data'] %}
+                <li>
+                    {% if slider.aType == 1 %}
+                    <a href="/product/detail.html?pid={{slider.aUrl}}"><img src="{{slider.aImg}}"></a>
+                    {% elseif slider.aType == 2 %}
+                    <a href="/product/list.html?categoryId={{slider.aUrl}}"><img src="{{slider.aImg}}"></a>
+                    {% else %}
+                    <a href="{{slider.aUrl}}"><img src="{{slider.aImg}}"></a>
+                    {% endif %}
+                </li>
+                {% endfor %} {% else %}
+                <li>
+                    <a href="javascript:void(0)"><img src="../img/index_02.jpg"></a>
+                </li>
+                {% endif %}
+                <!-- <li>
                 <a href="javascript:void(0)"><img src="/img/index_02.jpg"></a>
             </li> -->
-        </ul>
-    </div>
-    <!-- 分类 -->
-    <div class="index_catelog">
-        <p><img src="/img/index_03.jpg"></p>
-        <ul>
-            <li>
-                <a href="/product/list.html?categoryId=114"><img src="/img/c1.jpg"></a>
-            </li>
-            <li>
-                <a href="/product/list.html?categoryId=125"><img src="/img/c2.jpg"></a>
-            </li>
-            <li>
-                <a href="/product/list.html?categoryId=115"><img src="/img/c3.jpg"></a>
-            </li>
-            <li>
-                <a href="/product/list.html?categoryId=118"><img src="/img/c4.jpg"></a>
-            </li>
-            <li>
-                <a href="/product/list.html?categoryId=117"><img src="/img/c5.jpg"></a>
-            </li>
-            <li>
-                <a href="/product/list.html?categoryId=119"><img src="/img/c6.jpg"></a>
-            </li>
-            <li>
-                <a href="/product/list.html?categoryId=116"><img src="/img/c7.jpg"></a>
-            </li>
-            {% if !userAgentApp %}
-            <li>
-                <a href="javascript:void(0)" data-am-offcanvas="{target: '#left-nav', effect: 'push'}"><img src="/img/c8.jpg"></a>
-            </li>
-            {% else %}
-            <li>
-                <a href="/product/list.html?categoryId=-1"><img src="/img/c8.jpg"></a>
-            </li>
-            {% endif %}
-            
-        </ul>
-    </div>
-    <!-- 视频 -->
-    <div class="index_media mt0">
-        <a href="http://xian17.com/h5/dabieshan.html"><img src="/img/index_14.jpg"></a>
-    </div>
-    <!-- 大家都在买 -->
-    <div class="often_buy">
-        <p><img src="/img/basket.png"></p>
-        <div class="data-list">
-            <div class="list swiper">
-                <div class="wrapper">
-                    <a href="/product/detail.html?pid=1787"><img src="/img/buy_03.jpg"></a>
-                    <a href="/product/detail.html?pid=1550"><img src="/img/buy_05.jpg"></a>
-                    <a href="/product/detail.html?pid=1720"><img src="/img/buy_07.jpg"></a>
-                    <a href="/product/detail.html?pid=1564"><img src="/img/buy_09.jpg"></a>
-                    <a href="/product/detail.html?pid=1712"><img src="/img/buy_11.jpg"></a>
+            </ul>
+        </div>
+        <!-- 分类 -->
+        <div class="index_catelog">
+            <p><img src="/img/index_03.jpg"></p>
+            <ul>
+                <li>
+                    <a href="/product/list.html?categoryId=114"><img src="/img/c1.jpg"></a>
+                </li>
+                <li>
+                    <a href="/product/list.html?categoryId=125"><img src="/img/c2.jpg"></a>
+                </li>
+                <li>
+                    <a href="/product/list.html?categoryId=115"><img src="/img/c3.jpg"></a>
+                </li>
+                <li>
+                    <a href="/product/list.html?categoryId=118"><img src="/img/c4.jpg"></a>
+                </li>
+                <li>
+                    <a href="/product/list.html?categoryId=117"><img src="/img/c5.jpg"></a>
+                </li>
+                <li>
+                    <a href="/product/list.html?categoryId=119"><img src="/img/c6.jpg"></a>
+                </li>
+                <li>
+                    <a href="/product/list.html?categoryId=116"><img src="/img/c7.jpg"></a>
+                </li>
+                {% if !userAgentApp %}
+                <li>
+                    <a href="javascript:void(0)" data-am-offcanvas="{target: '#left-nav', effect: 'push'}"><img src="/img/c8.jpg"></a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="/product/list.html?categoryId=-1"><img src="/img/c8.jpg"></a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+        <!-- 视频 -->
+        <div class="index_media mt0">
+            <a href="http://xian17.com/h5/dabieshan.html"><img src="/img/index_14.jpg"></a>
+        </div>
+        <!-- 大家都在买 -->
+        <div class="often_buy">
+            <p><img src="/img/basket.png"></p>
+            <div class="data-list">
+                <div class="list swiper">
+                    <div class="wrapper">
+                        <a href="/product/detail.html?pid=1787"><img src="/img/buy_03.jpg"></a>
+                        <a href="/product/detail.html?pid=1550"><img src="/img/buy_05.jpg"></a>
+                        <a href="/product/detail.html?pid=1720"><img src="/img/buy_07.jpg"></a>
+                        <a href="/product/detail.html?pid=1564"><img src="/img/buy_09.jpg"></a>
+                        <a href="/product/detail.html?pid=1712"><img src="/img/buy_11.jpg"></a>
+                    </div>
                 </div>
             </div>
         </div>
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td colspan="2">
+                    <img src="/img/index_new_01.jpg" alt=""></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1787"><img src="/img/index_new_02.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1788"><img src="/img/index_new_03.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1789"><img src="/img/index_new_04.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1791"><img src="/img/jidanjiedu.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/package/package.html"><img src="/img/index_new_05.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <img src="/img/index_new_06.jpg" alt=""></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1723"><img src="/img/index_new_07.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1720"><img src="/img/index_new_08.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1540"><img src="/img/index_new_09.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <img src="/img/index_new_10.jpg" alt=""></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1550"><img src="/img/index_new_11.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1744"><img src="/img/index_new_12.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <img src="/img/index_new_13.jpg" alt=""></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1564"><img src="/img/index_new_14.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1662"><img src="/img/index_new_15.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1719"><img src="/img/index_new_16.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1790"><img src="/img/index_new_110.png" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <img src="/img/index_new_111.png" alt=""></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1782"><img src="/img/index_new_112.png" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1780"><img src="/img/index_new_113.png" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1776"><img src="/img/index_new_114.png" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <img src="/img/index_new_17.jpg" alt=""></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1636"><img src="/img/index_new_18.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1638"><img src="/img/index_new_19.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1644"><img src="/img/index_new_20.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <img src="/img/index_new_21.jpg" alt=""></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1745"><img src="/img/index_new_22.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/product/detail.html?pid=1746"><img src="/img/index_new_23.jpg" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <img src="/img/index_new_24.jpg" alt=""></td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="/product/detail.html?pid=1736"><img src="/img/index_new_25.jpg" alt=""></a>
+                </td>
+                <td>
+                    <a href="/product/detail.html?pid=1737"><img src="/img/index_new_26.jpg" alt=""></a>
+                </td>
+            </tr>
+        </table>
+        <!-- 底部 -->
+        <div class="index_media">
+            <a href="/index/h5.html"><img src="/img/index_16.jpg"></a>
+        </div>
     </div>
-    <table border="0" cellpadding="0" cellspacing="0">
-        <tr>
-            <td colspan="2">
-                <img src="/img/index_new_01.jpg" alt=""></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1787"><img src="/img/index_new_02.jpg" alt=""></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1788"><img src="/img/index_new_03.jpg" alt=""></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1789"><img src="/img/index_new_04.jpg" alt=""></a>
-            </td>
-        </tr>
-
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1791"><img src="/img/jidanjiedu.jpg" alt=""></a>
-            </td>
-        </tr>
-
-
-        <tr>
-            <td colspan="2">
-                <a href="/package/package.html"><img src="/img/index_new_05.jpg" alt=""></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <img src="/img/index_new_06.jpg" alt=""></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1723"><img src="/img/index_new_07.jpg" alt=""></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1720"><img src="/img/index_new_08.jpg" alt=""></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1540"><img src="/img/index_new_09.jpg" alt=""></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <img src="/img/index_new_10.jpg" alt=""></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1550"><img src="/img/index_new_11.jpg" alt=""></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1744"><img src="/img/index_new_12.jpg" alt=""></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <img src="/img/index_new_13.jpg" alt=""></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1564"><img src="/img/index_new_14.jpg" alt=""></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1662"><img src="/img/index_new_15.jpg" alt=""></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1719"><img src="/img/index_new_16.jpg" alt=""></a>
-            </td>
-        </tr>
-
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1790"><img src="/img/index_new_110.png" alt=""></a></td>
-        </tr>
-
-        <tr>
-            <td colspan="2">
-                <img src="/img/index_new_111.png" alt=""></td>
-        </tr>
-
-        <tr>
-            <td colspan="2">
-            <a href="/product/detail.html?pid=1782"><img src="/img/index_new_112.png" alt=""></a></td>
-        </tr>
-
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1780"><img src="/img/index_new_113.png" alt=""></a></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1776"><img src="/img/index_new_114.png" alt=""></a></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <img src="/img/index_new_17.jpg" alt=""></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1636"><img src="/img/index_new_18.jpg" alt=""></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1638"><img src="/img/index_new_19.jpg" alt=""></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1644"><img src="/img/index_new_20.jpg" alt=""></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <img src="/img/index_new_21.jpg" alt=""></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1745"><img src="/img/index_new_22.jpg" alt=""></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/product/detail.html?pid=1746"><img src="/img/index_new_23.jpg" alt=""></a>
-            </td>
-        </tr>
-
-        <tr>
-            <td colspan="2">
-                <img src="/img/index_new_24.jpg" alt=""></td>
-        </tr>
-        <tr>
-            <td>
-                <a href="/product/detail.html?pid=1736"><img src="/img/index_new_25.jpg" alt=""></a>
-            </td>
-            <td>
-                <a href="/product/detail.html?pid=1737"><img src="/img/index_new_26.jpg" alt=""></a>
-            </td>
-        </tr>
-    </table>
-    <!-- 底部 -->
-    <div class="index_media">
-        <a href="/index/h5.html"><img src="/img/index_16.jpg"></a>
-    </div>
-</div>
-<div class="am-popup index_popup" id="search">
-    <div class="am-popup-inner">
-        <div class="am-popup-hd">
-            <h4 class="am-popup-title">
+    <div class="am-popup index_popup" id="search">
+        <div class="am-popup-inner">
+            <div class="am-popup-hd">
+                <h4 class="am-popup-title">
                 <form id="searchForm" method='get' action="">
                     <input  id="keywords" placeholder="" type="text">
                     <a href="javascript:void(0)" id="deltxt"><i class="am-icon-times-circle"></i></a> 
                  </form>
             </h4>
-            <span data-am-modal-close class="am-close">取消</span>
-        </div>
-        <div class="am-popup-bd" id="oftenKeyword">
-            <h2>倾情推荐</h2>
-            <div class="keywordlist"></div>
+                <span data-am-modal-close class="am-close">取消</span>
+            </div>
+            <div class="am-popup-bd" id="oftenKeyword">
+                <h2>倾情推荐</h2>
+                <div class="keywordlist"></div>
+            </div>
         </div>
     </div>
-</div>
-{% if !userAgentApp %}
-{% include "../_partial/footer.html" %}
-{% endif %}
-
-{% include "../_partial/foot.html" %}
-<script src="/js/index/index.js"></script>
-<script src="/plugins/wechat.min.js"></script>
-{% include "../_partial/share.html" %}
-<script type="text/javascript">
-initShare("我在二丫和狗蛋平台边吃边赚钱","点击查看，一起吃健康原生态农家食材，一起赚取丰厚回报，一起做慈善公益吧！");
-</script>
+    {% if !userAgentApp %} {% include "../_partial/footer.html" %} {% endif %} {% include "../_partial/foot.html" %}
+    <script src="/js/index/index.js"></script>
+    <script src="/plugins/wechat.min.js"></script>
+    {% include "../_partial/share.html" %}
+    <script type="text/javascript">
+    initShare("我在二丫和狗蛋平台边吃边赚钱", "点击查看，一起吃健康原生态农家食材，一起赚取丰厚回报，一起做慈善公益吧！");
+    </script>

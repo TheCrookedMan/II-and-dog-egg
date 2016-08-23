@@ -207,11 +207,23 @@
 }
 
 .bind {
-    background:#fff;margin-left:1rem;margin-right:1rem;margin-top:1rem;padding-top:0.3rem;position: relative;padding-bottom: 1.2rem;
-    .alipay-button{
-        position:absolute;bottom:-10rem;margin-left: 0;margin-right: 0;display: inline-block;width: 100%;
-        button{
-            padding: 1rem 0;display: inline-block;
+    background: #fff;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    padding-top: 0.3rem;
+    position: relative;
+    padding-bottom: 1.2rem;
+    .alipay-button {
+        position: absolute;
+        bottom: -10rem;
+        margin-left: 0;
+        margin-right: 0;
+        display: inline-block;
+        width: 100%;
+        button {
+            padding: 1rem 0;
+            display: inline-block;
         }
     }
     h2 {
@@ -231,18 +243,25 @@
         border-left: #9bc32e solid 3px;
         margin-left: 1rem;
         margin-bottom: 0;
-        
         input {
-            border: 0;width: 88%;margin-left: 1.2rem;
-            border-bottom: #eee solid 1px !important;padding-left: 0;
+            border: 0;
+            width: 88%;
+            margin-left: 1.2rem;
+            border-bottom: #eee solid 1px !important;
+            padding-left: 0;
             &:focus {
-                border: 0;border-bottom: #eee solid 1px !important;
+                border: 0;
+                border-bottom: #eee solid 1px !important;
                 box-shadow: none;
             }
         }
     }
     .txt-r {
         font-size: 1.4rem;
+        position: absolute;
+        bottom: -10rem;
+        right: 0;
+        width: 100%;
     }
 }
 

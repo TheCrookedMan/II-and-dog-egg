@@ -178,8 +178,8 @@ nav.withdraw {
                 #password {
                     position: absolute;
                     top: 0px;
-                    left: 0px;
-                    width: $width;
+                    left: -6rem;
+                    width: $width + 6rem;
                     height: $base-span-height;
                     opacity: 0;
                 }
@@ -219,8 +219,8 @@ nav.withdraw {
                 #password {
                     position: absolute;
                     top: 0px;
-                    left: 0px;
-                    width: $width;
+                    left: -6rem;
+                    width: $width + 6rem;
                     height: $base-span-height;
                     opacity: 0;
                 }
@@ -271,8 +271,8 @@ nav.withdraw {
             #password {
                 position: absolute;
                 top: 0px;
-                left: 0px;
-                width: $width;
+                left: -6rem;
+                width: $width + 6rem;
                 height: $base-span-height;
                 opacity: 0;
             }
@@ -321,8 +321,8 @@ nav.withdraw {
             #password {
                 position: absolute;
                 top: 0px;
-                left: 0px;
-                width: $width;
+                left: -6rem;
+                width: $width + 6rem;
                 height: $base-span-height;
                 opacity: 0;
             }
@@ -442,8 +442,7 @@ nav.withdraw {
                 .active-full {
                     border-top: 2px solid #9bc32e !important;
                 }
-
-                .active-fail{
+                .active-fail {
                     b {
                         border: 2px solid red !important;
                     }
@@ -451,10 +450,9 @@ nav.withdraw {
                 .active-full-fail {
                     border-top: 2px solid red !important;
                 }
-                .disabled{
+                .disabled {
                     color: rgba(0, 0, 0, 0.2);
                 }
-
                 .time-text {
                     .span1,
                     .span2,
@@ -474,9 +472,8 @@ nav.withdraw {
                         font-size: $font-size-sm;
                         color: rgba(0, 0, 0, 0.5);
                     }
-                    
                 }
-                .fail-reason{
+                .fail-reason {
                     color: red;
                     font-size: $font-size-sm;
                     margin: 1rem 0rem 0rem 2rem;

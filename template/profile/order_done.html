@@ -3,7 +3,7 @@
 {% for list in data['data'] %}
 <div class="plist">
   <div class="total">
-      <span class="fl col-grey time">{{list.oTime}}</span>
+      <span class="fl col-grey time">{{list.oTime|dateFormat('yyyy-MM-dd hh:mm:ss')}}</span>
       <span class="fr col-grey">合计：¥ {{list.oAmount}}</span>
     </div>
   <a href="/profile/order-detail.html?OSN={{list.OSN}}&orderId={{list.orderId}}">
