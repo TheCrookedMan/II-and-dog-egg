@@ -1,6 +1,6 @@
 import express from 'express';
 import wechatAuth from './api/wechat';
-import { maxAge } from './constants';
+import { maxAge, maxAge_six } from './constants';
 import user from './api/user';
 import config from './rest/config';
 import distribution from './api/distribution';
@@ -12,7 +12,7 @@ const router = express.Router();
 router.get('*.html', (req, res, next) => {
     let shareParentId = req.query.shareParentId;
     if (shareParentId != undefined && shareParentId != 0) {
-        res.cookie('shareParentId', shareParentId, { maxAge: maxAge, path: '/' });
+        res.cookie('shareParentId', shareParentId, { maxAge: maxAge_six, path: '/' });
     }
     next();
 });
@@ -42,7 +42,10 @@ router.get('/wechatAuth.html', (req, res, next) => {
     //     } else {
     //         redirect_uri += "&comeFromShare="+options.comeFromShare;
     //     }
+    // } else {
+    //     res.cookie('shareParentId', "", { maxAge: maxAge_six, path: '/' });
     // }
+    
 
     console.log("========= wechatAuth.html =======redirect_uri::::" + redirect_uri);
 

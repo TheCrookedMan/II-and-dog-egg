@@ -59,9 +59,9 @@
                 timeout();
             } else if (!!data.data && data.data['IsExist']) {
                 modal.tip(data.message);
-                setTimeout(function() {
-                    window.location.href = "/profile/bind.html?fromUrl=" + fromUrl;
-                }, 2000)
+                // setTimeout(function() {
+                //     window.location.href = "/profile/bind.html?fromUrl=" + fromUrl;
+                // }, 2000)
             } else {
                 modal.alert({ text: data.message });
             }
